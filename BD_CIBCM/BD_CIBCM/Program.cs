@@ -17,6 +17,7 @@ namespace BD_CIBCM
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
+            
         }
     }
 }

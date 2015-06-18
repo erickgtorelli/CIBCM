@@ -8,14 +8,17 @@ namespace BD_CIBCM.Utility
 {
     class Diagnosticos
     {
-        public int insertarDiagnosticoParcial(String Cedula, int NumDiagnostico, string CedulaInvestigador, AccesoBaseDatos baseDatos)
+        Check checks = new Check();
+        public void insertarDiagnosticoParcial(String Cedula, int NumDiagnostico, string CedulaInvestigador, AccesoBaseDatos baseDatos)
         {
             string Consulta = "insert into Parcial values(" + Cedula + ',' + NumDiagnostico + ',' + CedulaInvestigador + ')';
-            //Hacer Checks de los datos   
-            baseDatos.insertarDatos(Consulta);
-
-            return 1;
+            //Hacer Checks de los datos
+            if (checks.checkCedula(Cedula))
+            {
+                baseDatos.insertarDatos(Consulta);
+            }   
 
         }
+      
     }
 }

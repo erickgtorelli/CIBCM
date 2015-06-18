@@ -17,8 +17,9 @@ namespace BD_CIBCM.Utility
 
         }
         /**
-    *Verifica que la cedula unicamente contenga numeros
-    */
+          *Verifica que la cedula unicamente contenga numeros
+          *devuelve true si la cedula contiene solo numeros
+          */
         public bool checkCedula(string Cedula)
         {
             int num;
@@ -28,7 +29,10 @@ namespace BD_CIBCM.Utility
             }
             else
             {
-                //Falta enviar mensaje de alerta al usuario
+                System.Windows.Forms.MessageBox.Show("Error en el formato de la cédula", "Error de formato",
+                System.Windows.Forms.MessageBoxButtons.OK,
+                System.Windows.Forms.MessageBoxIcon.Exclamation,
+                System.Windows.Forms.MessageBoxDefaultButton.Button1);
                 return false;
             }
 

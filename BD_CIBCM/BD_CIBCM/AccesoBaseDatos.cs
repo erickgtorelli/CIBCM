@@ -59,7 +59,7 @@ namespace BD_CIBCM
             catch (SqlException ex)
             {
                 string mensajeError = ex.ToString();
-                MessageBox.Show(mensajeError);
+                
             }
             return datos;
         }
