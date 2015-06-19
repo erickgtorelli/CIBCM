@@ -10,14 +10,29 @@ using System.Windows.Forms;
 
 namespace BD_CIBCM
 {
-    public partial class Form1 : Form
+    public partial class MainWindow : Form
     {
 
         AccesoBaseDatos baseDatos;
-        public Form1()
+        public MainWindow()
         {
             InitializeComponent();
             baseDatos = new AccesoBaseDatos();
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
