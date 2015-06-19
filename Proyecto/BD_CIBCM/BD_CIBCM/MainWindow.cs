@@ -15,8 +15,9 @@ namespace BD_CIBCM
 
         AccesoBaseDatos baseDatos;
         string consultaPacientes = "select pe.PrimerNombre, pe.Apellido1, pe.Apellido2, pe.Cedula from paciente pa JOIN persona pe ON pa.Cedula = pe.Cedula;";
-        string consultaInvestigadores = "";
+        string consultaInvestigadores = "select P.PrimerNombre, Apellido1, P.Apellido2,P.Cedula From Investigador I JOIN Persona P ON I.Cedula = P.Cedula;";
         Utility.Diagnosticos diagnosticos = new Utility.Diagnosticos();
+
         public MainWindow()
         {
             InitializeComponent();
@@ -52,12 +53,14 @@ namespace BD_CIBCM
         {
             PanelInsertarDiagnostico.Show();
             baseDatos.llenarComboBox(consultaPacientes, comboBoxPacienteInsertarDiagnostico,4);
+            baseDatos.llenarComboBox(consultaInvestigadores, comboBoxInvestigador, 4);
         }
 
         private void radioButton2_CheckedChanged_1(object sender, EventArgs e)
         {
             groupBoxParcial.Show();
             groupBoxConsenso.Hide();
+            
            
         }
 
@@ -113,13 +116,15 @@ namespace BD_CIBCM
         {
             if(radioButtonConsenso.Checked == true){
                 // diagnosticos.consultarParciales(string Cedula);
-                CheckBox check = new CheckBox();
-                check.Name = "test";
-                check.Text = "test";
-                check.Location = new Point(0,15);
-                check.Checked = true;
-                groupBoxDiagnosticosParcialesDelPaciente.Controls.Add(check);
+                // fill with checkbox(Group Box box,DataTable data);
+
+                baseDatos.llenarTabla(consultaPacientes, dataGridViewParcialesPaciente);
             }
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

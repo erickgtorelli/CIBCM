@@ -116,6 +116,30 @@ namespace BD_CIBCM
                 MessageBox.Show("Datos vacio");
             }
         }
+  
+
+        public void llenarTabla(String consulta, DataGridView dataGridView)
+        {
+            DataTable tabla = null;
+            try
+            {
+                tabla = this.ejecutarConsultaTabla(consulta);
+                BindingSource bindingSource = new BindingSource();
+                bindingSource.DataSource = tabla;
+                dataGridView.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCellsExceptHeader);
+                dataGridView.DataSource = bindingSource;
+
+                for (int i = 0; i < dataGridView.ColumnCount; i++)
+                {
+                    dataGridView.Columns[i].Width = 100;
+                }
+            }
+            catch (SqlException ex)
+            {
+                string mensajeError = ex.ToString();
+                MessageBox.Show(mensajeError);
+            }
+        }
 
     }
 }
