@@ -15,6 +15,8 @@ namespace BD_CIBCM
 
         AccesoBaseDatos baseDatos;
         string consultaPacientes = "select pe.PrimerNombre, pe.Apellido1, pe.Apellido2, pe.Cedula from paciente pa JOIN persona pe ON pa.Cedula = pe.Cedula;";
+        string consultaInvestigadores = "";
+        Utility.Diagnosticos diagnosticos = new Utility.Diagnosticos();
         public MainWindow()
         {
             InitializeComponent();
@@ -68,6 +70,56 @@ namespace BD_CIBCM
         private void PanelInsertarDiagnostico_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void panelParcialInsertar_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void MainWindow_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void textBox1_KeyDown(object sender,KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+               if(textBox1.Text != string.Empty)
+                {
+                    dataGridViewSintomas.Rows.Add(textBox1.Text);
+                    textBox1.Text = "";
+                }
+            }
+        }
+
+        private void toolTip2_Popup(object sender, PopupEventArgs e)
+        {
+
+        }
+
+        private void groupBoxConsenso_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBoxPacienteInsertarDiagnostico_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(radioButtonConsenso.Checked == true){
+                // diagnosticos.consultarParciales(string Cedula);
+                CheckBox check = new CheckBox();
+                check.Name = "test";
+                check.Text = "test";
+                check.Location = new Point(0,15);
+                check.Checked = true;
+                groupBoxDiagnosticosParcialesDelPaciente.Controls.Add(check);
+            }
         }
     }
 }

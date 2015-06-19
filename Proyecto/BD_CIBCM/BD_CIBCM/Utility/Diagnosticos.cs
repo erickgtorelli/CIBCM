@@ -21,6 +21,10 @@ namespace BD_CIBCM.Utility
             }   
 
         }
-      
+
+        internal void consultarParciales(string v, object cedula)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

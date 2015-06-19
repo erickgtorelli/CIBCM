@@ -5,5 +5,8 @@
     <Setting Name="Max" Type="System.Windows.Forms.FormWindowState" Scope="User">
       <Value Profile="(Default)">Maximized</Value>
     </Setting>
+    <Setting Name="AutoSize" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

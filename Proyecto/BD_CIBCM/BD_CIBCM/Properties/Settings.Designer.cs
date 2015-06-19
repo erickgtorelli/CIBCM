@@ -34,5 +34,17 @@ namespace BD_CIBCM.Properties {
                 this["Max"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool AutoSize {
+            get {
+                return ((bool)(this["AutoSize"]));
+            }
+            set {
+                this["AutoSize"] = value;
+            }
+        }
     }
 }
