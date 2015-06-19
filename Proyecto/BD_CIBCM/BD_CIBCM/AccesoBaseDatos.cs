@@ -17,7 +17,7 @@ namespace BD_CIBCM
     class AccesoBaseDatos
     {
         /*En Initial Catalog se agrega la base de datos propia. Intregated Security es para utilizar Windows Authentication*/
-        String conexion = "Data Source=10.1.4.59; Initial Catalog=BD_CIBCM; Integrated Security=SSPI";
+        String conexion = "Data Source=AERICK; Initial Catalog=BD_CIBCM; Integrated Security=SSPI";
         
         /**
          * Constructor
@@ -83,6 +83,39 @@ namespace BD_CIBCM
             dataAdapter.Fill(table);
 			
 			return table;
-        }     
+        }
+        /**
+        *Llena el combo box que le entra como parametro
+        *parametros es la cantidad de columnas por tupla en el select
+        */
+        public void llenarComboBox(String consulta, ComboBox comboBox,int parametros)
+        {
+            SqlDataReader datos = null;
+            try
+            {
+                datos = this.ejecutarConsulta(consulta);
+            }
+            catch (SqlException ex)
+            {
+                string mensajeError = ex.ToString();
+                MessageBox.Show(mensajeError);
+            }
+            if (datos != null)
+            {
+                while (datos.Read())
+                {
+                    string stringDatos = "";
+                    for(int i =0;i<parametros;i++) {
+                        stringDatos += datos.GetValue(i) + " ";
+                    }
+                    comboBox.Items.Add(stringDatos);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Datos vacio");
+            }
+        }
+
     }
 }
