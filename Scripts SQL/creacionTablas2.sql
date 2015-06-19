@@ -24,7 +24,7 @@ CREATE TABLE Participo (
 				FOREIGN KEY (Cedula) REFERENCES Paciente (Cedula), 
 				CodigoEstudio char (6), 
 				FOREIGN KEY (CodigoEstudio) REFERENCES Estudio (CodigoEstudio),   --FK Estudio 
-				CodigoParticipación char(6), 
+				CodigoParticipacion char(6), 
 				PRIMARY KEY (Cedula, CodigoEstudio),
 );                
 
