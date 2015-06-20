@@ -129,10 +129,9 @@ namespace BD_CIBCM
                 dataGridView.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCellsExceptHeader);
                 dataGridView.DataSource = bindingSource;
 
-                for (int i = 0; i < dataGridView.ColumnCount; i++)
-                {
-                    dataGridView.Columns[i].Width = 100;
-                }
+                dataGridView.Columns[0].Width = 75;
+
+               
             }
             catch (SqlException ex)
             {
