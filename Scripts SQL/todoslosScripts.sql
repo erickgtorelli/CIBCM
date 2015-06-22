@@ -48,7 +48,6 @@ CREATE TABLE Diagnostico(
 	Link varchar(256) NULL,
 	Fecha date NULL,
 	Enfermedad varchar(512) NULL,
-	Sintomas varchar(512) NULL,
 	PRIMARY KEY (Cedula, NumDiagnostico),
 	FOREIGN KEY(Cedula)REFERENCES Paciente (Cedula)
 
@@ -57,7 +56,7 @@ CREATE TABLE Consenso(
 	Cedula char(9) NOT NULL,
 	NumDiagnostico int NOT NULL,
 PRIMARY KEY 
-(	Cedula ,NumDiagnostico )
+(	Cedula ,NumDiagnostico ),
 FOREIGN KEY(Cedula, NumDiagnostico)
 REFERENCES Diagnostico (Cedula, NumDiagnostico)
 );
@@ -128,5 +127,3 @@ CREATE TABLE sintomas(
 		PRIMARY KEY (sintoma, cedulaPaciente, numDiagnostico),
 
 );
-
-
