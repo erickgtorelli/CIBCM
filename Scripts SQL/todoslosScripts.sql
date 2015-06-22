@@ -1,129 +1,171 @@
-Create table Persona(
-	Cedula char(9) PRIMARY KEY,
-	PrimerNombre varchar(10),
-	Apellido1 varchar(10),
-	Apellido2 varchar(10),
+
+DROP TABLE Genotipeo;
+DROP TABLE Muestra;
+DROP TABLE Consenso;
+DROP TABLE Parcial;
+DROP TABLE Realiza;
+DROP TABLE Lleno;
+DROP TABLE InstrumentosClinicos;
+DROP TABLE Participo;
+DROP TABLE Estudio;
+DROP TABLE sintomas;
+DROP TABLE Diagnostico;
+DROP TABLE Paciente;
+DROP TABLE Investigador;
+DROP TABLE Persona;
+
+CREATE TABLE Persona(
+	Cedula char(9),
+	PrimerNombre varchar(25),
+	Apellido1 varchar(25),
+	Apellido2 varchar(25),
 	FechaDeNacimiento DATE,
-	Sexo bit
+	Sexo bit,
+	CONSTRAINT PKPersona PRIMARY KEY(Cedula)
 );
 
-Create table Paciente(
-	Cedula char(9) PRIMARY KEY,
-	CONSTRAINT FKPaciente_Persona Foreign key (Cedula) References Persona(Cedula)
+CREATE TABLE Paciente(
+	Cedula char(9),
+	CONSTRAINT PKPaciente PRIMARY KEY(Cedula),
+	CONSTRAINT FKPaciente_Persona FOREIGN KEY (Cedula) REFERENCES Persona(Cedula)
 	ON DELETE CASCADE
 	ON UPDATE CASCADE
 );
 
-Create table Investigador(
-	Cedula char(9) PRIMARY KEY,
-	CONSTRAINT FKInvestigador_Persona Foreign key (Cedula) References Persona(Cedula)
+CREATE TABLE Investigador(
+	Cedula char(9),
+	CONSTRAINT PKInvestigador PRIMARY KEY(Cedula), 
+	CONSTRAINT FKInvestigador_Persona FOREIGN KEY (Cedula) REFERENCES Persona(Cedula)
 	ON DELETE CASCADE
 	ON UPDATE CASCADE
 );
 
-Create table Genotipeo(
+CREATE TABLE Genotipeo(
 	Cedula char(9),
 	Metodo varchar(128),
 	Link varchar(256)
-	CONSTRAINT PKGenotipeo Primary key(Cedula,Metodo,Link),
-	CONSTRAINT FKGenotipeo_Paciente Foreign key(Cedula) References Paciente(Cedula)
+	CONSTRAINT PKGenotipeo PRIMARY KEY(Cedula, Metodo, Link),
+	CONSTRAINT FKGenotipeo_Paciente FOREIGN KEY(Cedula) REFERENCES Paciente(Cedula)
 	ON DELETE CASCADE
 	ON UPDATE CASCADE
 );
 
-Create table Muestra(
+CREATE TABLE Muestra(
 	Cedula char(9),
 	TipoDeMuestra varchar(128),
 	Localizacion varchar(256),
-	CONSTRAINT PKMuestra Primary key(Cedula,TipoDeMuestra),
-	CONSTRAINT FKaPaciente Foreign key (Cedula) References Paciente(Cedula)
+	CONSTRAINT PKMuestra PRIMARY KEY(Cedula, TipoDeMuestra),
+	CONSTRAINT FKMuestra_Paciente FOREIGN KEY(Cedula) REFERENCES Paciente(Cedula)
 	ON DELETE CASCADE
 	ON UPDATE CASCADE
 );
 
-
 CREATE TABLE Diagnostico(
-	Cedula char(9) NOT NULL,
-	NumDiagnostico int NOT NULL,
-	Link varchar(256) NULL,
-	Fecha date NULL,
-	Enfermedad varchar(512) NULL,
-	PRIMARY KEY (Cedula, NumDiagnostico),
-	FOREIGN KEY(Cedula)REFERENCES Paciente (Cedula)
+	Cedula char(9),
+	NumDiagnostico int,
+	Link varchar(256),
+	Fecha DATE,
+	Enfermedad varchar(256),
+	CONSTRAINT PKDiagnostico PRIMARY KEY(Cedula, NumDiagnostico),
+	CONSTRAINT FK_Diagnostico_Paciente FOREIGN KEY(Cedula) REFERENCES Paciente(Cedula) ON DELETE CASCADE
+);
 
-)
 CREATE TABLE Consenso(
-	Cedula char(9) NOT NULL,
-	NumDiagnostico int NOT NULL,
-PRIMARY KEY 
-(	Cedula ,NumDiagnostico ),
-FOREIGN KEY(Cedula, NumDiagnostico)
-REFERENCES Diagnostico (Cedula, NumDiagnostico)
+	Cedula char(9),
+	NumDiagnostico int,
+	CONSTRAINT PKConsenso PRIMARY KEY(Cedula, NumDiagnostico)
 );
-
-CREATE TABLE Parcial (
-	Cedula char (9) NOT NULL,
-	NumDiagnostico int  NOT NULL,
-	CedInvestigador char (9) NOT NULL,
-	NumDiagnosticoCons int NOT NULL,
-	CedCons char(9) NULL,
-PRIMARY KEY 
-(
-	Cedula,
-	NumDiagnostico,
-	CedInvestigador,
-	NumDiagnosticoCons
-), 
- FOREIGN KEY(CedCons, NumDiagnosticoCons)
-REFERENCES Consenso (Cedula, NumDiagnostico),
-FOREIGN KEY(Cedula, NumDiagnostico)REFERENCES Diagnostico (Cedula, NumDiagnostico),
-FOREIGN KEY(CedInvestigador)REFERENCES Investigador (Cedula)
+	
+CREATE TABLE Parcial(
+	Cedula char(9),
+	NumDiagnostico int,
+	CedInvestigador char(9) DEFAULT '000000000',
+	NumDiagnosticoCons int,
+	CedulaCons char(9),
+	CONSTRAINT PKParcial PRIMARY KEY (Cedula, NumDiagnostico, CedInvestigador, NumDiagnosticoCons, CedulaCons),
+	CONSTRAINT FKParcial_Consenso FOREIGN KEY (CedulaCons, NumDiagnosticoCons) REFERENCES Consenso(Cedula, NumDiagnostico),
+	CONSTRAINT FKParcial_Diagnostico FOREIGN KEY (Cedula, NumDiagnostico) REFERENCES Diagnostico(Cedula, NumDiagnostico)
+	ON UPDATE CASCADE, -- elimino on delete cascade por el trigger
+	CONSTRAINT FKParcial_Investigador FOREIGN KEY (CedInvestigador) REFERENCES Investigador(Cedula)
+	ON DELETE SET DEFAULT,
 );
-
-
-CREATE TABLE Realiza(
-	Cedula char (9) NOT NULL,
-	CodigoEstudio char (6) NULL,
-	PRIMARY KEY (Cedula),
-	FOREIGN KEY(Cedula) REFERENCES Investigador (Cedula),
-	FOREIGN KEY(CodigoEstudio) REFERENCES Estudio (CodigoEstudio)
-);
-
-CREATE TABLE InstrumentosClinicos ( 
-			Nombre VARCHAR (255) PRIMARY KEY,
-			);
-CREATE TABLE Lleno ( 
-			 Cedula char (9),
-			 FOREIGN KEY (Cedula) References Paciente (Cedula),
-			 NombreInstrumentoClinico VARCHAR (255), 
-			 FOREIGN KEY (NombreInstrumentoClinico) REFERENCES InstrumentosClinicos (Nombre), 
-			 PRIMARY KEY (Cedula, NombreInstrumentoClinico), 
-			 );
 
 CREATE TABLE Estudio (
-				CodigoEstudio char (6) NOT NULL,
-				Descripcion varchar (255), 
-				Fecha date, 
-				PRIMARY KEY (CodigoEstudio), 
-				);	
+	CodigoEstudio char (6) NOT NULL,
+    Descripcion varchar (255), 
+    Fecha date, 
+    CONSTRAINT PKEstudio PRIMARY KEY (CodigoEstudio)
+);	
 
-				
-CREATE TABLE Participo (       	
-				Cedula char (9),--FK Paciente 
-				FOREIGN KEY (Cedula) REFERENCES Paciente (Cedula), 
-				CodigoEstudio char (6), 
-				FOREIGN KEY (CodigoEstudio) REFERENCES Estudio (CodigoEstudio),   --FK Estudio 
-				CodigoParticipacion char(6), 
-				PRIMARY KEY (Cedula, CodigoEstudio),
+CREATE TABLE Realiza(
+	Cedula char(9),
+	CodigoEstudio char(6),
+	CONSTRAINT PKRealiza PRIMARY KEY (Cedula, CodigoEstudio),
+	CONSTRAINT FKRealiza_Investigador FOREIGN KEY(Cedula) REFERENCES Investigador(Cedula)
+	ON DELETE NO ACTION
+	ON UPDATE CASCADE,
+	CONSTRAINT FKRealiza_Estudio FOREIGN KEY(CodigoEstudio) REFERENCES Estudio(CodigoEstudio)
+	ON DELETE CASCADE
+	ON UPDATE CASCADE,
+);
+
+CREATE TABLE InstrumentosClinicos (
+	Nombre VARCHAR (255) 
+	CONSTRAINT PKInstrumentosClinicos PRIMARY KEY(Nombre)
+);
+
+CREATE TABLE Lleno (
+	Cedula char (9),
+    NombreInstrumentoClinico VARCHAR (255),
+	CONSTRAINT PKLleno PRIMARY KEY (Cedula, NombreInstrumentoClinico),
+	CONSTRAINT FKLleno_Paciente FOREIGN KEY (Cedula) References Paciente (Cedula),
+    CONSTRAINT FKLleno_Instrumentos FOREIGN KEY (NombreInstrumentoClinico) REFERENCES InstrumentosClinicos (Nombre) 
+);
+			
+CREATE TABLE Participo (
+	Cedula char (9),
+    CodigoEstudio char(6),
+    CodigoParticipacion char(6), 
+    CONSTRAINT PKParticipo PRIMARY KEY (Cedula, CodigoEstudio),
+	CONSTRAINT FKParticio_Paciente FOREIGN KEY (Cedula) REFERENCES Paciente (Cedula),
+	CONSTRAINT FKParticio_Estudio FOREIGN KEY (CodigoEstudio) REFERENCES Estudio (CodigoEstudio),
 );                
 
-
---meter hasta tener diagnostico, parcial y consenso 
-CREATE TABLE sintomas(
-		sintoma varchar (256) NOT NULL, 
-		cedulaPaciente char (9) NOT NULL, 
-		numDiagnostico int NOT NULL, 
-		FOREIGN KEY (cedulaPaciente,numDiagnostico) REFERENCES Diagnostico (Cedula,NumDiagnostico), 
-		PRIMARY KEY (sintoma, cedulaPaciente, numDiagnostico),
-
+CREATE TABLE Sintomas(
+	Sintoma varchar (256), 
+	CedulaPaciente char (9), 
+	NumDiagnostico int, 
+	CONSTRAINT FKSintomas_Diagnostico FOREIGN KEY (CedulaPaciente, NumDiagnostico) REFERENCES Diagnostico (Cedula, NumDiagnostico),
+    CONSTRAINT PKSintomas PRIMARY KEY(Sintoma, CedulaPaciente, NumDiagnostico)
 );
+
+DROP TRIGGER BorrarParcial;
+
+GO
+CREATE TRIGGER BorrarParcial 
+--borra sintomas despues de que se borra un diagnostico parcial 
+ON Parcial 
+INSTEAD OF DELETE 
+AS 
+Declare @cedTemp char (9), @diagTemp int
+DECLARE cursor_parcial CURSOR FOR 
+	Select Cedula, NumDiagnostico 
+	FROM deleted 
+	WHERE NumDiagnostico is not null 
+
+OPEN cursor_parcial 
+FETCH NEXT FROM cursor_parcial INTO @cedTemp, @diagTemp
+WHILE @@FETCH_STATUS = 0 BEGIN 
+
+	DELETE FROM sintomas 
+	where cedulaPaciente = @cedTemp AND numDiagnostico = @diagTemp 
+	DELETE FROM Parcial 
+	WHERE cedula = @cedTemp AND NumDiagnostico = @diagTemp
+	DELETE FROM Diagnostico 
+	WHERE cedula = @cedTemp AND NumDiagnostico = @diagTemp
+
+
+FETCH NEXT FROM cursor_parcial INTO @cedTemp, @diagTemp
+END 
+CLOSE cursor_parcial
+DEALLOCATE cursor_parcial
