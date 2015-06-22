@@ -37,6 +37,22 @@ namespace BD_CIBCM.Utility
             }
 
         }
+
+        public bool checkCodEstudio(string codEstudio) {
+            if (codEstudio.Length <= 6)
+            {
+                return true;
+            }
+            else
+            {
+                System.Windows.Forms.MessageBox.Show("Error en el formato del código Estudio ", "Error de formato",
+                System.Windows.Forms.MessageBoxButtons.OK,
+                System.Windows.Forms.MessageBoxIcon.Exclamation,
+                System.Windows.Forms.MessageBoxDefaultButton.Button1);
+                return false;
+            }
+            
+        }
     }
   
 }

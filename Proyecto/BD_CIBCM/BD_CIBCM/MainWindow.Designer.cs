@@ -42,27 +42,44 @@ namespace BD_CIBCM
             this.dataGridViewParcialesPaciente = new System.Windows.Forms.DataGridView();
             this.Seleccionado = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.PanelInsertarDiagnostico = new System.Windows.Forms.Panel();
+            this.buttonGuardarDiagnostico = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBoxParcial = new System.Windows.Forms.GroupBox();
-            this.dataGridViewSintomas = new System.Windows.Forms.DataGridView();
-            this.Sintoma = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.labelInvestigador = new System.Windows.Forms.Label();
-            this.LabelAgregarSintoma = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.comboBoxInvestigador = new System.Windows.Forms.ComboBox();
             this.comboBoxPacienteInsertarDiagnostico = new System.Windows.Forms.ComboBox();
             this.radioButtonConsenso = new System.Windows.Forms.RadioButton();
             this.radioButtonDiagnosticoParcial = new System.Windows.Forms.RadioButton();
             this.panelParcialInsertar = new System.Windows.Forms.Panel();
+            this.dataGridViewSintomas = new System.Windows.Forms.DataGridView();
+            this.Sintoma = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.labelLinkInsertarDiagnostico = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
+            this.LabelAgregarSintoma = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.labelFechaDiagnostico = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.LabelNumDiagnostico = new System.Windows.Forms.Label();
             this.textBoxNumDiagostico = new System.Windows.Forms.TextBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.labelLinkInsertarDiagnostico = new System.Windows.Forms.Label();
-            this.buttonGuardarDiagnostico = new System.Windows.Forms.Button();
+            this.radioButtonInsertarInstrumentos = new System.Windows.Forms.RadioButton();
+            this.panelInstrumentosClinicos = new System.Windows.Forms.Panel();
+            this.comboBoxCedInst = new System.Windows.Forms.ComboBox();
+            this.labelCedInst = new System.Windows.Forms.Label();
+            this.listaInstClinicos = new System.Windows.Forms.CheckedListBox();
+            this.radioButtonInsertEstudio = new System.Windows.Forms.RadioButton();
+            this.groupBoxInstClinicos = new System.Windows.Forms.GroupBox();
+            this.groupBoxEstudio = new System.Windows.Forms.GroupBox();
+            this.comboBoxInvestEstudio = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.codEst = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.label3 = new System.Windows.Forms.Label();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.buttonGuardarEstudio = new System.Windows.Forms.Button();
             this.VentanaPrincipal.SuspendLayout();
             this.Insertar.SuspendLayout();
             this.groupBoxConsenso.SuspendLayout();
@@ -70,8 +87,11 @@ namespace BD_CIBCM
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewParcialesPaciente)).BeginInit();
             this.PanelInsertarDiagnostico.SuspendLayout();
             this.groupBoxParcial.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSintomas)).BeginInit();
             this.panelParcialInsertar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSintomas)).BeginInit();
+            this.panelInstrumentosClinicos.SuspendLayout();
+            this.groupBoxInstClinicos.SuspendLayout();
+            this.groupBoxEstudio.SuspendLayout();
             this.SuspendLayout();
             // 
             // VentanaPrincipal
@@ -97,6 +117,8 @@ namespace BD_CIBCM
             // 
             // Insertar
             // 
+            this.Insertar.Controls.Add(this.radioButtonInsertEstudio);
+            this.Insertar.Controls.Add(this.radioButtonInsertarInstrumentos);
             this.Insertar.Controls.Add(this.radioButtonDiagnosticoInsertar);
             this.Insertar.Location = new System.Drawing.Point(4, 22);
             this.Insertar.Name = "Insertar";
@@ -177,12 +199,22 @@ namespace BD_CIBCM
             this.PanelInsertarDiagnostico.Controls.Add(this.radioButtonDiagnosticoParcial);
             this.PanelInsertarDiagnostico.Controls.Add(this.panelParcialInsertar);
             this.PanelInsertarDiagnostico.DataBindings.Add(new System.Windows.Forms.Binding("AutoSize", global::BD_CIBCM.Properties.Settings.Default, "AutoSize", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.PanelInsertarDiagnostico.Location = new System.Drawing.Point(210, 34);
+            this.PanelInsertarDiagnostico.Location = new System.Drawing.Point(207, 34);
             this.PanelInsertarDiagnostico.Name = "PanelInsertarDiagnostico";
             this.PanelInsertarDiagnostico.Size = new System.Drawing.Size(789, 549);
             this.PanelInsertarDiagnostico.TabIndex = 1;
             this.PanelInsertarDiagnostico.Visible = false;
             this.PanelInsertarDiagnostico.Paint += new System.Windows.Forms.PaintEventHandler(this.PanelInsertarDiagnostico_Paint);
+            // 
+            // buttonGuardarDiagnostico
+            // 
+            this.buttonGuardarDiagnostico.Location = new System.Drawing.Point(610, 502);
+            this.buttonGuardarDiagnostico.Name = "buttonGuardarDiagnostico";
+            this.buttonGuardarDiagnostico.Size = new System.Drawing.Size(105, 23);
+            this.buttonGuardarDiagnostico.TabIndex = 4;
+            this.buttonGuardarDiagnostico.Text = "Guardar";
+            this.buttonGuardarDiagnostico.UseVisualStyleBackColor = true;
+            this.buttonGuardarDiagnostico.Click += new System.EventHandler(this.button1_Click);
             // 
             // label1
             // 
@@ -207,24 +239,6 @@ namespace BD_CIBCM
             this.groupBoxParcial.Text = "Diagnóstico Parcial";
             this.groupBoxParcial.Enter += new System.EventHandler(this.groupBox1_Enter_1);
             // 
-            // dataGridViewSintomas
-            // 
-            this.dataGridViewSintomas.AllowUserToOrderColumns = true;
-            this.dataGridViewSintomas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewSintomas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Sintoma});
-            this.dataGridViewSintomas.Location = new System.Drawing.Point(6, 254);
-            this.dataGridViewSintomas.Name = "dataGridViewSintomas";
-            this.dataGridViewSintomas.ReadOnly = true;
-            this.dataGridViewSintomas.Size = new System.Drawing.Size(338, 109);
-            this.dataGridViewSintomas.TabIndex = 7;
-            // 
-            // Sintoma
-            // 
-            this.Sintoma.HeaderText = "Síntomas";
-            this.Sintoma.Name = "Sintoma";
-            this.Sintoma.ReadOnly = true;
-            // 
             // labelInvestigador
             // 
             this.labelInvestigador.AutoSize = true;
@@ -234,25 +248,6 @@ namespace BD_CIBCM
             this.labelInvestigador.TabIndex = 1;
             this.labelInvestigador.Text = "Investigador:";
             // 
-            // LabelAgregarSintoma
-            // 
-            this.LabelAgregarSintoma.AutoSize = true;
-            this.LabelAgregarSintoma.Location = new System.Drawing.Point(16, 206);
-            this.LabelAgregarSintoma.Name = "LabelAgregarSintoma";
-            this.LabelAgregarSintoma.Size = new System.Drawing.Size(85, 13);
-            this.LabelAgregarSintoma.TabIndex = 6;
-            this.LabelAgregarSintoma.Text = "Agregar síntoma";
-            this.LabelAgregarSintoma.Click += new System.EventHandler(this.LabelAgregarSintoma_Click);
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(19, 222);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(325, 20);
-            this.textBox1.TabIndex = 5;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            this.textBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
-            // 
             // comboBoxInvestigador
             // 
             this.comboBoxInvestigador.FormattingEnabled = true;
@@ -261,6 +256,7 @@ namespace BD_CIBCM
             this.comboBoxInvestigador.Size = new System.Drawing.Size(197, 21);
             this.comboBoxInvestigador.TabIndex = 0;
             this.comboBoxInvestigador.Text = "Seleccione el investigador";
+            this.comboBoxInvestigador.SelectedIndexChanged += new System.EventHandler(this.comboBoxInvestigador_SelectedIndexChanged);
             // 
             // comboBoxPacienteInsertarDiagnostico
             // 
@@ -315,6 +311,33 @@ namespace BD_CIBCM
             this.panelParcialInsertar.TabIndex = 2;
             this.panelParcialInsertar.Paint += new System.Windows.Forms.PaintEventHandler(this.panelParcialInsertar_Paint);
             // 
+            // dataGridViewSintomas
+            // 
+            this.dataGridViewSintomas.AllowUserToOrderColumns = true;
+            this.dataGridViewSintomas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewSintomas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Sintoma});
+            this.dataGridViewSintomas.Location = new System.Drawing.Point(6, 254);
+            this.dataGridViewSintomas.Name = "dataGridViewSintomas";
+            this.dataGridViewSintomas.ReadOnly = true;
+            this.dataGridViewSintomas.Size = new System.Drawing.Size(338, 109);
+            this.dataGridViewSintomas.TabIndex = 7;
+            // 
+            // Sintoma
+            // 
+            this.Sintoma.HeaderText = "Síntomas";
+            this.Sintoma.Name = "Sintoma";
+            this.Sintoma.ReadOnly = true;
+            // 
+            // labelLinkInsertarDiagnostico
+            // 
+            this.labelLinkInsertarDiagnostico.AutoSize = true;
+            this.labelLinkInsertarDiagnostico.Location = new System.Drawing.Point(16, 135);
+            this.labelLinkInsertarDiagnostico.Name = "labelLinkInsertarDiagnostico";
+            this.labelLinkInsertarDiagnostico.Size = new System.Drawing.Size(27, 13);
+            this.labelLinkInsertarDiagnostico.TabIndex = 9;
+            this.labelLinkInsertarDiagnostico.Text = "Link";
+            // 
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(19, 151);
@@ -322,6 +345,25 @@ namespace BD_CIBCM
             this.textBox2.Size = new System.Drawing.Size(200, 20);
             this.textBox2.TabIndex = 8;
             this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            // 
+            // LabelAgregarSintoma
+            // 
+            this.LabelAgregarSintoma.AutoSize = true;
+            this.LabelAgregarSintoma.Location = new System.Drawing.Point(16, 206);
+            this.LabelAgregarSintoma.Name = "LabelAgregarSintoma";
+            this.LabelAgregarSintoma.Size = new System.Drawing.Size(85, 13);
+            this.LabelAgregarSintoma.TabIndex = 6;
+            this.LabelAgregarSintoma.Text = "Agregar síntoma";
+            this.LabelAgregarSintoma.Click += new System.EventHandler(this.LabelAgregarSintoma_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(19, 222);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(325, 20);
+            this.textBox1.TabIndex = 5;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.textBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
             // 
             // labelFechaDiagnostico
             // 
@@ -361,24 +403,175 @@ namespace BD_CIBCM
             this.toolTip1.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             this.toolTip1.ToolTipTitle = "Borrar síntomas";
             // 
-            // labelLinkInsertarDiagnostico
+            // radioButtonInsertarInstrumentos
             // 
-            this.labelLinkInsertarDiagnostico.AutoSize = true;
-            this.labelLinkInsertarDiagnostico.Location = new System.Drawing.Point(16, 135);
-            this.labelLinkInsertarDiagnostico.Name = "labelLinkInsertarDiagnostico";
-            this.labelLinkInsertarDiagnostico.Size = new System.Drawing.Size(27, 13);
-            this.labelLinkInsertarDiagnostico.TabIndex = 9;
-            this.labelLinkInsertarDiagnostico.Text = "Link";
+            this.radioButtonInsertarInstrumentos.AutoSize = true;
+            this.radioButtonInsertarInstrumentos.Location = new System.Drawing.Point(19, 207);
+            this.radioButtonInsertarInstrumentos.Name = "radioButtonInsertarInstrumentos";
+            this.radioButtonInsertarInstrumentos.Size = new System.Drawing.Size(129, 17);
+            this.radioButtonInsertarInstrumentos.TabIndex = 1;
+            this.radioButtonInsertarInstrumentos.TabStop = true;
+            this.radioButtonInsertarInstrumentos.Text = "Instrumentos Clínicos ";
+            this.radioButtonInsertarInstrumentos.UseVisualStyleBackColor = true;
+            this.radioButtonInsertarInstrumentos.CheckedChanged += new System.EventHandler(this.radioButtonInsertarInstrumentos_CheckedChanged);
             // 
-            // buttonGuardarDiagnostico
+            // panelInstrumentosClinicos
             // 
-            this.buttonGuardarDiagnostico.Location = new System.Drawing.Point(610, 502);
-            this.buttonGuardarDiagnostico.Name = "buttonGuardarDiagnostico";
-            this.buttonGuardarDiagnostico.Size = new System.Drawing.Size(105, 23);
-            this.buttonGuardarDiagnostico.TabIndex = 4;
-            this.buttonGuardarDiagnostico.Text = "Guardar";
-            this.buttonGuardarDiagnostico.UseVisualStyleBackColor = true;
-            this.buttonGuardarDiagnostico.Click += new System.EventHandler(this.button1_Click);
+            this.panelInstrumentosClinicos.Controls.Add(this.groupBoxEstudio);
+            this.panelInstrumentosClinicos.Controls.Add(this.groupBoxInstClinicos);
+            this.panelInstrumentosClinicos.Location = new System.Drawing.Point(220, 12);
+            this.panelInstrumentosClinicos.Name = "panelInstrumentosClinicos";
+            this.panelInstrumentosClinicos.Size = new System.Drawing.Size(770, 498);
+            this.panelInstrumentosClinicos.TabIndex = 5;
+            this.panelInstrumentosClinicos.Paint += new System.Windows.Forms.PaintEventHandler(this.panelInstrumentosClinicos_Paint);
+            // 
+            // comboBoxCedInst
+            // 
+            this.comboBoxCedInst.FormattingEnabled = true;
+            this.comboBoxCedInst.Location = new System.Drawing.Point(134, 27);
+            this.comboBoxCedInst.Name = "comboBoxCedInst";
+            this.comboBoxCedInst.Size = new System.Drawing.Size(280, 21);
+            this.comboBoxCedInst.TabIndex = 0;
+            this.comboBoxCedInst.Text = "Seleccione Cedula Paciente";
+            // 
+            // labelCedInst
+            // 
+            this.labelCedInst.AutoSize = true;
+            this.labelCedInst.Location = new System.Drawing.Point(22, 30);
+            this.labelCedInst.Name = "labelCedInst";
+            this.labelCedInst.Size = new System.Drawing.Size(85, 13);
+            this.labelCedInst.TabIndex = 1;
+            this.labelCedInst.Text = "Cédula Paciente";
+            // 
+            // listaInstClinicos
+            // 
+            this.listaInstClinicos.FormattingEnabled = true;
+            this.listaInstClinicos.Location = new System.Drawing.Point(104, 83);
+            this.listaInstClinicos.Name = "listaInstClinicos";
+            this.listaInstClinicos.Size = new System.Drawing.Size(262, 184);
+            this.listaInstClinicos.TabIndex = 2;
+            // 
+            // radioButtonInsertEstudio
+            // 
+            this.radioButtonInsertEstudio.AutoSize = true;
+            this.radioButtonInsertEstudio.CheckAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.radioButtonInsertEstudio.Location = new System.Drawing.Point(19, 270);
+            this.radioButtonInsertEstudio.Name = "radioButtonInsertEstudio";
+            this.radioButtonInsertEstudio.Size = new System.Drawing.Size(60, 17);
+            this.radioButtonInsertEstudio.TabIndex = 3;
+            this.radioButtonInsertEstudio.TabStop = true;
+            this.radioButtonInsertEstudio.Text = "Estudio";
+            this.radioButtonInsertEstudio.UseVisualStyleBackColor = true;
+            this.radioButtonInsertEstudio.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged_1);
+            // 
+            // groupBoxInstClinicos
+            // 
+            this.groupBoxInstClinicos.Controls.Add(this.comboBoxCedInst);
+            this.groupBoxInstClinicos.Controls.Add(this.labelCedInst);
+            this.groupBoxInstClinicos.Controls.Add(this.listaInstClinicos);
+            this.groupBoxInstClinicos.Location = new System.Drawing.Point(174, 38);
+            this.groupBoxInstClinicos.Name = "groupBoxInstClinicos";
+            this.groupBoxInstClinicos.Size = new System.Drawing.Size(462, 319);
+            this.groupBoxInstClinicos.TabIndex = 3;
+            this.groupBoxInstClinicos.TabStop = false;
+            this.groupBoxInstClinicos.Text = "Instrumentos Clínicos";
+            this.groupBoxInstClinicos.Enter += new System.EventHandler(this.groupBoxInstClinicos_Enter);
+            // 
+            // groupBoxEstudio
+            // 
+            this.groupBoxEstudio.Controls.Add(this.buttonGuardarEstudio);
+            this.groupBoxEstudio.Controls.Add(this.label4);
+            this.groupBoxEstudio.Controls.Add(this.textBox4);
+            this.groupBoxEstudio.Controls.Add(this.label3);
+            this.groupBoxEstudio.Controls.Add(this.dateTimePicker2);
+            this.groupBoxEstudio.Controls.Add(this.textBox3);
+            this.groupBoxEstudio.Controls.Add(this.codEst);
+            this.groupBoxEstudio.Controls.Add(this.label2);
+            this.groupBoxEstudio.Controls.Add(this.comboBoxInvestEstudio);
+            this.groupBoxEstudio.Location = new System.Drawing.Point(140, 54);
+            this.groupBoxEstudio.Name = "groupBoxEstudio";
+            this.groupBoxEstudio.Size = new System.Drawing.Size(505, 345);
+            this.groupBoxEstudio.TabIndex = 4;
+            this.groupBoxEstudio.TabStop = false;
+            this.groupBoxEstudio.Text = "Estudio ";
+            this.groupBoxEstudio.Enter += new System.EventHandler(this.groupBoxEstudio_Enter);
+            // 
+            // comboBoxInvestEstudio
+            // 
+            this.comboBoxInvestEstudio.FormattingEnabled = true;
+            this.comboBoxInvestEstudio.Location = new System.Drawing.Point(203, 51);
+            this.comboBoxInvestEstudio.Name = "comboBoxInvestEstudio";
+            this.comboBoxInvestEstudio.Size = new System.Drawing.Size(251, 21);
+            this.comboBoxInvestEstudio.TabIndex = 0;
+            this.comboBoxInvestEstudio.Text = "Seleccione Cédula de Investigador";
+            this.comboBoxInvestEstudio.SelectedIndexChanged += new System.EventHandler(this.comboBoxInvestEstudio_SelectedIndexChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(113, 54);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(65, 13);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Investigador";
+            // 
+            // codEst
+            // 
+            this.codEst.AutoSize = true;
+            this.codEst.Location = new System.Drawing.Point(83, 107);
+            this.codEst.Name = "codEst";
+            this.codEst.Size = new System.Drawing.Size(95, 13);
+            this.codEst.TabIndex = 2;
+            this.codEst.Text = "Código De Estudio";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(203, 107);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(215, 20);
+            this.textBox3.TabIndex = 3;
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Location = new System.Drawing.Point(203, 146);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker2.TabIndex = 4;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(141, 153);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(37, 13);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Fecha";
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(203, 187);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(200, 20);
+            this.textBox4.TabIndex = 6;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(115, 190);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(63, 13);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "Descripción";
+            // 
+            // buttonGuardarEstudio
+            // 
+            this.buttonGuardarEstudio.Location = new System.Drawing.Point(383, 274);
+            this.buttonGuardarEstudio.Name = "buttonGuardarEstudio";
+            this.buttonGuardarEstudio.Size = new System.Drawing.Size(75, 23);
+            this.buttonGuardarEstudio.TabIndex = 8;
+            this.buttonGuardarEstudio.Text = "Guardar";
+            this.buttonGuardarEstudio.UseVisualStyleBackColor = true;
+            this.buttonGuardarEstudio.Click += new System.EventHandler(this.buttonGuardarEstudio_Click);
             // 
             // MainWindow
             // 
@@ -388,6 +581,7 @@ namespace BD_CIBCM
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1008, 661);
             this.Controls.Add(this.VentanaPrincipal);
+            this.Controls.Add(this.panelInstrumentosClinicos);
             this.Controls.Add(this.PanelInsertarDiagnostico);
             this.DataBindings.Add(new System.Windows.Forms.Binding("WindowState", global::BD_CIBCM.Properties.Settings.Default, "Max", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.Name = "MainWindow";
@@ -405,9 +599,14 @@ namespace BD_CIBCM
             this.PanelInsertarDiagnostico.PerformLayout();
             this.groupBoxParcial.ResumeLayout(false);
             this.groupBoxParcial.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSintomas)).EndInit();
             this.panelParcialInsertar.ResumeLayout(false);
             this.panelParcialInsertar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSintomas)).EndInit();
+            this.panelInstrumentosClinicos.ResumeLayout(false);
+            this.groupBoxInstClinicos.ResumeLayout(false);
+            this.groupBoxInstClinicos.PerformLayout();
+            this.groupBoxEstudio.ResumeLayout(false);
+            this.groupBoxEstudio.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -448,6 +647,23 @@ namespace BD_CIBCM
         private TextBox textBox2;
         private Label labelLinkInsertarDiagnostico;
         private Button buttonGuardarDiagnostico;
+        private RadioButton radioButtonInsertarInstrumentos;
+        private Panel panelInstrumentosClinicos;
+        private CheckedListBox listaInstClinicos;
+        private Label labelCedInst;
+        private ComboBox comboBoxCedInst;
+        private RadioButton radioButtonInsertEstudio;
+        private GroupBox groupBoxInstClinicos;
+        private GroupBox groupBoxEstudio;
+        private TextBox textBox3;
+        private Label codEst;
+        private Label label2;
+        private ComboBox comboBoxInvestEstudio;
+        private Label label4;
+        private TextBox textBox4;
+        private Label label3;
+        private DateTimePicker dateTimePicker2;
+        private Button buttonGuardarEstudio;
     }
 }
 

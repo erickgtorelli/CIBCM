@@ -22,6 +22,12 @@ namespace BD_CIBCM
         {
             InitializeComponent();
             baseDatos = new AccesoBaseDatos();
+            panelInstrumentosClinicos.Hide();
+            baseDatos.llenarComboBox(consultaInvestigadores, comboBoxInvestEstudio, 4);
+            baseDatos.llenarComboBox(consultaPacientes, comboBoxPacienteInsertarDiagnostico, 4);
+            baseDatos.llenarComboBox(consultaInvestigadores, comboBoxInvestigador, 4);
+
+
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
@@ -51,9 +57,9 @@ namespace BD_CIBCM
 
         private void radioButtonDiagnosticoInsertar_CheckedChanged(object sender, EventArgs e)
         {
+            panelInstrumentosClinicos.Hide();
             PanelInsertarDiagnostico.Show();
-            baseDatos.llenarComboBox(consultaPacientes, comboBoxPacienteInsertarDiagnostico,4);
-            baseDatos.llenarComboBox(consultaInvestigadores, comboBoxInvestigador, 4);
+            
         }
 
         private void radioButton2_CheckedChanged_1(object sender, EventArgs e)
@@ -138,6 +144,57 @@ namespace BD_CIBCM
         }
 
         private void LabelAgregarSintoma_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void radioButtonInsertarInstrumentos_CheckedChanged(object sender, EventArgs e)
+        {
+            panelInstrumentosClinicos.Show();
+            PanelInsertarDiagnostico.Hide();
+            groupBoxEstudio.Hide();
+            
+            groupBoxInstClinicos.Show();
+           
+           
+
+        }
+
+        private void panelInstrumentosClinicos_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void groupBoxInstClinicos_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBoxEstudio_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void radioButton1_CheckedChanged_1(object sender, EventArgs e)
+        {
+            groupBoxEstudio.Show();
+            groupBoxInstClinicos.Hide();
+            PanelInsertarDiagnostico.Hide();
+            panelInstrumentosClinicos.Show();
+           
+        }
+
+        private void buttonGuardarEstudio_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBoxInvestigador_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBoxInvestEstudio_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
