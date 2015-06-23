@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace BD_CIBCM
 {
@@ -17,6 +19,7 @@ namespace BD_CIBCM
         string consultaPacientes = "select pe.PrimerNombre, pe.Apellido1, pe.Apellido2, pe.Cedula from paciente pa JOIN persona pe ON pa.Cedula = pe.Cedula;";
         string consultaInvestigadores = "select P.PrimerNombre, Apellido1, P.Apellido2,P.Cedula From Investigador I JOIN Persona P ON I.Cedula = P.Cedula;";
         string consultaEstudio = "select CodigoEstudio FROM Estudio";
+        string consultaInstrumentosClinicos = "Select Nombre From InstrumentosClinicos";
         Utility.Diagnosticos diagnosticos = new Utility.Diagnosticos();
 
         public MainWindow()
@@ -28,6 +31,8 @@ namespace BD_CIBCM
             baseDatos.llenarComboBox(consultaPacientes, comboBoxPacienteInsertarDiagnostico, 4);
             baseDatos.llenarComboBox(consultaInvestigadores, comboBoxInvestigador, 4);
             baseDatos.llenarComboBox(consultaEstudio, comboBoxInsertarEstudio, 1);
+            baseDatos.llenarComboBox(consultaPacientes, comboBoxCedInst, 4);
+            baseDatos.llenarCheckedListBox(consultaInstrumentosClinicos, listaInstClinicos, 1);
 
         }
 
@@ -188,14 +193,28 @@ namespace BD_CIBCM
         private void buttonGuardarEstudio_Click(object sender, EventArgs e)
         {        
             String codEstudio = comboBoxInsertarEstudio.Text;
-            String descripcion = textBox4.Text;
+            String consultaEstudio = "Select * from estudio where codigoEstudio = '" + codEstudio + "'";
             DateTime fechaTemp = dateTimePicker2.Value;
             String fecha = fechaTemp.ToString("dd-MM-yyyy");
-            String insertarEstudio = "Insert into estudio values ('" + codEstudio + "',' " + descripcion + "','" +fecha+"')";
-            
-            baseDatos.insertarDatos(insertarEstudio);
-            MessageBox.Show("Se inserto el estudio"+codEstudio,"Insertar Estudio");
-            comboBoxInsertarEstudio.Items.Add(codEstudio);
+            SqlDataReader tuplas = baseDatos.ejecutarConsulta(consultaEstudio);
+            if (tuplas == null || !tuplas.HasRows)
+            {
+                String descripcion = textBox4.Text;
+
+                String insertarEstudio = "Insert into estudio values ('" + codEstudio + "',' " + descripcion + "','" + fecha + "')";
+
+                baseDatos.insertarDatos(insertarEstudio);
+                MessageBox.Show("Se inserto el estudio" + codEstudio, "Insertar Estudio");
+                comboBoxInsertarEstudio.Items.Add(codEstudio);
+            }
+            else
+            {
+                MessageBox.Show("El estudio con codigo " + codEstudio + "ya forma parte de la base de datos");
+            }
+            comboBoxInsertarEstudio.Text = " ";
+            textBox4.Text = " ";
+
+
         }
 
         private void comboBoxInvestigador_SelectedIndexChanged(object sender, EventArgs e)

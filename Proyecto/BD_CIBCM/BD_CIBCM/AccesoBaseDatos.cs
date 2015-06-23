@@ -142,5 +142,36 @@ namespace BD_CIBCM
             }
         }
 
+        public void llenarCheckedListBox(String consulta, CheckedListBox checkedListBox, int parametros)
+        {
+            SqlDataReader datos = null;
+            try
+            {
+                datos = this.ejecutarConsulta(consulta);
+            }
+            catch (SqlException ex)
+            {
+                string mensajeError = ex.ToString();
+                MessageBox.Show(mensajeError);
+            }
+            if (datos != null)
+            {
+                while (datos.Read())
+                {
+                    string stringDatos = "";
+                    for (int i = 0; i < parametros; i++)
+                    {
+                        stringDatos += datos.GetValue(i) + " ";
+                    }
+                    Console.WriteLine(stringDatos);
+                    checkedListBox.Items.Add(stringDatos);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Datos vacio");
+            }
+        }
+
     }
 }

@@ -27,6 +27,6 @@ namespace BD_CIBCM.Utility
             if (checks.checkCodEstudio(codEstudio) && checks.checkCodEstudio(codParticipacion)&& checks.checkCedula(cedPaciente)){
             
         } 
-        }l
+        }
     }
 }
