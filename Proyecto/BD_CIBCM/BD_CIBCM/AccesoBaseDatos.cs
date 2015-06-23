@@ -118,6 +118,7 @@ namespace BD_CIBCM
             }
         }
   
+       
 
         public void llenarTabla(String consulta, DataGridView dataGridView)
         {

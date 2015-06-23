@@ -11,7 +11,7 @@ namespace BD_CIBCM.Utility
 
         Check checks = new Check();
         public void InsertarEstudio(string codEstudio, DateTime fecha, string descripcion) {
-            string insertEstudio = "Insert into Estudio Values (" + codEstudio + "," + fecha + "," + descripcion + ")";
+            string insertEstudio = "Insert into Estudio Values ('" + codEstudio + "','" + fecha + "','" + descripcion + "')";
             if (checks.checkCodEstudio(codEstudio)) {
                // baseDatos.insertarDatos(insertEstudio);
             }
@@ -27,6 +27,6 @@ namespace BD_CIBCM.Utility
             if (checks.checkCodEstudio(codEstudio) && checks.checkCodEstudio(codParticipacion)&& checks.checkCedula(cedPaciente)){
             
         } 
-        }
+        }l
     }
 }

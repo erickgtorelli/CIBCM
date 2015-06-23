@@ -16,6 +16,7 @@ namespace BD_CIBCM
         AccesoBaseDatos baseDatos;
         string consultaPacientes = "select pe.PrimerNombre, pe.Apellido1, pe.Apellido2, pe.Cedula from paciente pa JOIN persona pe ON pa.Cedula = pe.Cedula;";
         string consultaInvestigadores = "select P.PrimerNombre, Apellido1, P.Apellido2,P.Cedula From Investigador I JOIN Persona P ON I.Cedula = P.Cedula;";
+        string consultaEstudio = "select CodigoEstudio FROM Estudio";
         Utility.Diagnosticos diagnosticos = new Utility.Diagnosticos();
 
         public MainWindow()
@@ -26,7 +27,7 @@ namespace BD_CIBCM
             baseDatos.llenarComboBox(consultaInvestigadores, comboBoxInvestEstudio, 4);
             baseDatos.llenarComboBox(consultaPacientes, comboBoxPacienteInsertarDiagnostico, 4);
             baseDatos.llenarComboBox(consultaInvestigadores, comboBoxInvestigador, 4);
-
+            baseDatos.llenarComboBox(consultaEstudio, comboBoxInsertarEstudio, 1);
 
         }
 
@@ -185,8 +186,16 @@ namespace BD_CIBCM
         }
 
         private void buttonGuardarEstudio_Click(object sender, EventArgs e)
-        {
-
+        {        
+            String codEstudio = comboBoxInsertarEstudio.Text;
+            String descripcion = textBox4.Text;
+            DateTime fechaTemp = dateTimePicker2.Value;
+            String fecha = fechaTemp.ToString("dd-MM-yyyy");
+            String insertarEstudio = "Insert into estudio values ('" + codEstudio + "',' " + descripcion + "','" +fecha+"')";
+            
+            baseDatos.insertarDatos(insertarEstudio);
+            MessageBox.Show("Se inserto el estudio"+codEstudio,"Insertar Estudio");
+            comboBoxInsertarEstudio.Items.Add(codEstudio);
         }
 
         private void comboBoxInvestigador_SelectedIndexChanged(object sender, EventArgs e)
@@ -195,6 +204,16 @@ namespace BD_CIBCM
         }
 
         private void comboBoxInvestEstudio_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listaInstClinicos_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
