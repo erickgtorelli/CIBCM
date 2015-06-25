@@ -106,6 +106,9 @@ namespace BD_CIBCM
                 {
                     string stringDatos = "";
                     for(int i =0;i<parametros;i++) {
+                        if (i == parametros - 1) {
+                            stringDatos += datos.GetValue(i) ;
+                        }else
                         stringDatos += datos.GetValue(i) + " ";
                     }
                     Console.WriteLine(stringDatos);
@@ -172,6 +175,8 @@ namespace BD_CIBCM
                 MessageBox.Show("Datos vacio");
             }
         }
+
+        
 
     }
 }

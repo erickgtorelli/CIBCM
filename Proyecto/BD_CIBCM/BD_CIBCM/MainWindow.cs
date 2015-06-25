@@ -21,18 +21,22 @@ namespace BD_CIBCM
         string consultaEstudio = "select CodigoEstudio FROM Estudio";
         string consultaInstrumentosClinicos = "Select Nombre From InstrumentosClinicos";
         Utility.Diagnosticos diagnosticos = new Utility.Diagnosticos();
-
+        
         public MainWindow()
         {
             InitializeComponent();
             baseDatos = new AccesoBaseDatos();
             panelInstrumentosClinicos.Hide();
+            panelConsultas.Hide();
+            panelEstudioNuevo.Hide();
             baseDatos.llenarComboBox(consultaInvestigadores, comboBoxInvestEstudio, 4);
             baseDatos.llenarComboBox(consultaPacientes, comboBoxPacienteInsertarDiagnostico, 4);
             baseDatos.llenarComboBox(consultaInvestigadores, comboBoxInvestigador, 4);
             baseDatos.llenarComboBox(consultaEstudio, comboBoxInsertarEstudio, 1);
             baseDatos.llenarComboBox(consultaPacientes, comboBoxCedInst, 4);
             baseDatos.llenarCheckedListBox(consultaInstrumentosClinicos, listaInstClinicos, 1);
+            baseDatos.llenarComboBox(consultaPacientes, comboBoxCedPacEstudioInsert, 4);
+            baseDatos.llenarComboBox(consultaEstudio, comboBoxInsertarEstudioPaciente, 1);
 
         }
 
@@ -63,8 +67,10 @@ namespace BD_CIBCM
 
         private void radioButtonDiagnosticoInsertar_CheckedChanged(object sender, EventArgs e)
         {
+            panelConsultas.Hide();
             panelInstrumentosClinicos.Hide();
             PanelInsertarDiagnostico.Show();
+            
             
         }
 
@@ -184,6 +190,8 @@ namespace BD_CIBCM
         private void radioButton1_CheckedChanged_1(object sender, EventArgs e)
         {
             groupBoxEstudio.Show();
+            panelPacienteEstudio.Hide();
+            panelInvestEstudioInsertar.Hide();
             groupBoxInstClinicos.Hide();
             PanelInsertarDiagnostico.Hide();
             panelInstrumentosClinicos.Show();
@@ -233,6 +241,128 @@ namespace BD_CIBCM
         }
 
         private void listaInstClinicos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panelInvestEstudioInsertar_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void radioButtonInsertPacEstudio_CheckedChanged(object sender, EventArgs e)
+        {
+            panelInvestEstudioInsertar.Hide();
+            panelEstudioNuevo.Hide();
+            panelPacienteEstudio.Show();
+        }
+
+        private void radioButtonInsertarInvEstudio_CheckedChanged(object sender, EventArgs e)
+        {
+            panelPacienteEstudio.Hide();
+            panelEstudioNuevo.Hide();
+            panelInvestEstudioInsertar.Show();
+            
+        }
+
+        private void radioButton2_CheckedChanged_2(object sender, EventArgs e)
+        {
+            panelPacienteEstudio.Hide();
+        }
+
+        private void radioButtonConsultarInstrumentos_CheckedChanged(object sender, EventArgs e)
+        {
+            panelConsultas.Show();
+        }
+
+        private void radioButtonConsultaPacInst_CheckedChanged(object sender, EventArgs e)
+        {
+            comboBoxPacInst.Show();
+            baseDatos.llenarComboBox(consultaPacientes, comboBoxPacInst, 4);
+        }
+
+        private void radioButtonconsultaInst_CheckedChanged(object sender, EventArgs e)
+        {
+            comboBoxPacInst.Hide();
+        }
+
+        public void actualizarComboBoxPaciente(string cedula) { 
+            //llamar siempre despues de insertar un paciente
+
+               string consultaPacTemp=  "select pe.PrimerNombre, pe.Apellido1, pe.Apellido2, pe.Cedula from paciente pa JOIN persona pe ON pa.Cedula = " +cedula+";";
+               SqlDataReader datos = null;
+
+              try
+            {
+                datos = baseDatos.ejecutarConsulta(consultaPacTemp);
+            }
+            catch (SqlException ex)
+            {
+                string mensajeError = ex.ToString();
+                MessageBox.Show(mensajeError);
+            }
+              while (datos.Read())
+              {
+                  string stringDatos = "";
+                  for (int i = 0; i < 4; i++)
+                  {
+                      stringDatos += datos.GetValue(i) + " ";
+                  }
+                  comboBoxPacInst.Items.Add(stringDatos);
+                  comboBoxPacienteInsertarDiagnostico.Items.Add(stringDatos);
+                  comboBoxCedPacEstudioInsert.Items.Add(stringDatos);
+                             
+           
+        }
+        }
+
+        private void radioButton1_CheckedChanged_2(object sender, EventArgs e)
+        {
+            panelPacienteEstudio.Hide();
+            panelInvestEstudioInsertar.Hide();
+            panelEstudioNuevo.Show();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+
+            string cedPaciente = seleccionarCedulaComboBox(comboBoxCedPacEstudioInsert);
+            string codEstudio = comboBoxInsertarEstudioPaciente.Text.Trim(); //trim elimina espacios en blanco
+            string codParticipacion =codigoParticipacion.Text.Trim();
+            string selectParticipo = "SELECT * FROM PARTICIPO WHERE Cedula = '" + cedPaciente + "'AND CodigoEstudio'" + codEstudio + "' AND CodigoParticipacion'" + codParticipacion + "'";
+            string insertarParticipo="INSERT INTO PARTICIPO VALUES ('"+cedPaciente+"','"+codEstudio+"','"+codParticipacion+"')";
+            if (cedPaciente != null&&codEstudio!=null&&codParticipacion!=null) {
+                baseDatos.ejecutarConsulta(insertarParticipo);
+                MessageBox.Show(cedPaciente);
+            }
+            else MessageBox.Show("Error al insertar los datos");
+            
+        }
+
+        private string seleccionarCedulaComboBox(ComboBox comboBoxCedula) {
+            string infoPersona = comboBoxCedula.Text;
+            string cedula = "";
+            int tamanio = 0;
+            if (infoPersona != null) { 
+                tamanio = infoPersona.Length;
+                MessageBox.Show("tamaño"+tamanio);
+                cedula = infoPersona.Substring(tamanio - 9);
+            }
+            cedula.Trim();
+            return cedula;
+        }
+
+        private void codigoParticipacion_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBoxInsertarEstudioPaciente_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBoxCedPacEstudioInsert_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
