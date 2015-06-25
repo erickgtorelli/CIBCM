@@ -29,6 +29,7 @@ namespace BD_CIBCM
             panelInstrumentosClinicos.Hide();
             panelConsultas.Hide();
             panelEstudioNuevo.Hide();
+            panelInsertarInvestigador.Hide();
             baseDatos.llenarComboBox(consultaInvestigadores, comboBoxInvestEstudio, 4);
             baseDatos.llenarComboBox(consultaPacientes, comboBoxPacienteInsertarDiagnostico, 4);
             baseDatos.llenarComboBox(consultaInvestigadores, comboBoxInvestigador, 4);
@@ -69,6 +70,7 @@ namespace BD_CIBCM
         {
             panelConsultas.Hide();
             panelInstrumentosClinicos.Hide();
+            panelInsertarInvestigador.Hide();
             PanelInsertarDiagnostico.Show();
             
             
@@ -164,6 +166,7 @@ namespace BD_CIBCM
         {
             panelInstrumentosClinicos.Show();
             PanelInsertarDiagnostico.Hide();
+            panelInsertarInvestigador.Hide();
             groupBoxEstudio.Hide();
             
             groupBoxInstClinicos.Show();
@@ -194,6 +197,7 @@ namespace BD_CIBCM
             panelInvestEstudioInsertar.Hide();
             groupBoxInstClinicos.Hide();
             PanelInsertarDiagnostico.Hide();
+            panelInsertarInvestigador.Hide();
             panelInstrumentosClinicos.Show();
            
         }
@@ -253,6 +257,7 @@ namespace BD_CIBCM
         private void radioButtonInsertPacEstudio_CheckedChanged(object sender, EventArgs e)
         {
             panelInvestEstudioInsertar.Hide();
+            panelInsertarInvestigador.Hide();
             panelEstudioNuevo.Hide();
             panelPacienteEstudio.Show();
         }
@@ -260,6 +265,7 @@ namespace BD_CIBCM
         private void radioButtonInsertarInvEstudio_CheckedChanged(object sender, EventArgs e)
         {
             panelPacienteEstudio.Hide();
+            panelInsertarInvestigador.Hide();
             panelEstudioNuevo.Hide();
             panelInvestEstudioInsertar.Show();
             
@@ -345,7 +351,6 @@ namespace BD_CIBCM
             int tamanio = 0;
             if (infoPersona != null) { 
                 tamanio = infoPersona.Length;
-                MessageBox.Show("tamaño"+tamanio);
                 cedula = infoPersona.Substring(tamanio - 9);
             }
             cedula.Trim();
@@ -363,6 +368,24 @@ namespace BD_CIBCM
         }
 
         private void comboBoxCedPacEstudioInsert_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void radioButtonInsertarInvestigador_CheckedChanged(object sender, EventArgs e)
+        {
+            panelConsultas.Hide();
+            panelInstrumentosClinicos.Hide();
+            panelInsertarInvestigador.Show();
+            PanelInsertarDiagnostico.Hide();
+        }
+
+        private void panelEstudioNuevo_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label14_Click(object sender, EventArgs e)
         {
 
         }
