@@ -69,9 +69,26 @@ namespace BD_CIBCM
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.panelInstrumentosClinicos = new System.Windows.Forms.Panel();
+            this.groupBoxInstClinicos = new System.Windows.Forms.GroupBox();
+            this.guardarInstrumentosClinicos = new System.Windows.Forms.Button();
+            this.buttonInstClinicPaciente = new System.Windows.Forms.Button();
+            this.label16 = new System.Windows.Forms.Label();
+            this.textBoxInstrumentos = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.comboBoxCedInst = new System.Windows.Forms.ComboBox();
+            this.listaInstClinicos = new System.Windows.Forms.CheckedListBox();
             this.groupBoxEstudio = new System.Windows.Forms.GroupBox();
+            this.panelEstudioNuevo = new System.Windows.Forms.Panel();
+            this.comboBoxInvestEstudio = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.comboBoxInsertarEstudio = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.buttonGuardarEstudio = new System.Windows.Forms.Button();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.codEst = new System.Windows.Forms.Label();
             this.EstudioNuevo = new System.Windows.Forms.RadioButton();
-            this.radioButtonInsertarInvEstudio = new System.Windows.Forms.RadioButton();
             this.radioButtonInsertPacEstudio = new System.Windows.Forms.RadioButton();
             this.panelPacienteEstudio = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
@@ -82,21 +99,6 @@ namespace BD_CIBCM
             this.comboBoxCedPacEstudioInsert = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.panelInvestEstudioInsertar = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.comboBoxInvestEstudio = new System.Windows.Forms.ComboBox();
-            this.panelEstudioNuevo = new System.Windows.Forms.Panel();
-            this.comboBoxInsertarEstudio = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.buttonGuardarEstudio = new System.Windows.Forms.Button();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.codEst = new System.Windows.Forms.Label();
-            this.groupBoxInstClinicos = new System.Windows.Forms.GroupBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.comboBoxCedInst = new System.Windows.Forms.ComboBox();
-            this.labelCedInst = new System.Windows.Forms.Label();
-            this.listaInstClinicos = new System.Windows.Forms.CheckedListBox();
             this.panelConsultas = new System.Windows.Forms.Panel();
             this.groupBoxConsultaInstrumentosClinicos = new System.Windows.Forms.GroupBox();
             this.panelConsultaPacInst = new System.Windows.Forms.Panel();
@@ -130,11 +132,10 @@ namespace BD_CIBCM
             this.panelParcialInsertar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSintomas)).BeginInit();
             this.panelInstrumentosClinicos.SuspendLayout();
-            this.groupBoxEstudio.SuspendLayout();
-            this.panelPacienteEstudio.SuspendLayout();
-            this.panelInvestEstudioInsertar.SuspendLayout();
-            this.panelEstudioNuevo.SuspendLayout();
             this.groupBoxInstClinicos.SuspendLayout();
+            this.groupBoxEstudio.SuspendLayout();
+            this.panelEstudioNuevo.SuspendLayout();
+            this.panelPacienteEstudio.SuspendLayout();
             this.panelConsultas.SuspendLayout();
             this.groupBoxConsultaInstrumentosClinicos.SuspendLayout();
             this.panelConsultaPacInst.SuspendLayout();
@@ -516,22 +517,105 @@ namespace BD_CIBCM
             // 
             // panelInstrumentosClinicos
             // 
-            this.panelInstrumentosClinicos.Controls.Add(this.groupBoxEstudio);
             this.panelInstrumentosClinicos.Controls.Add(this.groupBoxInstClinicos);
-            this.panelInstrumentosClinicos.Location = new System.Drawing.Point(220, 12);
+            this.panelInstrumentosClinicos.Controls.Add(this.groupBoxEstudio);
+            this.panelInstrumentosClinicos.Controls.Add(this.panelInvestEstudioInsertar);
+            this.panelInstrumentosClinicos.Location = new System.Drawing.Point(220, 34);
             this.panelInstrumentosClinicos.Name = "panelInstrumentosClinicos";
-            this.panelInstrumentosClinicos.Size = new System.Drawing.Size(770, 498);
+            this.panelInstrumentosClinicos.Size = new System.Drawing.Size(740, 476);
             this.panelInstrumentosClinicos.TabIndex = 5;
             this.panelInstrumentosClinicos.Paint += new System.Windows.Forms.PaintEventHandler(this.panelInstrumentosClinicos_Paint);
             // 
+            // groupBoxInstClinicos
+            // 
+            this.groupBoxInstClinicos.Controls.Add(this.guardarInstrumentosClinicos);
+            this.groupBoxInstClinicos.Controls.Add(this.buttonInstClinicPaciente);
+            this.groupBoxInstClinicos.Controls.Add(this.label16);
+            this.groupBoxInstClinicos.Controls.Add(this.textBoxInstrumentos);
+            this.groupBoxInstClinicos.Controls.Add(this.label5);
+            this.groupBoxInstClinicos.Controls.Add(this.comboBoxCedInst);
+            this.groupBoxInstClinicos.Controls.Add(this.listaInstClinicos);
+            this.groupBoxInstClinicos.Location = new System.Drawing.Point(173, 38);
+            this.groupBoxInstClinicos.Name = "groupBoxInstClinicos";
+            this.groupBoxInstClinicos.Size = new System.Drawing.Size(488, 409);
+            this.groupBoxInstClinicos.TabIndex = 3;
+            this.groupBoxInstClinicos.TabStop = false;
+            this.groupBoxInstClinicos.Text = "Instrumentos Clínicos";
+            this.groupBoxInstClinicos.Enter += new System.EventHandler(this.groupBoxInstClinicos_Enter);
+            // 
+            // guardarInstrumentosClinicos
+            // 
+            this.guardarInstrumentosClinicos.Location = new System.Drawing.Point(375, 367);
+            this.guardarInstrumentosClinicos.Name = "guardarInstrumentosClinicos";
+            this.guardarInstrumentosClinicos.Size = new System.Drawing.Size(75, 23);
+            this.guardarInstrumentosClinicos.TabIndex = 7;
+            this.guardarInstrumentosClinicos.Text = "Guardar";
+            this.guardarInstrumentosClinicos.UseVisualStyleBackColor = true;
+            this.guardarInstrumentosClinicos.Click += new System.EventHandler(this.guardarInstrumentosClinicos_Click);
+            // 
+            // buttonInstClinicPaciente
+            // 
+            this.buttonInstClinicPaciente.Location = new System.Drawing.Point(120, 290);
+            this.buttonInstClinicPaciente.Name = "buttonInstClinicPaciente";
+            this.buttonInstClinicPaciente.Size = new System.Drawing.Size(214, 23);
+            this.buttonInstClinicPaciente.TabIndex = 6;
+            this.buttonInstClinicPaciente.Text = "Agregar instrumento(s) clínico(s) a paciente";
+            this.buttonInstClinicPaciente.UseVisualStyleBackColor = true;
+            this.buttonInstClinicPaciente.Click += new System.EventHandler(this.buttonInstClinicPaciente_Click);
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(25, 61);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(184, 13);
+            this.label16.TabIndex = 5;
+            this.label16.Text = "Inserte nombre de instrumento clínico";
+            // 
+            // textBoxInstrumentos
+            // 
+            this.textBoxInstrumentos.Location = new System.Drawing.Point(215, 58);
+            this.textBoxInstrumentos.Name = "textBoxInstrumentos";
+            this.textBoxInstrumentos.Size = new System.Drawing.Size(242, 20);
+            this.textBoxInstrumentos.TabIndex = 4;
+            this.textBoxInstrumentos.TextChanged += new System.EventHandler(this.textBoxInstrumentos_TextChanged);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(44, 27);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(377, 17);
+            this.label5.TabIndex = 3;
+            this.label5.Text = "Inserte o seleccione nombre de instrumento clínico";
+            // 
+            // comboBoxCedInst
+            // 
+            this.comboBoxCedInst.FormattingEnabled = true;
+            this.comboBoxCedInst.Location = new System.Drawing.Point(86, 326);
+            this.comboBoxCedInst.Name = "comboBoxCedInst";
+            this.comboBoxCedInst.Size = new System.Drawing.Size(280, 21);
+            this.comboBoxCedInst.TabIndex = 0;
+            this.comboBoxCedInst.Text = "Seleccione Cedula Paciente";
+            // 
+            // listaInstClinicos
+            // 
+            this.listaInstClinicos.FormattingEnabled = true;
+            this.listaInstClinicos.Location = new System.Drawing.Point(101, 94);
+            this.listaInstClinicos.Name = "listaInstClinicos";
+            this.listaInstClinicos.Size = new System.Drawing.Size(262, 184);
+            this.listaInstClinicos.TabIndex = 2;
+            this.listaInstClinicos.ThreeDCheckBoxes = true;
+            this.listaInstClinicos.SelectedIndexChanged += new System.EventHandler(this.listaInstClinicos_SelectedIndexChanged);
+            // 
             // groupBoxEstudio
             // 
+            this.groupBoxEstudio.Controls.Add(this.panelEstudioNuevo);
             this.groupBoxEstudio.Controls.Add(this.EstudioNuevo);
-            this.groupBoxEstudio.Controls.Add(this.radioButtonInsertarInvEstudio);
             this.groupBoxEstudio.Controls.Add(this.radioButtonInsertPacEstudio);
             this.groupBoxEstudio.Controls.Add(this.panelPacienteEstudio);
-            this.groupBoxEstudio.Controls.Add(this.panelInvestEstudioInsertar);
-            this.groupBoxEstudio.Controls.Add(this.panelEstudioNuevo);
             this.groupBoxEstudio.Location = new System.Drawing.Point(140, 54);
             this.groupBoxEstudio.Name = "groupBoxEstudio";
             this.groupBoxEstudio.Size = new System.Drawing.Size(580, 345);
@@ -540,10 +624,107 @@ namespace BD_CIBCM
             this.groupBoxEstudio.Text = "Estudio ";
             this.groupBoxEstudio.Enter += new System.EventHandler(this.groupBoxEstudio_Enter);
             // 
+            // panelEstudioNuevo
+            // 
+            this.panelEstudioNuevo.Controls.Add(this.comboBoxInvestEstudio);
+            this.panelEstudioNuevo.Controls.Add(this.label2);
+            this.panelEstudioNuevo.Controls.Add(this.comboBoxInsertarEstudio);
+            this.panelEstudioNuevo.Controls.Add(this.label4);
+            this.panelEstudioNuevo.Controls.Add(this.textBox4);
+            this.panelEstudioNuevo.Controls.Add(this.label3);
+            this.panelEstudioNuevo.Controls.Add(this.buttonGuardarEstudio);
+            this.panelEstudioNuevo.Controls.Add(this.dateTimePicker2);
+            this.panelEstudioNuevo.Controls.Add(this.codEst);
+            this.panelEstudioNuevo.Location = new System.Drawing.Point(58, 71);
+            this.panelEstudioNuevo.Name = "panelEstudioNuevo";
+            this.panelEstudioNuevo.Size = new System.Drawing.Size(432, 260);
+            this.panelEstudioNuevo.TabIndex = 15;
+            this.panelEstudioNuevo.Paint += new System.Windows.Forms.PaintEventHandler(this.panelEstudioNuevo_Paint);
+            // 
+            // comboBoxInvestEstudio
+            // 
+            this.comboBoxInvestEstudio.FormattingEnabled = true;
+            this.comboBoxInvestEstudio.Location = new System.Drawing.Point(132, 110);
+            this.comboBoxInvestEstudio.Name = "comboBoxInvestEstudio";
+            this.comboBoxInvestEstudio.Size = new System.Drawing.Size(251, 21);
+            this.comboBoxInvestEstudio.TabIndex = 0;
+            this.comboBoxInvestEstudio.Text = "Seleccione Cédula de Investigador";
+            this.comboBoxInvestEstudio.SelectedIndexChanged += new System.EventHandler(this.comboBoxInvestEstudio_SelectedIndexChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(43, 117);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(65, 13);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Investigador";
+            // 
+            // comboBoxInsertarEstudio
+            // 
+            this.comboBoxInsertarEstudio.FormattingEnabled = true;
+            this.comboBoxInsertarEstudio.Location = new System.Drawing.Point(132, 19);
+            this.comboBoxInsertarEstudio.Name = "comboBoxInsertarEstudio";
+            this.comboBoxInsertarEstudio.Size = new System.Drawing.Size(251, 21);
+            this.comboBoxInsertarEstudio.TabIndex = 9;
+            this.comboBoxInsertarEstudio.Text = "Seleccione o Inserte codigo estudio";
+            this.comboBoxInsertarEstudio.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(45, 160);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(63, 13);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "Descripción";
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(132, 159);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(200, 20);
+            this.textBox4.TabIndex = 6;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(71, 63);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(37, 13);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Fecha";
+            // 
+            // buttonGuardarEstudio
+            // 
+            this.buttonGuardarEstudio.Location = new System.Drawing.Point(307, 227);
+            this.buttonGuardarEstudio.Name = "buttonGuardarEstudio";
+            this.buttonGuardarEstudio.Size = new System.Drawing.Size(75, 23);
+            this.buttonGuardarEstudio.TabIndex = 8;
+            this.buttonGuardarEstudio.Text = "Guardar";
+            this.buttonGuardarEstudio.UseVisualStyleBackColor = true;
+            this.buttonGuardarEstudio.Click += new System.EventHandler(this.buttonGuardarEstudio_Click);
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Location = new System.Drawing.Point(132, 63);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker2.TabIndex = 4;
+            // 
+            // codEst
+            // 
+            this.codEst.AutoSize = true;
+            this.codEst.Location = new System.Drawing.Point(13, 22);
+            this.codEst.Name = "codEst";
+            this.codEst.Size = new System.Drawing.Size(95, 13);
+            this.codEst.TabIndex = 2;
+            this.codEst.Text = "Código De Estudio";
+            // 
             // EstudioNuevo
             // 
             this.EstudioNuevo.AutoSize = true;
-            this.EstudioNuevo.Location = new System.Drawing.Point(321, 33);
+            this.EstudioNuevo.Location = new System.Drawing.Point(272, 33);
             this.EstudioNuevo.Name = "EstudioNuevo";
             this.EstudioNuevo.Size = new System.Drawing.Size(95, 17);
             this.EstudioNuevo.TabIndex = 14;
@@ -552,22 +733,10 @@ namespace BD_CIBCM
             this.EstudioNuevo.UseVisualStyleBackColor = true;
             this.EstudioNuevo.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged_2);
             // 
-            // radioButtonInsertarInvEstudio
-            // 
-            this.radioButtonInsertarInvEstudio.AutoSize = true;
-            this.radioButtonInsertarInvEstudio.Location = new System.Drawing.Point(182, 33);
-            this.radioButtonInsertarInvEstudio.Name = "radioButtonInsertarInvEstudio";
-            this.radioButtonInsertarInvEstudio.Size = new System.Drawing.Size(83, 17);
-            this.radioButtonInsertarInvEstudio.TabIndex = 11;
-            this.radioButtonInsertarInvEstudio.TabStop = true;
-            this.radioButtonInsertarInvEstudio.Text = "Investigador";
-            this.radioButtonInsertarInvEstudio.UseVisualStyleBackColor = true;
-            this.radioButtonInsertarInvEstudio.CheckedChanged += new System.EventHandler(this.radioButtonInsertarInvEstudio_CheckedChanged);
-            // 
             // radioButtonInsertPacEstudio
             // 
             this.radioButtonInsertPacEstudio.AutoSize = true;
-            this.radioButtonInsertPacEstudio.Location = new System.Drawing.Point(40, 32);
+            this.radioButtonInsertPacEstudio.Location = new System.Drawing.Point(164, 31);
             this.radioButtonInsertPacEstudio.Name = "radioButtonInsertPacEstudio";
             this.radioButtonInsertPacEstudio.Size = new System.Drawing.Size(67, 17);
             this.radioButtonInsertPacEstudio.TabIndex = 10;
@@ -657,159 +826,11 @@ namespace BD_CIBCM
             // 
             // panelInvestEstudioInsertar
             // 
-            this.panelInvestEstudioInsertar.Controls.Add(this.label2);
-            this.panelInvestEstudioInsertar.Controls.Add(this.comboBoxInvestEstudio);
-            this.panelInvestEstudioInsertar.Location = new System.Drawing.Point(82, 65);
+            this.panelInvestEstudioInsertar.Location = new System.Drawing.Point(238, 416);
             this.panelInvestEstudioInsertar.Name = "panelInvestEstudioInsertar";
             this.panelInvestEstudioInsertar.Size = new System.Drawing.Size(388, 37);
             this.panelInvestEstudioInsertar.TabIndex = 12;
             this.panelInvestEstudioInsertar.Paint += new System.Windows.Forms.PaintEventHandler(this.panelInvestEstudioInsertar_Paint);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(31, 6);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Investigador";
-            // 
-            // comboBoxInvestEstudio
-            // 
-            this.comboBoxInvestEstudio.FormattingEnabled = true;
-            this.comboBoxInvestEstudio.Location = new System.Drawing.Point(121, 6);
-            this.comboBoxInvestEstudio.Name = "comboBoxInvestEstudio";
-            this.comboBoxInvestEstudio.Size = new System.Drawing.Size(251, 21);
-            this.comboBoxInvestEstudio.TabIndex = 0;
-            this.comboBoxInvestEstudio.Text = "Seleccione Cédula de Investigador";
-            this.comboBoxInvestEstudio.SelectedIndexChanged += new System.EventHandler(this.comboBoxInvestEstudio_SelectedIndexChanged);
-            // 
-            // panelEstudioNuevo
-            // 
-            this.panelEstudioNuevo.Controls.Add(this.comboBoxInsertarEstudio);
-            this.panelEstudioNuevo.Controls.Add(this.label4);
-            this.panelEstudioNuevo.Controls.Add(this.textBox4);
-            this.panelEstudioNuevo.Controls.Add(this.label3);
-            this.panelEstudioNuevo.Controls.Add(this.buttonGuardarEstudio);
-            this.panelEstudioNuevo.Controls.Add(this.dateTimePicker2);
-            this.panelEstudioNuevo.Controls.Add(this.codEst);
-            this.panelEstudioNuevo.Location = new System.Drawing.Point(76, 87);
-            this.panelEstudioNuevo.Name = "panelEstudioNuevo";
-            this.panelEstudioNuevo.Size = new System.Drawing.Size(414, 197);
-            this.panelEstudioNuevo.TabIndex = 15;
-            this.panelEstudioNuevo.Paint += new System.Windows.Forms.PaintEventHandler(this.panelEstudioNuevo_Paint);
-            // 
-            // comboBoxInsertarEstudio
-            // 
-            this.comboBoxInsertarEstudio.FormattingEnabled = true;
-            this.comboBoxInsertarEstudio.Location = new System.Drawing.Point(132, 19);
-            this.comboBoxInsertarEstudio.Name = "comboBoxInsertarEstudio";
-            this.comboBoxInsertarEstudio.Size = new System.Drawing.Size(251, 21);
-            this.comboBoxInsertarEstudio.TabIndex = 9;
-            this.comboBoxInsertarEstudio.Text = "Seleccione o Inserte codigo estudio";
-            this.comboBoxInsertarEstudio.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(45, 107);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(63, 13);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "Descripción";
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(132, 100);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(200, 20);
-            this.textBox4.TabIndex = 6;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(71, 63);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(37, 13);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Fecha";
-            // 
-            // buttonGuardarEstudio
-            // 
-            this.buttonGuardarEstudio.Location = new System.Drawing.Point(308, 132);
-            this.buttonGuardarEstudio.Name = "buttonGuardarEstudio";
-            this.buttonGuardarEstudio.Size = new System.Drawing.Size(75, 23);
-            this.buttonGuardarEstudio.TabIndex = 8;
-            this.buttonGuardarEstudio.Text = "Guardar";
-            this.buttonGuardarEstudio.UseVisualStyleBackColor = true;
-            this.buttonGuardarEstudio.Click += new System.EventHandler(this.buttonGuardarEstudio_Click);
-            // 
-            // dateTimePicker2
-            // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(132, 63);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker2.TabIndex = 4;
-            // 
-            // codEst
-            // 
-            this.codEst.AutoSize = true;
-            this.codEst.Location = new System.Drawing.Point(13, 22);
-            this.codEst.Name = "codEst";
-            this.codEst.Size = new System.Drawing.Size(95, 13);
-            this.codEst.TabIndex = 2;
-            this.codEst.Text = "Código De Estudio";
-            // 
-            // groupBoxInstClinicos
-            // 
-            this.groupBoxInstClinicos.Controls.Add(this.label5);
-            this.groupBoxInstClinicos.Controls.Add(this.comboBoxCedInst);
-            this.groupBoxInstClinicos.Controls.Add(this.labelCedInst);
-            this.groupBoxInstClinicos.Controls.Add(this.listaInstClinicos);
-            this.groupBoxInstClinicos.Location = new System.Drawing.Point(174, 38);
-            this.groupBoxInstClinicos.Name = "groupBoxInstClinicos";
-            this.groupBoxInstClinicos.Size = new System.Drawing.Size(487, 319);
-            this.groupBoxInstClinicos.TabIndex = 3;
-            this.groupBoxInstClinicos.TabStop = false;
-            this.groupBoxInstClinicos.Text = "Instrumentos Clínicos";
-            this.groupBoxInstClinicos.Enter += new System.EventHandler(this.groupBoxInstClinicos_Enter);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 24);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(464, 13);
-            this.label5.TabIndex = 3;
-            this.label5.Text = "Seleccione la cedula del paciente al cual le va a insertar informacion de sus ins" +
-    "trumentos clinicos";
-            // 
-            // comboBoxCedInst
-            // 
-            this.comboBoxCedInst.FormattingEnabled = true;
-            this.comboBoxCedInst.Location = new System.Drawing.Point(140, 48);
-            this.comboBoxCedInst.Name = "comboBoxCedInst";
-            this.comboBoxCedInst.Size = new System.Drawing.Size(280, 21);
-            this.comboBoxCedInst.TabIndex = 0;
-            this.comboBoxCedInst.Text = "Seleccione Cedula Paciente";
-            // 
-            // labelCedInst
-            // 
-            this.labelCedInst.AutoSize = true;
-            this.labelCedInst.Location = new System.Drawing.Point(21, 51);
-            this.labelCedInst.Name = "labelCedInst";
-            this.labelCedInst.Size = new System.Drawing.Size(85, 13);
-            this.labelCedInst.TabIndex = 1;
-            this.labelCedInst.Text = "Cédula Paciente";
-            // 
-            // listaInstClinicos
-            // 
-            this.listaInstClinicos.FormattingEnabled = true;
-            this.listaInstClinicos.Location = new System.Drawing.Point(104, 83);
-            this.listaInstClinicos.Name = "listaInstClinicos";
-            this.listaInstClinicos.Size = new System.Drawing.Size(262, 184);
-            this.listaInstClinicos.TabIndex = 2;
-            this.listaInstClinicos.SelectedIndexChanged += new System.EventHandler(this.listaInstClinicos_SelectedIndexChanged);
             // 
             // panelConsultas
             // 
@@ -1033,11 +1054,11 @@ namespace BD_CIBCM
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1008, 661);
-            this.Controls.Add(this.panelInsertarInvestigador);
             this.Controls.Add(this.VentanaPrincipal);
             this.Controls.Add(this.panelInstrumentosClinicos);
             this.Controls.Add(this.PanelInsertarDiagnostico);
             this.Controls.Add(this.panelConsultas);
+            this.Controls.Add(this.panelInsertarInvestigador);
             this.DataBindings.Add(new System.Windows.Forms.Binding("WindowState", global::BD_CIBCM.Properties.Settings.Default, "Max", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.Name = "MainWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -1060,16 +1081,14 @@ namespace BD_CIBCM
             this.panelParcialInsertar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSintomas)).EndInit();
             this.panelInstrumentosClinicos.ResumeLayout(false);
-            this.groupBoxEstudio.ResumeLayout(false);
-            this.groupBoxEstudio.PerformLayout();
-            this.panelPacienteEstudio.ResumeLayout(false);
-            this.panelPacienteEstudio.PerformLayout();
-            this.panelInvestEstudioInsertar.ResumeLayout(false);
-            this.panelInvestEstudioInsertar.PerformLayout();
-            this.panelEstudioNuevo.ResumeLayout(false);
-            this.panelEstudioNuevo.PerformLayout();
             this.groupBoxInstClinicos.ResumeLayout(false);
             this.groupBoxInstClinicos.PerformLayout();
+            this.groupBoxEstudio.ResumeLayout(false);
+            this.groupBoxEstudio.PerformLayout();
+            this.panelEstudioNuevo.ResumeLayout(false);
+            this.panelEstudioNuevo.PerformLayout();
+            this.panelPacienteEstudio.ResumeLayout(false);
+            this.panelPacienteEstudio.PerformLayout();
             this.panelConsultas.ResumeLayout(false);
             this.groupBoxConsultaInstrumentosClinicos.ResumeLayout(false);
             this.groupBoxConsultaInstrumentosClinicos.PerformLayout();
@@ -1119,7 +1138,6 @@ namespace BD_CIBCM
         private RadioButton radioButtonInsertarInstrumentos;
         private Panel panelInstrumentosClinicos;
         private CheckedListBox listaInstClinicos;
-        private Label labelCedInst;
         private ComboBox comboBoxCedInst;
         private RadioButton radioButtonInsertEstudio;
         private GroupBox groupBoxInstClinicos;
@@ -1139,7 +1157,6 @@ namespace BD_CIBCM
         private Panel panelPacienteEstudio;
         private Label label6;
         private Panel panelInvestEstudioInsertar;
-        private RadioButton radioButtonInsertarInvEstudio;
         private RadioButton radioButtonInsertPacEstudio;
         private ComboBox comboBoxCedPacEstudioInsert;
         private RadioButton EstudioNuevo;
@@ -1172,6 +1189,10 @@ namespace BD_CIBCM
         private Label label15;
         private DateTimePicker dateTimePickerFechaNacInvest;
         private Button buttonInsertarInvest;
+        private Button buttonInstClinicPaciente;
+        private Label label16;
+        private TextBox textBoxInstrumentos;
+        private Button guardarInstrumentosClinicos;
     }
 }
 
