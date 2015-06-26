@@ -135,8 +135,9 @@ namespace BD_CIBCM
             if(radioButtonConsenso.Checked == true){
                 // diagnosticos.consultarParciales(string Cedula);
                 // fill with checkbox(Group Box box,DataTable data);
-
-                baseDatos.llenarTabla(consultaPacientes, dataGridViewParcialesPaciente);
+                dataGridViewParcialesPaciente.DataSource = null;
+                //Cambiar por consulta de parciales
+                baseDatos.llenarTabla(diagnosticos.consultarParciales(seleccionarCedulaComboBox(comboBoxPacienteInsertarDiagnostico)), dataGridViewParcialesPaciente);
             }
         }
 
@@ -152,7 +153,21 @@ namespace BD_CIBCM
 
         private void button1_Click(object sender, EventArgs e)
         {
+            //Guardar Diagnostico 
+            if (comboBoxPacienteInsertarDiagnostico.SelectedIndex > -1)
+            {
+                //Se seleciono un paciente
+               if(textBoxNumDiagostico.Text != null)
+                {
 
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Por favor seleccione un paciente antes de continuar", 
+                    "La información no es correcta", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            }
         }
 
         private void LabelAgregarSintoma_Click(object sender, EventArgs e)
@@ -345,7 +360,6 @@ namespace BD_CIBCM
             int tamanio = 0;
             if (infoPersona != null) { 
                 tamanio = infoPersona.Length;
-                MessageBox.Show("tamaño"+tamanio);
                 cedula = infoPersona.Substring(tamanio - 9);
             }
             cedula.Trim();

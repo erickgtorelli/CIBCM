@@ -22,13 +22,10 @@ namespace BD_CIBCM.Utility
 
         }
 
-        public void consultarParciales(string Cedula,AccesoBaseDatos baseDatos)
+        public string consultarParciales(string Cedula)
         {
-            string selectParciales = "Select D.Fecha,D.Enfermedad,D.NumDiagnostico,I.PrimerNombre,I.Apellido1" +
-                "From (Parcial P Join Diagnostico D" +
-                "ON (P.Cedula = D.Cedula AND P.NumDiagnostico = D.NumDiagnostico) Join" +
-                "Persona I ON P.CedInvestigador = I.Cedula);";
-            baseDatos.ejecutarConsultaTabla(selectParciales);
+            string consulta = "select D.Fecha,D.Enfermedad,D.NumDiagnostico,D.Link,P.CedInvestigador from Diagnostico D Join Parcial P ON D.Cedula = P.Cedula where P.Cedula =" + Cedula;
+            return consulta;
         }
     }
 }
