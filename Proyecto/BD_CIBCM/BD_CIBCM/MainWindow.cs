@@ -535,5 +535,47 @@ namespace BD_CIBCM
             comboBoxBorrarInvest.Items.Clear();
             baseDatos.llenarComboBox(consultaInvestigadores, comboBoxBorrarInvest, 4);
         }
+
+        private void guardarInstrumentosClinicos_Click_1(object sender, EventArgs e)
+        {
+            SqlDataReader tuplas;
+            if (agregarInstrumentosAPaciente)
+            {
+
+                if (comboBoxCedInst.SelectedIndex > -1)
+                {
+                    String cedula = seleccionarCedulaComboBox(comboBoxCedInst);
+                    String insertLleno = "";
+                    foreach (object itemChecked in listaInstClinicos.CheckedItems)
+                    {
+                        String consulta = "Select * from Lleno where Cedula ='" + cedula + "' AND NombreInstrumentoClinico ='" + itemChecked.ToString() + "';";
+                        tuplas = baseDatos.ejecutarConsulta(consulta);
+                        if (tuplas == null || !tuplas.HasRows)
+                        {
+                            insertLleno = "Insert into Lleno Values ('" + cedula + "','" + itemChecked.ToString() + "')";
+                            baseDatos.insertarDatos(insertLleno);
+                        }
+                        else MessageBox.Show("La cedula " + cedula + " y el instrumento clinico" + itemChecked.ToString() + " ya forman parte de la base de datos.", "Error al Insertar instrumentos clínicos a Paciente");
+
+                    }
+                    bool state = false;
+                    foreach (int indexChecked in listaInstClinicos.CheckedIndices)
+                    {
+                        listaInstClinicos.SetItemCheckState(indexChecked, (state ? CheckState.Checked : CheckState.Unchecked));
+                    }
+
+                    MessageBox.Show("Se insertaron los datos correctamente", "Inserción Instrumentos clínicos a persona");
+
+                }
+                else
+                {
+                    MessageBox.Show("Por favor seleccione la cédula de algún paciente", "Faltan datos");
+                }
+                guardarInstrumentosClinicos.Hide();
+                comboBoxCedInst.Hide();
+                agregarInstrumentosAPaciente = false;
+
+            }
+        }
     }
 }
