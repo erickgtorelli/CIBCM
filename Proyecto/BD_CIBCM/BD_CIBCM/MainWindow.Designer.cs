@@ -37,6 +37,7 @@ namespace BD_CIBCM
             this.consultarEstudio = new System.Windows.Forms.RadioButton();
             this.radioButtonConsultarInstrumentos = new System.Windows.Forms.RadioButton();
             this.Insertar = new System.Windows.Forms.TabPage();
+            this.radioButtonInsertarInvestigador = new System.Windows.Forms.RadioButton();
             this.radioButtonInsertEstudio = new System.Windows.Forms.RadioButton();
             this.radioButtonInsertarInstrumentos = new System.Windows.Forms.RadioButton();
             this.radioButtonDiagnosticoInsertar = new System.Windows.Forms.RadioButton();
@@ -103,21 +104,21 @@ namespace BD_CIBCM
             this.radioButtonconsultaInst = new System.Windows.Forms.RadioButton();
             this.radioButtonConsultaPacInst = new System.Windows.Forms.RadioButton();
             this.label7 = new System.Windows.Forms.Label();
-            this.radioButtonInsertarInvestigador = new System.Windows.Forms.RadioButton();
             this.panelInsertarInvestigador = new System.Windows.Forms.Panel();
-            this.textBoxInsertarinvestCedula = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.label14 = new System.Windows.Forms.Label();
-            this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
             this.label15 = new System.Windows.Forms.Label();
+            this.dateTimePickerFechaNacInvest = new System.Windows.Forms.DateTimePicker();
+            this.label14 = new System.Windows.Forms.Label();
+            this.radioButtonF = new System.Windows.Forms.RadioButton();
+            this.radioButtonM = new System.Windows.Forms.RadioButton();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.textBoxInsertNombInvest = new System.Windows.Forms.TextBox();
+            this.textBoxInsertAp1Invest = new System.Windows.Forms.TextBox();
+            this.textBoxInsertAp2Invest = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.textBoxInsertarinvestCedula = new System.Windows.Forms.TextBox();
+            this.buttonInsertarInvest = new System.Windows.Forms.Button();
             this.VentanaPrincipal.SuspendLayout();
             this.Consultar.SuspendLayout();
             this.Insertar.SuspendLayout();
@@ -200,6 +201,18 @@ namespace BD_CIBCM
             this.Insertar.TabIndex = 0;
             this.Insertar.Text = "Insertar";
             this.Insertar.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonInsertarInvestigador
+            // 
+            this.radioButtonInsertarInvestigador.AutoSize = true;
+            this.radioButtonInsertarInvestigador.Location = new System.Drawing.Point(19, 79);
+            this.radioButtonInsertarInvestigador.Name = "radioButtonInsertarInvestigador";
+            this.radioButtonInsertarInvestigador.Size = new System.Drawing.Size(83, 17);
+            this.radioButtonInsertarInvestigador.TabIndex = 4;
+            this.radioButtonInsertarInvestigador.TabStop = true;
+            this.radioButtonInsertarInvestigador.Text = "Investigador";
+            this.radioButtonInsertarInvestigador.UseVisualStyleBackColor = true;
+            this.radioButtonInsertarInvestigador.CheckedChanged += new System.EventHandler(this.radioButtonInsertarInvestigador_CheckedChanged);
             // 
             // radioButtonInsertEstudio
             // 
@@ -870,31 +883,20 @@ namespace BD_CIBCM
             this.label7.TabIndex = 0;
             this.label7.Text = "Seleccione la opción por la cuál desea realizar la consulta";
             // 
-            // radioButtonInsertarInvestigador
-            // 
-            this.radioButtonInsertarInvestigador.AutoSize = true;
-            this.radioButtonInsertarInvestigador.Location = new System.Drawing.Point(19, 79);
-            this.radioButtonInsertarInvestigador.Name = "radioButtonInsertarInvestigador";
-            this.radioButtonInsertarInvestigador.Size = new System.Drawing.Size(83, 17);
-            this.radioButtonInsertarInvestigador.TabIndex = 4;
-            this.radioButtonInsertarInvestigador.TabStop = true;
-            this.radioButtonInsertarInvestigador.Text = "Investigador";
-            this.radioButtonInsertarInvestigador.UseVisualStyleBackColor = true;
-            this.radioButtonInsertarInvestigador.CheckedChanged += new System.EventHandler(this.radioButtonInsertarInvestigador_CheckedChanged);
-            // 
             // panelInsertarInvestigador
             // 
+            this.panelInsertarInvestigador.Controls.Add(this.buttonInsertarInvest);
             this.panelInsertarInvestigador.Controls.Add(this.label15);
-            this.panelInsertarInvestigador.Controls.Add(this.dateTimePicker3);
+            this.panelInsertarInvestigador.Controls.Add(this.dateTimePickerFechaNacInvest);
             this.panelInsertarInvestigador.Controls.Add(this.label14);
-            this.panelInsertarInvestigador.Controls.Add(this.radioButton2);
-            this.panelInsertarInvestigador.Controls.Add(this.radioButton1);
+            this.panelInsertarInvestigador.Controls.Add(this.radioButtonF);
+            this.panelInsertarInvestigador.Controls.Add(this.radioButtonM);
             this.panelInsertarInvestigador.Controls.Add(this.label13);
             this.panelInsertarInvestigador.Controls.Add(this.label12);
             this.panelInsertarInvestigador.Controls.Add(this.label11);
-            this.panelInsertarInvestigador.Controls.Add(this.textBox6);
-            this.panelInsertarInvestigador.Controls.Add(this.textBox5);
-            this.panelInsertarInvestigador.Controls.Add(this.textBox3);
+            this.panelInsertarInvestigador.Controls.Add(this.textBoxInsertNombInvest);
+            this.panelInsertarInvestigador.Controls.Add(this.textBoxInsertAp1Invest);
+            this.panelInsertarInvestigador.Controls.Add(this.textBoxInsertAp2Invest);
             this.panelInsertarInvestigador.Controls.Add(this.label10);
             this.panelInsertarInvestigador.Controls.Add(this.textBoxInsertarinvestCedula);
             this.panelInsertarInvestigador.Location = new System.Drawing.Point(199, 50);
@@ -902,91 +904,21 @@ namespace BD_CIBCM
             this.panelInsertarInvestigador.Size = new System.Drawing.Size(511, 344);
             this.panelInsertarInvestigador.TabIndex = 16;
             // 
-            // textBoxInsertarinvestCedula
+            // label15
             // 
-            this.textBoxInsertarinvestCedula.Location = new System.Drawing.Point(168, 45);
-            this.textBoxInsertarinvestCedula.Name = "textBoxInsertarinvestCedula";
-            this.textBoxInsertarinvestCedula.Size = new System.Drawing.Size(190, 20);
-            this.textBoxInsertarinvestCedula.TabIndex = 0;
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(54, 205);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(106, 13);
+            this.label15.TabIndex = 11;
+            this.label15.Text = "Fecha de nacimiento";
             // 
-            // label10
+            // dateTimePickerFechaNacInvest
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(122, 45);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(40, 13);
-            this.label10.TabIndex = 1;
-            this.label10.Text = "Cédula";
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(168, 141);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(190, 20);
-            this.textBox3.TabIndex = 2;
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(168, 110);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(190, 20);
-            this.textBox5.TabIndex = 3;
-            // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(168, 81);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(190, 20);
-            this.textBox6.TabIndex = 4;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(75, 141);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(90, 13);
-            this.label11.TabIndex = 5;
-            this.label11.Text = "Segundo Apellido";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(89, 113);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(76, 13);
-            this.label12.TabIndex = 6;
-            this.label12.Text = "Primer Apellido";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(121, 81);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(44, 13);
-            this.label13.TabIndex = 7;
-            this.label13.Text = "Nombre";
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(179, 172);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(34, 17);
-            this.radioButton1.TabIndex = 5;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "M";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(219, 172);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(31, 17);
-            this.radioButton2.TabIndex = 8;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "F";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.dateTimePickerFechaNacInvest.Location = new System.Drawing.Point(168, 204);
+            this.dateTimePickerFechaNacInvest.Name = "dateTimePickerFechaNacInvest";
+            this.dateTimePickerFechaNacInvest.Size = new System.Drawing.Size(191, 20);
+            this.dateTimePickerFechaNacInvest.TabIndex = 10;
             // 
             // label14
             // 
@@ -998,21 +930,101 @@ namespace BD_CIBCM
             this.label14.Text = "Sexo";
             this.label14.Click += new System.EventHandler(this.label14_Click);
             // 
-            // dateTimePicker3
+            // radioButtonF
             // 
-            this.dateTimePicker3.Location = new System.Drawing.Point(173, 205);
-            this.dateTimePicker3.Name = "dateTimePicker3";
-            this.dateTimePicker3.Size = new System.Drawing.Size(191, 20);
-            this.dateTimePicker3.TabIndex = 10;
+            this.radioButtonF.AutoSize = true;
+            this.radioButtonF.Location = new System.Drawing.Point(219, 172);
+            this.radioButtonF.Name = "radioButtonF";
+            this.radioButtonF.Size = new System.Drawing.Size(31, 17);
+            this.radioButtonF.TabIndex = 8;
+            this.radioButtonF.TabStop = true;
+            this.radioButtonF.Text = "F";
+            this.radioButtonF.UseVisualStyleBackColor = true;
             // 
-            // label15
+            // radioButtonM
             // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(54, 205);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(106, 13);
-            this.label15.TabIndex = 11;
-            this.label15.Text = "Fecha de nacimiento";
+            this.radioButtonM.AutoSize = true;
+            this.radioButtonM.Location = new System.Drawing.Point(179, 172);
+            this.radioButtonM.Name = "radioButtonM";
+            this.radioButtonM.Size = new System.Drawing.Size(34, 17);
+            this.radioButtonM.TabIndex = 5;
+            this.radioButtonM.TabStop = true;
+            this.radioButtonM.Text = "M";
+            this.radioButtonM.UseVisualStyleBackColor = true;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(121, 81);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(44, 13);
+            this.label13.TabIndex = 7;
+            this.label13.Text = "Nombre";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(89, 113);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(76, 13);
+            this.label12.TabIndex = 6;
+            this.label12.Text = "Primer Apellido";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(75, 141);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(90, 13);
+            this.label11.TabIndex = 5;
+            this.label11.Text = "Segundo Apellido";
+            // 
+            // textBoxInsertNombInvest
+            // 
+            this.textBoxInsertNombInvest.Location = new System.Drawing.Point(168, 81);
+            this.textBoxInsertNombInvest.Name = "textBoxInsertNombInvest";
+            this.textBoxInsertNombInvest.Size = new System.Drawing.Size(190, 20);
+            this.textBoxInsertNombInvest.TabIndex = 4;
+            // 
+            // textBoxInsertAp1Invest
+            // 
+            this.textBoxInsertAp1Invest.Location = new System.Drawing.Point(168, 110);
+            this.textBoxInsertAp1Invest.Name = "textBoxInsertAp1Invest";
+            this.textBoxInsertAp1Invest.Size = new System.Drawing.Size(190, 20);
+            this.textBoxInsertAp1Invest.TabIndex = 3;
+            // 
+            // textBoxInsertAp2Invest
+            // 
+            this.textBoxInsertAp2Invest.Location = new System.Drawing.Point(168, 141);
+            this.textBoxInsertAp2Invest.Name = "textBoxInsertAp2Invest";
+            this.textBoxInsertAp2Invest.Size = new System.Drawing.Size(190, 20);
+            this.textBoxInsertAp2Invest.TabIndex = 2;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(122, 45);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(40, 13);
+            this.label10.TabIndex = 1;
+            this.label10.Text = "Cédula";
+            // 
+            // textBoxInsertarinvestCedula
+            // 
+            this.textBoxInsertarinvestCedula.Location = new System.Drawing.Point(168, 45);
+            this.textBoxInsertarinvestCedula.Name = "textBoxInsertarinvestCedula";
+            this.textBoxInsertarinvestCedula.Size = new System.Drawing.Size(190, 20);
+            this.textBoxInsertarinvestCedula.TabIndex = 0;
+            // 
+            // buttonInsertarInvest
+            // 
+            this.buttonInsertarInvest.Location = new System.Drawing.Point(181, 265);
+            this.buttonInsertarInvest.Name = "buttonInsertarInvest";
+            this.buttonInsertarInvest.Size = new System.Drawing.Size(139, 25);
+            this.buttonInsertarInvest.TabIndex = 12;
+            this.buttonInsertarInvest.Text = "Insertar";
+            this.buttonInsertarInvest.UseVisualStyleBackColor = true;
+            this.buttonInsertarInvest.Click += new System.EventHandler(this.buttonInsertarInvest_Click);
             // 
             // MainWindow
             // 
@@ -1149,16 +1161,17 @@ namespace BD_CIBCM
         private Label label13;
         private Label label12;
         private Label label11;
-        private TextBox textBox6;
-        private TextBox textBox5;
-        private TextBox textBox3;
+        private TextBox textBoxInsertNombInvest;
+        private TextBox textBoxInsertAp1Invest;
+        private TextBox textBoxInsertAp2Invest;
         private Label label10;
         private TextBox textBoxInsertarinvestCedula;
         private Label label14;
-        private RadioButton radioButton2;
-        private RadioButton radioButton1;
+        private RadioButton radioButtonF;
+        private RadioButton radioButtonM;
         private Label label15;
-        private DateTimePicker dateTimePicker3;
+        private DateTimePicker dateTimePickerFechaNacInvest;
+        private Button buttonInsertarInvest;
     }
 }
 

@@ -389,5 +389,36 @@ namespace BD_CIBCM
         {
 
         }
+
+        private void buttonInsertarInvest_Click(object sender, EventArgs e)
+        {
+            string CedInvest = textBoxInsertarinvestCedula.Text.Trim();
+            string NombInvest = textBoxInsertNombInvest.Text.Trim();
+            string Ap1Invest = textBoxInsertAp1Invest.Text.Trim();
+            string Ap2Invest = textBoxInsertAp2Invest.Text.Trim();
+            bool sexo;
+            if(radioButtonM.Checked==true)
+            {
+                sexo=true;
+            }
+            else
+            {
+                sexo = false;
+            }
+            string FechaNac = dateTimePickerFechaNacInvest.Value.ToString("yyyy-MM-dd");
+            string InsertarPersona= "Insert into Persona values ('"+CedInvest+"', '"+NombInvest+"', '"+Ap1Invest+"', '"+Ap2Invest+"', '"+FechaNac+"', '"+sexo+"')";
+            string InsertarInvestigador = "Insert into Investigador values ('" + CedInvest + "')";
+            if(CedInvest.Length==9)
+            {
+                baseDatos.insertarDatos(InsertarPersona);
+                baseDatos.insertarDatos(InsertarInvestigador);
+                MessageBox.Show("Se agregó el investigador de cédula "+CedInvest+" a la base de datos");
+            }
+            else
+            {
+                MessageBox.Show("No se puede agregar el investigador porque el número de cédula no es válido");
+            }
+
+        }
     }
 }

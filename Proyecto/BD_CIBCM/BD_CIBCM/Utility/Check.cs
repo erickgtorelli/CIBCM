@@ -23,7 +23,7 @@ namespace BD_CIBCM.Utility
         public bool checkCedula(string Cedula)
         {
             int num;
-            if (int.TryParse(Cedula, out num))
+            if (int.TryParse(Cedula, out num) && Cedula.Length==9)
             {
                 return true;
             }
