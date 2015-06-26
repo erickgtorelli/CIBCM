@@ -114,7 +114,7 @@ CREATE TABLE Participo (
 				CodigoEstudio char (6), 
 				FOREIGN KEY (CodigoEstudio) REFERENCES Estudio (CodigoEstudio),   --FK Estudio 
 				CodigoParticipacion char(6), 
-				PRIMARY KEY (Cedula, CodigoEstudio),
+				PRIMARY KEY (Cedula, CodigoEstudio,CodigoParticipacion),
 );                
 
 
@@ -127,5 +127,6 @@ CREATE TABLE sintomas(
 		PRIMARY KEY (sintoma, cedulaPaciente, numDiagnostico),
 
 );
+
 
 

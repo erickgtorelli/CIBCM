@@ -21,7 +21,7 @@ namespace BD_CIBCM
         string consultaEstudio = "select CodigoEstudio FROM Estudio";
         string consultaInstrumentosClinicos = "Select Nombre From InstrumentosClinicos";
         Utility.Diagnosticos diagnosticos = new Utility.Diagnosticos();
-        
+        bool agregarInstrumentosAPaciente = false;
         public MainWindow()
         {
             InitializeComponent();
@@ -29,6 +29,7 @@ namespace BD_CIBCM
             panelInstrumentosClinicos.Hide();
             panelConsultas.Hide();
             panelEstudioNuevo.Hide();
+            panelInsertarInvestigador.Hide();
             baseDatos.llenarComboBox(consultaInvestigadores, comboBoxInvestEstudio, 4);
             baseDatos.llenarComboBox(consultaPacientes, comboBoxPacienteInsertarDiagnostico, 4);
             baseDatos.llenarComboBox(consultaInvestigadores, comboBoxInvestigador, 4);
@@ -69,6 +70,7 @@ namespace BD_CIBCM
         {
             panelConsultas.Hide();
             panelInstrumentosClinicos.Hide();
+            panelInsertarInvestigador.Hide();
             PanelInsertarDiagnostico.Show();
             
             
@@ -179,10 +181,10 @@ namespace BD_CIBCM
         {
             panelInstrumentosClinicos.Show();
             PanelInsertarDiagnostico.Hide();
+            panelInsertarInvestigador.Hide();
             groupBoxEstudio.Hide();
-            
             groupBoxInstClinicos.Show();
-           
+            comboBoxCedInst.Hide();
            
 
         }
@@ -209,24 +211,27 @@ namespace BD_CIBCM
             panelInvestEstudioInsertar.Hide();
             groupBoxInstClinicos.Hide();
             PanelInsertarDiagnostico.Hide();
+            panelInsertarInvestigador.Hide();
             panelInstrumentosClinicos.Show();
            
         }
 
         private void buttonGuardarEstudio_Click(object sender, EventArgs e)
         {        
-            String codEstudio = comboBoxInsertarEstudio.Text;
+            String codEstudio = comboBoxInsertarEstudio.Text.Trim();
             String consultaEstudio = "Select * from estudio where codigoEstudio = '" + codEstudio + "'";
             DateTime fechaTemp = dateTimePicker2.Value;
             String fecha = fechaTemp.ToString("dd-MM-yyyy");
+            String investigador = seleccionarCedulaComboBox(comboBoxInvestEstudio);
+            String insertarRealizaEstudio = "";
             SqlDataReader tuplas = baseDatos.ejecutarConsulta(consultaEstudio);
             if (tuplas == null || !tuplas.HasRows)
             {
                 String descripcion = textBox4.Text;
 
                 String insertarEstudio = "Insert into estudio values ('" + codEstudio + "',' " + descripcion + "','" + fecha + "')";
-
                 baseDatos.insertarDatos(insertarEstudio);
+                insertarRealizaEstudio = "Insert into realiza values ('" + investigador + "', '" + codEstudio + "')";
                 MessageBox.Show("Se inserto el estudio" + codEstudio, "Insertar Estudio");
                 comboBoxInsertarEstudio.Items.Add(codEstudio);
             }
@@ -268,6 +273,7 @@ namespace BD_CIBCM
         private void radioButtonInsertPacEstudio_CheckedChanged(object sender, EventArgs e)
         {
             panelInvestEstudioInsertar.Hide();
+            panelInsertarInvestigador.Hide();
             panelEstudioNuevo.Hide();
             panelPacienteEstudio.Show();
         }
@@ -275,6 +281,7 @@ namespace BD_CIBCM
         private void radioButtonInsertarInvEstudio_CheckedChanged(object sender, EventArgs e)
         {
             panelPacienteEstudio.Hide();
+            panelInsertarInvestigador.Hide();
             panelEstudioNuevo.Hide();
             panelInvestEstudioInsertar.Show();
             
@@ -344,13 +351,20 @@ namespace BD_CIBCM
             string cedPaciente = seleccionarCedulaComboBox(comboBoxCedPacEstudioInsert);
             string codEstudio = comboBoxInsertarEstudioPaciente.Text.Trim(); //trim elimina espacios en blanco
             string codParticipacion =codigoParticipacion.Text.Trim();
-            string selectParticipo = "SELECT * FROM PARTICIPO WHERE Cedula = '" + cedPaciente + "'AND CodigoEstudio'" + codEstudio + "' AND CodigoParticipacion'" + codParticipacion + "'";
+            string selectParticipo = "SELECT * FROM PARTICIPO WHERE Cedula = '" + cedPaciente + "'AND CodigoEstudio ='" + codEstudio + "' AND CodigoParticipacion ='" + codParticipacion + "'";
             string insertarParticipo="INSERT INTO PARTICIPO VALUES ('"+cedPaciente+"','"+codEstudio+"','"+codParticipacion+"')";
-            if (cedPaciente != null&&codEstudio!=null&&codParticipacion!=null) {
-                baseDatos.ejecutarConsulta(insertarParticipo);
-                MessageBox.Show(cedPaciente);
+            SqlDataReader datos = baseDatos.ejecutarConsulta(selectParticipo);
+            if (datos == null || !datos.HasRows)
+            {
+                if (cedPaciente != null && codEstudio != null && codParticipacion != null)
+                {
+                    baseDatos.ejecutarConsulta(insertarParticipo);
+                    MessageBox.Show("Se insertaron correctamente los datos", "Insercion Estudio de Paciente");
+                }
+                else MessageBox.Show("Error al insertar los datos");
             }
-            else MessageBox.Show("Error al insertar los datos");
+            else MessageBox.Show("Los datos: cedula"+ cedPaciente +", codigo Estudio: "+ codEstudio +" y codigo de participacion: "+ codParticipacion+"\n Ya forman parte de la base de datos", "Error");
+
             
         }
 
@@ -379,6 +393,52 @@ namespace BD_CIBCM
         private void comboBoxCedPacEstudioInsert_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void radioButtonInsertarInvestigador_CheckedChanged(object sender, EventArgs e)
+        {
+            panelConsultas.Hide();
+            panelInstrumentosClinicos.Hide();
+            panelInsertarInvestigador.Show();
+            PanelInsertarDiagnostico.Hide();
+        }
+
+        private void panelEstudioNuevo_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label14_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonInstClinicPaciente_Click(object sender, EventArgs e)
+        {
+            comboBoxCedInst.Show();
+            agregarInstrumentosAPaciente = true;
+        }
+
+        private void guardarInstrumentosClinicos_Click(object sender, EventArgs e)
+        {
+            //string nuevoInstrumento = textBoxInstrumentos.Text;
+
+        }
+
+        private void textBoxInstrumentos_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+        private void textBoxInstrumentos_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (textBoxInstrumentos.Text != string.Empty)
+                {
+                    listaInstClinicos.Items.Add(textBox1.Text);
+                    textBoxInstrumentos.Text = "";
+                }
+            }
         }
     }
 }
