@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data;
+
 using System.Data.SqlClient;
 
 namespace BD_CIBCM
@@ -407,7 +407,13 @@ namespace BD_CIBCM
         private void guardarInstrumentosClinicos_Click(object sender, EventArgs e)
         {
             //string nuevoInstrumento = textBoxInstrumentos.Text;
+            if (agregarInstrumentosAPaciente) {
 
+                if (comboBoxCedInst.SelectedIndex > -1) {
+                    //se inserta 
+                }
+                else MessageBox.Show("Por favor seleccione la cédula de algún paciente", "Faltan datos");
+            }
         }
 
         private void textBoxInstrumentos_TextChanged(object sender, EventArgs e)
@@ -415,13 +421,26 @@ namespace BD_CIBCM
 
         }
         private void textBoxInstrumentos_KeyDown(object sender, KeyEventArgs e)
-        {
+        { /* *
+           * cuando se le da enter en el textBox de instrumentos se revisa que el 
+           * texto q  se trato de insertar no este en la base de datos
+           * */
+            string nuevoInstrumento = textBoxInstrumentos.Text;
+            string consultaInstrumentos = "Select * from InstrumentosClinicos where nombre = '" + nuevoInstrumento + "';";
+            string insertarInstrumento = "Insert into InstrumentosClinicos values ('"+nuevoInstrumento + "');";
+            SqlDataReader datos;
             if (e.KeyCode == Keys.Enter)
             {
-                if (textBoxInstrumentos.Text != string.Empty)
+                if (nuevoInstrumento != string.Empty)
                 {
-                    listaInstClinicos.Items.Add(textBox1.Text);
+                   
                     textBoxInstrumentos.Text = "";
+                    datos = baseDatos.ejecutarConsulta(consultaInstrumentos);
+                    if (!datos.HasRows || datos == null) {
+                        baseDatos.insertarDatos(insertarInstrumento);
+                        listaInstClinicos.Items.Add(nuevoInstrumento);
+                    }
+                    
                 }
             }
         }
