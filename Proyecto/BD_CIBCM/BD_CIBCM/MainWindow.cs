@@ -429,6 +429,7 @@ namespace BD_CIBCM
         {
             comboBoxCedInst.Show();
             agregarInstrumentosAPaciente = true;
+            guardarInstrumentosClinicos.Show();
         }
 
         private void guardarInstrumentosClinicos_Click(object sender, EventArgs e)
