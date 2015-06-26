@@ -32,7 +32,9 @@ namespace BD_CIBCM
             panelConsultas.Hide();
             panelEstudioNuevo.Hide();
             panelInsertarInvestigador.Hide();
+            panelBorrarInvest.Hide();
             baseDatos.llenarComboBox(consultaInvestigadores, comboBoxInvestEstudio, 4);
+            baseDatos.llenarComboBox(consultaInvestigadores, comboBoxBorrarInvest, 4);
             baseDatos.llenarComboBox(consultaPacientes, comboBoxPacienteInsertarDiagnostico, 4);
             baseDatos.llenarComboBox(consultaInvestigadores, comboBoxInvestigador, 4);
             baseDatos.llenarComboBox(consultaEstudio, comboBoxInsertarEstudio, 1);
@@ -521,6 +523,22 @@ namespace BD_CIBCM
         {
             string codigo = (string)dataGridViewEstudio1[0, e.RowIndex].Value;
             baseDatos.llenarTabla(formularConsultaInvestigadorRealiza(codigo), dataGridViewEstudio2);
+        }
+
+        private void radioButton1_CheckedChanged_3(object sender, EventArgs e)
+        {
+            panelConsultas.Hide();
+            panelInstrumentosClinicos.Hide();
+            panelInsertarInvestigador.Hide();
+            PanelInsertarDiagnostico.Hide();
+            panelBorrarInvest.Show();
+        }
+
+        private void buttonBorrarInvest_Click(object sender, EventArgs e)
+        {
+            baseDatos.insertarDatos("Delete from Persona where Cedula=" + seleccionarCedulaComboBox(comboBoxBorrarInvest));
+            comboBoxBorrarInvest.Items.Clear();
+            baseDatos.llenarComboBox(consultaInvestigadores, comboBoxBorrarInvest, 4);
         }
     }
 }

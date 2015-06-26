@@ -70,7 +70,14 @@ namespace BD_CIBCM
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.panelInstrumentosClinicos = new System.Windows.Forms.Panel();
-            this.panelInvestEstudioInsertar = new System.Windows.Forms.Panel();
+            this.groupBoxInstClinicos = new System.Windows.Forms.GroupBox();
+            this.guardarInstrumentosClinicos = new System.Windows.Forms.Button();
+            this.buttonInstClinicPaciente = new System.Windows.Forms.Button();
+            this.label16 = new System.Windows.Forms.Label();
+            this.textBoxInstrumentos = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.comboBoxCedInst = new System.Windows.Forms.ComboBox();
+            this.listaInstClinicos = new System.Windows.Forms.CheckedListBox();
             this.groupBoxEstudio = new System.Windows.Forms.GroupBox();
             this.EstudioNuevo = new System.Windows.Forms.RadioButton();
             this.radioButtonInsertPacEstudio = new System.Windows.Forms.RadioButton();
@@ -124,9 +131,15 @@ namespace BD_CIBCM
             this.textBoxInsertAp2Invest = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.textBoxInsertarinvestCedula = new System.Windows.Forms.TextBox();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.panelBorrarInvest = new System.Windows.Forms.Panel();
+            this.comboBoxBorrarInvest = new System.Windows.Forms.ComboBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.buttonBorrarInvest = new System.Windows.Forms.Button();
             this.VentanaPrincipal.SuspendLayout();
             this.Consultar.SuspendLayout();
             this.Insertar.SuspendLayout();
+            this.Borrar.SuspendLayout();
             this.groupBoxConsenso.SuspendLayout();
             this.groupBoxDiagnosticosParcialesDelPaciente.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewParcialesPaciente)).BeginInit();
@@ -147,6 +160,7 @@ namespace BD_CIBCM
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInstrumentos2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInstrumentos1)).BeginInit();
             this.panelInsertarInvestigador.SuspendLayout();
+            this.panelBorrarInvest.SuspendLayout();
             this.SuspendLayout();
             // 
             // VentanaPrincipal
@@ -274,6 +288,7 @@ namespace BD_CIBCM
             // 
             // Borrar
             // 
+            this.Borrar.Controls.Add(this.radioButton1);
             this.Borrar.Location = new System.Drawing.Point(4, 22);
             this.Borrar.Name = "Borrar";
             this.Borrar.Padding = new System.Windows.Forms.Padding(3);
@@ -553,6 +568,73 @@ namespace BD_CIBCM
             this.panelInvestEstudioInsertar.Size = new System.Drawing.Size(388, 37);
             this.panelInvestEstudioInsertar.TabIndex = 12;
             this.panelInvestEstudioInsertar.Paint += new System.Windows.Forms.PaintEventHandler(this.panelInvestEstudioInsertar_Paint);
+            // 
+            // guardarInstrumentosClinicos
+            // 
+            this.guardarInstrumentosClinicos.Location = new System.Drawing.Point(192, 375);
+            this.guardarInstrumentosClinicos.Name = "guardarInstrumentosClinicos";
+            this.guardarInstrumentosClinicos.Size = new System.Drawing.Size(75, 23);
+            this.guardarInstrumentosClinicos.TabIndex = 7;
+            this.guardarInstrumentosClinicos.Text = "Guardar";
+            this.guardarInstrumentosClinicos.UseVisualStyleBackColor = true;
+            // 
+            // buttonInstClinicPaciente
+            // 
+            this.buttonInstClinicPaciente.Location = new System.Drawing.Point(120, 290);
+            this.buttonInstClinicPaciente.Name = "buttonInstClinicPaciente";
+            this.buttonInstClinicPaciente.Size = new System.Drawing.Size(214, 23);
+            this.buttonInstClinicPaciente.TabIndex = 6;
+            this.buttonInstClinicPaciente.Text = "Agregar instrumento(s) clínico(s) a paciente";
+            this.buttonInstClinicPaciente.UseVisualStyleBackColor = true;
+            this.buttonInstClinicPaciente.Click += new System.EventHandler(this.buttonInstClinicPaciente_Click);
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(25, 61);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(184, 13);
+            this.label16.TabIndex = 5;
+            this.label16.Text = "Inserte nombre de instrumento clínico";
+            // 
+            // textBoxInstrumentos
+            // 
+            this.textBoxInstrumentos.Location = new System.Drawing.Point(215, 58);
+            this.textBoxInstrumentos.Name = "textBoxInstrumentos";
+            this.textBoxInstrumentos.Size = new System.Drawing.Size(242, 20);
+            this.textBoxInstrumentos.TabIndex = 4;
+            this.textBoxInstrumentos.TextChanged += new System.EventHandler(this.textBoxInstrumentos_TextChanged);
+            this.textBoxInstrumentos.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxInstrumentos_KeyDown);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(44, 27);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(377, 17);
+            this.label5.TabIndex = 3;
+            this.label5.Text = "Inserte o seleccione nombre de instrumento clínico";
+            // 
+            // comboBoxCedInst
+            // 
+            this.comboBoxCedInst.FormattingEnabled = true;
+            this.comboBoxCedInst.Location = new System.Drawing.Point(86, 326);
+            this.comboBoxCedInst.Name = "comboBoxCedInst";
+            this.comboBoxCedInst.Size = new System.Drawing.Size(280, 21);
+            this.comboBoxCedInst.TabIndex = 0;
+            this.comboBoxCedInst.Text = "Seleccione Cedula Paciente";
+            // 
+            // listaInstClinicos
+            // 
+            this.listaInstClinicos.FormattingEnabled = true;
+            this.listaInstClinicos.Location = new System.Drawing.Point(101, 94);
+            this.listaInstClinicos.Name = "listaInstClinicos";
+            this.listaInstClinicos.Size = new System.Drawing.Size(262, 184);
+            this.listaInstClinicos.TabIndex = 2;
+            this.listaInstClinicos.ThreeDCheckBoxes = true;
+            this.listaInstClinicos.SelectedIndexChanged += new System.EventHandler(this.listaInstClinicos_SelectedIndexChanged);
             // 
             // groupBoxEstudio
             // 
@@ -977,7 +1059,7 @@ namespace BD_CIBCM
             this.panelInsertarInvestigador.Controls.Add(this.textBoxInsertAp2Invest);
             this.panelInsertarInvestigador.Controls.Add(this.label10);
             this.panelInsertarInvestigador.Controls.Add(this.textBoxInsertarinvestCedula);
-            this.panelInsertarInvestigador.Location = new System.Drawing.Point(199, 50);
+            this.panelInsertarInvestigador.Location = new System.Drawing.Point(198, 23);
             this.panelInsertarInvestigador.Name = "panelInsertarInvestigador";
             this.panelInsertarInvestigador.Size = new System.Drawing.Size(511, 344);
             this.panelInsertarInvestigador.TabIndex = 16;
@@ -1104,6 +1186,55 @@ namespace BD_CIBCM
             this.textBoxInsertarinvestCedula.Size = new System.Drawing.Size(190, 20);
             this.textBoxInsertarinvestCedula.TabIndex = 0;
             // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(20, 16);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(83, 17);
+            this.radioButton1.TabIndex = 0;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "Investigador";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged_3);
+            // 
+            // panelBorrarInvest
+            // 
+            this.panelBorrarInvest.Controls.Add(this.buttonBorrarInvest);
+            this.panelBorrarInvest.Controls.Add(this.label17);
+            this.panelBorrarInvest.Controls.Add(this.comboBoxBorrarInvest);
+            this.panelBorrarInvest.Location = new System.Drawing.Point(239, 7);
+            this.panelBorrarInvest.Name = "panelBorrarInvest";
+            this.panelBorrarInvest.Size = new System.Drawing.Size(485, 166);
+            this.panelBorrarInvest.TabIndex = 17;
+            // 
+            // comboBoxBorrarInvest
+            // 
+            this.comboBoxBorrarInvest.FormattingEnabled = true;
+            this.comboBoxBorrarInvest.Location = new System.Drawing.Point(165, 58);
+            this.comboBoxBorrarInvest.Name = "comboBoxBorrarInvest";
+            this.comboBoxBorrarInvest.Size = new System.Drawing.Size(228, 21);
+            this.comboBoxBorrarInvest.TabIndex = 0;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(163, 36);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(189, 13);
+            this.label17.TabIndex = 1;
+            this.label17.Text = "Seleccionar Investigador/a para borrar";
+            // 
+            // buttonBorrarInvest
+            // 
+            this.buttonBorrarInvest.Location = new System.Drawing.Point(233, 90);
+            this.buttonBorrarInvest.Name = "buttonBorrarInvest";
+            this.buttonBorrarInvest.Size = new System.Drawing.Size(75, 23);
+            this.buttonBorrarInvest.TabIndex = 2;
+            this.buttonBorrarInvest.Text = "Borrar";
+            this.buttonBorrarInvest.UseVisualStyleBackColor = true;
+            this.buttonBorrarInvest.Click += new System.EventHandler(this.buttonBorrarInvest_Click);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1111,11 +1242,14 @@ namespace BD_CIBCM
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1008, 661);
+            this.Controls.Add(this.panelBorrarInvest);
+            this.Controls.Add(this.panelInsertarInvestigador);
+            this.Controls.Add(this.PanelInsertarDiagnostico);
             this.Controls.Add(this.VentanaPrincipal);
             this.Controls.Add(this.panelConsultas);
             this.Controls.Add(this.panelInsertarInvestigador);
             this.Controls.Add(this.panelInstrumentosClinicos);
-            this.Controls.Add(this.PanelInsertarDiagnostico);
+            this.Controls.Add(this.panelConsultas);
             this.DataBindings.Add(new System.Windows.Forms.Binding("WindowState", global::BD_CIBCM.Properties.Settings.Default, "Max", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.Name = "MainWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -1127,6 +1261,8 @@ namespace BD_CIBCM
             this.Consultar.PerformLayout();
             this.Insertar.ResumeLayout(false);
             this.Insertar.PerformLayout();
+            this.Borrar.ResumeLayout(false);
+            this.Borrar.PerformLayout();
             this.groupBoxConsenso.ResumeLayout(false);
             this.groupBoxDiagnosticosParcialesDelPaciente.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewParcialesPaciente)).EndInit();
@@ -1157,6 +1293,8 @@ namespace BD_CIBCM
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInstrumentos1)).EndInit();
             this.panelInsertarInvestigador.ResumeLayout(false);
             this.panelInsertarInvestigador.PerformLayout();
+            this.panelBorrarInvest.ResumeLayout(false);
+            this.panelBorrarInvest.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1258,6 +1396,9 @@ namespace BD_CIBCM
         private Label label18;
         private DataGridView dataGridViewEstudio2;
         private DataGridView dataGridViewEstudio1;
+        private ComboBox comboBoxBorrarInvest;
+        private Panel panelBorrarInvest;
+        private Button buttonBorrarInvest;
        // private Button guardarInstrumentosClinicos;
     }
 }
