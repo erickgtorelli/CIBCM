@@ -106,6 +106,7 @@ namespace BD_CIBCM
             this.radioButtonConsultaPacInst = new System.Windows.Forms.RadioButton();
             this.label7 = new System.Windows.Forms.Label();
             this.panelInsertarInvestigador = new System.Windows.Forms.Panel();
+            this.buttonInsertarInvest = new System.Windows.Forms.Button();
             this.label15 = new System.Windows.Forms.Label();
             this.dateTimePickerFechaNacInvest = new System.Windows.Forms.DateTimePicker();
             this.label14 = new System.Windows.Forms.Label();
@@ -119,7 +120,7 @@ namespace BD_CIBCM
             this.textBoxInsertAp2Invest = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.textBoxInsertarinvestCedula = new System.Windows.Forms.TextBox();
-            this.buttonInsertarInvest = new System.Windows.Forms.Button();
+            this.guardarInstrumentosClinicos = new System.Windows.Forms.Button();
             this.VentanaPrincipal.SuspendLayout();
             this.Consultar.SuspendLayout();
             this.Insertar.SuspendLayout();
@@ -915,6 +916,16 @@ namespace BD_CIBCM
             this.panelInsertarInvestigador.Size = new System.Drawing.Size(511, 344);
             this.panelInsertarInvestigador.TabIndex = 16;
             // 
+            // buttonInsertarInvest
+            // 
+            this.buttonInsertarInvest.Location = new System.Drawing.Point(181, 265);
+            this.buttonInsertarInvest.Name = "buttonInsertarInvest";
+            this.buttonInsertarInvest.Size = new System.Drawing.Size(139, 25);
+            this.buttonInsertarInvest.TabIndex = 12;
+            this.buttonInsertarInvest.Text = "Insertar";
+            this.buttonInsertarInvest.UseVisualStyleBackColor = true;
+            this.buttonInsertarInvest.Click += new System.EventHandler(this.buttonInsertarInvest_Click);
+            // 
             // label15
             // 
             this.label15.AutoSize = true;
@@ -1027,15 +1038,14 @@ namespace BD_CIBCM
             this.textBoxInsertarinvestCedula.Size = new System.Drawing.Size(190, 20);
             this.textBoxInsertarinvestCedula.TabIndex = 0;
             // 
-            // buttonInsertarInvest
+            // guardarInstrumentosClinicos
             // 
-            this.buttonInsertarInvest.Location = new System.Drawing.Point(181, 265);
-            this.buttonInsertarInvest.Name = "buttonInsertarInvest";
-            this.buttonInsertarInvest.Size = new System.Drawing.Size(139, 25);
-            this.buttonInsertarInvest.TabIndex = 12;
-            this.buttonInsertarInvest.Text = "Insertar";
-            this.buttonInsertarInvest.UseVisualStyleBackColor = true;
-            this.buttonInsertarInvest.Click += new System.EventHandler(this.buttonInsertarInvest_Click);
+            this.guardarInstrumentosClinicos.Location = new System.Drawing.Point(192, 375);
+            this.guardarInstrumentosClinicos.Name = "guardarInstrumentosClinicos";
+            this.guardarInstrumentosClinicos.Size = new System.Drawing.Size(75, 23);
+            this.guardarInstrumentosClinicos.TabIndex = 7;
+            this.guardarInstrumentosClinicos.Text = "Guardar";
+            this.guardarInstrumentosClinicos.UseVisualStyleBackColor = true;
             // 
             // MainWindow
             // 
@@ -1183,6 +1193,7 @@ namespace BD_CIBCM
         private Label label16;
         private TextBox textBoxInstrumentos;
         private Button guardarInstrumentosClinicos;
+       // private Button guardarInstrumentosClinicos;
     }
 }
 
