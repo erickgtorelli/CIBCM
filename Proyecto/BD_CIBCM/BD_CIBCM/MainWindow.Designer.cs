@@ -48,6 +48,7 @@ namespace BD_CIBCM
             this.dataGridViewParcialesPaciente = new System.Windows.Forms.DataGridView();
             this.Seleccionado = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.PanelInsertarDiagnostico = new System.Windows.Forms.Panel();
+            this.panelInvestEstudioInsertar = new System.Windows.Forms.Panel();
             this.buttonGuardarDiagnostico = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBoxParcial = new System.Windows.Forms.GroupBox();
@@ -72,7 +73,6 @@ namespace BD_CIBCM
             this.panelInstrumentosClinicos = new System.Windows.Forms.Panel();
             this.groupBoxInstClinicos = new System.Windows.Forms.GroupBox();
             this.guardarInstrumentosClinicos = new System.Windows.Forms.Button();
-            this.buttonInstClinicPaciente = new System.Windows.Forms.Button();
             this.label16 = new System.Windows.Forms.Label();
             this.textBoxInstrumentos = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -99,21 +99,13 @@ namespace BD_CIBCM
             this.comboBoxInsertarEstudioPaciente = new System.Windows.Forms.ComboBox();
             this.comboBoxCedPacEstudioInsert = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.groupBoxInstClinicos = new System.Windows.Forms.GroupBox();
-            this.guardarInstrumentosClinicos = new System.Windows.Forms.Button();
             this.buttonInstClinicPaciente = new System.Windows.Forms.Button();
-            this.label16 = new System.Windows.Forms.Label();
-            this.textBoxInstrumentos = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.comboBoxCedInst = new System.Windows.Forms.ComboBox();
-            this.listaInstClinicos = new System.Windows.Forms.CheckedListBox();
             this.panelConsultas = new System.Windows.Forms.Panel();
             this.groupBoxConsultaEstudio = new System.Windows.Forms.GroupBox();
             this.label18 = new System.Windows.Forms.Label();
             this.dataGridViewEstudio2 = new System.Windows.Forms.DataGridView();
             this.dataGridViewEstudio1 = new System.Windows.Forms.DataGridView();
             this.groupBoxConsultaInstrumentosClinicos = new System.Windows.Forms.GroupBox();
-            this.label17 = new System.Windows.Forms.Label();
             this.dataGridViewInstrumentos2 = new System.Windows.Forms.DataGridView();
             this.dataGridViewInstrumentos1 = new System.Windows.Forms.DataGridView();
             this.panelInsertarInvestigador = new System.Windows.Forms.Panel();
@@ -131,7 +123,6 @@ namespace BD_CIBCM
             this.textBoxInsertAp2Invest = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.textBoxInsertarinvestCedula = new System.Windows.Forms.TextBox();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.panelBorrarInvest = new System.Windows.Forms.Panel();
             this.comboBoxBorrarInvest = new System.Windows.Forms.ComboBox();
             this.label17 = new System.Windows.Forms.Label();
@@ -886,15 +877,6 @@ namespace BD_CIBCM
             this.buttonInstClinicPaciente.UseVisualStyleBackColor = true;
             this.buttonInstClinicPaciente.Click += new System.EventHandler(this.buttonInstClinicPaciente_Click);
             // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(25, 61);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(184, 13);
-            this.label16.TabIndex = 5;
-            this.label16.Text = "Inserte nombre de instrumento clínico";
-            // 
             // textBoxInstrumentos
             // 
             this.textBoxInstrumentos.Location = new System.Drawing.Point(215, 58);
@@ -923,16 +905,6 @@ namespace BD_CIBCM
             this.comboBoxCedInst.Size = new System.Drawing.Size(280, 21);
             this.comboBoxCedInst.TabIndex = 0;
             this.comboBoxCedInst.Text = "Seleccione Cedula Paciente";
-            // 
-            // listaInstClinicos
-            // 
-            this.listaInstClinicos.FormattingEnabled = true;
-            this.listaInstClinicos.Location = new System.Drawing.Point(101, 94);
-            this.listaInstClinicos.Name = "listaInstClinicos";
-            this.listaInstClinicos.Size = new System.Drawing.Size(262, 184);
-            this.listaInstClinicos.TabIndex = 2;
-            this.listaInstClinicos.ThreeDCheckBoxes = true;
-            this.listaInstClinicos.SelectedIndexChanged += new System.EventHandler(this.listaInstClinicos_SelectedIndexChanged);
             // 
             // panelConsultas
             // 

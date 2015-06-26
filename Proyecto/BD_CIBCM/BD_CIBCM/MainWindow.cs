@@ -509,11 +509,6 @@ namespace BD_CIBCM
             //MessageBox.Show("hjbagkbjadf");
         }
 
-        private void radioButton1_CheckedChanged_3(object sender, EventArgs e)
-        {
-
-        }
-
         private void dataGridView1_RowHeaderMouseClick_1(object sender, DataGridViewCellMouseEventArgs e)
         {
            
