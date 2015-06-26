@@ -17,7 +17,7 @@ namespace BD_CIBCM
     class AccesoBaseDatos
     {
         /*En Initial Catalog se agrega la base de datos propia. Intregated Security es para utilizar Windows Authentication*/
-        String conexion = "Data Source=10.1.4.59; Initial Catalog=BD_CIBCM; Integrated Security=SSPI";
+        String conexion = "Data Source=AERICK; Initial Catalog=BD_CIBCM; Integrated Security=SSPI";
         
         /**
          * Constructor
@@ -126,6 +126,7 @@ namespace BD_CIBCM
         public void llenarTabla(String consulta, DataGridView dataGridView)
         {
             DataTable tabla = null;
+           
             try
             {
                 tabla = this.ejecutarConsultaTabla(consulta);
