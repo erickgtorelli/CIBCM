@@ -18,8 +18,10 @@ namespace BD_CIBCM
         AccesoBaseDatos baseDatos;
         string consultaPacientes = "select pe.PrimerNombre, pe.Apellido1, pe.Apellido2, pe.Cedula from paciente pa JOIN persona pe ON pa.Cedula = pe.Cedula;";
         string consultaInvestigadores = "select P.PrimerNombre, Apellido1, P.Apellido2,P.Cedula From Investigador I JOIN Persona P ON I.Cedula = P.Cedula;";
-        string consultaEstudio = "select CodigoEstudio FROM Estudio";
-        string consultaInstrumentosClinicos = "Select Nombre From InstrumentosClinicos";
+
+        string consultaEstudio = "SELECT e.CodigoEstudio, e.Descripcion, COUNT(r.Cedula) as \'Investigadores que realizan el estudio\' FROM Estudio e LEFT JOIN Realiza r ON e.CodigoEstudio = r.CodigoEstudio GROUP BY e.CodigoEstudio, e.Descripcion;";
+        string consultaInstrumentosClinicos = "SELECT i.Nombre, COUNT(l.Cedula) as \'Personas que han llenado el instrumento\' FROM InstrumentosClinicos i LEFT JOIN Lleno l ON i.Nombre = l.NombreInstrumentoClinico GROUP BY i.Nombre;";
+        
         Utility.Diagnosticos diagnosticos = new Utility.Diagnosticos();
         bool agregarInstrumentosAPaciente = false;
         public MainWindow()
@@ -39,6 +41,15 @@ namespace BD_CIBCM
             baseDatos.llenarComboBox(consultaPacientes, comboBoxCedPacEstudioInsert, 4);
             baseDatos.llenarComboBox(consultaEstudio, comboBoxInsertarEstudioPaciente, 1);
 
+        }
+
+        private string formularConsultaPacientesLlenaron(string nombre){
+            return "SELECT p.PrimerNombre as \'Nombre\', p.Apellido1 as \'Primer Apellido\', p.Apellido2 as \'Segundo Apellido\' from Persona p JOIN Lleno l ON p.Cedula = l.Cedula WHERE l.NombreInstrumentoClinico = \'"+nombre+"\';";
+        }
+
+        private string formularConsultaInvestigadorRealiza(string codigo)
+        {
+            return "SELECT p.PrimerNombre as \'Nombre\', p.Apellido1 as \'Primer Apellido\', p.Apellido2 as \'Segundo Apellido\' FROM Persona p JOIN Realiza r ON p.Cedula = r.Cedula WHERE r.CodigoEstudio = \'"+codigo+"\'";  
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
@@ -289,25 +300,24 @@ namespace BD_CIBCM
 
         private void radioButton2_CheckedChanged_2(object sender, EventArgs e)
         {
-            panelPacienteEstudio.Hide();
+            baseDatos.llenarTabla(consultaEstudio, dataGridViewEstudio1);
+
+            panelConsultas.Show();
+            groupBoxConsultaInstrumentosClinicos.Hide();
+            groupBoxConsultaEstudio.Show();
         }
 
         private void radioButtonConsultarInstrumentos_CheckedChanged(object sender, EventArgs e)
         {
-            panelConsultas.Show();
+            baseDatos.llenarTabla(consultaInstrumentosClinicos, dataGridViewInstrumentos1);
+
+            panelConsultas.Show(); 
+            groupBoxConsultaEstudio.Hide(); 
+            groupBoxConsultaInstrumentosClinicos.Show();
         }
 
-        private void radioButtonConsultaPacInst_CheckedChanged(object sender, EventArgs e)
-        {
-            comboBoxPacInst.Show();
-            baseDatos.llenarComboBox(consultaPacientes, comboBoxPacInst, 4);
-        }
-
-        private void radioButtonconsultaInst_CheckedChanged(object sender, EventArgs e)
-        {
-            comboBoxPacInst.Hide();
-        }
-
+        
+        /* luego pienso usar esto -- emma
         public void actualizarComboBoxPaciente(string cedula) { 
             //llamar siempre despues de insertar un paciente
 
@@ -337,7 +347,7 @@ namespace BD_CIBCM
            
         }
         }
-
+        */
         private void radioButton1_CheckedChanged_2(object sender, EventArgs e)
         {
             panelPacienteEstudio.Hide();
@@ -488,6 +498,29 @@ namespace BD_CIBCM
                 MessageBox.Show("No se puede agregar el investigador porque el número de cédula no es válido");
             }
 
+        }
+
+        private void dataGridView1_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            string nombre = (string)dataGridViewInstrumentos1[0, e.RowIndex].Value;
+            baseDatos.llenarTabla(formularConsultaPacientesLlenaron(nombre), dataGridViewInstrumentos2);
+            //MessageBox.Show("hjbagkbjadf");
+        }
+
+        private void radioButton1_CheckedChanged_3(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_RowHeaderMouseClick_1(object sender, DataGridViewCellMouseEventArgs e)
+        {
+           
+        }
+
+        private void dataGridViewEstudio1_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            string codigo = (string)dataGridViewEstudio1[0, e.RowIndex].Value;
+            baseDatos.llenarTabla(formularConsultaInvestigadorRealiza(codigo), dataGridViewEstudio2);
         }
     }
 }

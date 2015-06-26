@@ -17,7 +17,7 @@ namespace BD_CIBCM
     class AccesoBaseDatos
     {
         /*En Initial Catalog se agrega la base de datos propia. Intregated Security es para utilizar Windows Authentication*/
-        String conexion = "Data Source=10.1.4.59; Initial Catalog=BD_CIBCM; Integrated Security=SSPI";
+        String conexion = "Data Source=FAMILIALEWIS\\SQLEXPRESS; Initial Catalog=BD_CIBCM; Integrated Security=SSPI";
         
         /**
          * Constructor
@@ -132,12 +132,10 @@ namespace BD_CIBCM
                 tabla = this.ejecutarConsultaTabla(consulta);
                 BindingSource bindingSource = new BindingSource();
                 bindingSource.DataSource = tabla;
-                dataGridView.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCellsExceptHeader);
                 dataGridView.DataSource = bindingSource;
 
-                dataGridView.Columns[0].Width = 75;
-
-               
+                dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                //dataGridView.Columns[0].Width = 75;
             }
             catch (SqlException ex)
             {
