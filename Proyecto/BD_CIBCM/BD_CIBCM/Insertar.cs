@@ -137,6 +137,7 @@ namespace BD_CIBCM
         private void guardarInstrumentosClinicos_Click(object sender, EventArgs e)
         {
             SqlDataReader tuplas;
+            MessageBox.Show("dafuq");
             if (agregarInstrumentosAPaciente)
             {
 
