@@ -110,13 +110,13 @@ namespace BD_CIBCM
             this.listaInstClinicos = new System.Windows.Forms.CheckedListBox();
             this.panelConsultas = new System.Windows.Forms.Panel();
             this.groupBoxConsultaInstrumentosClinicos = new System.Windows.Forms.GroupBox();
+            this.label17 = new System.Windows.Forms.Label();
             this.dataGridViewInstrumentos2 = new System.Windows.Forms.DataGridView();
             this.dataGridViewInstrumentos1 = new System.Windows.Forms.DataGridView();
             this.groupBoxConsultaEstudio = new System.Windows.Forms.GroupBox();
             this.label18 = new System.Windows.Forms.Label();
             this.dataGridViewEstudio2 = new System.Windows.Forms.DataGridView();
             this.dataGridViewEstudio1 = new System.Windows.Forms.DataGridView();
-            this.label17 = new System.Windows.Forms.Label();
             this.panelInsertarInvestigador = new System.Windows.Forms.Panel();
             this.buttonInsertarInvest = new System.Windows.Forms.Button();
             this.label15 = new System.Windows.Forms.Label();
@@ -366,9 +366,9 @@ namespace BD_CIBCM
             this.PanelInsertarDiagnostico.Controls.Add(this.radioButtonDiagnosticoParcial);
             this.PanelInsertarDiagnostico.Controls.Add(this.panelParcialInsertar);
             this.PanelInsertarDiagnostico.DataBindings.Add(new System.Windows.Forms.Binding("AutoSize", global::BD_CIBCM.Properties.Settings.Default, "AutoSize", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.PanelInsertarDiagnostico.Location = new System.Drawing.Point(207, 34);
+            this.PanelInsertarDiagnostico.Location = new System.Drawing.Point(242, 37);
             this.PanelInsertarDiagnostico.Name = "PanelInsertarDiagnostico";
-            this.PanelInsertarDiagnostico.Size = new System.Drawing.Size(789, 549);
+            this.PanelInsertarDiagnostico.Size = new System.Drawing.Size(789, 537);
             this.PanelInsertarDiagnostico.TabIndex = 1;
             this.PanelInsertarDiagnostico.Visible = false;
             this.PanelInsertarDiagnostico.Paint += new System.Windows.Forms.PaintEventHandler(this.PanelInsertarDiagnostico_Paint);
@@ -596,9 +596,9 @@ namespace BD_CIBCM
             // 
             // panelInstrumentosClinicos
             // 
+            this.panelInstrumentosClinicos.Controls.Add(this.groupBoxInstClinicos);
             this.panelInstrumentosClinicos.Controls.Add(this.panelInvestEstudioInsertar);
             this.panelInstrumentosClinicos.Controls.Add(this.groupBoxEstudio);
-            this.panelInstrumentosClinicos.Controls.Add(this.groupBoxInstClinicos);
             this.panelInstrumentosClinicos.Location = new System.Drawing.Point(220, 34);
             this.panelInstrumentosClinicos.Name = "panelInstrumentosClinicos";
             this.panelInstrumentosClinicos.Size = new System.Drawing.Size(740, 476);
@@ -838,12 +838,13 @@ namespace BD_CIBCM
             // 
             // guardarInstrumentosClinicos
             // 
-            this.guardarInstrumentosClinicos.Location = new System.Drawing.Point(192, 375);
+            this.guardarInstrumentosClinicos.Location = new System.Drawing.Point(187, 357);
             this.guardarInstrumentosClinicos.Name = "guardarInstrumentosClinicos";
             this.guardarInstrumentosClinicos.Size = new System.Drawing.Size(75, 23);
             this.guardarInstrumentosClinicos.TabIndex = 7;
             this.guardarInstrumentosClinicos.Text = "Guardar";
             this.guardarInstrumentosClinicos.UseVisualStyleBackColor = true;
+            this.guardarInstrumentosClinicos.Click += new System.EventHandler(this.guardarInstrumentosClinicos_Click_1);
             // 
             // buttonInstClinicPaciente
             // 
@@ -909,9 +910,9 @@ namespace BD_CIBCM
             this.panelConsultas.Controls.Add(this.groupBoxConsultaPaciente);
             this.panelConsultas.Controls.Add(this.groupBoxConsultaEstudio);
             this.panelConsultas.Controls.Add(this.groupBoxConsultaInstrumentosClinicos);
-            this.panelConsultas.Location = new System.Drawing.Point(210, 19);
+            this.panelConsultas.Location = new System.Drawing.Point(255, 19);
             this.panelConsultas.Name = "panelConsultas";
-            this.panelConsultas.Size = new System.Drawing.Size(804, 564);
+            this.panelConsultas.Size = new System.Drawing.Size(759, 543);
             this.panelConsultas.TabIndex = 15;
             // 
             // groupBoxConsultaInstrumentosClinicos
@@ -938,8 +939,8 @@ namespace BD_CIBCM
             dataGridViewCellStyle21.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewInstrumentos2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle21;
-            this.dataGridViewInstrumentos2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewInstrumentos2.AllowUserToResizeColumns = false;
+            this.dataGridViewInstrumentos2.AllowUserToResizeRows = false;
             dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle22.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle22.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -947,13 +948,6 @@ namespace BD_CIBCM
             dataGridViewCellStyle22.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewInstrumentos2.DefaultCellStyle = dataGridViewCellStyle22;
-            this.dataGridViewInstrumentos2.Location = new System.Drawing.Point(12, 236);
-            this.dataGridViewInstrumentos2.Name = "dataGridViewInstrumentos2";
-            this.dataGridViewInstrumentos2.ReadOnly = true;
-            this.dataGridViewInstrumentos2.Size = new System.Drawing.Size(527, 150);
-            this.dataGridViewInstrumentos2.TabIndex = 6;
-            // 
             // dataGridViewInstrumentos1
             // 
             this.dataGridViewInstrumentos1.AllowUserToAddRows = false;
@@ -1035,15 +1029,6 @@ namespace BD_CIBCM
             this.dataGridViewEstudio1.TabIndex = 5;
             this.dataGridViewEstudio1.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridViewEstudio1_RowHeaderMouseClick);
             // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(163, 36);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(189, 13);
-            this.label17.TabIndex = 1;
-            this.label17.Text = "Seleccionar Investigador/a para borrar";
-            // 
             // panelInsertarInvestigador
             // 
             this.panelInsertarInvestigador.Controls.Add(this.buttonInsertarInvest);
@@ -1060,9 +1045,9 @@ namespace BD_CIBCM
             this.panelInsertarInvestigador.Controls.Add(this.textBoxInsertAp2Invest);
             this.panelInsertarInvestigador.Controls.Add(this.label10);
             this.panelInsertarInvestigador.Controls.Add(this.textBoxInsertarinvestCedula);
-            this.panelInsertarInvestigador.Location = new System.Drawing.Point(198, 23);
+            this.panelInsertarInvestigador.Location = new System.Drawing.Point(199, 23);
             this.panelInsertarInvestigador.Name = "panelInsertarInvestigador";
-            this.panelInsertarInvestigador.Size = new System.Drawing.Size(511, 344);
+            this.panelInsertarInvestigador.Size = new System.Drawing.Size(510, 347);
             this.panelInsertarInvestigador.TabIndex = 16;
             // 
             // buttonInsertarInvest
@@ -1249,6 +1234,14 @@ namespace BD_CIBCM
             this.dataGridViewPaciente1.ReadOnly = true;
             this.dataGridViewPaciente1.Size = new System.Drawing.Size(600, 150);
             this.dataGridViewPaciente1.TabIndex = 1;
+            // comboBoxBorrarInvest
+            // 
+            this.comboBoxBorrarInvest.FormattingEnabled = true;
+            this.comboBoxBorrarInvest.Location = new System.Drawing.Point(165, 58);
+            this.comboBoxBorrarInvest.Name = "comboBoxBorrarInvest";
+            this.comboBoxBorrarInvest.Size = new System.Drawing.Size(228, 21);
+            this.comboBoxBorrarInvest.TabIndex = 0;
+            // 
             // 
             // MainWindow
             // 
@@ -1261,8 +1254,11 @@ namespace BD_CIBCM
             this.Controls.Add(this.panelInstrumentosClinicos);
             this.Controls.Add(this.VentanaPrincipal);
             this.Controls.Add(this.panelBorrarInvest);
+            this.Controls.Add(this.panelInstrumentosClinicos);
+            this.Controls.Add(this.panelConsultas);
             this.Controls.Add(this.PanelInsertarDiagnostico);
-            this.Controls.Add(this.panelInsertarInvestigador);
+            this.Controls.Add(this.panelBorrarInvest);
+            this.Controls.Add(this.VentanaPrincipal);
             this.DataBindings.Add(new System.Windows.Forms.Binding("WindowState", global::BD_CIBCM.Properties.Settings.Default, "Max", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.Name = "MainWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
