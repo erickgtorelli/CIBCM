@@ -32,10 +32,17 @@ namespace BD_CIBCM
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
             this.VentanaPrincipal = new System.Windows.Forms.TabControl();
             this.Consultar = new System.Windows.Forms.TabPage();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.consultarEstudio = new System.Windows.Forms.RadioButton();
+            this.radioButtonConsultarEstudio = new System.Windows.Forms.RadioButton();
             this.radioButtonConsultarInstrumentos = new System.Windows.Forms.RadioButton();
             this.Insertar = new System.Windows.Forms.TabPage();
             this.radioButtonInsertarInvestigador = new System.Windows.Forms.RadioButton();
@@ -43,12 +50,12 @@ namespace BD_CIBCM
             this.radioButtonInsertarInstrumentos = new System.Windows.Forms.RadioButton();
             this.radioButtonDiagnosticoInsertar = new System.Windows.Forms.RadioButton();
             this.Borrar = new System.Windows.Forms.TabPage();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.groupBoxConsenso = new System.Windows.Forms.GroupBox();
             this.groupBoxDiagnosticosParcialesDelPaciente = new System.Windows.Forms.GroupBox();
             this.dataGridViewParcialesPaciente = new System.Windows.Forms.DataGridView();
             this.Seleccionado = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.PanelInsertarDiagnostico = new System.Windows.Forms.Panel();
-            this.panelInvestEstudioInsertar = new System.Windows.Forms.Panel();
             this.buttonGuardarDiagnostico = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBoxParcial = new System.Windows.Forms.GroupBox();
@@ -68,16 +75,10 @@ namespace BD_CIBCM
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.LabelNumDiagnostico = new System.Windows.Forms.Label();
             this.textBoxNumDiagostico = new System.Windows.Forms.TextBox();
+            this.panelInvestEstudioInsertar = new System.Windows.Forms.Panel();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.panelInstrumentosClinicos = new System.Windows.Forms.Panel();
-            this.groupBoxInstClinicos = new System.Windows.Forms.GroupBox();
-            this.guardarInstrumentosClinicos = new System.Windows.Forms.Button();
-            this.label16 = new System.Windows.Forms.Label();
-            this.textBoxInstrumentos = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.comboBoxCedInst = new System.Windows.Forms.ComboBox();
-            this.listaInstClinicos = new System.Windows.Forms.CheckedListBox();
             this.groupBoxEstudio = new System.Windows.Forms.GroupBox();
             this.EstudioNuevo = new System.Windows.Forms.RadioButton();
             this.radioButtonInsertPacEstudio = new System.Windows.Forms.RadioButton();
@@ -99,15 +100,23 @@ namespace BD_CIBCM
             this.comboBoxInsertarEstudioPaciente = new System.Windows.Forms.ComboBox();
             this.comboBoxCedPacEstudioInsert = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.groupBoxInstClinicos = new System.Windows.Forms.GroupBox();
+            this.guardarInstrumentosClinicos = new System.Windows.Forms.Button();
             this.buttonInstClinicPaciente = new System.Windows.Forms.Button();
+            this.label16 = new System.Windows.Forms.Label();
+            this.textBoxInstrumentos = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.comboBoxCedInst = new System.Windows.Forms.ComboBox();
+            this.listaInstClinicos = new System.Windows.Forms.CheckedListBox();
             this.panelConsultas = new System.Windows.Forms.Panel();
+            this.groupBoxConsultaInstrumentosClinicos = new System.Windows.Forms.GroupBox();
+            this.dataGridViewInstrumentos2 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewInstrumentos1 = new System.Windows.Forms.DataGridView();
             this.groupBoxConsultaEstudio = new System.Windows.Forms.GroupBox();
             this.label18 = new System.Windows.Forms.Label();
             this.dataGridViewEstudio2 = new System.Windows.Forms.DataGridView();
             this.dataGridViewEstudio1 = new System.Windows.Forms.DataGridView();
-            this.groupBoxConsultaInstrumentosClinicos = new System.Windows.Forms.GroupBox();
-            this.dataGridViewInstrumentos2 = new System.Windows.Forms.DataGridView();
-            this.dataGridViewInstrumentos1 = new System.Windows.Forms.DataGridView();
+            this.label17 = new System.Windows.Forms.Label();
             this.panelInsertarInvestigador = new System.Windows.Forms.Panel();
             this.buttonInsertarInvest = new System.Windows.Forms.Button();
             this.label15 = new System.Windows.Forms.Label();
@@ -124,9 +133,11 @@ namespace BD_CIBCM
             this.label10 = new System.Windows.Forms.Label();
             this.textBoxInsertarinvestCedula = new System.Windows.Forms.TextBox();
             this.panelBorrarInvest = new System.Windows.Forms.Panel();
-            this.comboBoxBorrarInvest = new System.Windows.Forms.ComboBox();
-            this.label17 = new System.Windows.Forms.Label();
             this.buttonBorrarInvest = new System.Windows.Forms.Button();
+            this.comboBoxBorrarInvest = new System.Windows.Forms.ComboBox();
+            this.radioButtonConsultarPaciente = new System.Windows.Forms.RadioButton();
+            this.groupBoxConsultaPaciente = new System.Windows.Forms.GroupBox();
+            this.dataGridViewPaciente1 = new System.Windows.Forms.DataGridView();
             this.VentanaPrincipal.SuspendLayout();
             this.Consultar.SuspendLayout();
             this.Insertar.SuspendLayout();
@@ -144,14 +155,16 @@ namespace BD_CIBCM
             this.panelPacienteEstudio.SuspendLayout();
             this.groupBoxInstClinicos.SuspendLayout();
             this.panelConsultas.SuspendLayout();
-            this.groupBoxConsultaEstudio.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEstudio2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEstudio1)).BeginInit();
             this.groupBoxConsultaInstrumentosClinicos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInstrumentos2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInstrumentos1)).BeginInit();
+            this.groupBoxConsultaEstudio.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEstudio2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEstudio1)).BeginInit();
             this.panelInsertarInvestigador.SuspendLayout();
             this.panelBorrarInvest.SuspendLayout();
+            this.groupBoxConsultaPaciente.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPaciente1)).BeginInit();
             this.SuspendLayout();
             // 
             // VentanaPrincipal
@@ -167,8 +180,8 @@ namespace BD_CIBCM
             // 
             // Consultar
             // 
-            this.Consultar.Controls.Add(this.radioButton1);
-            this.Consultar.Controls.Add(this.consultarEstudio);
+            this.Consultar.Controls.Add(this.radioButtonConsultarPaciente);
+            this.Consultar.Controls.Add(this.radioButtonConsultarEstudio);
             this.Consultar.Controls.Add(this.radioButtonConsultarInstrumentos);
             this.Consultar.Location = new System.Drawing.Point(4, 22);
             this.Consultar.Name = "Consultar";
@@ -178,29 +191,17 @@ namespace BD_CIBCM
             this.Consultar.Text = "Consultar";
             this.Consultar.UseVisualStyleBackColor = true;
             // 
-            // radioButton1
+            // radioButtonConsultarEstudio
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(19, 226);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(64, 17);
-            this.radioButton1.TabIndex = 2;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Persona";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged_3);
-            // 
-            // consultarEstudio
-            // 
-            this.consultarEstudio.AutoSize = true;
-            this.consultarEstudio.Location = new System.Drawing.Point(19, 254);
-            this.consultarEstudio.Name = "consultarEstudio";
-            this.consultarEstudio.Size = new System.Drawing.Size(60, 17);
-            this.consultarEstudio.TabIndex = 1;
-            this.consultarEstudio.TabStop = true;
-            this.consultarEstudio.Text = "Estudio";
-            this.consultarEstudio.UseVisualStyleBackColor = true;
-            this.consultarEstudio.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged_2);
+            this.radioButtonConsultarEstudio.AutoSize = true;
+            this.radioButtonConsultarEstudio.Location = new System.Drawing.Point(19, 254);
+            this.radioButtonConsultarEstudio.Name = "radioButtonConsultarEstudio";
+            this.radioButtonConsultarEstudio.Size = new System.Drawing.Size(60, 17);
+            this.radioButtonConsultarEstudio.TabIndex = 1;
+            this.radioButtonConsultarEstudio.TabStop = true;
+            this.radioButtonConsultarEstudio.Text = "Estudio";
+            this.radioButtonConsultarEstudio.UseVisualStyleBackColor = true;
+            this.radioButtonConsultarEstudio.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged_2);
             // 
             // radioButtonConsultarInstrumentos
             // 
@@ -288,6 +289,18 @@ namespace BD_CIBCM
             this.Borrar.Text = "Borrar";
             this.Borrar.UseVisualStyleBackColor = true;
             // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(20, 16);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(83, 17);
+            this.radioButton1.TabIndex = 0;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "Investigador";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged_3);
+            // 
             // groupBoxConsenso
             // 
             this.groupBoxConsenso.Controls.Add(this.groupBoxDiagnosticosParcialesDelPaciente);
@@ -312,9 +325,25 @@ namespace BD_CIBCM
             // 
             // dataGridViewParcialesPaciente
             // 
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewParcialesPaciente.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
             this.dataGridViewParcialesPaciente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewParcialesPaciente.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Seleccionado});
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewParcialesPaciente.DefaultCellStyle = dataGridViewCellStyle18;
             this.dataGridViewParcialesPaciente.Location = new System.Drawing.Point(0, 15);
             this.dataGridViewParcialesPaciente.Name = "dataGridViewParcialesPaciente";
             this.dataGridViewParcialesPaciente.Size = new System.Drawing.Size(428, 127);
@@ -452,9 +481,25 @@ namespace BD_CIBCM
             // dataGridViewSintomas
             // 
             this.dataGridViewSintomas.AllowUserToOrderColumns = true;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewSintomas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
             this.dataGridViewSintomas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewSintomas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Sintoma});
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewSintomas.DefaultCellStyle = dataGridViewCellStyle20;
             this.dataGridViewSintomas.Location = new System.Drawing.Point(6, 254);
             this.dataGridViewSintomas.Name = "dataGridViewSintomas";
             this.dataGridViewSintomas.ReadOnly = true;
@@ -535,6 +580,14 @@ namespace BD_CIBCM
             this.textBoxNumDiagostico.Size = new System.Drawing.Size(137, 20);
             this.textBoxNumDiagostico.TabIndex = 1;
             // 
+            // panelInvestEstudioInsertar
+            // 
+            this.panelInvestEstudioInsertar.Location = new System.Drawing.Point(238, 416);
+            this.panelInvestEstudioInsertar.Name = "panelInvestEstudioInsertar";
+            this.panelInvestEstudioInsertar.Size = new System.Drawing.Size(388, 37);
+            this.panelInvestEstudioInsertar.TabIndex = 12;
+            this.panelInvestEstudioInsertar.Paint += new System.Windows.Forms.PaintEventHandler(this.panelInvestEstudioInsertar_Paint);
+            // 
             // toolTip1
             // 
             this.toolTip1.ShowAlways = true;
@@ -551,81 +604,6 @@ namespace BD_CIBCM
             this.panelInstrumentosClinicos.Size = new System.Drawing.Size(740, 476);
             this.panelInstrumentosClinicos.TabIndex = 5;
             this.panelInstrumentosClinicos.Paint += new System.Windows.Forms.PaintEventHandler(this.panelInstrumentosClinicos_Paint);
-            // 
-            // panelInvestEstudioInsertar
-            // 
-            this.panelInvestEstudioInsertar.Location = new System.Drawing.Point(238, 416);
-            this.panelInvestEstudioInsertar.Name = "panelInvestEstudioInsertar";
-            this.panelInvestEstudioInsertar.Size = new System.Drawing.Size(388, 37);
-            this.panelInvestEstudioInsertar.TabIndex = 12;
-            this.panelInvestEstudioInsertar.Paint += new System.Windows.Forms.PaintEventHandler(this.panelInvestEstudioInsertar_Paint);
-            // 
-            // guardarInstrumentosClinicos
-            // 
-            this.guardarInstrumentosClinicos.Location = new System.Drawing.Point(192, 375);
-            this.guardarInstrumentosClinicos.Name = "guardarInstrumentosClinicos";
-            this.guardarInstrumentosClinicos.Size = new System.Drawing.Size(75, 23);
-            this.guardarInstrumentosClinicos.TabIndex = 7;
-            this.guardarInstrumentosClinicos.Text = "Guardar";
-            this.guardarInstrumentosClinicos.UseVisualStyleBackColor = true;
-            // 
-            // buttonInstClinicPaciente
-            // 
-            this.buttonInstClinicPaciente.Location = new System.Drawing.Point(120, 290);
-            this.buttonInstClinicPaciente.Name = "buttonInstClinicPaciente";
-            this.buttonInstClinicPaciente.Size = new System.Drawing.Size(214, 23);
-            this.buttonInstClinicPaciente.TabIndex = 6;
-            this.buttonInstClinicPaciente.Text = "Agregar instrumento(s) clínico(s) a paciente";
-            this.buttonInstClinicPaciente.UseVisualStyleBackColor = true;
-            this.buttonInstClinicPaciente.Click += new System.EventHandler(this.buttonInstClinicPaciente_Click);
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(25, 61);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(184, 13);
-            this.label16.TabIndex = 5;
-            this.label16.Text = "Inserte nombre de instrumento clínico";
-            // 
-            // textBoxInstrumentos
-            // 
-            this.textBoxInstrumentos.Location = new System.Drawing.Point(215, 58);
-            this.textBoxInstrumentos.Name = "textBoxInstrumentos";
-            this.textBoxInstrumentos.Size = new System.Drawing.Size(242, 20);
-            this.textBoxInstrumentos.TabIndex = 4;
-            this.textBoxInstrumentos.TextChanged += new System.EventHandler(this.textBoxInstrumentos_TextChanged);
-            this.textBoxInstrumentos.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxInstrumentos_KeyDown);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(44, 27);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(377, 17);
-            this.label5.TabIndex = 3;
-            this.label5.Text = "Inserte o seleccione nombre de instrumento clínico";
-            // 
-            // comboBoxCedInst
-            // 
-            this.comboBoxCedInst.FormattingEnabled = true;
-            this.comboBoxCedInst.Location = new System.Drawing.Point(86, 326);
-            this.comboBoxCedInst.Name = "comboBoxCedInst";
-            this.comboBoxCedInst.Size = new System.Drawing.Size(280, 21);
-            this.comboBoxCedInst.TabIndex = 0;
-            this.comboBoxCedInst.Text = "Seleccione Cedula Paciente";
-            // 
-            // listaInstClinicos
-            // 
-            this.listaInstClinicos.FormattingEnabled = true;
-            this.listaInstClinicos.Location = new System.Drawing.Point(101, 94);
-            this.listaInstClinicos.Name = "listaInstClinicos";
-            this.listaInstClinicos.Size = new System.Drawing.Size(262, 184);
-            this.listaInstClinicos.TabIndex = 2;
-            this.listaInstClinicos.ThreeDCheckBoxes = true;
-            this.listaInstClinicos.SelectedIndexChanged += new System.EventHandler(this.listaInstClinicos_SelectedIndexChanged);
             // 
             // groupBoxEstudio
             // 
@@ -877,6 +855,15 @@ namespace BD_CIBCM
             this.buttonInstClinicPaciente.UseVisualStyleBackColor = true;
             this.buttonInstClinicPaciente.Click += new System.EventHandler(this.buttonInstClinicPaciente_Click);
             // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(25, 61);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(184, 13);
+            this.label16.TabIndex = 5;
+            this.label16.Text = "Inserte nombre de instrumento clínico";
+            // 
             // textBoxInstrumentos
             // 
             this.textBoxInstrumentos.Location = new System.Drawing.Point(215, 58);
@@ -906,15 +893,81 @@ namespace BD_CIBCM
             this.comboBoxCedInst.TabIndex = 0;
             this.comboBoxCedInst.Text = "Seleccione Cedula Paciente";
             // 
+            // listaInstClinicos
+            // 
+            this.listaInstClinicos.FormattingEnabled = true;
+            this.listaInstClinicos.Location = new System.Drawing.Point(101, 94);
+            this.listaInstClinicos.Name = "listaInstClinicos";
+            this.listaInstClinicos.Size = new System.Drawing.Size(262, 184);
+            this.listaInstClinicos.TabIndex = 2;
+            this.listaInstClinicos.ThreeDCheckBoxes = true;
+            this.listaInstClinicos.SelectedIndexChanged += new System.EventHandler(this.listaInstClinicos_SelectedIndexChanged);
+            // 
             // panelConsultas
             // 
             this.panelConsultas.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.panelConsultas.Controls.Add(this.groupBoxConsultaInstrumentosClinicos);
+            this.panelConsultas.Controls.Add(this.groupBoxConsultaPaciente);
             this.panelConsultas.Controls.Add(this.groupBoxConsultaEstudio);
+            this.panelConsultas.Controls.Add(this.groupBoxConsultaInstrumentosClinicos);
             this.panelConsultas.Location = new System.Drawing.Point(210, 19);
             this.panelConsultas.Name = "panelConsultas";
             this.panelConsultas.Size = new System.Drawing.Size(804, 564);
             this.panelConsultas.TabIndex = 15;
+            // 
+            // groupBoxConsultaInstrumentosClinicos
+            // 
+            this.groupBoxConsultaInstrumentosClinicos.Controls.Add(this.dataGridViewInstrumentos2);
+            this.groupBoxConsultaInstrumentosClinicos.Controls.Add(this.dataGridViewInstrumentos1);
+            this.groupBoxConsultaInstrumentosClinicos.Location = new System.Drawing.Point(98, 47);
+            this.groupBoxConsultaInstrumentosClinicos.Name = "groupBoxConsultaInstrumentosClinicos";
+            this.groupBoxConsultaInstrumentosClinicos.Size = new System.Drawing.Size(556, 399);
+            this.groupBoxConsultaInstrumentosClinicos.TabIndex = 0;
+            this.groupBoxConsultaInstrumentosClinicos.TabStop = false;
+            this.groupBoxConsultaInstrumentosClinicos.Text = "Consulta Instrumentos Clínicos";
+            // 
+            // dataGridViewInstrumentos2
+            // 
+            this.dataGridViewInstrumentos2.AllowUserToAddRows = false;
+            this.dataGridViewInstrumentos2.AllowUserToDeleteRows = false;
+            this.dataGridViewInstrumentos2.AllowUserToResizeColumns = false;
+            this.dataGridViewInstrumentos2.AllowUserToResizeRows = false;
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle21.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle21.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewInstrumentos2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle21;
+            this.dataGridViewInstrumentos2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle22.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle22.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle22.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewInstrumentos2.DefaultCellStyle = dataGridViewCellStyle22;
+            this.dataGridViewInstrumentos2.Location = new System.Drawing.Point(12, 236);
+            this.dataGridViewInstrumentos2.Name = "dataGridViewInstrumentos2";
+            this.dataGridViewInstrumentos2.ReadOnly = true;
+            this.dataGridViewInstrumentos2.Size = new System.Drawing.Size(527, 150);
+            this.dataGridViewInstrumentos2.TabIndex = 6;
+            // 
+            // dataGridViewInstrumentos1
+            // 
+            this.dataGridViewInstrumentos1.AllowUserToAddRows = false;
+            this.dataGridViewInstrumentos1.AllowUserToDeleteRows = false;
+            this.dataGridViewInstrumentos1.AllowUserToResizeColumns = false;
+            this.dataGridViewInstrumentos1.AllowUserToResizeRows = false;
+            this.dataGridViewInstrumentos1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dataGridViewInstrumentos1.Location = new System.Drawing.Point(12, 39);
+            this.dataGridViewInstrumentos1.Name = "dataGridViewInstrumentos1";
+            this.dataGridViewInstrumentos1.ReadOnly = true;
+            this.dataGridViewInstrumentos1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dataGridViewInstrumentos1.Size = new System.Drawing.Size(527, 168);
+            this.dataGridViewInstrumentos1.TabIndex = 5;
+            this.dataGridViewInstrumentos1.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_RowHeaderMouseClick);
             // 
             // groupBoxConsultaEstudio
             // 
@@ -943,7 +996,23 @@ namespace BD_CIBCM
             this.dataGridViewEstudio2.AllowUserToDeleteRows = false;
             this.dataGridViewEstudio2.AllowUserToResizeColumns = false;
             this.dataGridViewEstudio2.AllowUserToResizeRows = false;
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewEstudio2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle23;
             this.dataGridViewEstudio2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle24.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle24.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle24.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewEstudio2.DefaultCellStyle = dataGridViewCellStyle24;
             this.dataGridViewEstudio2.Location = new System.Drawing.Point(12, 236);
             this.dataGridViewEstudio2.Name = "dataGridViewEstudio2";
             this.dataGridViewEstudio2.ReadOnly = true;
@@ -966,54 +1035,14 @@ namespace BD_CIBCM
             this.dataGridViewEstudio1.TabIndex = 5;
             this.dataGridViewEstudio1.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridViewEstudio1_RowHeaderMouseClick);
             // 
-            // groupBoxConsultaInstrumentosClinicos
-            // 
-            this.groupBoxConsultaInstrumentosClinicos.Controls.Add(this.label17);
-            this.groupBoxConsultaInstrumentosClinicos.Controls.Add(this.dataGridViewInstrumentos2);
-            this.groupBoxConsultaInstrumentosClinicos.Controls.Add(this.dataGridViewInstrumentos1);
-            this.groupBoxConsultaInstrumentosClinicos.Location = new System.Drawing.Point(98, 47);
-            this.groupBoxConsultaInstrumentosClinicos.Name = "groupBoxConsultaInstrumentosClinicos";
-            this.groupBoxConsultaInstrumentosClinicos.Size = new System.Drawing.Size(556, 399);
-            this.groupBoxConsultaInstrumentosClinicos.TabIndex = 0;
-            this.groupBoxConsultaInstrumentosClinicos.TabStop = false;
-            this.groupBoxConsultaInstrumentosClinicos.Text = "Consulta Instrumentos Clínicos";
-            // 
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(10, 216);
+            this.label17.Location = new System.Drawing.Point(163, 36);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(201, 13);
-            this.label17.TabIndex = 7;
-            this.label17.Text = "Pacientes que han llenado el instrumento";
-            // 
-            // dataGridViewInstrumentos2
-            // 
-            this.dataGridViewInstrumentos2.AllowUserToAddRows = false;
-            this.dataGridViewInstrumentos2.AllowUserToDeleteRows = false;
-            this.dataGridViewInstrumentos2.AllowUserToResizeColumns = false;
-            this.dataGridViewInstrumentos2.AllowUserToResizeRows = false;
-            this.dataGridViewInstrumentos2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewInstrumentos2.Location = new System.Drawing.Point(12, 236);
-            this.dataGridViewInstrumentos2.Name = "dataGridViewInstrumentos2";
-            this.dataGridViewInstrumentos2.ReadOnly = true;
-            this.dataGridViewInstrumentos2.Size = new System.Drawing.Size(527, 150);
-            this.dataGridViewInstrumentos2.TabIndex = 6;
-            // 
-            // dataGridViewInstrumentos1
-            // 
-            this.dataGridViewInstrumentos1.AllowUserToAddRows = false;
-            this.dataGridViewInstrumentos1.AllowUserToDeleteRows = false;
-            this.dataGridViewInstrumentos1.AllowUserToResizeColumns = false;
-            this.dataGridViewInstrumentos1.AllowUserToResizeRows = false;
-            this.dataGridViewInstrumentos1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dataGridViewInstrumentos1.Location = new System.Drawing.Point(12, 39);
-            this.dataGridViewInstrumentos1.Name = "dataGridViewInstrumentos1";
-            this.dataGridViewInstrumentos1.ReadOnly = true;
-            this.dataGridViewInstrumentos1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.dataGridViewInstrumentos1.Size = new System.Drawing.Size(527, 168);
-            this.dataGridViewInstrumentos1.TabIndex = 5;
-            this.dataGridViewInstrumentos1.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_RowHeaderMouseClick);
+            this.label17.Size = new System.Drawing.Size(189, 13);
+            this.label17.TabIndex = 1;
+            this.label17.Text = "Seleccionar Investigador/a para borrar";
             // 
             // panelInsertarInvestigador
             // 
@@ -1158,18 +1187,6 @@ namespace BD_CIBCM
             this.textBoxInsertarinvestCedula.Size = new System.Drawing.Size(190, 20);
             this.textBoxInsertarinvestCedula.TabIndex = 0;
             // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(20, 16);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(83, 17);
-            this.radioButton1.TabIndex = 0;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Investigador";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged_3);
-            // 
             // panelBorrarInvest
             // 
             this.panelBorrarInvest.Controls.Add(this.buttonBorrarInvest);
@@ -1179,23 +1196,6 @@ namespace BD_CIBCM
             this.panelBorrarInvest.Name = "panelBorrarInvest";
             this.panelBorrarInvest.Size = new System.Drawing.Size(485, 166);
             this.panelBorrarInvest.TabIndex = 17;
-            // 
-            // comboBoxBorrarInvest
-            // 
-            this.comboBoxBorrarInvest.FormattingEnabled = true;
-            this.comboBoxBorrarInvest.Location = new System.Drawing.Point(165, 58);
-            this.comboBoxBorrarInvest.Name = "comboBoxBorrarInvest";
-            this.comboBoxBorrarInvest.Size = new System.Drawing.Size(228, 21);
-            this.comboBoxBorrarInvest.TabIndex = 0;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(163, 36);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(189, 13);
-            this.label17.TabIndex = 1;
-            this.label17.Text = "Seleccionar Investigador/a para borrar";
             // 
             // buttonBorrarInvest
             // 
@@ -1207,6 +1207,49 @@ namespace BD_CIBCM
             this.buttonBorrarInvest.UseVisualStyleBackColor = true;
             this.buttonBorrarInvest.Click += new System.EventHandler(this.buttonBorrarInvest_Click);
             // 
+            // comboBoxBorrarInvest
+            // 
+            this.comboBoxBorrarInvest.FormattingEnabled = true;
+            this.comboBoxBorrarInvest.Location = new System.Drawing.Point(165, 58);
+            this.comboBoxBorrarInvest.Name = "comboBoxBorrarInvest";
+            this.comboBoxBorrarInvest.Size = new System.Drawing.Size(228, 21);
+            this.comboBoxBorrarInvest.TabIndex = 0;
+            // 
+            // radioButtonConsultarPaciente
+            // 
+            this.radioButtonConsultarPaciente.AutoSize = true;
+            this.radioButtonConsultarPaciente.Location = new System.Drawing.Point(19, 221);
+            this.radioButtonConsultarPaciente.Name = "radioButtonConsultarPaciente";
+            this.radioButtonConsultarPaciente.Size = new System.Drawing.Size(67, 17);
+            this.radioButtonConsultarPaciente.TabIndex = 2;
+            this.radioButtonConsultarPaciente.TabStop = true;
+            this.radioButtonConsultarPaciente.Text = "Paciente";
+            this.radioButtonConsultarPaciente.UseVisualStyleBackColor = true;
+            this.radioButtonConsultarPaciente.CheckedChanged += new System.EventHandler(this.radioButtonPaciente_CheckedChanged);
+            // 
+            // groupBoxConsultaPaciente
+            // 
+            this.groupBoxConsultaPaciente.Controls.Add(this.dataGridViewPaciente1);
+            this.groupBoxConsultaPaciente.Location = new System.Drawing.Point(98, 47);
+            this.groupBoxConsultaPaciente.Name = "groupBoxConsultaPaciente";
+            this.groupBoxConsultaPaciente.Size = new System.Drawing.Size(626, 399);
+            this.groupBoxConsultaPaciente.TabIndex = 9;
+            this.groupBoxConsultaPaciente.TabStop = false;
+            this.groupBoxConsultaPaciente.Text = "Consulta Paciente";
+            // 
+            // dataGridViewPaciente1
+            // 
+            this.dataGridViewPaciente1.AllowUserToAddRows = false;
+            this.dataGridViewPaciente1.AllowUserToDeleteRows = false;
+            this.dataGridViewPaciente1.AllowUserToResizeColumns = false;
+            this.dataGridViewPaciente1.AllowUserToResizeRows = false;
+            this.dataGridViewPaciente1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewPaciente1.Location = new System.Drawing.Point(14, 49);
+            this.dataGridViewPaciente1.Name = "dataGridViewPaciente1";
+            this.dataGridViewPaciente1.ReadOnly = true;
+            this.dataGridViewPaciente1.Size = new System.Drawing.Size(600, 150);
+            this.dataGridViewPaciente1.TabIndex = 1;
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1214,14 +1257,12 @@ namespace BD_CIBCM
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1008, 661);
-            this.Controls.Add(this.panelBorrarInvest);
-            this.Controls.Add(this.panelInsertarInvestigador);
-            this.Controls.Add(this.PanelInsertarDiagnostico);
-            this.Controls.Add(this.VentanaPrincipal);
             this.Controls.Add(this.panelConsultas);
-            this.Controls.Add(this.panelInsertarInvestigador);
             this.Controls.Add(this.panelInstrumentosClinicos);
-            this.Controls.Add(this.panelConsultas);
+            this.Controls.Add(this.VentanaPrincipal);
+            this.Controls.Add(this.panelBorrarInvest);
+            this.Controls.Add(this.PanelInsertarDiagnostico);
+            this.Controls.Add(this.panelInsertarInvestigador);
             this.DataBindings.Add(new System.Windows.Forms.Binding("WindowState", global::BD_CIBCM.Properties.Settings.Default, "Max", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.Name = "MainWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -1255,18 +1296,19 @@ namespace BD_CIBCM
             this.groupBoxInstClinicos.ResumeLayout(false);
             this.groupBoxInstClinicos.PerformLayout();
             this.panelConsultas.ResumeLayout(false);
+            this.groupBoxConsultaInstrumentosClinicos.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInstrumentos2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInstrumentos1)).EndInit();
             this.groupBoxConsultaEstudio.ResumeLayout(false);
             this.groupBoxConsultaEstudio.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEstudio2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEstudio1)).EndInit();
-            this.groupBoxConsultaInstrumentosClinicos.ResumeLayout(false);
-            this.groupBoxConsultaInstrumentosClinicos.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInstrumentos2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInstrumentos1)).EndInit();
             this.panelInsertarInvestigador.ResumeLayout(false);
             this.panelInsertarInvestigador.PerformLayout();
             this.panelBorrarInvest.ResumeLayout(false);
             this.panelBorrarInvest.PerformLayout();
+            this.groupBoxConsultaPaciente.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPaciente1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1323,7 +1365,7 @@ namespace BD_CIBCM
         private DateTimePicker dateTimePicker2;
         private Button buttonGuardarEstudio;
         private ComboBox comboBoxInsertarEstudio;
-        private RadioButton consultarEstudio;
+        private RadioButton radioButtonConsultarEstudio;
         private RadioButton radioButtonConsultarInstrumentos;
         private Label label5;
         private Panel panelPacienteEstudio;
@@ -1371,6 +1413,9 @@ namespace BD_CIBCM
         private ComboBox comboBoxBorrarInvest;
         private Panel panelBorrarInvest;
         private Button buttonBorrarInvest;
+        private RadioButton radioButtonConsultarPaciente;
+        private GroupBox groupBoxConsultaPaciente;
+        private DataGridView dataGridViewPaciente1;
        // private Button guardarInstrumentosClinicos;
     }
 }
