@@ -16,103 +16,54 @@ namespace BD_CIBCM
     {
 
         AccesoBaseDatos baseDatos;
+        enum Vista
+        {
+            Insertar,
+            Borrar,
+            Consultar
+        };
+
         string consultaPacientes = "select pe.PrimerNombre, pe.Apellido1, pe.Apellido2, pe.Cedula from paciente pa JOIN persona pe ON pa.Cedula = pe.Cedula;";
         string consultaInvestigadores = "select P.PrimerNombre, Apellido1, P.Apellido2,P.Cedula From Investigador I JOIN Persona P ON I.Cedula = P.Cedula;";
 
-        string consultaEstudio = "SELECT e.CodigoEstudio, e.Descripcion, COUNT(r.Cedula) as \'Investigadores que realizan el estudio\' FROM Estudio e LEFT JOIN Realiza r ON e.CodigoEstudio = r.CodigoEstudio GROUP BY e.CodigoEstudio, e.Descripcion;";
-        string consultaInstrumentosClinicos = "SELECT i.Nombre, COUNT(l.Cedula) as \'Personas que han llenado el instrumento\' FROM InstrumentosClinicos i LEFT JOIN Lleno l ON i.Nombre = l.NombreInstrumentoClinico GROUP BY i.Nombre;";
-        string consultaPacientes2 = "SELECT pe.PrimerNombre as 'Nombre', pe.Apellido1 as 'Primer Apellido', pe.Apellido2 as 'Segundo Apellido', pe.Cedula, pe.FechaDeNacimiento as 'Fecha de nacimiento', pe.Sexo FROM paciente pa JOIN persona pe ON pa.Cedula = pe.Cedula;";
-        
         Utility.Diagnosticos diagnosticos = new Utility.Diagnosticos();
-        bool agregarInstrumentosAPaciente = false;
+        
         public MainWindow()
         {
             InitializeComponent();
             baseDatos = new AccesoBaseDatos();
-            panelInstrumentosClinicos.Hide();
-            panelConsultas.Hide();
-            panelEstudioNuevo.Hide();
-            panelInsertarInvestigador.Hide();
-            panelBorrarInvest.Hide();
-            baseDatos.llenarComboBox(consultaInvestigadores, comboBoxInvestEstudio, 4);
-            baseDatos.llenarComboBox(consultaInvestigadores, comboBoxBorrarInvest, 4);
-            baseDatos.llenarComboBox(consultaPacientes, comboBoxPacienteInsertarDiagnostico, 4);
-            baseDatos.llenarComboBox(consultaInvestigadores, comboBoxInvestigador, 4);
-            baseDatos.llenarComboBox(consultaEstudio, comboBoxInsertarEstudio, 1);
-            baseDatos.llenarComboBox(consultaPacientes, comboBoxCedInst, 4);
-            baseDatos.llenarCheckedListBox(consultaInstrumentosClinicos, listaInstClinicos, 1);
-            baseDatos.llenarComboBox(consultaPacientes, comboBoxCedPacEstudioInsert, 4);
-            baseDatos.llenarComboBox(consultaEstudio, comboBoxInsertarEstudioPaciente, 1);
+            mostrarVista(Vista.Consultar);
 
         }
 
-        private string formularConsultaPacientesLlenaron(string nombre)
+        private void mostrarVista(Vista v)
         {
-            return "SELECT p.PrimerNombre as \'Nombre\', p.Apellido1 as \'Primer Apellido\', p.Apellido2 as \'Segundo Apellido\' from Persona p JOIN Lleno l ON p.Cedula = l.Cedula WHERE l.NombreInstrumentoClinico = \'" + nombre + "\';";
+            switch(v)
+            {
+                case Vista.Insertar:
+                    panelBorrar.Hide();
+                    panelConsultar.Hide();
+                    panelInsertar.Show();
+                    break;
+                case Vista.Consultar:
+                    panelBorrar.Hide();
+                    panelInsertar.Hide();
+                    panelConsultar.Show();
+                    break;
+                case Vista.Borrar:
+                    panelInsertar.Hide();
+                    panelConsultar.Hide();
+                    panelBorrar.Show();
+                    break;
+            }
         }
 
-        private string formularConsultaInvestigadorRealiza(string codigo)
+        private void radioButtonInsertarDiagnostico_CheckedChanged(object sender, EventArgs e)
         {
-            return "SELECT p.PrimerNombre as \'Nombre\', p.Apellido1 as \'Primer Apellido\', p.Apellido2 as \'Segundo Apellido\' FROM Persona p JOIN Realiza r ON p.Cedula = r.Cedula WHERE r.CodigoEstudio = \'" + codigo + "\'";
-        }
-
-        private void radioButton1_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void radioButton2_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox1_Enter_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void radioButtonDiagnosticoInsertar_CheckedChanged(object sender, EventArgs e)
-        {
-            panelConsultas.Hide();
-            panelInstrumentosClinicos.Hide();
-            panelInsertarInvestigador.Hide();
-            PanelInsertarDiagnostico.Show();
-
-
-        }
-
-        private void radioButton2_CheckedChanged_1(object sender, EventArgs e)
-        {
-            groupBoxParcial.Show();
-            groupBoxConsenso.Hide();
-
-
-        }
-
-        private void radioButtonConsenso_CheckedChanged(object sender, EventArgs e)
-        {
-            groupBoxParcial.Hide();
-            groupBoxConsenso.Show();
-        }
-
-        private void PanelInsertarDiagnostico_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panelParcialInsertar_Paint(object sender, PaintEventArgs e)
-        {
-
+            if (radioButtonInsertarDiagnostico.Checked)
+            {
+                panelInsertar.mostrarControl(ControlInsertar.Diagnostico);
+            }
         }
 
         private void MainWindow_Load(object sender, EventArgs e)
@@ -120,186 +71,21 @@ namespace BD_CIBCM
 
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                if (textBox1.Text != string.Empty)
-                {
-                    dataGridViewSintomas.Rows.Add(textBox1.Text);
-                    textBox1.Text = "";
-                }
-            }
-        }
-
-        private void toolTip2_Popup(object sender, PopupEventArgs e)
-        {
-
-        }
-
-        private void groupBoxConsenso_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBoxPacienteInsertarDiagnostico_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (radioButtonConsenso.Checked == true)
-            {
-                // diagnosticos.consultarParciales(string Cedula);
-                // fill with checkbox(Group Box box,DataTable data);
-                dataGridViewParcialesPaciente.DataSource = null;
-                //Cambiar por consulta de parciales
-                baseDatos.llenarTabla(diagnosticos.consultarParciales(seleccionarCedulaComboBox(comboBoxPacienteInsertarDiagnostico)), dataGridViewParcialesPaciente);
-            }
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            //Guardar Diagnostico 
-            if (comboBoxPacienteInsertarDiagnostico.SelectedIndex > -1)
-            {
-                //Se seleciono un paciente
-                if (textBoxNumDiagostico.Text != null)
-                {
-
-                }
-
-            }
-            else
-            {
-                MessageBox.Show("Por favor seleccione un paciente antes de continuar",
-                    "La información no es correcta", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-            }
-        }
-
-        private void LabelAgregarSintoma_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void radioButtonInsertarInstrumentos_CheckedChanged(object sender, EventArgs e)
         {
-            panelInstrumentosClinicos.Show();
-            PanelInsertarDiagnostico.Hide();
-            panelInsertarInvestigador.Hide();
-            groupBoxEstudio.Hide();
-            groupBoxInstClinicos.Show();
-            comboBoxCedInst.Hide();
-
-
-        }
-
-        private void panelInstrumentosClinicos_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void groupBoxInstClinicos_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBoxEstudio_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void radioButton1_CheckedChanged_1(object sender, EventArgs e)
-        {
-            groupBoxEstudio.Show();
-            panelPacienteEstudio.Hide();
-            panelInvestEstudioInsertar.Hide();
-            groupBoxInstClinicos.Hide();
-            PanelInsertarDiagnostico.Hide();
-            panelInsertarInvestigador.Hide();
-            panelInstrumentosClinicos.Show();
-
-        }
-
-        private void buttonGuardarEstudio_Click(object sender, EventArgs e)
-        {
-            String codEstudio = comboBoxInsertarEstudio.Text.Trim();
-            String consultaEstudio = "Select * from estudio where codigoEstudio = '" + codEstudio + "'";
-            DateTime fechaTemp = dateTimePicker2.Value;
-            String fecha = fechaTemp.ToString("dd-MM-yyyy");
-            String investigador = seleccionarCedulaComboBox(comboBoxInvestEstudio);
-            String insertarRealizaEstudio = "";
-            SqlDataReader tuplas = baseDatos.ejecutarConsulta(consultaEstudio);
-            if (tuplas == null || !tuplas.HasRows)
+            if(radioButtonInsertarInstrumentos.Checked)
             {
-                String descripcion = textBox4.Text;
-
-                String insertarEstudio = "Insert into estudio values ('" + codEstudio + "',' " + descripcion + "','" + fecha + "')";
-                baseDatos.insertarDatos(insertarEstudio);
-                insertarRealizaEstudio = "Insert into realiza values ('" + investigador + "', '" + codEstudio + "')";
-                MessageBox.Show("Se inserto el estudio" + codEstudio, "Insertar Estudio");
-                comboBoxInsertarEstudio.Items.Add(codEstudio);
+                panelInsertar.mostrarControl(ControlInsertar.Instrumento);
             }
-            else
+
+        }
+
+        private void radioButtonInsertarEstudio_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButtonInsertarEstudio.Checked)
             {
-                MessageBox.Show("El estudio con codigo " + codEstudio + "ya forma parte de la base de datos");
+                panelInsertar.mostrarControl(ControlInsertar.Estudio);
             }
-            comboBoxInsertarEstudio.Text = " ";
-            textBox4.Text = " ";
-
-
-        }
-
-        private void comboBoxInvestigador_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBoxInvestEstudio_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void listaInstClinicos_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panelInvestEstudioInsertar_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void radioButtonInsertPacEstudio_CheckedChanged(object sender, EventArgs e)
-        {
-            panelInvestEstudioInsertar.Hide();
-            panelInsertarInvestigador.Hide();
-            panelEstudioNuevo.Hide();
-            panelPacienteEstudio.Show();
-        }
-
-        private void radioButtonInsertarInvEstudio_CheckedChanged(object sender, EventArgs e)
-        {
-            panelPacienteEstudio.Hide();
-            panelInsertarInvestigador.Hide();
-            panelEstudioNuevo.Hide();
-            panelInvestEstudioInsertar.Show();
 
         }
 
@@ -307,28 +93,19 @@ namespace BD_CIBCM
         {
             if (radioButtonConsultarEstudio.Checked)
             {
-                baseDatos.llenarTabla(consultaEstudio, dataGridViewEstudio1);
-
-                panelConsultas.Show();
-                groupBoxConsultaInstrumentosClinicos.Hide();
-                groupBoxConsultaPaciente.Hide();
-                groupBoxConsultaEstudio.Show();
+                panelConsultar.mostrarControl(ControlConsultar.Estudios);
             }
         }
 
         private void radioButtonConsultarInstrumentos_CheckedChanged(object sender, EventArgs e)
         {
-            if (radioButtonConsultarInstrumentos.Checked)
+             if (radioButtonConsultarInstrumentos.Checked)
             {
-                baseDatos.llenarTabla(consultaInstrumentosClinicos, dataGridViewInstrumentos1);
-
-                panelConsultas.Show();
-                groupBoxConsultaPaciente.Hide();
-                groupBoxConsultaEstudio.Hide();
-                groupBoxConsultaInstrumentosClinicos.Show();
+                panelConsultar.mostrarControl(ControlConsultar.Instrumentos);
             }
         }
 
+        // esto se que es alguien por eso no me lo vole
         public void actualizarComboBoxPacientes(ComboBox comboBox)
         {
             //llamar siempre despues de insertar un paciente
@@ -358,133 +135,14 @@ namespace BD_CIBCM
             }
         }
 
-        private void radioButton1_CheckedChanged_2(object sender, EventArgs e)
-        {
-            panelPacienteEstudio.Hide();
-            panelInvestEstudioInsertar.Hide();
-            panelEstudioNuevo.Show();
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-
-            string cedPaciente = seleccionarCedulaComboBox(comboBoxCedPacEstudioInsert);
-            string codEstudio = comboBoxInsertarEstudioPaciente.Text.Trim(); //trim elimina espacios en blanco
-            string codParticipacion = codigoParticipacion.Text.Trim();
-            string selectParticipo = "SELECT * FROM PARTICIPO WHERE Cedula = '" + cedPaciente + "'AND CodigoEstudio ='" + codEstudio + "' AND CodigoParticipacion ='" + codParticipacion + "'";
-            string insertarParticipo = "INSERT INTO PARTICIPO VALUES ('" + cedPaciente + "','" + codEstudio + "','" + codParticipacion + "')";
-            SqlDataReader datos = baseDatos.ejecutarConsulta(selectParticipo);
-            if (datos == null || !datos.HasRows)
-            {
-                if (cedPaciente != null && codEstudio != null && codParticipacion != null)
-                {
-                    baseDatos.ejecutarConsulta(insertarParticipo);
-                    MessageBox.Show("Se insertaron correctamente los datos", "Insercion Estudio de Paciente");
-                }
-                else MessageBox.Show("Error al insertar los datos");
-            }
-            else MessageBox.Show("Los datos: cedula" + cedPaciente + ", codigo Estudio: " + codEstudio + " y codigo de participacion: " + codParticipacion + "\n Ya forman parte de la base de datos", "Error");
-
-
-        }
-
-        private string seleccionarCedulaComboBox(ComboBox comboBoxCedula)
-        {
-            string infoPersona = comboBoxCedula.Text;
-            string cedula = "";
-            int tamanio = 0;
-            if (infoPersona != null)
-            {
-                tamanio = infoPersona.Length;
-                cedula = infoPersona.Substring(tamanio - 9);
-            }
-            cedula.Trim();
-            return cedula;
-        }
-
-        private void codigoParticipacion_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBoxInsertarEstudioPaciente_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBoxCedPacEstudioInsert_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void radioButtonInsertarInvestigador_CheckedChanged(object sender, EventArgs e)
         {
-            panelConsultas.Hide();
-            panelInstrumentosClinicos.Hide();
-            panelInsertarInvestigador.Show();
-            PanelInsertarDiagnostico.Hide();
-        }
-
-        private void panelEstudioNuevo_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label14_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void buttonInstClinicPaciente_Click(object sender, EventArgs e)
-        {
-            comboBoxCedInst.Show();
-            agregarInstrumentosAPaciente = true;
-            guardarInstrumentosClinicos.Show();
-        }
-
-        private void guardarInstrumentosClinicos_Click(object sender, EventArgs e)
-        {
-            //string nuevoInstrumento = textBoxInstrumentos.Text;
-            if (agregarInstrumentosAPaciente)
+            if (radioButtonInsertarInvestigador.Checked)
             {
-
-                if (comboBoxCedInst.SelectedIndex > -1)
-                {
-                    //se inserta 
-                }
-                else MessageBox.Show("Por favor seleccione la cédula de algún paciente", "Faltan datos");
+                panelInsertar.mostrarControl(ControlInsertar.Investigador);
             }
         }
 
-        private void textBoxInstrumentos_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-        private void textBoxInstrumentos_KeyDown(object sender, KeyEventArgs e)
-        { /* *
-           * cuando se le da enter en el textBox de instrumentos se revisa que el 
-           * texto q  se trato de insertar no este en la base de datos
-           * */
-            string nuevoInstrumento = textBoxInstrumentos.Text;
-            string consultaInstrumentos = "Select * from InstrumentosClinicos where nombre = '" + nuevoInstrumento + "';";
-            string insertarInstrumento = "Insert into InstrumentosClinicos values ('" + nuevoInstrumento + "');";
-            SqlDataReader datos;
-            if (e.KeyCode == Keys.Enter)
-            {
-                if (nuevoInstrumento != string.Empty)
-                {
-
-                    textBoxInstrumentos.Text = "";
-                    datos = baseDatos.ejecutarConsulta(consultaInstrumentos);
-                    if (!datos.HasRows || datos == null)
-                    {
-                        baseDatos.insertarDatos(insertarInstrumento);
-                        listaInstClinicos.Items.Add(nuevoInstrumento);
-                    }
-
-                }
-            }
-        }
         private void buttonInsertarInvest_Click(object sender, EventArgs e)
         {
             string CedInvest = textBoxInsertarinvestCedula.Text.Trim();
@@ -516,92 +174,39 @@ namespace BD_CIBCM
 
         }
 
-        private void dataGridView1_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        private void radioButtonBorrarInvestigador_CheckedChanged_3(object sender, EventArgs e)
         {
-            string nombre = (string)dataGridViewInstrumentos1[0, e.RowIndex].Value;
-            baseDatos.llenarTabla(formularConsultaPacientesLlenaron(nombre), dataGridViewInstrumentos2);
-            //MessageBox.Show("hjbagkbjadf");
-        }
-
-        private void dataGridView1_RowHeaderMouseClick_1(object sender, DataGridViewCellMouseEventArgs e)
-        {
-
-        }
-
-        private void dataGridViewEstudio1_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            string codigo = (string)dataGridViewEstudio1[0, e.RowIndex].Value;
-            baseDatos.llenarTabla(formularConsultaInvestigadorRealiza(codigo), dataGridViewEstudio2);
-        }
-
-        private void radioButton1_CheckedChanged_3(object sender, EventArgs e)
-        {
-            panelConsultas.Hide();
-            panelInstrumentosClinicos.Hide();
-            panelInsertarInvestigador.Hide();
-            PanelInsertarDiagnostico.Hide();
-            panelBorrarInvest.Show();
-        }
-
-        private void buttonBorrarInvest_Click(object sender, EventArgs e)
-        {
-            baseDatos.insertarDatos("Delete from Persona where Cedula=" + seleccionarCedulaComboBox(comboBoxBorrarInvest));
-            comboBoxBorrarInvest.Items.Clear();
-            baseDatos.llenarComboBox(consultaInvestigadores, comboBoxBorrarInvest, 4);
+            if(radioButtonBorrarInvestigador.Checked)
+            {
+                panelBorrar.mostrarControl(ControlBorrar.Investigador);
+            }
         }
 
         private void radioButtonPaciente_CheckedChanged(object sender, EventArgs e)
         {
             if (radioButtonConsultarPaciente.Checked)
             {
-                baseDatos.llenarTabla(consultaPacientes2, dataGridViewPaciente1);
-                panelConsultas.Show();
-                groupBoxConsultaEstudio.Hide();
-                groupBoxConsultaInstrumentosClinicos.Hide();
-                groupBoxConsultaPaciente.Show();
+                panelConsultar.mostrarControl(ControlConsultar.Pacientes);
             }
         }
 
-        private void guardarInstrumentosClinicos_Click_1(object sender, EventArgs e)
+        private void VentanaPrincipal_SelectedIndexChanged(object sender, EventArgs e)
         {
-            SqlDataReader tuplas;
-            if (agregarInstrumentosAPaciente)
+            int tabIndex = VentanaPrincipal.SelectedIndex;
+            switch(tabIndex)
             {
-
-                if (comboBoxCedInst.SelectedIndex > -1)
-                {
-                    String cedula = seleccionarCedulaComboBox(comboBoxCedInst);
-                    String insertLleno = "";
-                    foreach (object itemChecked in listaInstClinicos.CheckedItems)
-                    {
-                        String consulta = "Select * from Lleno where Cedula ='" + cedula + "' AND NombreInstrumentoClinico ='" + itemChecked.ToString() + "';";
-                        tuplas = baseDatos.ejecutarConsulta(consulta);
-                        if (tuplas == null || !tuplas.HasRows)
-                        {
-                            insertLleno = "Insert into Lleno Values ('" + cedula + "','" + itemChecked.ToString() + "')";
-                            baseDatos.insertarDatos(insertLleno);
-                        }
-                        else MessageBox.Show("La cedula " + cedula + " y el instrumento clinico" + itemChecked.ToString() + " ya forman parte de la base de datos.", "Error al Insertar instrumentos clínicos a Paciente");
-
-                    }
-                    bool state = false;
-                    foreach (int indexChecked in listaInstClinicos.CheckedIndices)
-                    {
-                        listaInstClinicos.SetItemCheckState(indexChecked, (state ? CheckState.Checked : CheckState.Unchecked));
-                    }
-
-                    MessageBox.Show("Se insertaron los datos correctamente", "Inserción Instrumentos clínicos a persona");
-
-                }
-                else
-                {
-                    MessageBox.Show("Por favor seleccione la cédula de algún paciente", "Faltan datos");
-                }
-                guardarInstrumentosClinicos.Hide();
-                comboBoxCedInst.Hide();
-                agregarInstrumentosAPaciente = false;
-
+                case 0:
+                    mostrarVista(Vista.Consultar);
+                    break;
+                case 1:
+                    mostrarVista(Vista.Insertar);
+                    break;
+                case 2:
+                    mostrarVista(Vista.Borrar);
+                    break;
             }
+            
         }
+
     }
 }

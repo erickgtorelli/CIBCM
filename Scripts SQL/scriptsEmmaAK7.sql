@@ -82,3 +82,7 @@ SELECT p.PrimerNombre as 'Nombre', p.Apellido1 as 'Primer Apellido', p.Apellido2
 FROM Persona p JOIN Realiza r 
 ON p.Cedula = r.Cedula 
 WHERE r.CodigoEstudio = '222222';
+
+SELECT pe.PrimerNombre AS 'Nombre', pe.Apellido1 AS 'Primer Apellido', pe.Apellido2 AS 'Segundo Apellido', pe.Cedula, pe.FechaDeNacimiento AS 'Fecha de nacimiento', pe.Sexo 
+FROM paciente pa JOIN persona pe 
+ON pa.Cedula = pe.Cedula;

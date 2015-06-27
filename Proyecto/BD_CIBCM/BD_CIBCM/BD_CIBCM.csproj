@@ -48,6 +48,24 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccesoBaseDatos.cs" />
+    <Compile Include="Borrar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Borrar.Designer.cs">
+      <DependentUpon>Borrar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Consultar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Consultar.Designer.cs">
+      <DependentUpon>Consultar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Insertar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Insertar.Designer.cs">
+      <DependentUpon>Insertar.cs</DependentUpon>
+    </Compile>
     <Compile Include="InstrumentosClinicos.cs" />
     <Compile Include="MainWindow.cs">
       <SubType>Form</SubType>
@@ -61,6 +79,15 @@
     <Compile Include="Utility\Diagnosticos.cs" />
     <Compile Include="Utility\Estudio.cs" />
     <Compile Include="Utility\Sintomas.cs" />
+    <EmbeddedResource Include="Borrar.resx">
+      <DependentUpon>Borrar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Consultar.resx">
+      <DependentUpon>Consultar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Insertar.resx">
+      <DependentUpon>Insertar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </EmbeddedResource>
