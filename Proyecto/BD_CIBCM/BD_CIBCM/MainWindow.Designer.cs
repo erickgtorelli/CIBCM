@@ -64,6 +64,8 @@ namespace BD_CIBCM
             this.panelInsertar = new BD_CIBCM.Insertar();
             this.panelConsultar = new BD_CIBCM.Consultar();
             this.panelBorrar = new BD_CIBCM.Borrar();
+            this.borrarInstrumentosClinicos = new System.Windows.Forms.RadioButton();
+            this.borrarEstudio = new System.Windows.Forms.RadioButton();
             this.VentanaPrincipal.SuspendLayout();
             this.Consultar.SuspendLayout();
             this.Insertar.SuspendLayout();
@@ -194,6 +196,8 @@ namespace BD_CIBCM
             // 
             // Borrar
             // 
+            this.Borrar.Controls.Add(this.borrarEstudio);
+            this.Borrar.Controls.Add(this.borrarInstrumentosClinicos);
             this.Borrar.Controls.Add(this.radioButtonBorrarInvestigador);
             this.Borrar.Location = new System.Drawing.Point(4, 22);
             this.Borrar.Name = "Borrar";
@@ -385,6 +389,28 @@ namespace BD_CIBCM
             this.panelBorrar.Size = new System.Drawing.Size(612, 259);
             this.panelBorrar.TabIndex = 1;
             // 
+            // borrarInstrumentosClinicos
+            // 
+            this.borrarInstrumentosClinicos.AutoSize = true;
+            this.borrarInstrumentosClinicos.Location = new System.Drawing.Point(21, 233);
+            this.borrarInstrumentosClinicos.Name = "borrarInstrumentosClinicos";
+            this.borrarInstrumentosClinicos.Size = new System.Drawing.Size(126, 17);
+            this.borrarInstrumentosClinicos.TabIndex = 4;
+            this.borrarInstrumentosClinicos.TabStop = true;
+            this.borrarInstrumentosClinicos.Text = "Instrumentos Clínicos";
+            this.borrarInstrumentosClinicos.UseVisualStyleBackColor = true;
+            // 
+            // borrarEstudio
+            // 
+            this.borrarEstudio.AutoSize = true;
+            this.borrarEstudio.Location = new System.Drawing.Point(21, 277);
+            this.borrarEstudio.Name = "borrarEstudio";
+            this.borrarEstudio.Size = new System.Drawing.Size(60, 17);
+            this.borrarEstudio.TabIndex = 4;
+            this.borrarEstudio.TabStop = true;
+            this.borrarEstudio.Text = "Estudio";
+            this.borrarEstudio.UseVisualStyleBackColor = true;
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -451,6 +477,8 @@ namespace BD_CIBCM
         private Borrar panelBorrar;
         private Consultar panelConsultar;
         private Insertar panelInsertar;
+        private RadioButton borrarEstudio;
+        private RadioButton borrarInstrumentosClinicos;
        // private Button guardarInstrumentosClinicos;
     }
 }
