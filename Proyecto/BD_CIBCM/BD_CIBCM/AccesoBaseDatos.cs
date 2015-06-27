@@ -120,6 +120,62 @@ namespace BD_CIBCM
                 MessageBox.Show("Datos vacio");
             }
         }
+
+        public void actualizarPaciente(string cedula, Persona p){
+            string ced = p.cedula;
+            string nombre = p.nombre;
+            string a1 = p.apellido1;
+            string a2 = p.apellido2;
+            string sexo = p.sexo;
+            string fecha = p.getHileraFecha();
+
+            string consulta = "UPDATE Persona SET Cedula = '" + ced + "', PrimerNombre = '" + nombre + "', Apellido1 = '" + a1 + "', Apellido2 = '" + a2 + "', Sexo = '" + sexo + "', FechaDeNacimiento = '" + fecha + "' WHERE Cedula = '" + cedula + "'";
+            Console.WriteLine(consulta);
+            try
+            {
+                this.ejecutarConsulta(consulta);
+            }
+            catch (SqlException ex)
+            {
+                string mensajeError = ex.ToString();
+                MessageBox.Show(mensajeError);
+            }
+
+        }
+
+        public Persona obtenerPersona(string cedula)
+        {
+            SqlDataReader datos = null;
+            Persona p = null;
+            string consulta = "SELECT p.Cedula, p.PrimerNombre as 'Nombre', p.Apellido1 as 'Primer Apellido', p.Apellido2 as 'Segundo Apellido', p.FechaDeNacimiento as 'Fecha de nacimiento', p.Sexo FROM Persona p WHERE p.Cedula='" + cedula + "';";
+
+            try
+            {
+                datos = this.ejecutarConsulta(consulta);
+            }
+            catch (SqlException ex)
+            {
+                string mensajeError = ex.ToString();
+                MessageBox.Show(mensajeError);
+            }
+            if (datos != null)
+            {
+                datos.Read();
+                string ced = datos.GetValue(0).ToString();
+                string nombre = datos.GetValue(1).ToString();
+                string a1 = datos.GetValue(2).ToString();
+                string a2 = datos.GetValue(3).ToString();
+                string fechaNac = datos.GetValue(4).ToString();
+                string sexo = datos.GetValue(5).ToString();
+                p = new Persona(ced, nombre, a1, a2, fechaNac, sexo);
+            }
+            else
+            {
+                MessageBox.Show("Datos vacio");
+            }
+
+            return p;
+        }
   
        
 
