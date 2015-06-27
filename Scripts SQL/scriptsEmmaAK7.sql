@@ -86,3 +86,12 @@ WHERE r.CodigoEstudio = '222222';
 SELECT pe.PrimerNombre AS 'Nombre', pe.Apellido1 AS 'Primer Apellido', pe.Apellido2 AS 'Segundo Apellido', pe.Cedula, pe.FechaDeNacimiento AS 'Fecha de nacimiento', pe.Sexo 
 FROM paciente pa JOIN persona pe 
 ON pa.Cedula = pe.Cedula;
+
+SELECT * FROM Persona pe JOIN Paciente pa ON pa.Cedula = pe.Cedula;
+
+UPDATE Persona SET Cedula = '207360523'
+WHERE Cedula = '111258695'
+
+UPDATE Persona SET Cedula = '113258695', PrimerNombre = 'Marcelas', Apellido1 = 'Matamoros',
+Apellido2 = 'Arce', Sexo = 'False', FechaDeNacimiento = '01/09/1995 0:00:00' 
+WHERE Cedula = '113258695'
