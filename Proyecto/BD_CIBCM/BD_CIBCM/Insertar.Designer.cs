@@ -33,11 +33,11 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelInstrumentosClinicos = new System.Windows.Forms.Panel();
-<<<<<<< .mine
+
             this.panelParcialInsertar = new System.Windows.Forms.Panel();
-=======
+
             this.panelParcialInsertar = new System.Windows.Forms.Panel();
->>>>>>> .theirs
+
             this.dataGridViewSintomas = new System.Windows.Forms.DataGridView();
             this.Sintoma = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.labelLinkInsertarDiagnostico = new System.Windows.Forms.Label();
@@ -50,7 +50,7 @@
             this.labelFechaDiagnostico = new System.Windows.Forms.Label();
             this.groupBoxConsenso = new System.Windows.Forms.GroupBox();
             this.groupBoxDiagnosticosParcialesDelPaciente = new System.Windows.Forms.GroupBox();
-            this.Seleccionado = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+           
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.LabelNumDiagnostico = new System.Windows.Forms.Label();
             this.textBoxNumDiagostico = new System.Windows.Forms.TextBox();
