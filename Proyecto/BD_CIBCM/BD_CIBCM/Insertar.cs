@@ -48,53 +48,50 @@ namespace BD_CIBCM
             switch (c)
             {
                 case ControlInsertar.Diagnostico:
-                    groupBoxInstClinicos.Hide();
-                    groupBoxEstudio.Hide();
+                    panelInsertarEstudio.Hide();
                     panelInstrumentosClinicos.Hide();
                     panelInsertarInvestigador.Hide();
                     panelInsertarPaciente.Hide();
 
-                    panelParcialInsertar.Show();
+                    PanelInsertarDiagnostico.Show();
 
                     baseDatos.llenarComboBox(consultaInvestigadores, comboBoxInvestigador, 4);
                     baseDatos.llenarComboBox(consultaPacientes, comboBoxPacienteInsertarDiagnostico, 4);
                     break;
                 case ControlInsertar.Estudio:
-                    groupBoxInstClinicos.Hide();
-                    panelEstudioNuevo.Hide();
-                    panelParcialInsertar.Hide();
+                    PanelInsertarDiagnostico.Hide();
+                    panelInstrumentosClinicos.Hide();
                     panelInsertarInvestigador.Hide();
                     panelInsertarPaciente.Hide();
+                    panelEstudioNuevo.Hide();
 
-                    groupBoxEstudio.Show();
                     panelPacienteEstudio.Show();
+                    panelInsertarEstudio.Show();
                     break;
                 case ControlInsertar.Instrumento:
-                    panelParcialInsertar.Hide();
-                    groupBoxEstudio.Hide();
-                    comboBoxCedInst.Hide();
+                    PanelInsertarDiagnostico.Hide();
+                    panelInsertarEstudio.Hide();
                     panelInsertarInvestigador.Hide();
                     panelInsertarPaciente.Hide();
-
-                    groupBoxInstClinicos.Show();
+                    
                     panelInstrumentosClinicos.Show();
-                    guardarInstrumentosClinicos.Show();
-                    groupBoxInstClinicos.Show();
+
                  
                     break;
                 case ControlInsertar.Investigador:
-                    groupBoxInstClinicos.Hide();
-                    groupBoxEstudio.Hide();
-                    panelParcialInsertar.Hide();
+                    PanelInsertarDiagnostico.Hide();
+                    panelInsertarEstudio.Hide();
+                    panelInstrumentosClinicos.Hide();
                     panelInsertarPaciente.Hide();
 
                     panelInsertarInvestigador.Show();
                     break;
                 case ControlInsertar.Paciente:
-                    groupBoxInstClinicos.Hide();
-                    groupBoxEstudio.Hide();
-                    panelParcialInsertar.Hide();
+                    PanelInsertarDiagnostico.Hide();
+                    panelInsertarEstudio.Hide();
+                    panelInstrumentosClinicos.Hide();
                     panelInsertarInvestigador.Hide();
+
                     panelInsertarPaciente.Show();
                     break;
             }
@@ -457,14 +454,18 @@ namespace BD_CIBCM
             string NombInvest = textBoxInsertNombInvest.Text.Trim();
             string Ap1Invest = textBoxInsertAp1Invest.Text.Trim();
             string Ap2Invest = textBoxInsertAp2Invest.Text.Trim();
-            bool sexo;
+            char sexo;
             if (radioButtonMInv.Checked == true)
             {
-                sexo = true;
+                sexo = 'M';
+            }
+            else if (radioButtonFInv.Checked == true)
+            {
+                sexo = 'F';
             }
             else
             {
-                sexo = false;
+                sexo = 'I';
             }
             string FechaNac = dateTimePickerFechaNacInvest.Value.ToString("yyyy-MM-dd");
             string InsertarPersona = "Insert into Persona values ('" + CedInvest + "', '" + NombInvest + "', '" + Ap1Invest + "', '" + Ap2Invest + "', '" + FechaNac + "', '" + sexo + "')";
@@ -484,14 +485,18 @@ namespace BD_CIBCM
             string NombPac = textBoxNomPac.Text.Trim();
             string Ap1Pac = textBoxAp1Pac.Text.Trim();
             string Ap2Pac = textBoxAp2Pac.Text.Trim();
-            bool sexo;
+            char sexo;
             if (radioButtonMPac.Checked == true)
             {
-                sexo = true;
+                sexo = 'M';
+            }
+            else if (radioButtonFPac.Checked == true)
+            {
+                sexo = 'F';
             }
             else
             {
-                sexo = false;
+                sexo = 'I';
             }
             string FechaNac = dateTimePickerPac.Value.ToString("yyyy-MM-dd");
             string InsertarPersona = "INSERT INTO Persona VALUES ('" + CedPac + "', '" + NombPac + "', '" + Ap1Pac + "', '" + Ap2Pac + "', '" + FechaNac + "', '" + sexo + "')";

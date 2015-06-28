@@ -242,5 +242,13 @@ namespace BD_CIBCM
             }
         }
 
+        private void radioButtonBorrarPaciente_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButtonBorrarPaciente.Checked)
+            {
+                panelBorrar.mostrarControl(ControlBorrar.Paciente);
+            }
+        }
+
     }
 }
