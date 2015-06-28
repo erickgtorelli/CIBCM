@@ -218,5 +218,21 @@ namespace BD_CIBCM
 
         }
 
+        private void borrarInstrumentosClinicos_CheckedChanged(object sender, EventArgs e)
+        {
+            if (borrarInstrumentosClinicos.Checked)
+            {
+                panelBorrar.mostrarControl(ControlBorrar.InstrumentosClinicos);
+            }
+        }
+
+        private void borrarEstudio_CheckedChanged(object sender, EventArgs e)
+        {
+            if (borrarEstudio.Checked)
+            {
+                panelBorrar.mostrarControl(ControlBorrar.Estudio);
+            }
+        }
+
     }
 }

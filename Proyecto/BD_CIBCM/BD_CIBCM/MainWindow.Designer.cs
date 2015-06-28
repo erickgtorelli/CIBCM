@@ -215,24 +215,26 @@ namespace BD_CIBCM
             // borrarEstudio
             // 
             this.borrarEstudio.AutoSize = true;
-            this.borrarEstudio.Location = new System.Drawing.Point(21, 277);
+            this.borrarEstudio.Location = new System.Drawing.Point(21, 143);
             this.borrarEstudio.Name = "borrarEstudio";
             this.borrarEstudio.Size = new System.Drawing.Size(76, 22);
             this.borrarEstudio.TabIndex = 4;
             this.borrarEstudio.TabStop = true;
             this.borrarEstudio.Text = "Estudio";
             this.borrarEstudio.UseVisualStyleBackColor = true;
+            this.borrarEstudio.CheckedChanged += new System.EventHandler(this.borrarEstudio_CheckedChanged);
             // 
             // borrarInstrumentosClinicos
             // 
             this.borrarInstrumentosClinicos.AutoSize = true;
-            this.borrarInstrumentosClinicos.Location = new System.Drawing.Point(21, 233);
+            this.borrarInstrumentosClinicos.Location = new System.Drawing.Point(21, 82);
             this.borrarInstrumentosClinicos.Name = "borrarInstrumentosClinicos";
             this.borrarInstrumentosClinicos.Size = new System.Drawing.Size(169, 22);
             this.borrarInstrumentosClinicos.TabIndex = 4;
             this.borrarInstrumentosClinicos.TabStop = true;
             this.borrarInstrumentosClinicos.Text = "Instrumentos Clínicos";
             this.borrarInstrumentosClinicos.UseVisualStyleBackColor = true;
+            this.borrarInstrumentosClinicos.CheckedChanged += new System.EventHandler(this.borrarInstrumentosClinicos_CheckedChanged);
             // 
             // radioButtonBorrarInvestigador
             // 
