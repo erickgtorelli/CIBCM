@@ -24,6 +24,7 @@ namespace BD_CIBCM
         AccesoBaseDatos baseDatos;
         bool agregarInstrumentosAPaciente = false;
         Utility.Diagnosticos diagnosticos = new Utility.Diagnosticos();
+        Utility.Check checks = new Utility.Check();
         string consultaPacientes = "select pe.PrimerNombre, pe.Apellido1, pe.Apellido2, pe.Cedula from paciente pa JOIN persona pe ON pa.Cedula = pe.Cedula;";
         string consultaInvestigadores = "select P.PrimerNombre, Apellido1, P.Apellido2,P.Cedula From Investigador I JOIN Persona P ON I.Cedula = P.Cedula;";
         string consultaInstrumentos = "select Nombre from InstrumentosClinicos";
@@ -42,14 +43,15 @@ namespace BD_CIBCM
         public void mostrarControl(ControlInsertar c)
         {
 
+            PanelInsertarDiagnostico.Show();
             switch (c)
             {
                 case ControlInsertar.Diagnostico:
                     groupBoxInstClinicos.Hide();
                     groupBoxEstudio.Hide();
-                    PanelInsertarDiagnostico.Show();
                     panelParcialInsertar.Show();
                     panelInstrumentosClinicos.Hide();
+                    panelInsertarInvestigador.Hide();
                     baseDatos.llenarComboBox(consultaInvestigadores, comboBoxInvestigador, 4);
                     baseDatos.llenarComboBox(consultaPacientes, comboBoxPacienteInsertarDiagnostico, 4);
                     break;
@@ -59,6 +61,7 @@ namespace BD_CIBCM
                     panelPacienteEstudio.Show();
                     panelEstudioNuevo.Hide();
                     panelParcialInsertar.Hide();
+                    panelInsertarInvestigador.Hide();
                     break;
                 case ControlInsertar.Instrumento:
                     groupBoxInstClinicos.Show();
@@ -66,6 +69,7 @@ namespace BD_CIBCM
                     panelParcialInsertar.Hide();
                     groupBoxEstudio.Hide();
                     comboBoxCedInst.Hide();
+                    panelInsertarInvestigador.Hide();
                     guardarInstrumentosClinicos.Show();
                     groupBoxInstClinicos.Show();
                  
@@ -74,6 +78,7 @@ namespace BD_CIBCM
                     groupBoxInstClinicos.Hide();
                     groupBoxEstudio.Hide();
                     panelParcialInsertar.Hide();
+                    panelInsertarInvestigador.Show();
                     break;
             }
         }
@@ -422,6 +427,33 @@ namespace BD_CIBCM
 
         private void PanelInsertarDiagnostico_Paint(object sender, PaintEventArgs e)
         {
+
+        }
+
+        private void buttonInsertarInvestigador_Click(object sender, EventArgs e)
+        {
+            string CedInvest = textBoxInsertarinvestCedula.Text.Trim();
+            string NombInvest = textBoxInsertNombInvest.Text.Trim();
+            string Ap1Invest = textBoxInsertAp1Invest.Text.Trim();
+            string Ap2Invest = textBoxInsertAp2Invest.Text.Trim();
+            bool sexo;
+            if (radioButtonM.Checked == true)
+            {
+                sexo = true;
+            }
+            else
+            {
+                sexo = false;
+            }
+            string FechaNac = dateTimePickerFechaNacInvest.Value.ToString("yyyy-MM-dd");
+            string InsertarPersona = "Insert into Persona values ('" + CedInvest + "', '" + NombInvest + "', '" + Ap1Invest + "', '" + Ap2Invest + "', '" + FechaNac + "', '" + sexo + "')";
+            string InsertarInvestigador = "Insert into Investigador values ('" + CedInvest + "')";
+            if (checks.checkCedula(CedInvest))
+            {
+                baseDatos.insertarDatos(InsertarPersona);
+                baseDatos.insertarDatos(InsertarInvestigador);
+                MessageBox.Show("Se agregó el investigador de cédula " + CedInvest + " a la base de datos");
+            }
 
         }
     }
