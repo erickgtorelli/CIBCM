@@ -16,7 +16,8 @@ namespace BD_CIBCM
         Diagnostico,
         Investigador,
         Instrumento,
-        Estudio
+        Estudio,
+        Paciente
     };
 
     public partial class Insertar : UserControl
@@ -49,27 +50,34 @@ namespace BD_CIBCM
                 case ControlInsertar.Diagnostico:
                     groupBoxInstClinicos.Hide();
                     groupBoxEstudio.Hide();
-                    panelParcialInsertar.Show();
                     panelInstrumentosClinicos.Hide();
                     panelInsertarInvestigador.Hide();
+                    panelInsertarPaciente.Hide();
+
+                    panelParcialInsertar.Show();
+
                     baseDatos.llenarComboBox(consultaInvestigadores, comboBoxInvestigador, 4);
                     baseDatos.llenarComboBox(consultaPacientes, comboBoxPacienteInsertarDiagnostico, 4);
                     break;
                 case ControlInsertar.Estudio:
                     groupBoxInstClinicos.Hide();
-                    groupBoxEstudio.Show();
-                    panelPacienteEstudio.Show();
                     panelEstudioNuevo.Hide();
                     panelParcialInsertar.Hide();
                     panelInsertarInvestigador.Hide();
+                    panelInsertarPaciente.Hide();
+
+                    groupBoxEstudio.Show();
+                    panelPacienteEstudio.Show();
                     break;
                 case ControlInsertar.Instrumento:
-                    groupBoxInstClinicos.Show();
-                    panelInstrumentosClinicos.Show();
                     panelParcialInsertar.Hide();
                     groupBoxEstudio.Hide();
                     comboBoxCedInst.Hide();
                     panelInsertarInvestigador.Hide();
+                    panelInsertarPaciente.Hide();
+
+                    groupBoxInstClinicos.Show();
+                    panelInstrumentosClinicos.Show();
                     guardarInstrumentosClinicos.Show();
                     groupBoxInstClinicos.Show();
                  
@@ -78,7 +86,16 @@ namespace BD_CIBCM
                     groupBoxInstClinicos.Hide();
                     groupBoxEstudio.Hide();
                     panelParcialInsertar.Hide();
+                    panelInsertarPaciente.Hide();
+
                     panelInsertarInvestigador.Show();
+                    break;
+                case ControlInsertar.Paciente:
+                    groupBoxInstClinicos.Hide();
+                    groupBoxEstudio.Hide();
+                    panelParcialInsertar.Hide();
+                    panelInsertarInvestigador.Hide();
+                    panelInsertarPaciente.Show();
                     break;
             }
         }
@@ -437,7 +454,7 @@ namespace BD_CIBCM
             string Ap1Invest = textBoxInsertAp1Invest.Text.Trim();
             string Ap2Invest = textBoxInsertAp2Invest.Text.Trim();
             bool sexo;
-            if (radioButtonM.Checked == true)
+            if (radioButtonMInv.Checked == true)
             {
                 sexo = true;
             }
@@ -455,6 +472,32 @@ namespace BD_CIBCM
                 MessageBox.Show("Se agregó el investigador de cédula " + CedInvest + " a la base de datos");
             }
 
+        }
+
+        private void buttonInsertarPac_Click(object sender, EventArgs e)
+        {
+            string CedPac = textBoxCedPac.Text.Trim();
+            string NombPac = textBoxNomPac.Text.Trim();
+            string Ap1Pac = textBoxAp1Pac.Text.Trim();
+            string Ap2Pac = textBoxAp2Pac.Text.Trim();
+            bool sexo;
+            if (radioButtonMPac.Checked == true)
+            {
+                sexo = true;
+            }
+            else
+            {
+                sexo = false;
+            }
+            string FechaNac = dateTimePickerPac.Value.ToString("yyyy-MM-dd");
+            string InsertarPersona = "INSERT INTO Persona VALUES ('" + CedPac + "', '" + NombPac + "', '" + Ap1Pac + "', '" + Ap2Pac + "', '" + FechaNac + "', '" + sexo + "')";
+            string InsertarPaciente = "INSERT INTO Paciente VALUES ('" + CedPac + "')";
+            if (checks.checkCedula(CedPac))
+            {
+                baseDatos.insertarDatos(InsertarPersona);
+                baseDatos.insertarDatos(InsertarPaciente);
+                MessageBox.Show("Se agregó el paciente de cédula " + CedPac + " a la base de datos");
+            }
         }
     }
 }

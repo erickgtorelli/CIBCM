@@ -234,5 +234,13 @@ namespace BD_CIBCM
             }
         }
 
+        private void radioButtonInsertarPaciente_CheckedChanged(object sender, EventArgs e)
+        {
+            if(radioButtonInsertarPaciente.Checked)
+            {
+                panelInsertar.mostrarControl(ControlInsertar.Paciente);
+            }
+        }
+
     }
 }

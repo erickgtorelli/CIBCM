@@ -66,6 +66,7 @@ namespace BD_CIBCM
             this.panelInsertar = new BD_CIBCM.Insertar();
             this.panelConsultar = new BD_CIBCM.Consultar();
             this.panelBorrar = new BD_CIBCM.Borrar();
+            this.radioButtonInsertarPaciente = new System.Windows.Forms.RadioButton();
             this.VentanaPrincipal.SuspendLayout();
             this.Consultar.SuspendLayout();
             this.Insertar.SuspendLayout();
@@ -138,6 +139,7 @@ namespace BD_CIBCM
             // 
             // Insertar
             // 
+            this.Insertar.Controls.Add(this.radioButtonInsertarPaciente);
             this.Insertar.Controls.Add(this.radioButtonInsertarInvestigador);
             this.Insertar.Controls.Add(this.radioButtonInsertarEstudio);
             this.Insertar.Controls.Add(this.radioButtonInsertarInstrumentos);
@@ -418,6 +420,18 @@ namespace BD_CIBCM
             this.panelBorrar.Size = new System.Drawing.Size(612, 259);
             this.panelBorrar.TabIndex = 1;
             // 
+            // radioButtonInsertarPaciente
+            // 
+            this.radioButtonInsertarPaciente.AutoSize = true;
+            this.radioButtonInsertarPaciente.Location = new System.Drawing.Point(18, 167);
+            this.radioButtonInsertarPaciente.Name = "radioButtonInsertarPaciente";
+            this.radioButtonInsertarPaciente.Size = new System.Drawing.Size(83, 22);
+            this.radioButtonInsertarPaciente.TabIndex = 5;
+            this.radioButtonInsertarPaciente.TabStop = true;
+            this.radioButtonInsertarPaciente.Text = "Paciente";
+            this.radioButtonInsertarPaciente.UseVisualStyleBackColor = true;
+            this.radioButtonInsertarPaciente.CheckedChanged += new System.EventHandler(this.radioButtonInsertarPaciente_CheckedChanged);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -486,6 +500,7 @@ namespace BD_CIBCM
         private Insertar panelInsertar;
         private RadioButton borrarEstudio;
         private RadioButton borrarInstrumentosClinicos;
+        private RadioButton radioButtonInsertarPaciente;
        // private Button guardarInstrumentosClinicos;
     }
 }
