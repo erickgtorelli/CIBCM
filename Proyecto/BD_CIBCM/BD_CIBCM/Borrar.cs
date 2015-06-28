@@ -14,7 +14,8 @@ namespace BD_CIBCM
     {
         Investigador,
         InstrumentosClinicos, 
-        Estudio
+        Estudio,
+        Paciente
     };
 
     public partial class Borrar : UserControl
@@ -34,7 +35,7 @@ namespace BD_CIBCM
             baseDatos.llenarComboBox(consultaCodigo, comboBoxBorrarCod, 1);
             baseDatos.llenarCheckedListBox(consultaNombreInst, borrarListaInstrumentos,1);
             baseDatos.llenarComboBox(consultaPacientes, comboBox1, 4);
-            this.mostrarControl(ControlBorrar.Investigador);
+            this.mostrarControl(ControlBorrar.InstrumentosClinicos);
         }
 
         public void mostrarControl(ControlBorrar c)
@@ -42,24 +43,28 @@ namespace BD_CIBCM
             switch (c)
             {
                 case ControlBorrar.Investigador:
-                    groupBoxBorrarEstudio.Hide();
                     panelBorrarInstrumentos.Hide();
+                    panelBorrarEstudio.Hide();
                     panelBorrarInvest.Show();
                     break;
                 case ControlBorrar.InstrumentosClinicos:
-                    groupBoxBorrarEstudio.Hide();
-                    buttonBorrarInstrumentos.Show();
+                    panelBorrarEstudio.Hide();
                     panelBorrarInvest.Hide();
-                    panelborrarInstPac.Hide();
                     panelBorrarNombreInst.Hide();
+
+                    panelborrarInstPac.Show();
                     panelBorrarInstrumentos.Show();
-                    
                     break; 
                 case ControlBorrar.Estudio:
-                    panelBorrarInstrumentos.Hide();
                     panelBorrarInvest.Hide();
-                    groupBoxBorrarEstudio.Show();
+                    panelBorrarInstrumentos.Hide();
+                    panelBorrarEstudio.Show();
                     break; 
+
+                case ControlBorrar.Paciente:
+          
+                    break;
+
             }
         }
 

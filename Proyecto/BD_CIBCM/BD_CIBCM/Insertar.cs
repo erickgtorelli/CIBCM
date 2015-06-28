@@ -48,53 +48,50 @@ namespace BD_CIBCM
             switch (c)
             {
                 case ControlInsertar.Diagnostico:
-                    groupBoxInstClinicos.Hide();
-                    groupBoxEstudio.Hide();
+                    panelInsertarEstudio.Hide();
                     panelInstrumentosClinicos.Hide();
                     panelInsertarInvestigador.Hide();
                     panelInsertarPaciente.Hide();
 
-                    panelParcialInsertar.Show();
+                    PanelInsertarDiagnostico.Show();
 
                     baseDatos.llenarComboBox(consultaInvestigadores, comboBoxInvestigador, 4);
                     baseDatos.llenarComboBox(consultaPacientes, comboBoxPacienteInsertarDiagnostico, 4);
                     break;
                 case ControlInsertar.Estudio:
-                    groupBoxInstClinicos.Hide();
-                    panelEstudioNuevo.Hide();
-                    panelParcialInsertar.Hide();
+                    PanelInsertarDiagnostico.Hide();
+                    panelInstrumentosClinicos.Hide();
                     panelInsertarInvestigador.Hide();
                     panelInsertarPaciente.Hide();
+                    panelEstudioNuevo.Hide();
 
-                    groupBoxEstudio.Show();
                     panelPacienteEstudio.Show();
+                    panelInsertarEstudio.Show();
                     break;
                 case ControlInsertar.Instrumento:
-                    panelParcialInsertar.Hide();
-                    groupBoxEstudio.Hide();
-                    comboBoxCedInst.Hide();
+                    PanelInsertarDiagnostico.Hide();
+                    panelInsertarEstudio.Hide();
                     panelInsertarInvestigador.Hide();
                     panelInsertarPaciente.Hide();
-
-                    groupBoxInstClinicos.Show();
+                    
                     panelInstrumentosClinicos.Show();
-                    guardarInstrumentosClinicos.Show();
-                    groupBoxInstClinicos.Show();
+
                  
                     break;
                 case ControlInsertar.Investigador:
-                    groupBoxInstClinicos.Hide();
-                    groupBoxEstudio.Hide();
-                    panelParcialInsertar.Hide();
+                    PanelInsertarDiagnostico.Hide();
+                    panelInsertarEstudio.Hide();
+                    panelInstrumentosClinicos.Hide();
                     panelInsertarPaciente.Hide();
 
                     panelInsertarInvestigador.Show();
                     break;
                 case ControlInsertar.Paciente:
-                    groupBoxInstClinicos.Hide();
-                    groupBoxEstudio.Hide();
-                    panelParcialInsertar.Hide();
+                    PanelInsertarDiagnostico.Hide();
+                    panelInsertarEstudio.Hide();
+                    panelInstrumentosClinicos.Hide();
                     panelInsertarInvestigador.Hide();
+
                     panelInsertarPaciente.Show();
                     break;
             }

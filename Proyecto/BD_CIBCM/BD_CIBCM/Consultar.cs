@@ -38,22 +38,25 @@ namespace BD_CIBCM
             {
                 case ControlConsultar.Instrumentos:
                     groupBoxDatosPaciente.Visible = false;
-                    groupBoxConsultaEstudio.Hide();
-                    groupBoxConsultaPaciente.Hide();
-                    groupBoxConsultaInstrumentosClinicos.Show();
+                    panelConsultaEstudio.Hide();
+                    panelconsultaPaciente.Hide();
+
+                    panelConsultaInstrumentos.Show();
                     this.iniciarConsultaInstrumentos();
                     break;
                 case ControlConsultar.Estudios:
                     groupBoxDatosPaciente.Visible = false;
-                    groupBoxConsultaPaciente.Hide();
-                    groupBoxConsultaInstrumentosClinicos.Hide();
-                    groupBoxConsultaEstudio.Show();
+                    panelconsultaPaciente.Hide();
+                    panelConsultaInstrumentos.Hide();
+
+                    panelConsultaEstudio.Show();
                     this.iniciarConsultaEstudios();
                     break;
                 case ControlConsultar.Pacientes:
-                    groupBoxConsultaInstrumentosClinicos.Hide();
-                    groupBoxConsultaEstudio.Hide();
-                    groupBoxConsultaPaciente.Show();
+                    panelConsultaInstrumentos.Hide();
+                    panelConsultaEstudio.Hide();
+
+                    panelconsultaPaciente.Show();
                     this.iniciarConsultaPacientes();
                     break;
             }

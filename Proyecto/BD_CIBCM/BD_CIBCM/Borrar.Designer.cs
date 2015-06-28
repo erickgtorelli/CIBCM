@@ -29,14 +29,24 @@
         private void InitializeComponent()
         {
             this.panelBorrarInvest = new System.Windows.Forms.Panel();
-            this.buttonBorrarInvest = new System.Windows.Forms.Button();
-            this.label17 = new System.Windows.Forms.Label();
+            this.groupBoxBorrarInvestigador = new System.Windows.Forms.GroupBox();
             this.comboBoxBorrarInvest = new System.Windows.Forms.ComboBox();
+            this.buttonBorrarInvest = new System.Windows.Forms.Button();
             this.panelBorrarInstrumentos = new System.Windows.Forms.Panel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.panelborrarInstPac = new System.Windows.Forms.Panel();
+            this.listaInstPorPaciente = new System.Windows.Forms.CheckedListBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.buttonBorrarInstrumentos = new System.Windows.Forms.Button();
-            this.borrarInst = new System.Windows.Forms.Label();
+            this.radioButtonBorrarPorPaciente = new System.Windows.Forms.RadioButton();
+            this.panelBorrarNombreInst = new System.Windows.Forms.Panel();
+            this.borrarNombreInst = new System.Windows.Forms.Button();
+            this.borrarListaInstrumentos = new System.Windows.Forms.CheckedListBox();
+            this.radioButtonBorrarPorNombre = new System.Windows.Forms.RadioButton();
             this.groupBoxBorrarEstudio = new System.Windows.Forms.GroupBox();
             this.panelBorrarEstPaciente = new System.Windows.Forms.Panel();
+            this.listaBorrarEstudioPaciente = new System.Windows.Forms.CheckedListBox();
             this.buttonBorrarEstudioPaciente = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBoxPacienteEstudio = new System.Windows.Forms.ComboBox();
@@ -46,40 +56,50 @@
             this.comboBoxBorrarCod = new System.Windows.Forms.ComboBox();
             this.borrarEstudioCodigo = new System.Windows.Forms.RadioButton();
             this.borrarEstudioPaciente = new System.Windows.Forms.RadioButton();
-            this.label2 = new System.Windows.Forms.Label();
-            this.radioButtonBorrarPorPaciente = new System.Windows.Forms.RadioButton();
-            this.radioButtonBorrarPorNombre = new System.Windows.Forms.RadioButton();
-            this.borrarListaInstrumentos = new System.Windows.Forms.CheckedListBox();
-            this.panelBorrarNombreInst = new System.Windows.Forms.Panel();
-            this.borrarNombreInst = new System.Windows.Forms.Button();
-            this.panelborrarInstPac = new System.Windows.Forms.Panel();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.listaInstPorPaciente = new System.Windows.Forms.CheckedListBox();
-            this.labelinvest = new System.Windows.Forms.Label();
-            this.listaBorrarEstudioPaciente = new System.Windows.Forms.CheckedListBox();
+            this.panelBorrarEstudio = new System.Windows.Forms.Panel();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.panelBorrarInvest.SuspendLayout();
+            this.groupBoxBorrarInvestigador.SuspendLayout();
             this.panelBorrarInstrumentos.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.panelborrarInstPac.SuspendLayout();
+            this.panelBorrarNombreInst.SuspendLayout();
             this.groupBoxBorrarEstudio.SuspendLayout();
             this.panelBorrarEstPaciente.SuspendLayout();
             this.panelBorrarCodEst.SuspendLayout();
-            this.panelBorrarNombreInst.SuspendLayout();
-            this.panelborrarInstPac.SuspendLayout();
+            this.panelBorrarEstudio.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelBorrarInvest
             // 
-            this.panelBorrarInvest.Controls.Add(this.labelinvest);
-            this.panelBorrarInvest.Controls.Add(this.buttonBorrarInvest);
-            this.panelBorrarInvest.Controls.Add(this.label17);
-            this.panelBorrarInvest.Controls.Add(this.comboBoxBorrarInvest);
-            this.panelBorrarInvest.Location = new System.Drawing.Point(41, 13);
+            this.panelBorrarInvest.Controls.Add(this.groupBoxBorrarInvestigador);
+            this.panelBorrarInvest.Location = new System.Drawing.Point(0, 0);
             this.panelBorrarInvest.Name = "panelBorrarInvest";
-            this.panelBorrarInvest.Size = new System.Drawing.Size(455, 383);
+            this.panelBorrarInvest.Size = new System.Drawing.Size(873, 600);
             this.panelBorrarInvest.TabIndex = 18;
+            // 
+            // groupBoxBorrarInvestigador
+            // 
+            this.groupBoxBorrarInvestigador.Controls.Add(this.comboBoxBorrarInvest);
+            this.groupBoxBorrarInvestigador.Controls.Add(this.buttonBorrarInvest);
+            this.groupBoxBorrarInvestigador.Location = new System.Drawing.Point(241, 0);
+            this.groupBoxBorrarInvestigador.Name = "groupBoxBorrarInvestigador";
+            this.groupBoxBorrarInvestigador.Size = new System.Drawing.Size(358, 179);
+            this.groupBoxBorrarInvestigador.TabIndex = 5;
+            this.groupBoxBorrarInvestigador.TabStop = false;
+            this.groupBoxBorrarInvestigador.Text = "Borrar investigador";
+            // 
+            // comboBoxBorrarInvest
+            // 
+            this.comboBoxBorrarInvest.FormattingEnabled = true;
+            this.comboBoxBorrarInvest.Location = new System.Drawing.Point(69, 60);
+            this.comboBoxBorrarInvest.Name = "comboBoxBorrarInvest";
+            this.comboBoxBorrarInvest.Size = new System.Drawing.Size(228, 21);
+            this.comboBoxBorrarInvest.TabIndex = 0;
             // 
             // buttonBorrarInvest
             // 
-            this.buttonBorrarInvest.Location = new System.Drawing.Point(233, 90);
+            this.buttonBorrarInvest.Location = new System.Drawing.Point(137, 92);
             this.buttonBorrarInvest.Name = "buttonBorrarInvest";
             this.buttonBorrarInvest.Size = new System.Drawing.Size(75, 23);
             this.buttonBorrarInvest.TabIndex = 2;
@@ -87,33 +107,64 @@
             this.buttonBorrarInvest.UseVisualStyleBackColor = true;
             this.buttonBorrarInvest.Click += new System.EventHandler(this.buttonBorrarInvest_Click);
             // 
-            // label17
-            // 
-            this.label17.Location = new System.Drawing.Point(0, 0);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(100, 23);
-            this.label17.TabIndex = 3;
-            // 
-            // comboBoxBorrarInvest
-            // 
-            this.comboBoxBorrarInvest.FormattingEnabled = true;
-            this.comboBoxBorrarInvest.Location = new System.Drawing.Point(165, 58);
-            this.comboBoxBorrarInvest.Name = "comboBoxBorrarInvest";
-            this.comboBoxBorrarInvest.Size = new System.Drawing.Size(228, 21);
-            this.comboBoxBorrarInvest.TabIndex = 0;
-            // 
             // panelBorrarInstrumentos
             // 
-            this.panelBorrarInstrumentos.Controls.Add(this.panelborrarInstPac);
-            this.panelBorrarInstrumentos.Controls.Add(this.panelBorrarNombreInst);
-            this.panelBorrarInstrumentos.Controls.Add(this.radioButtonBorrarPorNombre);
-            this.panelBorrarInstrumentos.Controls.Add(this.radioButtonBorrarPorPaciente);
-            this.panelBorrarInstrumentos.Controls.Add(this.label2);
-            this.panelBorrarInstrumentos.Controls.Add(this.borrarInst);
-            this.panelBorrarInstrumentos.Location = new System.Drawing.Point(20, 50);
+            this.panelBorrarInstrumentos.Controls.Add(this.groupBox1);
+            this.panelBorrarInstrumentos.Location = new System.Drawing.Point(0, 0);
             this.panelBorrarInstrumentos.Name = "panelBorrarInstrumentos";
-            this.panelBorrarInstrumentos.Size = new System.Drawing.Size(527, 296);
+            this.panelBorrarInstrumentos.Size = new System.Drawing.Size(873, 600);
             this.panelBorrarInstrumentos.TabIndex = 19;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.panelborrarInstPac);
+            this.groupBox1.Controls.Add(this.radioButtonBorrarPorPaciente);
+            this.groupBox1.Controls.Add(this.panelBorrarNombreInst);
+            this.groupBox1.Controls.Add(this.radioButtonBorrarPorNombre);
+            this.groupBox1.Location = new System.Drawing.Point(122, 0);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(527, 287);
+            this.groupBox1.TabIndex = 9;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Borrar Instrumentos clinicos";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(71, 32);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(38, 13);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Borrar:";
+            // 
+            // panelborrarInstPac
+            // 
+            this.panelborrarInstPac.Controls.Add(this.listaInstPorPaciente);
+            this.panelborrarInstPac.Controls.Add(this.comboBox1);
+            this.panelborrarInstPac.Controls.Add(this.buttonBorrarInstrumentos);
+            this.panelborrarInstPac.Location = new System.Drawing.Point(43, 94);
+            this.panelborrarInstPac.Name = "panelborrarInstPac";
+            this.panelborrarInstPac.Size = new System.Drawing.Size(434, 166);
+            this.panelborrarInstPac.TabIndex = 8;
+            // 
+            // listaInstPorPaciente
+            // 
+            this.listaInstPorPaciente.FormattingEnabled = true;
+            this.listaInstPorPaciente.Location = new System.Drawing.Point(108, 34);
+            this.listaInstPorPaciente.Name = "listaInstPorPaciente";
+            this.listaInstPorPaciente.Size = new System.Drawing.Size(227, 34);
+            this.listaInstPorPaciente.TabIndex = 4;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(87, 4);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(257, 21);
+            this.comboBox1.TabIndex = 3;
+            this.comboBox1.Text = "Seleccione Datos del Paciente";
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // buttonBorrarInstrumentos
             // 
@@ -125,14 +176,56 @@
             this.buttonBorrarInstrumentos.UseVisualStyleBackColor = true;
             this.buttonBorrarInstrumentos.Click += new System.EventHandler(this.buttonBorrarInstrumentos_Click);
             // 
-            // borrarInst
+            // radioButtonBorrarPorPaciente
             // 
-            this.borrarInst.AutoSize = true;
-            this.borrarInst.Location = new System.Drawing.Point(48, 8);
-            this.borrarInst.Name = "borrarInst";
-            this.borrarInst.Size = new System.Drawing.Size(108, 13);
-            this.borrarInst.TabIndex = 1;
-            this.borrarInst.Text = "Instrumentos Clínicos";
+            this.radioButtonBorrarPorPaciente.AutoSize = true;
+            this.radioButtonBorrarPorPaciente.Checked = true;
+            this.radioButtonBorrarPorPaciente.Location = new System.Drawing.Point(55, 62);
+            this.radioButtonBorrarPorPaciente.Name = "radioButtonBorrarPorPaciente";
+            this.radioButtonBorrarPorPaciente.Size = new System.Drawing.Size(186, 17);
+            this.radioButtonBorrarPorPaciente.TabIndex = 4;
+            this.radioButtonBorrarPorPaciente.TabStop = true;
+            this.radioButtonBorrarPorPaciente.Text = "Instrumentos Clínicos de Paciente";
+            this.radioButtonBorrarPorPaciente.UseVisualStyleBackColor = true;
+            this.radioButtonBorrarPorPaciente.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            // 
+            // panelBorrarNombreInst
+            // 
+            this.panelBorrarNombreInst.Controls.Add(this.borrarNombreInst);
+            this.panelBorrarNombreInst.Controls.Add(this.borrarListaInstrumentos);
+            this.panelBorrarNombreInst.Location = new System.Drawing.Point(75, 93);
+            this.panelBorrarNombreInst.Name = "panelBorrarNombreInst";
+            this.panelBorrarNombreInst.Size = new System.Drawing.Size(344, 106);
+            this.panelBorrarNombreInst.TabIndex = 7;
+            // 
+            // borrarNombreInst
+            // 
+            this.borrarNombreInst.Location = new System.Drawing.Point(249, 69);
+            this.borrarNombreInst.Name = "borrarNombreInst";
+            this.borrarNombreInst.Size = new System.Drawing.Size(72, 25);
+            this.borrarNombreInst.TabIndex = 7;
+            this.borrarNombreInst.Text = "Borrar";
+            this.borrarNombreInst.UseVisualStyleBackColor = true;
+            this.borrarNombreInst.Click += new System.EventHandler(this.borrarNombreInst_Click);
+            // 
+            // borrarListaInstrumentos
+            // 
+            this.borrarListaInstrumentos.FormattingEnabled = true;
+            this.borrarListaInstrumentos.Location = new System.Drawing.Point(18, 1);
+            this.borrarListaInstrumentos.Name = "borrarListaInstrumentos";
+            this.borrarListaInstrumentos.Size = new System.Drawing.Size(325, 49);
+            this.borrarListaInstrumentos.TabIndex = 6;
+            // 
+            // radioButtonBorrarPorNombre
+            // 
+            this.radioButtonBorrarPorNombre.AutoSize = true;
+            this.radioButtonBorrarPorNombre.Location = new System.Drawing.Point(247, 62);
+            this.radioButtonBorrarPorNombre.Name = "radioButtonBorrarPorNombre";
+            this.radioButtonBorrarPorNombre.Size = new System.Drawing.Size(196, 17);
+            this.radioButtonBorrarPorNombre.TabIndex = 5;
+            this.radioButtonBorrarPorNombre.Text = "Instrumentos Clínicos por su nombre";
+            this.radioButtonBorrarPorNombre.UseVisualStyleBackColor = true;
+            this.radioButtonBorrarPorNombre.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
             // 
             // groupBoxBorrarEstudio
             // 
@@ -140,9 +233,9 @@
             this.groupBoxBorrarEstudio.Controls.Add(this.panelBorrarCodEst);
             this.groupBoxBorrarEstudio.Controls.Add(this.borrarEstudioCodigo);
             this.groupBoxBorrarEstudio.Controls.Add(this.borrarEstudioPaciente);
-            this.groupBoxBorrarEstudio.Location = new System.Drawing.Point(33, 39);
+            this.groupBoxBorrarEstudio.Location = new System.Drawing.Point(165, 0);
             this.groupBoxBorrarEstudio.Name = "groupBoxBorrarEstudio";
-            this.groupBoxBorrarEstudio.Size = new System.Drawing.Size(481, 277);
+            this.groupBoxBorrarEstudio.Size = new System.Drawing.Size(470, 277);
             this.groupBoxBorrarEstudio.TabIndex = 3;
             this.groupBoxBorrarEstudio.TabStop = false;
             this.groupBoxBorrarEstudio.Text = "Borrar Estudio ";
@@ -157,6 +250,14 @@
             this.panelBorrarEstPaciente.Name = "panelBorrarEstPaciente";
             this.panelBorrarEstPaciente.Size = new System.Drawing.Size(403, 188);
             this.panelBorrarEstPaciente.TabIndex = 3;
+            // 
+            // listaBorrarEstudioPaciente
+            // 
+            this.listaBorrarEstudioPaciente.FormattingEnabled = true;
+            this.listaBorrarEstudioPaciente.Location = new System.Drawing.Point(68, 63);
+            this.listaBorrarEstudioPaciente.Name = "listaBorrarEstudioPaciente";
+            this.listaBorrarEstudioPaciente.Size = new System.Drawing.Size(281, 49);
+            this.listaBorrarEstudioPaciente.TabIndex = 4;
             // 
             // buttonBorrarEstudioPaciente
             // 
@@ -249,132 +350,37 @@
             this.borrarEstudioPaciente.UseVisualStyleBackColor = true;
             this.borrarEstudioPaciente.CheckedChanged += new System.EventHandler(this.borrarEstudioPaciente_CheckedChanged);
             // 
-            // label2
+            // panelBorrarEstudio
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(67, 44);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(38, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Borrar:";
-            // 
-            // radioButtonBorrarPorPaciente
-            // 
-            this.radioButtonBorrarPorPaciente.AutoSize = true;
-            this.radioButtonBorrarPorPaciente.Location = new System.Drawing.Point(24, 75);
-            this.radioButtonBorrarPorPaciente.Name = "radioButtonBorrarPorPaciente";
-            this.radioButtonBorrarPorPaciente.Size = new System.Drawing.Size(186, 17);
-            this.radioButtonBorrarPorPaciente.TabIndex = 4;
-            this.radioButtonBorrarPorPaciente.TabStop = true;
-            this.radioButtonBorrarPorPaciente.Text = "Instrumentos Clínicos de Paciente";
-            this.radioButtonBorrarPorPaciente.UseVisualStyleBackColor = true;
-            this.radioButtonBorrarPorPaciente.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
-            // 
-            // radioButtonBorrarPorNombre
-            // 
-            this.radioButtonBorrarPorNombre.AutoSize = true;
-            this.radioButtonBorrarPorNombre.Location = new System.Drawing.Point(254, 75);
-            this.radioButtonBorrarPorNombre.Name = "radioButtonBorrarPorNombre";
-            this.radioButtonBorrarPorNombre.Size = new System.Drawing.Size(196, 17);
-            this.radioButtonBorrarPorNombre.TabIndex = 5;
-            this.radioButtonBorrarPorNombre.TabStop = true;
-            this.radioButtonBorrarPorNombre.Text = "Instrumentos Clínicos por su nombre";
-            this.radioButtonBorrarPorNombre.UseVisualStyleBackColor = true;
-            this.radioButtonBorrarPorNombre.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
-            // 
-            // borrarListaInstrumentos
-            // 
-            this.borrarListaInstrumentos.FormattingEnabled = true;
-            this.borrarListaInstrumentos.Location = new System.Drawing.Point(18, 1);
-            this.borrarListaInstrumentos.Name = "borrarListaInstrumentos";
-            this.borrarListaInstrumentos.Size = new System.Drawing.Size(325, 49);
-            this.borrarListaInstrumentos.TabIndex = 6;
-            // 
-            // panelBorrarNombreInst
-            // 
-            this.panelBorrarNombreInst.Controls.Add(this.borrarNombreInst);
-            this.panelBorrarNombreInst.Controls.Add(this.borrarListaInstrumentos);
-            this.panelBorrarNombreInst.Location = new System.Drawing.Point(71, 105);
-            this.panelBorrarNombreInst.Name = "panelBorrarNombreInst";
-            this.panelBorrarNombreInst.Size = new System.Drawing.Size(344, 106);
-            this.panelBorrarNombreInst.TabIndex = 7;
-            // 
-            // borrarNombreInst
-            // 
-            this.borrarNombreInst.Location = new System.Drawing.Point(249, 69);
-            this.borrarNombreInst.Name = "borrarNombreInst";
-            this.borrarNombreInst.Size = new System.Drawing.Size(72, 25);
-            this.borrarNombreInst.TabIndex = 7;
-            this.borrarNombreInst.Text = "Borrar";
-            this.borrarNombreInst.UseVisualStyleBackColor = true;
-            this.borrarNombreInst.Click += new System.EventHandler(this.borrarNombreInst_Click);
-            // 
-            // panelborrarInstPac
-            // 
-            this.panelborrarInstPac.Controls.Add(this.listaInstPorPaciente);
-            this.panelborrarInstPac.Controls.Add(this.comboBox1);
-            this.panelborrarInstPac.Controls.Add(this.buttonBorrarInstrumentos);
-            this.panelborrarInstPac.Location = new System.Drawing.Point(26, 114);
-            this.panelborrarInstPac.Name = "panelborrarInstPac";
-            this.panelborrarInstPac.Size = new System.Drawing.Size(434, 166);
-            this.panelborrarInstPac.TabIndex = 8;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(87, 4);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(257, 21);
-            this.comboBox1.TabIndex = 3;
-            this.comboBox1.Text = "Seleccione Datos del Paciente";
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            // 
-            // listaInstPorPaciente
-            // 
-            this.listaInstPorPaciente.FormattingEnabled = true;
-            this.listaInstPorPaciente.Location = new System.Drawing.Point(108, 34);
-            this.listaInstPorPaciente.Name = "listaInstPorPaciente";
-            this.listaInstPorPaciente.Size = new System.Drawing.Size(227, 34);
-            this.listaInstPorPaciente.TabIndex = 4;
-            // 
-            // labelinvest
-            // 
-            this.labelinvest.AutoSize = true;
-            this.labelinvest.Location = new System.Drawing.Point(150, 26);
-            this.labelinvest.Name = "labelinvest";
-            this.labelinvest.Size = new System.Drawing.Size(65, 13);
-            this.labelinvest.TabIndex = 4;
-            this.labelinvest.Text = "Investigador";
-            // 
-            // listaBorrarEstudioPaciente
-            // 
-            this.listaBorrarEstudioPaciente.FormattingEnabled = true;
-            this.listaBorrarEstudioPaciente.Location = new System.Drawing.Point(68, 63);
-            this.listaBorrarEstudioPaciente.Name = "listaBorrarEstudioPaciente";
-            this.listaBorrarEstudioPaciente.Size = new System.Drawing.Size(281, 49);
-            this.listaBorrarEstudioPaciente.TabIndex = 4;
+            this.panelBorrarEstudio.Controls.Add(this.groupBoxBorrarEstudio);
+            this.panelBorrarEstudio.Location = new System.Drawing.Point(0, 0);
+            this.panelBorrarEstudio.Name = "panelBorrarEstudio";
+            this.panelBorrarEstudio.Size = new System.Drawing.Size(873, 600);
+            this.panelBorrarEstudio.TabIndex = 19;
             // 
             // Borrar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.groupBoxBorrarEstudio);
-            this.Controls.Add(this.panelBorrarInstrumentos);
+            this.Controls.Add(this.panelBorrarEstudio);
             this.Controls.Add(this.panelBorrarInvest);
+            this.Controls.Add(this.panelBorrarInstrumentos);
             this.Name = "Borrar";
-            this.Size = new System.Drawing.Size(661, 423);
+            this.Size = new System.Drawing.Size(873, 600);
             this.panelBorrarInvest.ResumeLayout(false);
-            this.panelBorrarInvest.PerformLayout();
+            this.groupBoxBorrarInvestigador.ResumeLayout(false);
             this.panelBorrarInstrumentos.ResumeLayout(false);
-            this.panelBorrarInstrumentos.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.panelborrarInstPac.ResumeLayout(false);
+            this.panelBorrarNombreInst.ResumeLayout(false);
             this.groupBoxBorrarEstudio.ResumeLayout(false);
             this.groupBoxBorrarEstudio.PerformLayout();
             this.panelBorrarEstPaciente.ResumeLayout(false);
             this.panelBorrarEstPaciente.PerformLayout();
             this.panelBorrarCodEst.ResumeLayout(false);
             this.panelBorrarCodEst.PerformLayout();
-            this.panelBorrarNombreInst.ResumeLayout(false);
-            this.panelborrarInstPac.ResumeLayout(false);
+            this.panelBorrarEstudio.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -383,10 +389,8 @@
 
         private System.Windows.Forms.Panel panelBorrarInvest;
         private System.Windows.Forms.Button buttonBorrarInvest;
-        private System.Windows.Forms.Label label17;
         private System.Windows.Forms.ComboBox comboBoxBorrarInvest;
         private System.Windows.Forms.Panel panelBorrarInstrumentos;
-        private System.Windows.Forms.Label borrarInst;
         private System.Windows.Forms.Button buttonBorrarInstrumentos;
         private System.Windows.Forms.GroupBox groupBoxBorrarEstudio;
         private System.Windows.Forms.Panel panelBorrarEstPaciente;
@@ -408,8 +412,11 @@
         private System.Windows.Forms.Panel panelborrarInstPac;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.CheckedListBox listaInstPorPaciente;
-        private System.Windows.Forms.Label labelinvest;
         private System.Windows.Forms.CheckedListBox listaBorrarEstudioPaciente;
+        private System.Windows.Forms.Panel panelBorrarEstudio;
+        private System.Windows.Forms.GroupBox groupBoxBorrarInvestigador;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
 
     }
 }

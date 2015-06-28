@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelInstrumentosClinicos = new System.Windows.Forms.Panel();
             this.groupBoxInstClinicos = new System.Windows.Forms.GroupBox();
             this.guardarInstrumentosClinicos = new System.Windows.Forms.Button();
@@ -87,21 +87,6 @@
             this.codEst = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.PanelInsertarDiagnostico = new System.Windows.Forms.Panel();
-            this.panelInsertarInvestigador = new System.Windows.Forms.Panel();
-            this.buttonInsertarInvestigador = new System.Windows.Forms.Button();
-            this.dateTimePickerFechaNacInvest = new System.Windows.Forms.DateTimePicker();
-            this.radioButtonFInv = new System.Windows.Forms.RadioButton();
-            this.radioButtonMInv = new System.Windows.Forms.RadioButton();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.textBoxInsertAp2Invest = new System.Windows.Forms.TextBox();
-            this.textBoxInsertAp1Invest = new System.Windows.Forms.TextBox();
-            this.textBoxInsertNombInvest = new System.Windows.Forms.TextBox();
-            this.textBoxInsertarinvestCedula = new System.Windows.Forms.TextBox();
             this.panelInsertarPaciente = new System.Windows.Forms.Panel();
             this.groupBoxInsertarPaciente = new System.Windows.Forms.GroupBox();
             this.buttonInsertarPac = new System.Windows.Forms.Button();
@@ -118,6 +103,23 @@
             this.textBoxAp1Pac = new System.Windows.Forms.TextBox();
             this.textBoxNomPac = new System.Windows.Forms.TextBox();
             this.textBoxCedPac = new System.Windows.Forms.TextBox();
+            this.panelInsertarInvestigador = new System.Windows.Forms.Panel();
+            this.buttonInsertarInvestigador = new System.Windows.Forms.Button();
+            this.dateTimePickerFechaNacInvest = new System.Windows.Forms.DateTimePicker();
+            this.radioButtonFInv = new System.Windows.Forms.RadioButton();
+            this.radioButtonMInv = new System.Windows.Forms.RadioButton();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.textBoxInsertAp2Invest = new System.Windows.Forms.TextBox();
+            this.textBoxInsertAp1Invest = new System.Windows.Forms.TextBox();
+            this.textBoxInsertNombInvest = new System.Windows.Forms.TextBox();
+            this.textBoxInsertarinvestCedula = new System.Windows.Forms.TextBox();
+            this.panelInsertarEstudio = new System.Windows.Forms.Panel();
+            this.groupBoxInsertarInv = new System.Windows.Forms.GroupBox();
             this.panelInstrumentosClinicos.SuspendLayout();
             this.groupBoxInstClinicos.SuspendLayout();
             this.panelParcialInsertar.SuspendLayout();
@@ -130,17 +132,19 @@
             this.panelPacienteEstudio.SuspendLayout();
             this.panelEstudioNuevo.SuspendLayout();
             this.PanelInsertarDiagnostico.SuspendLayout();
-            this.panelInsertarInvestigador.SuspendLayout();
             this.panelInsertarPaciente.SuspendLayout();
             this.groupBoxInsertarPaciente.SuspendLayout();
+            this.panelInsertarInvestigador.SuspendLayout();
+            this.panelInsertarEstudio.SuspendLayout();
+            this.groupBoxInsertarInv.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelInstrumentosClinicos
             // 
             this.panelInstrumentosClinicos.Controls.Add(this.groupBoxInstClinicos);
-            this.panelInstrumentosClinicos.Location = new System.Drawing.Point(9, 47);
+            this.panelInstrumentosClinicos.Location = new System.Drawing.Point(0, 0);
             this.panelInstrumentosClinicos.Name = "panelInstrumentosClinicos";
-            this.panelInstrumentosClinicos.Size = new System.Drawing.Size(781, 514);
+            this.panelInstrumentosClinicos.Size = new System.Drawing.Size(873, 600);
             this.panelInstrumentosClinicos.TabIndex = 6;
             this.panelInstrumentosClinicos.Paint += new System.Windows.Forms.PaintEventHandler(this.panelInstrumentosClinicos_Paint);
             // 
@@ -152,7 +156,7 @@
             this.groupBoxInstClinicos.Controls.Add(this.textBoxInstrumentos);
             this.groupBoxInstClinicos.Controls.Add(this.label16);
             this.groupBoxInstClinicos.Controls.Add(this.buttonInstClinicPaciente);
-            this.groupBoxInstClinicos.Location = new System.Drawing.Point(77, 54);
+            this.groupBoxInstClinicos.Location = new System.Drawing.Point(106, 0);
             this.groupBoxInstClinicos.Name = "groupBoxInstClinicos";
             this.groupBoxInstClinicos.Size = new System.Drawing.Size(448, 391);
             this.groupBoxInstClinicos.TabIndex = 13;
@@ -238,9 +242,9 @@
             this.panelParcialInsertar.Controls.Add(this.dateTimePicker1);
             this.panelParcialInsertar.Controls.Add(this.LabelNumDiagnostico);
             this.panelParcialInsertar.Controls.Add(this.textBoxNumDiagostico);
-            this.panelParcialInsertar.Location = new System.Drawing.Point(49, 24);
+            this.panelParcialInsertar.Location = new System.Drawing.Point(13, 13);
             this.panelParcialInsertar.Name = "panelParcialInsertar";
-            this.panelParcialInsertar.Size = new System.Drawing.Size(802, 549);
+            this.panelParcialInsertar.Size = new System.Drawing.Size(913, 1131);
             this.panelParcialInsertar.TabIndex = 2;
             // 
             // guardardiagnostico
@@ -281,25 +285,25 @@
             // dataGridViewSintomas
             // 
             this.dataGridViewSintomas.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewSintomas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewSintomas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewSintomas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewSintomas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Sintoma});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewSintomas.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewSintomas.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewSintomas.Location = new System.Drawing.Point(1, 363);
             this.dataGridViewSintomas.Name = "dataGridViewSintomas";
             this.dataGridViewSintomas.ReadOnly = true;
@@ -484,9 +488,9 @@
             this.groupBoxEstudio.Controls.Add(this.EstudioNuevo);
             this.groupBoxEstudio.Controls.Add(this.radioButtonInsertPacEstudio);
             this.groupBoxEstudio.Controls.Add(this.panelEstudioNuevo);
-            this.groupBoxEstudio.Location = new System.Drawing.Point(9, 95);
+            this.groupBoxEstudio.Location = new System.Drawing.Point(154, 0);
             this.groupBoxEstudio.Name = "groupBoxEstudio";
-            this.groupBoxEstudio.Size = new System.Drawing.Size(789, 466);
+            this.groupBoxEstudio.Size = new System.Drawing.Size(563, 353);
             this.groupBoxEstudio.TabIndex = 4;
             this.groupBoxEstudio.TabStop = false;
             this.groupBoxEstudio.Text = "Estudio ";
@@ -583,6 +587,7 @@
             // radioButtonInsertPacEstudio
             // 
             this.radioButtonInsertPacEstudio.AutoSize = true;
+            this.radioButtonInsertPacEstudio.Checked = true;
             this.radioButtonInsertPacEstudio.Location = new System.Drawing.Point(164, 31);
             this.radioButtonInsertPacEstudio.Name = "radioButtonInsertPacEstudio";
             this.radioButtonInsertPacEstudio.Size = new System.Drawing.Size(67, 17);
@@ -604,7 +609,7 @@
             this.panelEstudioNuevo.Controls.Add(this.buttonGuardarEstudio);
             this.panelEstudioNuevo.Controls.Add(this.dateTimePicker2);
             this.panelEstudioNuevo.Controls.Add(this.codEst);
-            this.panelEstudioNuevo.Location = new System.Drawing.Point(57, 56);
+            this.panelEstudioNuevo.Location = new System.Drawing.Point(56, 60);
             this.panelEstudioNuevo.Name = "panelEstudioNuevo";
             this.panelEstudioNuevo.Size = new System.Drawing.Size(468, 271);
             this.panelEstudioNuevo.TabIndex = 15;
@@ -708,168 +713,21 @@
             // PanelInsertarDiagnostico
             // 
             this.PanelInsertarDiagnostico.AutoSize = global::BD_CIBCM.Properties.Settings.Default.AutoSize;
-            this.PanelInsertarDiagnostico.Controls.Add(this.panelInsertarPaciente);
-            this.PanelInsertarDiagnostico.Controls.Add(this.groupBoxEstudio);
             this.PanelInsertarDiagnostico.Controls.Add(this.panelParcialInsertar);
-            this.PanelInsertarDiagnostico.Controls.Add(this.panelInstrumentosClinicos);
-            this.PanelInsertarDiagnostico.Controls.Add(this.panelInsertarInvestigador);
             this.PanelInsertarDiagnostico.DataBindings.Add(new System.Windows.Forms.Binding("AutoSize", global::BD_CIBCM.Properties.Settings.Default, "AutoSize", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.PanelInsertarDiagnostico.Location = new System.Drawing.Point(-6, 3);
+            this.PanelInsertarDiagnostico.Location = new System.Drawing.Point(0, 0);
             this.PanelInsertarDiagnostico.Name = "PanelInsertarDiagnostico";
-            this.PanelInsertarDiagnostico.Size = new System.Drawing.Size(949, 576);
+            this.PanelInsertarDiagnostico.Size = new System.Drawing.Size(1257, 1206);
             this.PanelInsertarDiagnostico.TabIndex = 7;
             this.PanelInsertarDiagnostico.Visible = false;
             this.PanelInsertarDiagnostico.Paint += new System.Windows.Forms.PaintEventHandler(this.PanelInsertarDiagnostico_Paint);
             // 
-            // panelInsertarInvestigador
-            // 
-            this.panelInsertarInvestigador.Controls.Add(this.buttonInsertarInvestigador);
-            this.panelInsertarInvestigador.Controls.Add(this.dateTimePickerFechaNacInvest);
-            this.panelInsertarInvestigador.Controls.Add(this.radioButtonFInv);
-            this.panelInsertarInvestigador.Controls.Add(this.radioButtonMInv);
-            this.panelInsertarInvestigador.Controls.Add(this.label15);
-            this.panelInsertarInvestigador.Controls.Add(this.label14);
-            this.panelInsertarInvestigador.Controls.Add(this.label13);
-            this.panelInsertarInvestigador.Controls.Add(this.label12);
-            this.panelInsertarInvestigador.Controls.Add(this.label11);
-            this.panelInsertarInvestigador.Controls.Add(this.label10);
-            this.panelInsertarInvestigador.Controls.Add(this.textBoxInsertAp2Invest);
-            this.panelInsertarInvestigador.Controls.Add(this.textBoxInsertAp1Invest);
-            this.panelInsertarInvestigador.Controls.Add(this.textBoxInsertNombInvest);
-            this.panelInsertarInvestigador.Controls.Add(this.textBoxInsertarinvestCedula);
-            this.panelInsertarInvestigador.Location = new System.Drawing.Point(38, 36);
-            this.panelInsertarInvestigador.Name = "panelInsertarInvestigador";
-            this.panelInsertarInvestigador.Size = new System.Drawing.Size(424, 391);
-            this.panelInsertarInvestigador.TabIndex = 7;
-            // 
-            // buttonInsertarInvestigador
-            // 
-            this.buttonInsertarInvestigador.Location = new System.Drawing.Point(232, 307);
-            this.buttonInsertarInvestigador.Name = "buttonInsertarInvestigador";
-            this.buttonInsertarInvestigador.Size = new System.Drawing.Size(101, 21);
-            this.buttonInsertarInvestigador.TabIndex = 13;
-            this.buttonInsertarInvestigador.Text = "Insertar";
-            this.buttonInsertarInvestigador.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.buttonInsertarInvestigador.UseVisualStyleBackColor = true;
-            this.buttonInsertarInvestigador.Click += new System.EventHandler(this.buttonInsertarInvestigador_Click);
-            // 
-            // dateTimePickerFechaNacInvest
-            // 
-            this.dateTimePickerFechaNacInvest.Location = new System.Drawing.Point(203, 268);
-            this.dateTimePickerFechaNacInvest.Name = "dateTimePickerFechaNacInvest";
-            this.dateTimePickerFechaNacInvest.Size = new System.Drawing.Size(165, 20);
-            this.dateTimePickerFechaNacInvest.TabIndex = 12;
-            // 
-            // radioButtonFInv
-            // 
-            this.radioButtonFInv.AutoSize = true;
-            this.radioButtonFInv.Location = new System.Drawing.Point(262, 235);
-            this.radioButtonFInv.Name = "radioButtonFInv";
-            this.radioButtonFInv.Size = new System.Drawing.Size(31, 17);
-            this.radioButtonFInv.TabIndex = 11;
-            this.radioButtonFInv.TabStop = true;
-            this.radioButtonFInv.Text = "F";
-            this.radioButtonFInv.UseVisualStyleBackColor = true;
-            // 
-            // radioButtonMInv
-            // 
-            this.radioButtonMInv.AutoSize = true;
-            this.radioButtonMInv.Location = new System.Drawing.Point(222, 235);
-            this.radioButtonMInv.Name = "radioButtonMInv";
-            this.radioButtonMInv.Size = new System.Drawing.Size(34, 17);
-            this.radioButtonMInv.TabIndex = 10;
-            this.radioButtonMInv.TabStop = true;
-            this.radioButtonMInv.Text = "M";
-            this.radioButtonMInv.UseVisualStyleBackColor = true;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(85, 270);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(108, 13);
-            this.label15.TabIndex = 9;
-            this.label15.Text = "Fecha de Nacimiento";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(120, 234);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(31, 13);
-            this.label14.TabIndex = 8;
-            this.label14.Text = "Sexo";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(85, 200);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(90, 13);
-            this.label13.TabIndex = 7;
-            this.label13.Text = "Segundo Apellido";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(99, 167);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(76, 13);
-            this.label12.TabIndex = 6;
-            this.label12.Text = "Primer Apellido";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(121, 132);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(44, 13);
-            this.label11.TabIndex = 5;
-            this.label11.Text = "Nombre";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(121, 96);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(40, 13);
-            this.label10.TabIndex = 4;
-            this.label10.Text = "Cédula";
-            // 
-            // textBoxInsertAp2Invest
-            // 
-            this.textBoxInsertAp2Invest.Location = new System.Drawing.Point(203, 197);
-            this.textBoxInsertAp2Invest.Name = "textBoxInsertAp2Invest";
-            this.textBoxInsertAp2Invest.Size = new System.Drawing.Size(166, 20);
-            this.textBoxInsertAp2Invest.TabIndex = 3;
-            // 
-            // textBoxInsertAp1Invest
-            // 
-            this.textBoxInsertAp1Invest.Location = new System.Drawing.Point(203, 164);
-            this.textBoxInsertAp1Invest.Name = "textBoxInsertAp1Invest";
-            this.textBoxInsertAp1Invest.Size = new System.Drawing.Size(166, 20);
-            this.textBoxInsertAp1Invest.TabIndex = 2;
-            // 
-            // textBoxInsertNombInvest
-            // 
-            this.textBoxInsertNombInvest.Location = new System.Drawing.Point(203, 130);
-            this.textBoxInsertNombInvest.Name = "textBoxInsertNombInvest";
-            this.textBoxInsertNombInvest.Size = new System.Drawing.Size(166, 20);
-            this.textBoxInsertNombInvest.TabIndex = 1;
-            // 
-            // textBoxInsertarinvestCedula
-            // 
-            this.textBoxInsertarinvestCedula.Location = new System.Drawing.Point(203, 93);
-            this.textBoxInsertarinvestCedula.Name = "textBoxInsertarinvestCedula";
-            this.textBoxInsertarinvestCedula.Size = new System.Drawing.Size(166, 20);
-            this.textBoxInsertarinvestCedula.TabIndex = 0;
-            // 
             // panelInsertarPaciente
             // 
             this.panelInsertarPaciente.Controls.Add(this.groupBoxInsertarPaciente);
-            this.panelInsertarPaciente.Location = new System.Drawing.Point(35, 36);
+            this.panelInsertarPaciente.Location = new System.Drawing.Point(0, 0);
             this.panelInsertarPaciente.Name = "panelInsertarPaciente";
-            this.panelInsertarPaciente.Size = new System.Drawing.Size(592, 391);
+            this.panelInsertarPaciente.Size = new System.Drawing.Size(873, 600);
             this.panelInsertarPaciente.TabIndex = 14;
             // 
             // groupBoxInsertarPaciente
@@ -888,7 +746,7 @@
             this.groupBoxInsertarPaciente.Controls.Add(this.textBoxAp1Pac);
             this.groupBoxInsertarPaciente.Controls.Add(this.textBoxNomPac);
             this.groupBoxInsertarPaciente.Controls.Add(this.textBoxCedPac);
-            this.groupBoxInsertarPaciente.Location = new System.Drawing.Point(60, 50);
+            this.groupBoxInsertarPaciente.Location = new System.Drawing.Point(148, 0);
             this.groupBoxInsertarPaciente.Name = "groupBoxInsertarPaciente";
             this.groupBoxInsertarPaciente.Size = new System.Drawing.Size(491, 278);
             this.groupBoxInsertarPaciente.TabIndex = 0;
@@ -1017,13 +875,178 @@
             this.textBoxCedPac.Size = new System.Drawing.Size(166, 20);
             this.textBoxCedPac.TabIndex = 14;
             // 
+            // panelInsertarInvestigador
+            // 
+            this.panelInsertarInvestigador.Controls.Add(this.groupBoxInsertarInv);
+            this.panelInsertarInvestigador.Location = new System.Drawing.Point(0, 0);
+            this.panelInsertarInvestigador.Name = "panelInsertarInvestigador";
+            this.panelInsertarInvestigador.Size = new System.Drawing.Size(873, 600);
+            this.panelInsertarInvestigador.TabIndex = 7;
+            // 
+            // buttonInsertarInvestigador
+            // 
+            this.buttonInsertarInvestigador.Location = new System.Drawing.Point(197, 248);
+            this.buttonInsertarInvestigador.Name = "buttonInsertarInvestigador";
+            this.buttonInsertarInvestigador.Size = new System.Drawing.Size(101, 21);
+            this.buttonInsertarInvestigador.TabIndex = 13;
+            this.buttonInsertarInvestigador.Text = "Insertar";
+            this.buttonInsertarInvestigador.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.buttonInsertarInvestigador.UseVisualStyleBackColor = true;
+            this.buttonInsertarInvestigador.Click += new System.EventHandler(this.buttonInsertarInvestigador_Click);
+            // 
+            // dateTimePickerFechaNacInvest
+            // 
+            this.dateTimePickerFechaNacInvest.Location = new System.Drawing.Point(168, 209);
+            this.dateTimePickerFechaNacInvest.Name = "dateTimePickerFechaNacInvest";
+            this.dateTimePickerFechaNacInvest.Size = new System.Drawing.Size(165, 20);
+            this.dateTimePickerFechaNacInvest.TabIndex = 12;
+            // 
+            // radioButtonFInv
+            // 
+            this.radioButtonFInv.AutoSize = true;
+            this.radioButtonFInv.Location = new System.Drawing.Point(227, 176);
+            this.radioButtonFInv.Name = "radioButtonFInv";
+            this.radioButtonFInv.Size = new System.Drawing.Size(31, 17);
+            this.radioButtonFInv.TabIndex = 11;
+            this.radioButtonFInv.TabStop = true;
+            this.radioButtonFInv.Text = "F";
+            this.radioButtonFInv.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonMInv
+            // 
+            this.radioButtonMInv.AutoSize = true;
+            this.radioButtonMInv.Location = new System.Drawing.Point(187, 176);
+            this.radioButtonMInv.Name = "radioButtonMInv";
+            this.radioButtonMInv.Size = new System.Drawing.Size(34, 17);
+            this.radioButtonMInv.TabIndex = 10;
+            this.radioButtonMInv.TabStop = true;
+            this.radioButtonMInv.Text = "M";
+            this.radioButtonMInv.UseVisualStyleBackColor = true;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(50, 211);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(108, 13);
+            this.label15.TabIndex = 9;
+            this.label15.Text = "Fecha de Nacimiento";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(85, 175);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(31, 13);
+            this.label14.TabIndex = 8;
+            this.label14.Text = "Sexo";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(50, 141);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(90, 13);
+            this.label13.TabIndex = 7;
+            this.label13.Text = "Segundo Apellido";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(64, 108);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(76, 13);
+            this.label12.TabIndex = 6;
+            this.label12.Text = "Primer Apellido";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(86, 73);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(44, 13);
+            this.label11.TabIndex = 5;
+            this.label11.Text = "Nombre";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(86, 37);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(40, 13);
+            this.label10.TabIndex = 4;
+            this.label10.Text = "Cédula";
+            // 
+            // textBoxInsertAp2Invest
+            // 
+            this.textBoxInsertAp2Invest.Location = new System.Drawing.Point(168, 138);
+            this.textBoxInsertAp2Invest.Name = "textBoxInsertAp2Invest";
+            this.textBoxInsertAp2Invest.Size = new System.Drawing.Size(166, 20);
+            this.textBoxInsertAp2Invest.TabIndex = 3;
+            // 
+            // textBoxInsertAp1Invest
+            // 
+            this.textBoxInsertAp1Invest.Location = new System.Drawing.Point(168, 105);
+            this.textBoxInsertAp1Invest.Name = "textBoxInsertAp1Invest";
+            this.textBoxInsertAp1Invest.Size = new System.Drawing.Size(166, 20);
+            this.textBoxInsertAp1Invest.TabIndex = 2;
+            // 
+            // textBoxInsertNombInvest
+            // 
+            this.textBoxInsertNombInvest.Location = new System.Drawing.Point(168, 71);
+            this.textBoxInsertNombInvest.Name = "textBoxInsertNombInvest";
+            this.textBoxInsertNombInvest.Size = new System.Drawing.Size(166, 20);
+            this.textBoxInsertNombInvest.TabIndex = 1;
+            // 
+            // textBoxInsertarinvestCedula
+            // 
+            this.textBoxInsertarinvestCedula.Location = new System.Drawing.Point(168, 34);
+            this.textBoxInsertarinvestCedula.Name = "textBoxInsertarinvestCedula";
+            this.textBoxInsertarinvestCedula.Size = new System.Drawing.Size(166, 20);
+            this.textBoxInsertarinvestCedula.TabIndex = 0;
+            // 
+            // panelInsertarEstudio
+            // 
+            this.panelInsertarEstudio.Controls.Add(this.groupBoxEstudio);
+            this.panelInsertarEstudio.Location = new System.Drawing.Point(0, 0);
+            this.panelInsertarEstudio.Name = "panelInsertarEstudio";
+            this.panelInsertarEstudio.Size = new System.Drawing.Size(873, 600);
+            this.panelInsertarEstudio.TabIndex = 12;
+            // 
+            // groupBoxInsertarInv
+            // 
+            this.groupBoxInsertarInv.Controls.Add(this.textBoxInsertarinvestCedula);
+            this.groupBoxInsertarInv.Controls.Add(this.buttonInsertarInvestigador);
+            this.groupBoxInsertarInv.Controls.Add(this.textBoxInsertNombInvest);
+            this.groupBoxInsertarInv.Controls.Add(this.dateTimePickerFechaNacInvest);
+            this.groupBoxInsertarInv.Controls.Add(this.textBoxInsertAp1Invest);
+            this.groupBoxInsertarInv.Controls.Add(this.radioButtonFInv);
+            this.groupBoxInsertarInv.Controls.Add(this.textBoxInsertAp2Invest);
+            this.groupBoxInsertarInv.Controls.Add(this.radioButtonMInv);
+            this.groupBoxInsertarInv.Controls.Add(this.label10);
+            this.groupBoxInsertarInv.Controls.Add(this.label15);
+            this.groupBoxInsertarInv.Controls.Add(this.label11);
+            this.groupBoxInsertarInv.Controls.Add(this.label14);
+            this.groupBoxInsertarInv.Controls.Add(this.label12);
+            this.groupBoxInsertarInv.Controls.Add(this.label13);
+            this.groupBoxInsertarInv.Location = new System.Drawing.Point(197, 0);
+            this.groupBoxInsertarInv.Name = "groupBoxInsertarInv";
+            this.groupBoxInsertarInv.Size = new System.Drawing.Size(387, 299);
+            this.groupBoxInsertarInv.TabIndex = 14;
+            this.groupBoxInsertarInv.TabStop = false;
+            this.groupBoxInsertarInv.Text = "Insertar Investigador";
+            // 
             // Insertar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.panelInsertarPaciente);
             this.Controls.Add(this.PanelInsertarDiagnostico);
+            this.Controls.Add(this.panelInsertarEstudio);
+            this.Controls.Add(this.panelInstrumentosClinicos);
+            this.Controls.Add(this.panelInsertarInvestigador);
             this.Name = "Insertar";
-            this.Size = new System.Drawing.Size(822, 579);
+            this.Size = new System.Drawing.Size(873, 600);
             this.panelInstrumentosClinicos.ResumeLayout(false);
             this.groupBoxInstClinicos.ResumeLayout(false);
             this.groupBoxInstClinicos.PerformLayout();
@@ -1043,11 +1066,13 @@
             this.panelEstudioNuevo.PerformLayout();
             this.PanelInsertarDiagnostico.ResumeLayout(false);
             this.PanelInsertarDiagnostico.PerformLayout();
-            this.panelInsertarInvestigador.ResumeLayout(false);
-            this.panelInsertarInvestigador.PerformLayout();
             this.panelInsertarPaciente.ResumeLayout(false);
             this.groupBoxInsertarPaciente.ResumeLayout(false);
             this.groupBoxInsertarPaciente.PerformLayout();
+            this.panelInsertarInvestigador.ResumeLayout(false);
+            this.panelInsertarEstudio.ResumeLayout(false);
+            this.groupBoxInsertarInv.ResumeLayout(false);
+            this.groupBoxInsertarInv.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1143,5 +1168,7 @@
         private System.Windows.Forms.TextBox textBoxAp1Pac;
         private System.Windows.Forms.TextBox textBoxNomPac;
         private System.Windows.Forms.TextBox textBoxCedPac;
+        private System.Windows.Forms.Panel panelInsertarEstudio;
+        private System.Windows.Forms.GroupBox groupBoxInsertarInv;
     }
 }
