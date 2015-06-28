@@ -43,6 +43,8 @@ namespace BD_CIBCM
             this.radioButtonInsertarInstrumentos = new System.Windows.Forms.RadioButton();
             this.radioButtonInsertarDiagnostico = new System.Windows.Forms.RadioButton();
             this.Borrar = new System.Windows.Forms.TabPage();
+            this.borrarEstudio = new System.Windows.Forms.RadioButton();
+            this.borrarInstrumentosClinicos = new System.Windows.Forms.RadioButton();
             this.radioButtonBorrarInvestigador = new System.Windows.Forms.RadioButton();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
@@ -64,8 +66,6 @@ namespace BD_CIBCM
             this.panelInsertar = new BD_CIBCM.Insertar();
             this.panelConsultar = new BD_CIBCM.Consultar();
             this.panelBorrar = new BD_CIBCM.Borrar();
-            this.borrarInstrumentosClinicos = new System.Windows.Forms.RadioButton();
-            this.borrarEstudio = new System.Windows.Forms.RadioButton();
             this.VentanaPrincipal.SuspendLayout();
             this.Consultar.SuspendLayout();
             this.Insertar.SuspendLayout();
@@ -211,6 +211,28 @@ namespace BD_CIBCM
             this.Borrar.Text = "Borrar";
             this.Borrar.UseVisualStyleBackColor = true;
             this.Borrar.Click += new System.EventHandler(this.Borrar_Click);
+            // 
+            // borrarEstudio
+            // 
+            this.borrarEstudio.AutoSize = true;
+            this.borrarEstudio.Location = new System.Drawing.Point(21, 277);
+            this.borrarEstudio.Name = "borrarEstudio";
+            this.borrarEstudio.Size = new System.Drawing.Size(76, 22);
+            this.borrarEstudio.TabIndex = 4;
+            this.borrarEstudio.TabStop = true;
+            this.borrarEstudio.Text = "Estudio";
+            this.borrarEstudio.UseVisualStyleBackColor = true;
+            // 
+            // borrarInstrumentosClinicos
+            // 
+            this.borrarInstrumentosClinicos.AutoSize = true;
+            this.borrarInstrumentosClinicos.Location = new System.Drawing.Point(21, 233);
+            this.borrarInstrumentosClinicos.Name = "borrarInstrumentosClinicos";
+            this.borrarInstrumentosClinicos.Size = new System.Drawing.Size(169, 22);
+            this.borrarInstrumentosClinicos.TabIndex = 4;
+            this.borrarInstrumentosClinicos.TabStop = true;
+            this.borrarInstrumentosClinicos.Text = "Instrumentos Clínicos";
+            this.borrarInstrumentosClinicos.UseVisualStyleBackColor = true;
             // 
             // radioButtonBorrarInvestigador
             // 
@@ -394,28 +416,6 @@ namespace BD_CIBCM
             this.panelBorrar.Size = new System.Drawing.Size(612, 259);
             this.panelBorrar.TabIndex = 1;
             // 
-            // borrarInstrumentosClinicos
-            // 
-            this.borrarInstrumentosClinicos.AutoSize = true;
-            this.borrarInstrumentosClinicos.Location = new System.Drawing.Point(21, 233);
-            this.borrarInstrumentosClinicos.Name = "borrarInstrumentosClinicos";
-            this.borrarInstrumentosClinicos.Size = new System.Drawing.Size(126, 17);
-            this.borrarInstrumentosClinicos.TabIndex = 4;
-            this.borrarInstrumentosClinicos.TabStop = true;
-            this.borrarInstrumentosClinicos.Text = "Instrumentos Clínicos";
-            this.borrarInstrumentosClinicos.UseVisualStyleBackColor = true;
-            // 
-            // borrarEstudio
-            // 
-            this.borrarEstudio.AutoSize = true;
-            this.borrarEstudio.Location = new System.Drawing.Point(21, 277);
-            this.borrarEstudio.Name = "borrarEstudio";
-            this.borrarEstudio.Size = new System.Drawing.Size(60, 17);
-            this.borrarEstudio.TabIndex = 4;
-            this.borrarEstudio.TabStop = true;
-            this.borrarEstudio.Text = "Estudio";
-            this.borrarEstudio.UseVisualStyleBackColor = true;
-            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -427,6 +427,7 @@ namespace BD_CIBCM
             this.Controls.Add(this.panelConsultar);
             this.Controls.Add(this.panelBorrar);
             this.DataBindings.Add(new System.Windows.Forms.Binding("WindowState", global::BD_CIBCM.Properties.Settings.Default, "Max", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.MaximizeBox = false;
             this.Name = "MainWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Base de Datos CIBCM";

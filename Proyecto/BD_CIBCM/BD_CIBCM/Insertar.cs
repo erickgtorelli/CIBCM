@@ -41,6 +41,7 @@ namespace BD_CIBCM
         }
         public void mostrarControl(ControlInsertar c)
         {
+
             switch (c)
             {
                 case ControlInsertar.Diagnostico:
@@ -54,10 +55,11 @@ namespace BD_CIBCM
                     panelEstudioNuevo.Hide();
                     break;
                 case ControlInsertar.Instrumento:
+                    MessageBox.Show("soy un sexy msg");
                     groupBoxEstudio.Hide();
-                    groupBoxInstClinicos.Show();
                     comboBoxCedInst.Hide();
                     guardarInstrumentosClinicos.Hide();
+                    groupBoxInstClinicos.Show();
                     break;
                 case ControlInsertar.Investigador:
                     groupBoxInstClinicos.Hide();
