@@ -132,12 +132,13 @@ namespace BD_CIBCM
             DialogResult dialogResult = MessageBox.Show("Desea actulizar los datos del paciente", "Actualizar del paciente", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
+                string c = datosPersona.cedula;
                 datosPersona.cedula = textBoxConsultaCedula.Text;
                 datosPersona.nombre = textBoxConsultaNombre.Text;
                 datosPersona.apellido1 = textBoxConsultaApellido1.Text;
                 datosPersona.apellido2 = textBoxConsultaApellido2.Text;
                 datosPersona.fechaNacimiento = dateTimePickerConsultaFecha.Value;
-                baseDatos.actualizarPaciente(datosPersona);
+                baseDatos.actualizarPaciente(c, datosPersona);
                 this.iniciarConsultaPacientes();
             }
             else if (dialogResult == DialogResult.No)

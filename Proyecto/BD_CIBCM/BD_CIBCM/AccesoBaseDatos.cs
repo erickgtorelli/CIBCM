@@ -121,7 +121,7 @@ namespace BD_CIBCM
             }
         }
 
-        public void actualizarPaciente(Persona p){
+        public void actualizarPaciente(string cedula, Persona p){
             string ced = p.cedula;
             string nombre = p.nombre;
             string a1 = p.apellido1;
@@ -129,7 +129,7 @@ namespace BD_CIBCM
             string sexo = p.sexo;
             string fecha = p.getHileraFecha();
 
-            string consulta = "UPDATE Persona SET Cedula = '" + ced + "', PrimerNombre = '" + nombre + "', Apellido1 = '" + a1 + "', Apellido2 = '" + a2 + "', Sexo = '" + sexo + "', FechaDeNacimiento = '" + fecha + "' WHERE Cedula = '" + ced + "'";
+            string consulta = "UPDATE Persona SET Cedula = '" + ced + "', PrimerNombre = '" + nombre + "', Apellido1 = '" + a1 + "', Apellido2 = '" + a2 + "', Sexo = '" + sexo + "', FechaDeNacimiento = '" + fecha + "' WHERE Cedula = '" + cedula + "'";
             Console.WriteLine(consulta);
             try
             {

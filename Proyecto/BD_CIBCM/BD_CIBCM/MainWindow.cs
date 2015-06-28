@@ -208,5 +208,10 @@ namespace BD_CIBCM
             
         }
 
+        private void Borrar_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }
