@@ -370,9 +370,9 @@ namespace BD_CIBCM
             // 
             // panelInsertar
             // 
-            this.panelInsertar.Location = new System.Drawing.Point(270, 12);
+            this.panelInsertar.Location = new System.Drawing.Point(270, 16);
             this.panelInsertar.Name = "panelInsertar";
-            this.panelInsertar.Size = new System.Drawing.Size(885, 579);
+            this.panelInsertar.Size = new System.Drawing.Size(885, 575);
             this.panelInsertar.TabIndex = 3;
             // 
             // panelConsultar

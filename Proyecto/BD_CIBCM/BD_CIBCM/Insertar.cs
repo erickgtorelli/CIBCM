@@ -24,6 +24,8 @@ namespace BD_CIBCM
         AccesoBaseDatos baseDatos;
         bool agregarInstrumentosAPaciente = false;
         Utility.Diagnosticos diagnosticos = new Utility.Diagnosticos();
+        string consultaPacientes = "select pe.PrimerNombre, pe.Apellido1, pe.Apellido2, pe.Cedula from paciente pa JOIN persona pe ON pa.Cedula = pe.Cedula;";
+        string consultaInvestigadores = "select P.PrimerNombre, Apellido1, P.Apellido2,P.Cedula From Investigador I JOIN Persona P ON I.Cedula = P.Cedula;";
 
         public Insertar()
         {
@@ -39,6 +41,11 @@ namespace BD_CIBCM
                 case ControlInsertar.Diagnostico:
                     groupBoxInstClinicos.Hide();
                     groupBoxEstudio.Hide();
+                    PanelInsertarDiagnostico.Show();
+                    panelParcialInsertar.Show();
+                    panelInstrumentosClinicos.Hide();
+                    baseDatos.llenarComboBox(consultaInvestigadores, comboBoxInvestigador, 4);
+                    baseDatos.llenarComboBox(consultaPacientes, comboBoxPacienteInsertarDiagnostico, 4);
                     break;
                 case ControlInsertar.Estudio:
                     groupBoxInstClinicos.Hide();
@@ -196,6 +203,7 @@ namespace BD_CIBCM
                 // diagnosticos.consultarParciales(string Cedula);
                 // fill with checkbox(Group Box box,DataTable data);
                 dataGridViewParcialesPaciente.DataSource = null;
+               
                 //Cambiar por consulta de parciales
                 baseDatos.llenarTabla(diagnosticos.consultarParciales(seleccionarCedulaComboBox(comboBoxPacienteInsertarDiagnostico)), dataGridViewParcialesPaciente);
             }
@@ -252,6 +260,101 @@ namespace BD_CIBCM
 
                 }
 
+            }
+            else
+            {
+                MessageBox.Show("Por favor seleccione un paciente antes de continuar",
+                    "La información no es correcta", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            }
+        }
+
+        private void comboBoxInvestigador_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridViewParcialesPaciente_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            //Guardar Diagnostico 
+            if (comboBoxPacienteInsertarDiagnostico.SelectedIndex > -1)
+            {
+                //Se seleciono un paciente
+                if (textBoxEnfermedad.Text != String.Empty)
+                {
+                    if (textBoxNumDiagostico.Text != String.Empty)
+                    {
+                        string consultaDiagnostico = "Select * from Diagnostico where NumDiagnostico = '" + textBoxNumDiagostico.Text + "'";
+                        SqlDataReader tuplas = baseDatos.ejecutarConsulta(consultaDiagnostico);
+                        if (tuplas.HasRows)
+                        {
+                            MessageBox.Show("El número de diagnóstico ya existe",
+                                            "La información no es correcta", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                        }
+                        else
+                        {
+                            if (textBoxLinkDiagnostico.Text != String.Empty)
+                            {
+                                if (dataGridViewSintomas.Rows.Count > 0)
+                                {
+                                    if (radioButtonDiagnosticoParcial.Checked)
+                                    {
+                                        if (comboBoxInvestigador.SelectedIndex > -1)
+                                        {
+                                            DateTime fechaTemp = dateTimePicker2.Value;
+                                            string fecha = fechaTemp.ToString("yyyy-MM-dd");
+
+                                            //Seleciono parcial e investigador, Guardar Parcial
+                                            diagnosticos.insertarDiagnosticoParcial(seleccionarCedulaComboBox(comboBoxPacienteInsertarDiagnostico), textBoxNumDiagostico.Text,
+                                                seleccionarCedulaComboBox(comboBoxInvestigador), textBoxLinkDiagnostico.Text,
+                                                fecha, textBoxEnfermedad.Text, baseDatos);
+                                            diagnosticos.insertarSintomas(seleccionarCedulaComboBox(comboBoxPacienteInsertarDiagnostico),
+                                                textBoxNumDiagostico.Text, dataGridViewSintomas, baseDatos);
+
+                                            MessageBox.Show("La información fue insertada exitosamente",
+                                                "Inserción exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                        }
+                                        else
+                                        {
+                                            MessageBox.Show("Por favor seleccione un investigador antes de continuar",
+                                                "La información no es correcta", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                                        }
+                                    }
+                                    else
+                                    {
+                                        //Seleciono Concenso
+                                    }
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Por favor inserte al menos un síntoma en el diagnóstico",
+                                "La información no es correcta", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                                }
+                            }
+
+                            else
+                            {
+                                MessageBox.Show("Por favor inserte el link del diagnóstico antes de continuar",
+                                 "La información no es correcta", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Por favor inserte el número de diagnóstico antes de continuar",
+                       "La información no es correcta", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Por favor inserte la enfermedad antes de continuar",
+                 "La información no es correcta", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                }
             }
             else
             {
