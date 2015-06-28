@@ -147,6 +147,7 @@ namespace BD_CIBCM
             this.Insertar.TabIndex = 0;
             this.Insertar.Text = "Insertar";
             this.Insertar.UseVisualStyleBackColor = true;
+            this.Insertar.Click += new System.EventHandler(this.Insertar_Click);
             // 
             // radioButtonInsertarInvestigador
             // 
@@ -393,9 +394,8 @@ namespace BD_CIBCM
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(1106, 661);
+            this.ClientSize = new System.Drawing.Size(1144, 661);
             this.Controls.Add(this.VentanaPrincipal);
             this.Controls.Add(this.panelInsertar);
             this.Controls.Add(this.panelConsultar);
