@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelInstrumentosClinicos = new System.Windows.Forms.Panel();
             this.groupBoxInstClinicos = new System.Windows.Forms.GroupBox();
             this.guardarInstrumentosClinicos = new System.Windows.Forms.Button();
@@ -108,7 +108,7 @@
             this.panelInstrumentosClinicos.Controls.Add(this.label10);
             this.panelInstrumentosClinicos.Location = new System.Drawing.Point(9, 47);
             this.panelInstrumentosClinicos.Name = "panelInstrumentosClinicos";
-            this.panelInstrumentosClinicos.Size = new System.Drawing.Size(737, 478);
+            this.panelInstrumentosClinicos.Size = new System.Drawing.Size(781, 514);
             this.panelInstrumentosClinicos.TabIndex = 6;
             this.panelInstrumentosClinicos.Paint += new System.Windows.Forms.PaintEventHandler(this.panelInstrumentosClinicos_Paint);
             // 
@@ -155,7 +155,7 @@
             this.panelParcialInsertar.Controls.Add(this.textBoxNumDiagostico);
             this.panelParcialInsertar.Location = new System.Drawing.Point(23, 24);
             this.panelParcialInsertar.Name = "panelParcialInsertar";
-            this.panelParcialInsertar.Size = new System.Drawing.Size(802, 532);
+            this.panelParcialInsertar.Size = new System.Drawing.Size(802, 549);
             this.panelParcialInsertar.TabIndex = 2;
             // 
             // textBoxEnfermedad
@@ -177,25 +177,25 @@
             // dataGridViewSintomas
             // 
             this.dataGridViewSintomas.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle25.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle25.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle25.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle25.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle25.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle25.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewSintomas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle25;
+            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle27.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle27.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle27.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle27.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle27.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle27.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewSintomas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle27;
             this.dataGridViewSintomas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewSintomas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Sintoma});
-            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle26.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle26.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle26.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle26.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle26.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewSintomas.DefaultCellStyle = dataGridViewCellStyle26;
+            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle28.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle28.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle28.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle28.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle28.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle28.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewSintomas.DefaultCellStyle = dataGridViewCellStyle28;
             this.dataGridViewSintomas.Location = new System.Drawing.Point(1, 363);
             this.dataGridViewSintomas.Name = "dataGridViewSintomas";
             this.dataGridViewSintomas.ReadOnly = true;
@@ -319,13 +319,12 @@
             // 
             // groupBoxEstudio
             // 
-            this.groupBoxEstudio.Controls.Add(this.panelPacienteEstudio);
             this.groupBoxEstudio.Controls.Add(this.panelEstudioNuevo);
             this.groupBoxEstudio.Controls.Add(this.EstudioNuevo);
             this.groupBoxEstudio.Controls.Add(this.radioButtonInsertPacEstudio);
             this.groupBoxEstudio.Location = new System.Drawing.Point(9, 95);
             this.groupBoxEstudio.Name = "groupBoxEstudio";
-            this.groupBoxEstudio.Size = new System.Drawing.Size(743, 436);
+            this.groupBoxEstudio.Size = new System.Drawing.Size(789, 466);
             this.groupBoxEstudio.TabIndex = 4;
             this.groupBoxEstudio.TabStop = false;
             this.groupBoxEstudio.Text = "Estudio ";
@@ -340,9 +339,9 @@
             this.panelPacienteEstudio.Controls.Add(this.comboBoxInsertarEstudioPaciente);
             this.panelPacienteEstudio.Controls.Add(this.comboBoxCedPacEstudioInsert);
             this.panelPacienteEstudio.Controls.Add(this.label6);
-            this.panelPacienteEstudio.Location = new System.Drawing.Point(50, 59);
+            this.panelPacienteEstudio.Location = new System.Drawing.Point(3, 15);
             this.panelPacienteEstudio.Name = "panelPacienteEstudio";
-            this.panelPacienteEstudio.Size = new System.Drawing.Size(378, 183);
+            this.panelPacienteEstudio.Size = new System.Drawing.Size(400, 190);
             this.panelPacienteEstudio.TabIndex = 13;
             // 
             // label9
@@ -433,6 +432,7 @@
             // 
             // panelEstudioNuevo
             // 
+            this.panelEstudioNuevo.Controls.Add(this.panelPacienteEstudio);
             this.panelEstudioNuevo.Controls.Add(this.label7);
             this.panelEstudioNuevo.Controls.Add(this.textBoxCodigoEstudio);
             this.panelEstudioNuevo.Controls.Add(this.comboBoxInvestEstudio);
@@ -445,7 +445,7 @@
             this.panelEstudioNuevo.Controls.Add(this.codEst);
             this.panelEstudioNuevo.Location = new System.Drawing.Point(57, 56);
             this.panelEstudioNuevo.Name = "panelEstudioNuevo";
-            this.panelEstudioNuevo.Size = new System.Drawing.Size(453, 256);
+            this.panelEstudioNuevo.Size = new System.Drawing.Size(468, 271);
             this.panelEstudioNuevo.TabIndex = 15;
             // 
             // label7
