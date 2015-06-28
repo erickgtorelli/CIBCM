@@ -133,6 +133,10 @@ namespace BD_CIBCM
                         String insertarEstudio = "Insert into estudio values ('" + codEstudio + "',' " + descripcion + "','" + fecha + "')";
                         baseDatos.insertarDatos(insertarEstudio);
                         insertarRealizaEstudio = "Insert into realiza values ('" + investigador + "', '" + codEstudio + "')";
+                        String consultaRealiza = "select * from Realiza where cedula = '"+investigador+"' AND CodigoEstudio = '"+codEstudio+"'";
+                        if(!baseDatos.ejecutarConsulta(consultaRealiza).HasRows){
+                        baseDatos.insertarDatos(insertarRealizaEstudio);
+                        }
                         MessageBox.Show("Se inserto el estudio" + codEstudio, "Insertar Estudio");
                         
                     }
@@ -159,7 +163,7 @@ namespace BD_CIBCM
         private void guardarInstrumentosClinicos_Click(object sender, EventArgs e)
         {
             SqlDataReader tuplas;
-            MessageBox.Show("dafuq");
+            
             if (agregarInstrumentosAPaciente)
             {
 
