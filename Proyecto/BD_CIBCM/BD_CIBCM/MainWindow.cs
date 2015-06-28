@@ -213,5 +213,10 @@ namespace BD_CIBCM
 
         }
 
+        private void Insertar_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

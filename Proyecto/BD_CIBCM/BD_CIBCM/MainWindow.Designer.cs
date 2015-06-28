@@ -43,6 +43,8 @@ namespace BD_CIBCM
             this.radioButtonInsertarInstrumentos = new System.Windows.Forms.RadioButton();
             this.radioButtonInsertarDiagnostico = new System.Windows.Forms.RadioButton();
             this.Borrar = new System.Windows.Forms.TabPage();
+            this.borrarEstudio = new System.Windows.Forms.RadioButton();
+            this.borrarInstrumentosClinicos = new System.Windows.Forms.RadioButton();
             this.radioButtonBorrarInvestigador = new System.Windows.Forms.RadioButton();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
@@ -147,6 +149,7 @@ namespace BD_CIBCM
             this.Insertar.TabIndex = 0;
             this.Insertar.Text = "Insertar";
             this.Insertar.UseVisualStyleBackColor = true;
+            this.Insertar.Click += new System.EventHandler(this.Insertar_Click);
             // 
             // radioButtonInsertarInvestigador
             // 
@@ -197,6 +200,8 @@ namespace BD_CIBCM
             // 
             // Borrar
             // 
+            this.Borrar.Controls.Add(this.borrarEstudio);
+            this.Borrar.Controls.Add(this.borrarInstrumentosClinicos);
             this.Borrar.Controls.Add(this.radioButtonBorrarInvestigador);
             this.Borrar.Location = new System.Drawing.Point(28, 4);
             this.Borrar.Name = "Borrar";
@@ -206,6 +211,28 @@ namespace BD_CIBCM
             this.Borrar.Text = "Borrar";
             this.Borrar.UseVisualStyleBackColor = true;
             this.Borrar.Click += new System.EventHandler(this.Borrar_Click);
+            // 
+            // borrarEstudio
+            // 
+            this.borrarEstudio.AutoSize = true;
+            this.borrarEstudio.Location = new System.Drawing.Point(21, 277);
+            this.borrarEstudio.Name = "borrarEstudio";
+            this.borrarEstudio.Size = new System.Drawing.Size(76, 22);
+            this.borrarEstudio.TabIndex = 4;
+            this.borrarEstudio.TabStop = true;
+            this.borrarEstudio.Text = "Estudio";
+            this.borrarEstudio.UseVisualStyleBackColor = true;
+            // 
+            // borrarInstrumentosClinicos
+            // 
+            this.borrarInstrumentosClinicos.AutoSize = true;
+            this.borrarInstrumentosClinicos.Location = new System.Drawing.Point(21, 233);
+            this.borrarInstrumentosClinicos.Name = "borrarInstrumentosClinicos";
+            this.borrarInstrumentosClinicos.Size = new System.Drawing.Size(169, 22);
+            this.borrarInstrumentosClinicos.TabIndex = 4;
+            this.borrarInstrumentosClinicos.TabStop = true;
+            this.borrarInstrumentosClinicos.Text = "Instrumentos Clínicos";
+            this.borrarInstrumentosClinicos.UseVisualStyleBackColor = true;
             // 
             // radioButtonBorrarInvestigador
             // 
@@ -393,14 +420,14 @@ namespace BD_CIBCM
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(1106, 661);
+            this.ClientSize = new System.Drawing.Size(1144, 661);
             this.Controls.Add(this.VentanaPrincipal);
             this.Controls.Add(this.panelInsertar);
             this.Controls.Add(this.panelConsultar);
             this.Controls.Add(this.panelBorrar);
             this.DataBindings.Add(new System.Windows.Forms.Binding("WindowState", global::BD_CIBCM.Properties.Settings.Default, "Max", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.MaximizeBox = false;
             this.Name = "MainWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Base de Datos CIBCM";
@@ -455,6 +482,8 @@ namespace BD_CIBCM
         private Borrar panelBorrar;
         private Consultar panelConsultar;
         private Insertar panelInsertar;
+        private RadioButton borrarEstudio;
+        private RadioButton borrarInstrumentosClinicos;
        // private Button guardarInstrumentosClinicos;
     }
 }

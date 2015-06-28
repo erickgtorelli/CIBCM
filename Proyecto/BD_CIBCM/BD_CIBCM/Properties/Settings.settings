@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="Max" Type="System.Windows.Forms.FormWindowState" Scope="User">
-      <Value Profile="(Default)">Maximized</Value>
+      <Value Profile="(Default)">Normal</Value>
     </Setting>
     <Setting Name="AutoSize" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>

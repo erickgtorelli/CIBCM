@@ -1,4 +1,4 @@
-
+use BD_CIBCM;
 DROP TABLE Genotipeo;
 DROP TABLE Muestra;
 DROP TABLE Consenso;
@@ -67,7 +67,9 @@ CREATE TABLE Diagnostico(
 	Fecha DATE,
 	Enfermedad varchar(256),
 	CONSTRAINT PKDiagnostico PRIMARY KEY(Cedula, NumDiagnostico),
-	CONSTRAINT FK_Diagnostico_Paciente FOREIGN KEY(Cedula) REFERENCES Paciente(Cedula) ON DELETE CASCADE
+	CONSTRAINT FK_Diagnostico_Paciente FOREIGN KEY(Cedula) REFERENCES Paciente(Cedula) 
+	ON DELETE CASCADE
+	ON UPDATE CASCADE
 );
 
 CREATE TABLE Consenso(
@@ -118,7 +120,9 @@ CREATE TABLE Lleno (
 	Cedula char (9),
     NombreInstrumentoClinico VARCHAR (255),
 	CONSTRAINT PKLleno PRIMARY KEY (Cedula, NombreInstrumentoClinico),
-	CONSTRAINT FKLleno_Paciente FOREIGN KEY (Cedula) References Paciente (Cedula),
+	CONSTRAINT FKLleno_Paciente FOREIGN KEY (Cedula) References Paciente (Cedula)
+	ON DELETE CASCADE
+	ON UPDATE CASCADE,
     CONSTRAINT FKLleno_Instrumentos FOREIGN KEY (NombreInstrumentoClinico) REFERENCES InstrumentosClinicos (Nombre) 
 );
 			
@@ -127,7 +131,9 @@ CREATE TABLE Participo (
     CodigoEstudio char(6),
     CodigoParticipacion char(6), 
     CONSTRAINT PKParticipo PRIMARY KEY (Cedula, CodigoEstudio),
-	CONSTRAINT FKParticio_Paciente FOREIGN KEY (Cedula) REFERENCES Paciente (Cedula),
+	CONSTRAINT FKParticio_Paciente FOREIGN KEY (Cedula) REFERENCES Paciente (Cedula)
+	ON DELETE CASCADE
+	ON UPDATE CASCADE,
 	CONSTRAINT FKParticio_Estudio FOREIGN KEY (CodigoEstudio) REFERENCES Estudio (CodigoEstudio),
 );                
 
