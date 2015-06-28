@@ -56,19 +56,24 @@ namespace BD_CIBCM
                 case ControlInsertar.Estudio:
                     groupBoxInstClinicos.Hide();
                     groupBoxEstudio.Show();
-                    panelPacienteEstudio.Hide();
+                    panelPacienteEstudio.Show();
                     panelEstudioNuevo.Hide();
+                    panelParcialInsertar.Hide();
                     break;
                 case ControlInsertar.Instrumento:
-                    MessageBox.Show("soy un sexy msg");
+                    groupBoxInstClinicos.Show();
+                    panelInstrumentosClinicos.Show();
+                    panelParcialInsertar.Hide();
                     groupBoxEstudio.Hide();
                     comboBoxCedInst.Hide();
-                    guardarInstrumentosClinicos.Hide();
+                    guardarInstrumentosClinicos.Show();
                     groupBoxInstClinicos.Show();
+                 
                     break;
                 case ControlInsertar.Investigador:
                     groupBoxInstClinicos.Hide();
                     groupBoxEstudio.Hide();
+                    panelParcialInsertar.Hide();
                     break;
             }
         }
@@ -231,7 +236,7 @@ namespace BD_CIBCM
 
         private void radioButtonInsertPacEstudio_CheckedChanged(object sender, EventArgs e)
         {
-            panelInvestEstudioInsertar.Hide();
+            panelEstudioNuevo.Hide();
            // panelInsertarInvestigador.Hide();
             panelEstudioNuevo.Hide();
             panelPacienteEstudio.Show();
@@ -412,6 +417,11 @@ namespace BD_CIBCM
                 MessageBox.Show("Por favor seleccione un paciente antes de continuar",
                     "La información no es correcta", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }
+        }
+
+        private void PanelInsertarDiagnostico_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
