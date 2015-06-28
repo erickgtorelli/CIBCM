@@ -60,7 +60,6 @@ namespace BD_CIBCM
                     panelEstudioNuevo.Hide();
                     break;
                 case ControlInsertar.Instrumento:
-                    MessageBox.Show("soy un sexy msg");
                     groupBoxEstudio.Hide();
                     comboBoxCedInst.Hide();
                     guardarInstrumentosClinicos.Hide();

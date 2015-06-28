@@ -36,8 +36,6 @@
 
             this.panelParcialInsertar = new System.Windows.Forms.Panel();
 
-            this.panelParcialInsertar = new System.Windows.Forms.Panel();
-
             this.dataGridViewSintomas = new System.Windows.Forms.DataGridView();
             this.Sintoma = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.labelLinkInsertarDiagnostico = new System.Windows.Forms.Label();
@@ -85,12 +83,6 @@
             this.buttonGuardarEstudio = new System.Windows.Forms.Button();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.codEst = new System.Windows.Forms.Label();
-            this.buttonInstClinicPaciente = new System.Windows.Forms.Button();
-            this.label16 = new System.Windows.Forms.Label();
-            this.textBoxInstrumentos = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.comboBoxCedInst = new System.Windows.Forms.ComboBox();
-            this.listaInstClinicos = new System.Windows.Forms.CheckedListBox();
             this.PanelInsertarDiagnostico = new System.Windows.Forms.Panel();
             this.buttonGuardarDiagnostico = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
