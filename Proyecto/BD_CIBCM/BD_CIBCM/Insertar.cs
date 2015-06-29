@@ -407,6 +407,11 @@ namespace BD_CIBCM
                                             MessageBox.Show("La información fue insertada exitosamente",
                                                 "Inserción exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                                            textBoxLinkDiagnostico.Text = null;
+                                            textBoxNumDiagostico.Text = null;
+                                            dataGridViewSintomas.Rows.Clear();
+                                            textBoxEnfermedad.Text = null;
+
                                         }
                                         else
                                         {
