@@ -39,6 +39,8 @@ namespace BD_CIBCM
             baseDatos.llenarCheckedListBox(consultaInstrumentos, new Dictionary<string, object>{ }, listaInstClinicos, 1);
             baseDatos.llenarComboBox(consultaInvestigadores, new Dictionary<string, object> { }, comboBoxInvestEstudio, 4);
             baseDatos.llenarComboBox(consultaPacientes, new Dictionary<string, object> { }, comboBoxCedPacEstudioInsert, 4);
+            baseDatos.llenarComboBox(consultaPacientes, new Dictionary<string, object> { }, comboBoxPaciente1, 4);
+            baseDatos.llenarComboBox(consultaPacientes, new Dictionary<string, object> { }, comboBoxPaciente2, 4);
             baseDatos.llenarComboBox(consultaEstudio, new Dictionary<string, object> { }, comboBoxInsertarEstudioPaciente, 1);
             this.mostrarControl(ControlInsertar.Instrumento);
 
@@ -80,8 +82,6 @@ namespace BD_CIBCM
                     panelInsertarPaciente.Hide();
                     
                     panelInstrumentosClinicos.Show();
-
-                 
                     break;
                 case ControlInsertar.Investigador:
                     PanelInsertarDiagnostico.Hide();
@@ -519,7 +519,47 @@ namespace BD_CIBCM
             {
                 baseDatos.insertarDatos(InsertarPersona);
                 baseDatos.insertarDatos(InsertarPaciente);
+                baseDatos.llenarComboBox(consultaPacientes, new Dictionary<string, object> { }, comboBoxPaciente1, 4);
+                baseDatos.llenarComboBox(consultaPacientes, new Dictionary<string, object> { }, comboBoxPaciente2, 4);
                 MessageBox.Show("Se agregó el paciente de cédula " + CedPac + " a la base de datos");
+            }
+        }
+
+        private void buttonInsertarMuestra_Click(object sender, EventArgs e)
+        {
+            if(comboBoxPaciente1.Text == "")
+            {
+                MessageBox.Show("No puedes dejar el campo de nombre vacio.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                string cedula = seleccionarCedulaComboBox(comboBoxPaciente1);
+                string tipo = textBoxTipoMuestra.Text;
+                string localizacion = textBoxLocalizacion.Text;
+                string consulta = "INSERT INTO Muestra VALUES(@cedula, @tipo, @localizacion)";
+                baseDatos.ejecutarConsulta(consulta, new Dictionary<string, object> { {"cedula",cedula},{"tipo",tipo},{"localizacion", localizacion}});
+                MessageBox.Show("Se agregó la muestra del paciente.");
+                textBoxTipoMuestra.Text = "";
+                textBoxLocalizacion.Text = "";
+            }
+        }
+
+        private void buttonInsertarGenotipeo_Click(object sender, EventArgs e)
+        {
+            if (comboBoxPaciente2.Text == "")
+            {
+                MessageBox.Show("No puedes dejar el campo de nombre vacio.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                string cedula = seleccionarCedulaComboBox(comboBoxPaciente2);
+                string metodo = textBoxMetodo.Text;
+                string link = textBoxLink.Text;
+                string consulta = "INSERT INTO Genotipeo VALUES(@cedula, @metodo, @link)";
+                baseDatos.ejecutarConsulta(consulta, new Dictionary<string, object> { { "cedula", cedula }, { "metodo", metodo }, { "link", link } });
+                MessageBox.Show("Se agregó el genotipeo del paciente.");
+                textBoxMetodo.Text = "";
+                textBoxLink.Text = "";
             }
         }
     }
