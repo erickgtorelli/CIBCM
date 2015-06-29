@@ -61,7 +61,8 @@ namespace BD_CIBCM
                     panelConsultaPaciente.Hide();
                     panelConsultaDiagnostico.Hide();
                     panelConsultaInstrumentos.Hide();
-
+                    groupBoxActEstudio.Hide();
+                    groupBoxActPacEst.Hide();
                     panelConsultaEstudio.Show();
                     this.iniciarConsultaEstudios();
                     break;
@@ -252,7 +253,7 @@ namespace BD_CIBCM
                 string cedula = seleccionarCedulaComboBox(comboBoxdatosPacienteEstudio);
                 string consulta = "Select CodigoEstudio From Participo where Cedula = @cedula";
                 SqlDataReader datos = baseDatos.ejecutarConsulta(consulta);
-                if (!datos.HasRows) {
+                if ( datos==null || !datos.HasRows) {
 
                     baseDatos.llenarComboBox("Select CodigoEstudio From Participo", new Dictionary<string, object> { }, comboBoxCodEstudio, 1);
                 }
@@ -269,14 +270,12 @@ namespace BD_CIBCM
                 string cedula = seleccionarCedulaComboBox(comboBoxdatosPacienteEstudio);
                 if (comboBoxCodEstudio.SelectedIndex >-1){
                     string codEstudio = comboBoxCodEstudio.Text.Trim( );
-                    MessageBox.Show("Este codigo " + codEstudio);
                     string consulta = "Select CodigoParticipacion From Participo where Cedula = '" + cedula + "' AND CodigoEstudio = '" + codEstudio + "';";
                     SqlDataReader datos = baseDatos.ejecutarConsulta(consulta);
                     if (datos==null) {
                         MessageBox.Show("No Deberia meter"); baseDatos.llenarTextBox("Select CodigoParticipacion From Participo", textBoxCodPart, 1);   
                     }
                     else 
-                    MessageBox.Show("Deberia meter");
                     baseDatos.llenarTextBox(consulta, textBoxCodPart, 1);
                 }
             }
@@ -324,6 +323,7 @@ namespace BD_CIBCM
                           if (dialogResult == DialogResult.Yes)
                           {
                               string actualizar = "Update Estudio Set Descripcion = '" + descripcion + "' WHERE codigoEstudio = '" + codigoEstudio + "'";
+                              baseDatos.insertarDatos(actualizar);
                               MessageBox.Show("Datos actualizados exitosamente", "Estudio Actualizado");
                               comboBoxCodEstudio2.Items.Clear();
                               groupBoxActEstudio.Hide();
