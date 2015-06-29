@@ -161,7 +161,7 @@
             this.groupBoxInstClinicos.Size = new System.Drawing.Size(448, 391);
             this.groupBoxInstClinicos.TabIndex = 13;
             this.groupBoxInstClinicos.TabStop = false;
-            this.groupBoxInstClinicos.Text = "Instrumentos Clínicos";
+            this.groupBoxInstClinicos.Text = "Insertar instrumento clínico";
             this.groupBoxInstClinicos.Enter += new System.EventHandler(this.groupBoxInstClinicos_Enter);
             // 
             // guardarInstrumentosClinicos
@@ -190,7 +190,7 @@
             this.comboBoxCedInst.Name = "comboBoxCedInst";
             this.comboBoxCedInst.Size = new System.Drawing.Size(280, 21);
             this.comboBoxCedInst.TabIndex = 0;
-            this.comboBoxCedInst.Text = "Seleccione Cedula Paciente";
+            this.comboBoxCedInst.Text = "Seleccione la cédula del paciente";
             // 
             // textBoxInstrumentos
             // 
@@ -205,11 +205,11 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(25, 61);
+            this.label16.Location = new System.Drawing.Point(162, 61);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(184, 13);
+            this.label16.Size = new System.Drawing.Size(47, 13);
             this.label16.TabIndex = 5;
-            this.label16.Text = "Inserte nombre de instrumento clínico";
+            this.label16.Text = "Nombre:";
             // 
             // buttonInstClinicPaciente
             // 
@@ -496,7 +496,7 @@
             this.groupBoxEstudio.Size = new System.Drawing.Size(563, 353);
             this.groupBoxEstudio.TabIndex = 4;
             this.groupBoxEstudio.TabStop = false;
-            this.groupBoxEstudio.Text = "Estudio ";
+            this.groupBoxEstudio.Text = "Insertar estudio";
             this.groupBoxEstudio.Enter += new System.EventHandler(this.groupBoxEstudio_Enter);
             // 
             // panelEstudioNuevo
@@ -521,9 +521,9 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(13, 22);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(267, 13);
+            this.label7.Size = new System.Drawing.Size(265, 13);
             this.label7.TabIndex = 9;
-            this.label7.Text = "Complete la informacíon del estudio que desea guardar";
+            this.label7.Text = "Complete la información del estudio que desea guardar";
             // 
             // textBoxCodigoEstudio
             // 
@@ -597,9 +597,9 @@
             this.codEst.AutoSize = true;
             this.codEst.Location = new System.Drawing.Point(13, 54);
             this.codEst.Name = "codEst";
-            this.codEst.Size = new System.Drawing.Size(95, 13);
+            this.codEst.Size = new System.Drawing.Size(92, 13);
             this.codEst.TabIndex = 2;
-            this.codEst.Text = "Código De Estudio";
+            this.codEst.Text = "Código de estudio";
             // 
             // panelPacienteEstudio
             // 
@@ -682,10 +682,10 @@
             this.EstudioNuevo.AutoSize = true;
             this.EstudioNuevo.Location = new System.Drawing.Point(272, 33);
             this.EstudioNuevo.Name = "EstudioNuevo";
-            this.EstudioNuevo.Size = new System.Drawing.Size(95, 17);
+            this.EstudioNuevo.Size = new System.Drawing.Size(93, 17);
             this.EstudioNuevo.TabIndex = 14;
             this.EstudioNuevo.TabStop = true;
-            this.EstudioNuevo.Text = "Estudio Nuevo";
+            this.EstudioNuevo.Text = "Estudio nuevo";
             this.EstudioNuevo.UseVisualStyleBackColor = true;
             this.EstudioNuevo.CheckedChanged += new System.EventHandler(this.EstudioNuevo_CheckedChanged);
             // 
@@ -754,7 +754,7 @@
             this.groupBoxInsertarPaciente.Size = new System.Drawing.Size(491, 278);
             this.groupBoxInsertarPaciente.TabIndex = 0;
             this.groupBoxInsertarPaciente.TabStop = false;
-            this.groupBoxInsertarPaciente.Text = "Agregar nuevo paciente";
+            this.groupBoxInsertarPaciente.Text = "Insertar paciente";
             // 
             // buttonInsertarPac
             // 
@@ -781,13 +781,13 @@
             this.radioButtonFPac.Name = "radioButtonFPac";
             this.radioButtonFPac.Size = new System.Drawing.Size(31, 17);
             this.radioButtonFPac.TabIndex = 25;
-            this.radioButtonFPac.TabStop = true;
             this.radioButtonFPac.Text = "F";
             this.radioButtonFPac.UseVisualStyleBackColor = true;
             // 
             // radioButtonMPac
             // 
             this.radioButtonMPac.AutoSize = true;
+            this.radioButtonMPac.Checked = true;
             this.radioButtonMPac.Location = new System.Drawing.Point(219, 164);
             this.radioButtonMPac.Name = "radioButtonMPac";
             this.radioButtonMPac.Size = new System.Drawing.Size(34, 17);
@@ -808,7 +808,7 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(117, 163);
+            this.label18.Location = new System.Drawing.Point(156, 168);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(31, 13);
             this.label18.TabIndex = 22;
@@ -817,7 +817,7 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(82, 129);
+            this.label19.Location = new System.Drawing.Point(97, 129);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(90, 13);
             this.label19.TabIndex = 21;
@@ -826,7 +826,7 @@
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(96, 96);
+            this.label20.Location = new System.Drawing.Point(114, 96);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(76, 13);
             this.label20.TabIndex = 20;
@@ -835,7 +835,7 @@
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(118, 61);
+            this.label21.Location = new System.Drawing.Point(140, 64);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(44, 13);
             this.label21.TabIndex = 19;
@@ -844,7 +844,7 @@
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(118, 25);
+            this.label22.Location = new System.Drawing.Point(147, 25);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(40, 13);
             this.label22.TabIndex = 18;
@@ -907,7 +907,7 @@
             this.groupBoxInsertarInv.Size = new System.Drawing.Size(387, 299);
             this.groupBoxInsertarInv.TabIndex = 14;
             this.groupBoxInsertarInv.TabStop = false;
-            this.groupBoxInsertarInv.Text = "Insertar Investigador";
+            this.groupBoxInsertarInv.Text = "Insertar investigador";
             // 
             // textBoxInsertarinvestCedula
             // 
@@ -955,7 +955,6 @@
             this.radioButtonFInv.Name = "radioButtonFInv";
             this.radioButtonFInv.Size = new System.Drawing.Size(31, 17);
             this.radioButtonFInv.TabIndex = 11;
-            this.radioButtonFInv.TabStop = true;
             this.radioButtonFInv.Text = "F";
             this.radioButtonFInv.UseVisualStyleBackColor = true;
             // 
@@ -969,6 +968,7 @@
             // radioButtonMInv
             // 
             this.radioButtonMInv.AutoSize = true;
+            this.radioButtonMInv.Checked = true;
             this.radioButtonMInv.Location = new System.Drawing.Point(187, 176);
             this.radioButtonMInv.Name = "radioButtonMInv";
             this.radioButtonMInv.Size = new System.Drawing.Size(34, 17);
@@ -980,7 +980,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(86, 37);
+            this.label10.Location = new System.Drawing.Point(115, 38);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(40, 13);
             this.label10.TabIndex = 4;
@@ -998,7 +998,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(86, 73);
+            this.label11.Location = new System.Drawing.Point(111, 74);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(44, 13);
             this.label11.TabIndex = 5;
@@ -1007,7 +1007,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(85, 175);
+            this.label14.Location = new System.Drawing.Point(127, 176);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(31, 13);
             this.label14.TabIndex = 8;
@@ -1016,7 +1016,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(64, 108);
+            this.label12.Location = new System.Drawing.Point(79, 107);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(76, 13);
             this.label12.TabIndex = 6;
@@ -1025,7 +1025,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(50, 141);
+            this.label13.Location = new System.Drawing.Point(69, 141);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(90, 13);
             this.label13.TabIndex = 7;
@@ -1043,11 +1043,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.panelInsertarInvestigador);
+            this.Controls.Add(this.panelInsertarPaciente);
             this.Controls.Add(this.PanelInsertarDiagnostico);
             this.Controls.Add(this.panelInsertarEstudio);
             this.Controls.Add(this.panelInstrumentosClinicos);
-            this.Controls.Add(this.panelInsertarInvestigador);
-            this.Controls.Add(this.panelInsertarPaciente);
             this.Name = "Insertar";
             this.Size = new System.Drawing.Size(873, 600);
             this.panelInstrumentosClinicos.ResumeLayout(false);

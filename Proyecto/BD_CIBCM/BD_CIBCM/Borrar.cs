@@ -22,7 +22,6 @@ namespace BD_CIBCM
     {
         AccesoBaseDatos baseDatos;
         string consultaInvestigadores = "select P.PrimerNombre, Apellido1, P.Apellido2,P.Cedula From Investigador I JOIN Persona P ON I.Cedula = P.Cedula;";
-        string consultaInstrumentos = "Select Cedula, NombreInstrumentoClinico From Lleno";
         string consultaEstudio = "Select P.PrimerNombre, Apellido1, P.Apellido2,P.Cedula From Participo Pa JOIN Persona P ON Pa.Cedula = P.Cedula";
         string consultaCodigo = "Select DISTINCT CodigoEstudio From Participo";
         string consultaNombreInst = "SELECT Nombre FROM instrumentosClinicos";

@@ -22,14 +22,13 @@ namespace BD_CIBCM
     {
         AccesoBaseDatos baseDatos;
         string consultaInstrumentosClinicos = "SELECT i.Nombre, COUNT(l.Cedula) as 'Participantes' FROM InstrumentosClinicos i LEFT JOIN Lleno l ON i.Nombre = l.NombreInstrumentoClinico GROUP BY i.Nombre;";
-        string consultaPacientes = "SELECT pe.Cedula, pe.PrimerNombre as 'Nombre', pe.Apellido1 as 'Primer Apellido', pe.Apellido2 as 'Segundo Apellido', pe.FechaDeNacimiento as 'Fecha de nacimiento', pe.Sexo FROM paciente pa JOIN persona pe ON pa.Cedula = pe.Cedula;";
-        string consultaEstudio = "SELECT e.CodigoEstudio, e.Descripcion, COUNT(r.Cedula) as 'Investigadores', COUNT(p.Cedula) AS 'Participantes' FROM Estudio e LEFT JOIN Realiza r ON e.CodigoEstudio = r.CodigoEstudio LEFT JOIN Participo p ON e.CodigoEstudio = p.CodigoEstudio GROUP BY e.CodigoEstudio, e.Descripcion;";
-        string consultaPacientes1 = "select pe.PrimerNombre as 'Nombre', pe.Apellido1 as 'Primer Apellido', pe.Apellido2 as 'Segundo Apellido', pe.Cedula from paciente pa JOIN persona pe ON pa.Cedula = pe.Cedula;";
-        string consultaPacientesParticipo = "Select  pe.PrimerNombre, pe.Apellido1, pe.Apellido2, pe.Cedula From Persona Pe Join Participo Pa On Pe.cedula = Pa.cedula";
+        string consultaPacientes = "SELECT pe.Cedula AS 'Cédula', pe.PrimerNombre as 'Nombre', pe.Apellido1 as 'Primer Apellido', pe.Apellido2 as 'Segundo Apellido', pe.FechaDeNacimiento as 'Fecha de nacimiento', pe.Sexo FROM paciente pa JOIN persona pe ON pa.Cedula = pe.Cedula;";
+        string consultaEstudio = "SELECT e.CodigoEstudio AS 'Código', e.Descripcion AS 'Descripción', COUNT(r.Cedula) as 'Investigadores', COUNT(p.Cedula) AS 'Participantes' FROM Estudio e LEFT JOIN Realiza r ON e.CodigoEstudio = r.CodigoEstudio LEFT JOIN Participo p ON e.CodigoEstudio = p.CodigoEstudio GROUP BY e.CodigoEstudio, e.Descripcion;";
+        string consultaPacientesParticipo = "Select  pe.PrimerNombre, pe.Apellido1, pe.Apellido2, pe.Cedula AS 'Cédula' From Persona Pe Join Participo Pa On Pe.cedula = Pa.cedula";
         string consultaPacientesLlenaron = "SELECT p.PrimerNombre as 'Nombre', p.Apellido1 as 'Primer Apellido', p.Apellido2 as 'Segundo Apellido' from Persona p JOIN Lleno l ON p.Cedula = l.Cedula WHERE l.NombreInstrumentoClinico = @nombre;";
         string consultaInvestigadorRealiza = "SELECT p.PrimerNombre as 'Nombre', p.Apellido1 as 'Primer Apellido', p.Apellido2 as 'Segundo Apellido' FROM Persona p JOIN Realiza r ON p.Cedula = r.Cedula WHERE r.CodigoEstudio = @codigo;";
         string consultaPacienteParticipa = "SELECT p.PrimerNombre as 'Nombre', p.Apellido1 as 'Primer Apellido', p.Apellido2 as 'Segundo Apellido' FROM Persona P JOIN Participo Pa ON Pa.Cedula = P.Cedula Where Pa.CodigoEstudio = @codigo;";
-        string consultaPacienteMuestra = "SELECT m.cedula AS 'Cedula', m.TipoDeMuestra AS 'Tipo de Muestra', m.Localizacion FROM Muestra m WHERE m.Cedula = @cedula;";
+        string consultaPacienteMuestra = "SELECT m.cedula AS 'Cédula', m.TipoDeMuestra AS 'Tipo de Muestra', m.Localizacion FROM Muestra m WHERE m.Cedula = @cedula;";
         string consultaPacienteGenotipeo = "SELECT g.Metodo, g.Link FROM Genotipeo g WHERE g.Cedula = @cedula;";
 
         Persona datosPersona;

@@ -23,9 +23,6 @@ namespace BD_CIBCM
             Consultar
         };
 
-        string consultaPacientes = "select pe.PrimerNombre, pe.Apellido1, pe.Apellido2, pe.Cedula from paciente pa JOIN persona pe ON pa.Cedula = pe.Cedula;";
-        string consultaInvestigadores = "select P.PrimerNombre, Apellido1, P.Apellido2,P.Cedula From Investigador I JOIN Persona P ON I.Cedula = P.Cedula;";
-
         Utility.Diagnosticos diagnosticos = new Utility.Diagnosticos();
         
         public MainWindow()
