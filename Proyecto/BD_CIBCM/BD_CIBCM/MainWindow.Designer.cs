@@ -35,6 +35,7 @@ namespace BD_CIBCM
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.VentanaPrincipal = new System.Windows.Forms.TabControl();
             this.Consultar = new System.Windows.Forms.TabPage();
+            this.radioButtonConsultarDiagnostico = new System.Windows.Forms.RadioButton();
             this.radioButtonConsultarPaciente = new System.Windows.Forms.RadioButton();
             this.radioButtonConsultarEstudio = new System.Windows.Forms.RadioButton();
             this.radioButtonConsultarInstrumentos = new System.Windows.Forms.RadioButton();
@@ -66,11 +67,10 @@ namespace BD_CIBCM
             this.textBoxInsertAp2Invest = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.textBoxInsertarinvestCedula = new System.Windows.Forms.TextBox();
-            this.radioButtonConsultarDiagnostico = new System.Windows.Forms.RadioButton();
             this.panelConsultar = new BD_CIBCM.Consultar();
             this.panelInsertar = new BD_CIBCM.Insertar();
             this.panelBorrar = new BD_CIBCM.Borrar();
-            this.panelInicio = new BD_CIBCM.Inicio(this.VentanaPrincipal);
+            this.inicio1 = new BD_CIBCM.Inicio(VentanaPrincipal);
             this.VentanaPrincipal.SuspendLayout();
             this.Consultar.SuspendLayout();
             this.Insertar.SuspendLayout();
@@ -106,6 +106,18 @@ namespace BD_CIBCM
             this.Consultar.TabIndex = 2;
             this.Consultar.Text = "Consultar";
             this.Consultar.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonConsultarDiagnostico
+            // 
+            this.radioButtonConsultarDiagnostico.AutoSize = true;
+            this.radioButtonConsultarDiagnostico.Location = new System.Drawing.Point(19, 117);
+            this.radioButtonConsultarDiagnostico.Name = "radioButtonConsultarDiagnostico";
+            this.radioButtonConsultarDiagnostico.Size = new System.Drawing.Size(105, 22);
+            this.radioButtonConsultarDiagnostico.TabIndex = 3;
+            this.radioButtonConsultarDiagnostico.TabStop = true;
+            this.radioButtonConsultarDiagnostico.Text = "Diagnóstico";
+            this.radioButtonConsultarDiagnostico.UseVisualStyleBackColor = true;
+            this.radioButtonConsultarDiagnostico.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
             // radioButtonConsultarPaciente
             // 
@@ -428,26 +440,10 @@ namespace BD_CIBCM
             // 
             // panelConsultar
             // 
-            this.panelConsultar.Location = new System.Drawing.Point(259, 16);
+            this.panelConsultar.Location = new System.Drawing.Point(270, 15);
             this.panelConsultar.Name = "panelConsultar";
-            this.panelConsultar.Size = new System.Drawing.Size(873, 600);
-            this.panelConsultar.TabIndex = 1;
-            //   // radioButtonConsultarDiagnostico
-            // 
-            this.radioButtonConsultarDiagnostico.AutoSize = true;
-            this.radioButtonConsultarDiagnostico.Location = new System.Drawing.Point(19, 117);
-            this.radioButtonConsultarDiagnostico.Name = "radioButtonConsultarDiagnostico";
-            this.radioButtonConsultarDiagnostico.Size = new System.Drawing.Size(105, 22);
-            this.radioButtonConsultarDiagnostico.TabIndex = 3;
-            this.radioButtonConsultarDiagnostico.TabStop = true;
-            this.radioButtonConsultarDiagnostico.Text = "Diagnóstico";
-            this.radioButtonConsultarDiagnostico.UseVisualStyleBackColor = true;
-            this.radioButtonConsultarDiagnostico.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
-            // 
-            this.radioButtonConsultarDiagnostico.TabStop = true;
-            this.radioButtonConsultarDiagnostico.Text = "Diagnóstico";
-            this.radioButtonConsultarDiagnostico.UseVisualStyleBackColor = true;
-            this.radioButtonConsultarDiagnostico.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            this.panelConsultar.Size = new System.Drawing.Size(711, 345);
+            this.panelConsultar.TabIndex = 2;
             // 
             // panelInsertar
             // 
@@ -456,13 +452,6 @@ namespace BD_CIBCM
             this.panelInsertar.Size = new System.Drawing.Size(873, 600);
             this.panelInsertar.TabIndex = 3;
             // 
-            // panelConsultar
-            // 
-            this.panelConsultar.Location = new System.Drawing.Point(270, 15);
-            this.panelConsultar.Name = "panelConsultar";
-            this.panelConsultar.Size = new System.Drawing.Size(711, 563);
-            this.panelConsultar.TabIndex = 2;
-            // 
             // panelBorrar
             // 
             this.panelBorrar.Location = new System.Drawing.Point(259, 16);
@@ -470,13 +459,12 @@ namespace BD_CIBCM
             this.panelBorrar.Size = new System.Drawing.Size(873, 600);
             this.panelBorrar.TabIndex = 2;
             // 
-            // panelInicio
+            // inicio1
             // 
-            this.panelInicio.Location = new System.Drawing.Point(0, 0);
-            this.panelInicio.Name = "panelInicio";
-            this.panelInicio.Size = new System.Drawing.Size(1160, 700);
-            this.panelInicio.TabIndex = 4;
-            this.panelInicio.Load += new System.EventHandler(this.panelInicio_Load);
+            this.inicio1.Location = new System.Drawing.Point(0, 0);
+            this.inicio1.Name = "inicio1";
+            this.inicio1.Size = new System.Drawing.Size(1160, 700);
+            this.inicio1.TabIndex = 4;
             // 
             // MainWindow
             // 
@@ -484,7 +472,7 @@ namespace BD_CIBCM
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1144, 661);
-            this.Controls.Add(this.panelInicio);
+            this.Controls.Add(this.inicio1);
             this.Controls.Add(this.VentanaPrincipal);
             this.Controls.Add(this.panelConsultar);
             this.Controls.Add(this.panelInsertar);
@@ -547,11 +535,11 @@ namespace BD_CIBCM
         private RadioButton borrarInstrumentosClinicos;
         private RadioButton radioButtonInsertarPaciente;
         private RadioButton radioButtonBorrarPaciente;
-        private Consultar panelConsultar;
         private Borrar panelBorrar;
         private Insertar panelInsertar;
-        private Inicio panelInicio;
         private RadioButton radioButtonConsultarDiagnostico;
+        private Consultar panelConsultar;
+        private Inicio inicio1;
         // private Button guardarInstrumentosClinicos;
     }
 }
