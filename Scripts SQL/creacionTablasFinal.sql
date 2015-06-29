@@ -4,7 +4,7 @@ Create table Persona(
 	Apellido1 varchar(10),
 	Apellido2 varchar(10),
 	FechaDeNacimiento DATE,
-	Sexo bit
+	Sexo char
 );
 
 Create table Paciente(
@@ -23,7 +23,7 @@ Create table Investigador(
 
 Create table Genotipeo(
 	Cedula char(9),
-	Metodo varchar(128),
+	Metodo varchar(128) DEFAULT 'Secuensación',
 	Link varchar(256)
 	CONSTRAINT PKGenotipeo Primary key(Cedula,Metodo,Link),
 	CONSTRAINT FKGenotipeo_Paciente Foreign key(Cedula) References Paciente(Cedula)
@@ -131,4 +131,12 @@ CREATE TABLE sintomas(
 );
 
 
+
+CREATE PROCEDURE ActualizarInstrumentos
+@nombreViejo varchar(255), 
+@nombreNuevo varchar (255)
+AS
+Update InstrumentosClinicos
+Set Nombre = @nombreNuevo
+Where Nombre = @nombreViejo
 
