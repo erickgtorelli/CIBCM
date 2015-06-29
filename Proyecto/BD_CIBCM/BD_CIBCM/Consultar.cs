@@ -54,6 +54,8 @@ namespace BD_CIBCM
 
                     panelConsultaInstrumentos.Show();
                     this.iniciarConsultaInstrumentos();
+                    string consulta = "Select nombre From InstrumentosClinicos";
+                    baseDatos.llenarComboBox(consulta, new Dictionary<string, object>{}, comboBoxActInstClinico, 1);
                     break;
                 case ControlConsultar.Estudios:
                     panelConsultaPaciente.Hide();
@@ -334,12 +336,6 @@ namespace BD_CIBCM
         private void groupBoxConsultaInstrumentosClinicos_Enter(object sender, EventArgs e)
         {
 
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            string consulta = "Select nombre From InstrumentosClinicos";
-            baseDatos.llenarComboBox(consulta, new Dictionary<string, object> { }, comboBoxActInstClinico, 1);
         }
 
         private void buttonActualizarInstClinico_Click(object sender, EventArgs e)
