@@ -44,30 +44,36 @@
             this.borrarNombreInst = new System.Windows.Forms.Button();
             this.borrarListaInstrumentos = new System.Windows.Forms.CheckedListBox();
             this.radioButtonBorrarPorNombre = new System.Windows.Forms.RadioButton();
-            this.groupBoxBorrarEstudio = new System.Windows.Forms.GroupBox();
-            this.panelBorrarEstPaciente = new System.Windows.Forms.Panel();
-            this.listaBorrarEstudioPaciente = new System.Windows.Forms.CheckedListBox();
-            this.buttonBorrarEstudioPaciente = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.comboBoxPacienteEstudio = new System.Windows.Forms.ComboBox();
-            this.panelBorrarCodEst = new System.Windows.Forms.Panel();
-            this.codEst = new System.Windows.Forms.Label();
-            this.buttonBorrarCodigo = new System.Windows.Forms.Button();
-            this.comboBoxBorrarCod = new System.Windows.Forms.ComboBox();
-            this.borrarEstudioCodigo = new System.Windows.Forms.RadioButton();
-            this.borrarEstudioPaciente = new System.Windows.Forms.RadioButton();
             this.panelBorrarEstudio = new System.Windows.Forms.Panel();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.panelBorrarPaciente = new System.Windows.Forms.Panel();
+            this.groupBoxBorrarPaciente = new System.Windows.Forms.GroupBox();
+            this.comboBoxBorrarPaciente = new System.Windows.Forms.ComboBox();
+            this.buttonBorrarPaciente = new System.Windows.Forms.Button();
+            this.panelBorrarEstPaciente = new System.Windows.Forms.Panel();
+            this.comboBoxPacienteEstudio = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.buttonBorrarEstudioPaciente = new System.Windows.Forms.Button();
+            this.listaBorrarEstudioPaciente = new System.Windows.Forms.CheckedListBox();
+            this.panelBorrarCodEst = new System.Windows.Forms.Panel();
+            this.comboBoxBorrarCod = new System.Windows.Forms.ComboBox();
+            this.buttonBorrarCodigo = new System.Windows.Forms.Button();
+            this.codEst = new System.Windows.Forms.Label();
+            this.borrarEstudioPaciente = new System.Windows.Forms.RadioButton();
+            this.borrarEstudioCodigo = new System.Windows.Forms.RadioButton();
+            this.groupBoxBorrarEstudio = new System.Windows.Forms.GroupBox();
             this.panelBorrarInvest.SuspendLayout();
             this.groupBoxBorrarInvestigador.SuspendLayout();
             this.panelBorrarInstrumentos.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panelborrarInstPac.SuspendLayout();
             this.panelBorrarNombreInst.SuspendLayout();
-            this.groupBoxBorrarEstudio.SuspendLayout();
+            this.panelBorrarEstudio.SuspendLayout();
+            this.panelBorrarPaciente.SuspendLayout();
+            this.groupBoxBorrarPaciente.SuspendLayout();
             this.panelBorrarEstPaciente.SuspendLayout();
             this.panelBorrarCodEst.SuspendLayout();
-            this.panelBorrarEstudio.SuspendLayout();
+            this.groupBoxBorrarEstudio.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelBorrarInvest
@@ -227,18 +233,50 @@
             this.radioButtonBorrarPorNombre.UseVisualStyleBackColor = true;
             this.radioButtonBorrarPorNombre.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
             // 
-            // groupBoxBorrarEstudio
+            // panelBorrarEstudio
             // 
-            this.groupBoxBorrarEstudio.Controls.Add(this.borrarEstudioCodigo);
-            this.groupBoxBorrarEstudio.Controls.Add(this.borrarEstudioPaciente);
-            this.groupBoxBorrarEstudio.Controls.Add(this.panelBorrarCodEst);
-            this.groupBoxBorrarEstudio.Controls.Add(this.panelBorrarEstPaciente);
-            this.groupBoxBorrarEstudio.Location = new System.Drawing.Point(165, 0);
-            this.groupBoxBorrarEstudio.Name = "groupBoxBorrarEstudio";
-            this.groupBoxBorrarEstudio.Size = new System.Drawing.Size(470, 277);
-            this.groupBoxBorrarEstudio.TabIndex = 3;
-            this.groupBoxBorrarEstudio.TabStop = false;
-            this.groupBoxBorrarEstudio.Text = "Borrar Estudio ";
+            this.panelBorrarEstudio.Controls.Add(this.groupBoxBorrarEstudio);
+            this.panelBorrarEstudio.Location = new System.Drawing.Point(0, 0);
+            this.panelBorrarEstudio.Name = "panelBorrarEstudio";
+            this.panelBorrarEstudio.Size = new System.Drawing.Size(873, 600);
+            this.panelBorrarEstudio.TabIndex = 19;
+            // 
+            // panelBorrarPaciente
+            // 
+            this.panelBorrarPaciente.Controls.Add(this.groupBoxBorrarPaciente);
+            this.panelBorrarPaciente.Location = new System.Drawing.Point(0, 0);
+            this.panelBorrarPaciente.Name = "panelBorrarPaciente";
+            this.panelBorrarPaciente.Size = new System.Drawing.Size(873, 600);
+            this.panelBorrarPaciente.TabIndex = 19;
+            // 
+            // groupBoxBorrarPaciente
+            // 
+            this.groupBoxBorrarPaciente.Controls.Add(this.comboBoxBorrarPaciente);
+            this.groupBoxBorrarPaciente.Controls.Add(this.buttonBorrarPaciente);
+            this.groupBoxBorrarPaciente.Location = new System.Drawing.Point(241, 0);
+            this.groupBoxBorrarPaciente.Name = "groupBoxBorrarPaciente";
+            this.groupBoxBorrarPaciente.Size = new System.Drawing.Size(358, 179);
+            this.groupBoxBorrarPaciente.TabIndex = 5;
+            this.groupBoxBorrarPaciente.TabStop = false;
+            this.groupBoxBorrarPaciente.Text = "Borrar paciente";
+            // 
+            // comboBoxBorrarPaciente
+            // 
+            this.comboBoxBorrarPaciente.FormattingEnabled = true;
+            this.comboBoxBorrarPaciente.Location = new System.Drawing.Point(69, 60);
+            this.comboBoxBorrarPaciente.Name = "comboBoxBorrarPaciente";
+            this.comboBoxBorrarPaciente.Size = new System.Drawing.Size(228, 21);
+            this.comboBoxBorrarPaciente.TabIndex = 0;
+            // 
+            // buttonBorrarPaciente
+            // 
+            this.buttonBorrarPaciente.Location = new System.Drawing.Point(137, 92);
+            this.buttonBorrarPaciente.Name = "buttonBorrarPaciente";
+            this.buttonBorrarPaciente.Size = new System.Drawing.Size(75, 23);
+            this.buttonBorrarPaciente.TabIndex = 2;
+            this.buttonBorrarPaciente.Text = "Borrar";
+            this.buttonBorrarPaciente.UseVisualStyleBackColor = true;
+            this.buttonBorrarPaciente.Click += new System.EventHandler(this.buttonBorrarPaciente_Click);
             // 
             // panelBorrarEstPaciente
             // 
@@ -251,13 +289,24 @@
             this.panelBorrarEstPaciente.Size = new System.Drawing.Size(403, 188);
             this.panelBorrarEstPaciente.TabIndex = 3;
             // 
-            // listaBorrarEstudioPaciente
+            // comboBoxPacienteEstudio
             // 
-            this.listaBorrarEstudioPaciente.FormattingEnabled = true;
-            this.listaBorrarEstudioPaciente.Location = new System.Drawing.Point(68, 63);
-            this.listaBorrarEstudioPaciente.Name = "listaBorrarEstudioPaciente";
-            this.listaBorrarEstudioPaciente.Size = new System.Drawing.Size(281, 49);
-            this.listaBorrarEstudioPaciente.TabIndex = 4;
+            this.comboBoxPacienteEstudio.FormattingEnabled = true;
+            this.comboBoxPacienteEstudio.Location = new System.Drawing.Point(173, 15);
+            this.comboBoxPacienteEstudio.Name = "comboBoxPacienteEstudio";
+            this.comboBoxPacienteEstudio.Size = new System.Drawing.Size(189, 21);
+            this.comboBoxPacienteEstudio.TabIndex = 0;
+            this.comboBoxPacienteEstudio.Text = "Seleccione los datos del paciente";
+            this.comboBoxPacienteEstudio.SelectedIndexChanged += new System.EventHandler(this.comboBoxPacienteEstudio_SelectedIndexChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(56, 18);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(80, 13);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Datos Paciente";
             // 
             // buttonBorrarEstudioPaciente
             // 
@@ -269,24 +318,13 @@
             this.buttonBorrarEstudioPaciente.UseVisualStyleBackColor = true;
             this.buttonBorrarEstudioPaciente.Click += new System.EventHandler(this.buttonBorrarEstudioPaciente_Click);
             // 
-            // label1
+            // listaBorrarEstudioPaciente
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(56, 18);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(80, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Datos Paciente";
-            // 
-            // comboBoxPacienteEstudio
-            // 
-            this.comboBoxPacienteEstudio.FormattingEnabled = true;
-            this.comboBoxPacienteEstudio.Location = new System.Drawing.Point(173, 15);
-            this.comboBoxPacienteEstudio.Name = "comboBoxPacienteEstudio";
-            this.comboBoxPacienteEstudio.Size = new System.Drawing.Size(189, 21);
-            this.comboBoxPacienteEstudio.TabIndex = 0;
-            this.comboBoxPacienteEstudio.Text = "Seleccione los datos del paciente";
-            this.comboBoxPacienteEstudio.SelectedIndexChanged += new System.EventHandler(this.comboBoxPacienteEstudio_SelectedIndexChanged);
+            this.listaBorrarEstudioPaciente.FormattingEnabled = true;
+            this.listaBorrarEstudioPaciente.Location = new System.Drawing.Point(68, 63);
+            this.listaBorrarEstudioPaciente.Name = "listaBorrarEstudioPaciente";
+            this.listaBorrarEstudioPaciente.Size = new System.Drawing.Size(281, 49);
+            this.listaBorrarEstudioPaciente.TabIndex = 4;
             // 
             // panelBorrarCodEst
             // 
@@ -298,14 +336,14 @@
             this.panelBorrarCodEst.Size = new System.Drawing.Size(324, 124);
             this.panelBorrarCodEst.TabIndex = 4;
             // 
-            // codEst
+            // comboBoxBorrarCod
             // 
-            this.codEst.AutoSize = true;
-            this.codEst.Location = new System.Drawing.Point(40, 27);
-            this.codEst.Name = "codEst";
-            this.codEst.Size = new System.Drawing.Size(93, 13);
-            this.codEst.TabIndex = 2;
-            this.codEst.Text = "Código de Estudio";
+            this.comboBoxBorrarCod.FormattingEnabled = true;
+            this.comboBoxBorrarCod.Location = new System.Drawing.Point(139, 24);
+            this.comboBoxBorrarCod.Name = "comboBoxBorrarCod";
+            this.comboBoxBorrarCod.Size = new System.Drawing.Size(165, 21);
+            this.comboBoxBorrarCod.TabIndex = 0;
+            this.comboBoxBorrarCod.Text = "Seleccione el código a borrar";
             // 
             // buttonBorrarCodigo
             // 
@@ -317,26 +355,14 @@
             this.buttonBorrarCodigo.UseVisualStyleBackColor = true;
             this.buttonBorrarCodigo.Click += new System.EventHandler(this.buttonBorrarCodigo_Click);
             // 
-            // comboBoxBorrarCod
+            // codEst
             // 
-            this.comboBoxBorrarCod.FormattingEnabled = true;
-            this.comboBoxBorrarCod.Location = new System.Drawing.Point(139, 24);
-            this.comboBoxBorrarCod.Name = "comboBoxBorrarCod";
-            this.comboBoxBorrarCod.Size = new System.Drawing.Size(165, 21);
-            this.comboBoxBorrarCod.TabIndex = 0;
-            this.comboBoxBorrarCod.Text = "Seleccione el código a borrar";
-            // 
-            // borrarEstudioCodigo
-            // 
-            this.borrarEstudioCodigo.AutoSize = true;
-            this.borrarEstudioCodigo.Location = new System.Drawing.Point(205, 38);
-            this.borrarEstudioCodigo.Name = "borrarEstudioCodigo";
-            this.borrarEstudioCodigo.Size = new System.Drawing.Size(111, 17);
-            this.borrarEstudioCodigo.TabIndex = 1;
-            this.borrarEstudioCodigo.TabStop = true;
-            this.borrarEstudioCodigo.Text = "Código de Estudio";
-            this.borrarEstudioCodigo.UseVisualStyleBackColor = true;
-            this.borrarEstudioCodigo.CheckedChanged += new System.EventHandler(this.borrarEstudioCodigo_CheckedChanged);
+            this.codEst.AutoSize = true;
+            this.codEst.Location = new System.Drawing.Point(40, 27);
+            this.codEst.Name = "codEst";
+            this.codEst.Size = new System.Drawing.Size(93, 13);
+            this.codEst.TabIndex = 2;
+            this.codEst.Text = "Código de Estudio";
             // 
             // borrarEstudioPaciente
             // 
@@ -350,21 +376,39 @@
             this.borrarEstudioPaciente.UseVisualStyleBackColor = true;
             this.borrarEstudioPaciente.CheckedChanged += new System.EventHandler(this.borrarEstudioPaciente_CheckedChanged);
             // 
-            // panelBorrarEstudio
+            // borrarEstudioCodigo
             // 
-            this.panelBorrarEstudio.Controls.Add(this.groupBoxBorrarEstudio);
-            this.panelBorrarEstudio.Location = new System.Drawing.Point(0, 0);
-            this.panelBorrarEstudio.Name = "panelBorrarEstudio";
-            this.panelBorrarEstudio.Size = new System.Drawing.Size(873, 600);
-            this.panelBorrarEstudio.TabIndex = 19;
+            this.borrarEstudioCodigo.AutoSize = true;
+            this.borrarEstudioCodigo.Location = new System.Drawing.Point(205, 38);
+            this.borrarEstudioCodigo.Name = "borrarEstudioCodigo";
+            this.borrarEstudioCodigo.Size = new System.Drawing.Size(111, 17);
+            this.borrarEstudioCodigo.TabIndex = 1;
+            this.borrarEstudioCodigo.TabStop = true;
+            this.borrarEstudioCodigo.Text = "Código de Estudio";
+            this.borrarEstudioCodigo.UseVisualStyleBackColor = true;
+            this.borrarEstudioCodigo.CheckedChanged += new System.EventHandler(this.borrarEstudioCodigo_CheckedChanged);
+            // 
+            // groupBoxBorrarEstudio
+            // 
+            this.groupBoxBorrarEstudio.Controls.Add(this.borrarEstudioCodigo);
+            this.groupBoxBorrarEstudio.Controls.Add(this.borrarEstudioPaciente);
+            this.groupBoxBorrarEstudio.Controls.Add(this.panelBorrarCodEst);
+            this.groupBoxBorrarEstudio.Controls.Add(this.panelBorrarEstPaciente);
+            this.groupBoxBorrarEstudio.Location = new System.Drawing.Point(165, 0);
+            this.groupBoxBorrarEstudio.Name = "groupBoxBorrarEstudio";
+            this.groupBoxBorrarEstudio.Size = new System.Drawing.Size(470, 277);
+            this.groupBoxBorrarEstudio.TabIndex = 3;
+            this.groupBoxBorrarEstudio.TabStop = false;
+            this.groupBoxBorrarEstudio.Text = "Borrar Estudio ";
             // 
             // Borrar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.panelBorrarEstudio);
-            this.Controls.Add(this.panelBorrarInvest);
+            this.Controls.Add(this.panelBorrarPaciente);
             this.Controls.Add(this.panelBorrarInstrumentos);
+            this.Controls.Add(this.panelBorrarInvest);
+            this.Controls.Add(this.panelBorrarEstudio);
             this.Name = "Borrar";
             this.Size = new System.Drawing.Size(873, 600);
             this.panelBorrarInvest.ResumeLayout(false);
@@ -374,13 +418,15 @@
             this.groupBox1.PerformLayout();
             this.panelborrarInstPac.ResumeLayout(false);
             this.panelBorrarNombreInst.ResumeLayout(false);
-            this.groupBoxBorrarEstudio.ResumeLayout(false);
-            this.groupBoxBorrarEstudio.PerformLayout();
+            this.panelBorrarEstudio.ResumeLayout(false);
+            this.panelBorrarPaciente.ResumeLayout(false);
+            this.groupBoxBorrarPaciente.ResumeLayout(false);
             this.panelBorrarEstPaciente.ResumeLayout(false);
             this.panelBorrarEstPaciente.PerformLayout();
             this.panelBorrarCodEst.ResumeLayout(false);
             this.panelBorrarCodEst.PerformLayout();
-            this.panelBorrarEstudio.ResumeLayout(false);
+            this.groupBoxBorrarEstudio.ResumeLayout(false);
+            this.groupBoxBorrarEstudio.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -392,17 +438,6 @@
         private System.Windows.Forms.ComboBox comboBoxBorrarInvest;
         private System.Windows.Forms.Panel panelBorrarInstrumentos;
         private System.Windows.Forms.Button buttonBorrarInstrumentos;
-        private System.Windows.Forms.GroupBox groupBoxBorrarEstudio;
-        private System.Windows.Forms.Panel panelBorrarEstPaciente;
-        private System.Windows.Forms.RadioButton borrarEstudioCodigo;
-        private System.Windows.Forms.RadioButton borrarEstudioPaciente;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBoxPacienteEstudio;
-        private System.Windows.Forms.Panel panelBorrarCodEst;
-        private System.Windows.Forms.Button buttonBorrarCodigo;
-        private System.Windows.Forms.ComboBox comboBoxBorrarCod;
-        private System.Windows.Forms.Label codEst;
-        private System.Windows.Forms.Button buttonBorrarEstudioPaciente;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.CheckedListBox borrarListaInstrumentos;
         private System.Windows.Forms.RadioButton radioButtonBorrarPorNombre;
@@ -412,11 +447,26 @@
         private System.Windows.Forms.Panel panelborrarInstPac;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.CheckedListBox listaInstPorPaciente;
-        private System.Windows.Forms.CheckedListBox listaBorrarEstudioPaciente;
         private System.Windows.Forms.Panel panelBorrarEstudio;
         private System.Windows.Forms.GroupBox groupBoxBorrarInvestigador;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.Panel panelBorrarPaciente;
+        private System.Windows.Forms.GroupBox groupBoxBorrarPaciente;
+        private System.Windows.Forms.ComboBox comboBoxBorrarPaciente;
+        private System.Windows.Forms.Button buttonBorrarPaciente;
+        private System.Windows.Forms.GroupBox groupBoxBorrarEstudio;
+        private System.Windows.Forms.RadioButton borrarEstudioCodigo;
+        private System.Windows.Forms.RadioButton borrarEstudioPaciente;
+        private System.Windows.Forms.Panel panelBorrarCodEst;
+        private System.Windows.Forms.Label codEst;
+        private System.Windows.Forms.Button buttonBorrarCodigo;
+        private System.Windows.Forms.ComboBox comboBoxBorrarCod;
+        private System.Windows.Forms.Panel panelBorrarEstPaciente;
+        private System.Windows.Forms.CheckedListBox listaBorrarEstudioPaciente;
+        private System.Windows.Forms.Button buttonBorrarEstudioPaciente;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox comboBoxPacienteEstudio;
 
     }
 }

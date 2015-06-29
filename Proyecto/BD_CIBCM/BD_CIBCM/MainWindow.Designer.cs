@@ -32,6 +32,7 @@ namespace BD_CIBCM
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.VentanaPrincipal = new System.Windows.Forms.TabControl();
             this.Consultar = new System.Windows.Forms.TabPage();
             this.radioButtonConsultarPaciente = new System.Windows.Forms.RadioButton();
@@ -66,8 +67,9 @@ namespace BD_CIBCM
             this.label10 = new System.Windows.Forms.Label();
             this.textBoxInsertarinvestCedula = new System.Windows.Forms.TextBox();
             this.panelConsultar = new BD_CIBCM.Consultar();
-            this.panelBorrar = new BD_CIBCM.Borrar();
             this.panelInsertar = new BD_CIBCM.Insertar();
+            this.panelBorrar = new BD_CIBCM.Borrar();
+            this.panelInicio = new BD_CIBCM.Inicio(this.VentanaPrincipal);
             this.VentanaPrincipal.SuspendLayout();
             this.Consultar.SuspendLayout();
             this.Insertar.SuspendLayout();
@@ -429,13 +431,6 @@ namespace BD_CIBCM
             this.panelConsultar.Size = new System.Drawing.Size(873, 600);
             this.panelConsultar.TabIndex = 1;
             // 
-            // panelBorrar
-            // 
-            this.panelBorrar.Location = new System.Drawing.Point(259, 16);
-            this.panelBorrar.Name = "panelBorrar";
-            this.panelBorrar.Size = new System.Drawing.Size(873, 600);
-            this.panelBorrar.TabIndex = 2;
-            // 
             // panelInsertar
             // 
             this.panelInsertar.Location = new System.Drawing.Point(259, 12);
@@ -443,17 +438,34 @@ namespace BD_CIBCM
             this.panelInsertar.Size = new System.Drawing.Size(873, 600);
             this.panelInsertar.TabIndex = 3;
             // 
+            // panelBorrar
+            // 
+            this.panelBorrar.Location = new System.Drawing.Point(259, 16);
+            this.panelBorrar.Name = "panelBorrar";
+            this.panelBorrar.Size = new System.Drawing.Size(873, 600);
+            this.panelBorrar.TabIndex = 2;
+            // 
+            // panelInicio
+            // 
+            this.panelInicio.Location = new System.Drawing.Point(0, 0);
+            this.panelInicio.Name = "panelInicio";
+            this.panelInicio.Size = new System.Drawing.Size(1160, 700);
+            this.panelInicio.TabIndex = 4;
+            this.panelInicio.Load += new System.EventHandler(this.panelInicio_Load);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1144, 661);
+            this.Controls.Add(this.panelInicio);
             this.Controls.Add(this.VentanaPrincipal);
             this.Controls.Add(this.panelConsultar);
             this.Controls.Add(this.panelInsertar);
             this.Controls.Add(this.panelBorrar);
             this.DataBindings.Add(new System.Windows.Forms.Binding("WindowState", global::BD_CIBCM.Properties.Settings.Default, "Max", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "MainWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -513,6 +525,7 @@ namespace BD_CIBCM
         private Consultar panelConsultar;
         private Borrar panelBorrar;
         private Insertar panelInsertar;
+        private Inicio panelInicio;
        // private Button guardarInstrumentosClinicos;
     }
 }

@@ -250,5 +250,10 @@ namespace BD_CIBCM
             }
         }
 
+        private void panelInicio_Load(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

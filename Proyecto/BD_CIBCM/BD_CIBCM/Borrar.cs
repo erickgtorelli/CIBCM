@@ -46,12 +46,15 @@ namespace BD_CIBCM
                 case ControlBorrar.Investigador:
                     panelBorrarInstrumentos.Hide();
                     panelBorrarEstudio.Hide();
+                    panelBorrarPaciente.Hide();
+
                     panelBorrarInvest.Show();
                     break;
                 case ControlBorrar.InstrumentosClinicos:
                     panelBorrarEstudio.Hide();
                     panelBorrarInvest.Hide();
                     panelBorrarNombreInst.Hide();
+                    panelBorrarPaciente.Hide();
 
                     panelborrarInstPac.Show();
                     panelBorrarInstrumentos.Show();
@@ -59,11 +62,19 @@ namespace BD_CIBCM
                 case ControlBorrar.Estudio:
                     panelBorrarInvest.Hide();
                     panelBorrarInstrumentos.Hide();
+                    panelBorrarPaciente.Hide();
+
                     panelBorrarEstudio.Show();
                     break; 
 
                 case ControlBorrar.Paciente:
-          
+                    panelBorrarInvest.Hide();
+                    panelBorrarInstrumentos.Hide();
+                    panelBorrarEstudio.Hide();
+
+                    panelBorrarPaciente.Show();
+                    comboBoxBorrarPaciente.Items.Clear();
+                    baseDatos.llenarComboBox(consultaPacientes, comboBoxBorrarPaciente, 4);
                     break;
 
             }
@@ -72,23 +83,24 @@ namespace BD_CIBCM
         private string seleccionarCedulaComboBox(ComboBox comboBoxCedula)
         {
             string infoPersona = comboBoxCedula.Text;
-            string cedula = "";
-            int tamanio = 0;
-            if (infoPersona != null)
-            {
-                tamanio = infoPersona.Length;
-                cedula = infoPersona.Substring(tamanio - 9);
-            }
-            cedula.Trim();
-            return cedula;
+            string[] chunks = infoPersona.Split(null);
+            MessageBox.Show("la cedula es " + chunks[chunks.Length - 1]);
+            return chunks[chunks.Length-1];
         }
 
         private void buttonBorrarInvest_Click(object sender, EventArgs e)
         {
-            baseDatos.insertarDatos("Delete from Persona where Cedula=" + seleccionarCedulaComboBox(comboBoxBorrarInvest));
-            MessageBox.Show("Se borró el investigador seleccionado");
-            comboBoxBorrarInvest.Items.Clear();
-            baseDatos.llenarComboBox(consultaInvestigadores, comboBoxBorrarInvest, 4);
+            DialogResult dialogResult = MessageBox.Show("Desea borrar al investigador", "Borrar investigador", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                baseDatos.insertarDatos("Delete from Persona where Cedula=" + seleccionarCedulaComboBox(comboBoxBorrarInvest));
+                MessageBox.Show("Se borró el investigador seleccionado");
+                comboBoxBorrarInvest.Items.Clear();
+                comboBoxBorrarInvest.Text = "";
+                baseDatos.llenarComboBox(consultaInvestigadores, comboBoxBorrarInvest, 4);
+            }
+
+            
         }
 
         private void buttonBorrarInstrumentos_Click(object sender, EventArgs e)
@@ -189,6 +201,20 @@ namespace BD_CIBCM
                 listaBorrarEstudioPaciente.Items.Clear();
                 baseDatos.llenarCheckedListBox(consulta, listaBorrarEstudioPaciente, 1);
             }
+        }
+
+        private void buttonBorrarPaciente_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Desea borrar al paciente", "Borrar paciente", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                baseDatos.insertarDatos("DELETE FROM Persona WHERE Cedula=" + seleccionarCedulaComboBox(comboBoxBorrarPaciente));
+                MessageBox.Show("Se borró el paciente seleccionado");
+                comboBoxBorrarPaciente.Items.Clear();
+                comboBoxBorrarPaciente.Text = "";
+                baseDatos.llenarComboBox(consultaPacientes, comboBoxBorrarPaciente, 4);
+            }
+            
         }
 
 

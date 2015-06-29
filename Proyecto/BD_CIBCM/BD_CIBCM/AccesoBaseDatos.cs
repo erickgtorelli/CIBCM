@@ -18,7 +18,7 @@ namespace BD_CIBCM
     {
         // FAMILIALEWIS\\SQLEXPRESS
         /*En Initial Catalog se agrega la base de datos propia. Intregated Security es para utilizar Windows Authentication*/
-        String conexion = "Data Source=NAYRU; Initial Catalog=BD_CIBCM; Integrated Security=SSPI";
+        String conexion = "Data Source=FAMILIALEWIS\\SQLEXPRESS; Initial Catalog=BD_CIBCM; Integrated Security=SSPI";
         
         /**
          * Constructor
@@ -118,7 +118,8 @@ namespace BD_CIBCM
             }
             else
             {
-                MessageBox.Show("Datos vacio");
+                // este msgbox me tenia mad - emma
+                //MessageBox.Show("Datos vacio");
             }
         }
 
@@ -172,7 +173,7 @@ namespace BD_CIBCM
             }
             else
             {
-                MessageBox.Show("Datos vacio");
+                // MessageBox.Show("Datos vacio");
             }
 
             return p;
@@ -228,7 +229,7 @@ namespace BD_CIBCM
             }
             else
             {
-                MessageBox.Show("Datos vacio");
+               // MessageBox.Show("Datos vacio");
             }
         }
 
