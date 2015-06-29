@@ -1,0 +1,116 @@
+* 6d04f54: arreglos pequeños
+*   87ebe08: Merge branch 'master' of https://github.com/erickgtorelli/CIBCM
+|\  
+| *   3fa0a91: Merge branch 'master' of https://github.com/erickgtorelli/CIBCM
+| |\  
+| * | 0b8358a: Borrar Diagnisticos
+* | | 3c820a2: hice cosas falta hacer pruebas validaciones etc
+| |/  
+|/|   
+* |   a180acc: Merge branch 'master' of https://github.com/erickgtorelli/CIBCM
+|\ \  
+| * \   a0845b8: Merge branch 'master' of https://github.com/erickgtorelli/CIBCM
+| |\ \  
+| * | | 9aeb436: se termino la actualizacion de estudios y de instrumentos clinicos, en los scripts se cambio la tabla lleno y se agrego el procedimiento almacenado
+* | | | 1ec6718: enchulame interfaz pt 2 borrar paciente
+| |/ /  
+|/| |   
+* | | 173ab06: se llena combobox de borrar investigador
+* | | 7c55c12: sexo cambiado de bit a char
+* | | 33390c2: enchulame la interfaz: the prelude
+|/ /  
+* | 244fa94: insertar paciente implementado
+* |   3c1f215: Merge branch 'master' of https://github.com/erickgtorelli/CIBCM
+|\ \  
+| |/  
+| * d4bfede: algunos problemas de interfaz arreglados(falta de insertar investigador y que no se veía ninguna opcion de insertar hasta que se seleccionara radiobutton diagnostico)
+| * 3b59218: se modifico el borrar de estudio y de instrumentos clinicos, se soluciono el problema de insertar instrumentos clinicos
+| * 32c6835: solucionando merge
+| *   f0aae68: Merge branch 'master' of https://github.com/erickgtorelli/CIBCM
+| |\  
+| * | fbbe33a: Arreglando radio buttons y paneles
+* | | 752c890: mod scriptsEmmaAK7.sql
+| |/  
+|/|   
+* | 3e392f9: peque;os arreglos de cosas duplicadas
+|/  
+* 12df291: Problema del merge arreglado
+*   08b8895: Merge branch 'master' of https://github.com/erickgtorelli/CIBCM
+|\  
+| * 9807882: peq arreglo Insertar
+| *   bb42f82: Merge branch 'master' of https://github.com/erickgtorelli/CIBCM
+| |\  
+| | *   343210d: Merge branch 'master' of https://github.com/erickgtorelli/CIBCM
+| | |\  
+| | * | 8868971: se completo insercion de estudio y de instrumentos clinicos
+| * | | c2e634a: comienza el enchulame la interfaz
+| | |/  
+| |/|   
+* | | b6dd533: Agregado guardar de diagnostico parcial.
+|/ /  
+* | 9b57463: cambios menores en interfaz
+* | 5cf47e7: implemento actualizarPaciente
+|/  
+* 144283e: agregados
+* 792eb69: ohhh lawd
+* ed0f54c: mini arreglo consulta instrumentos
+*   b4e8eb8: Merge remote-tracking branch 'origin/master'
+|\  
+| * 1f07999: se agregaron botones de borrado
+| *   6060375: Merge branch 'master' of https://github.com/erickgtorelli/CIBCM
+| |\  
+| * | 3ae4466: se resolvieron los ultimos conflictos
+* | | f705335: comienzo consulta paciente
+| |/  
+|/|   
+* | f62b43f: meti mi script
+|/  
+* 7c460f7: resueltos conflictos de duplicados revisar q nada se haya borrado
+*   6367c55: Merge branch 'master' of https://github.com/erickgtorelli/CIBCM
+|\  
+| * 1b30f32: borrar investigador agregado, mis rastas
+* | d368a53: ay dio mio trabajos en consultas
+|/  
+* 2e9a9d5: se agrego problema de boton guardar, pa
+* 5b9b639: problema de merge arreglado(creo)
+*   aedb862: se hizo merge
+|\  
+| *   5c4932f: merge
+| |\  
+| | *   3011533: Merge branch 'master' of https://github.com/erickgtorelli/CIBCM
+| | |\  
+| | * | 1726d4a: Diagnostico, trabajando en el boton de guardar a la hora de Insertar
+| * | | 70f082e: insertar investigador agrega persona a base de datos, check de cedula modificado
+* | | | a444991: se modifico el insertar de instrumentos clinicos
+| |_|/  
+|/| |   
+* | | eece818: se modifico la tablaparticipioen los scripts y en el proyecto se modifico la parte de inserciones para instrumetos clinicos y para estudio
+|/ /  
+* | 6faab80: agregado insertar investigador a la interfaz
+|/  
+* 81d6c75: Se modifico la parte de la interfaz de estuido,se creo el metodo para actualizar los comboboxes despues de insertar pacientes. tambien se agrego elmetodo para obtener cedula decombobox
+* 82ed36e: se agrego la condicion de insercion en estudio para que no se ingresen estudios que ya estan en la base de datos, hay que corregir la insercion de la fecha
+* 2cb5e28: se cambiaron cosas para meter datos  a estudio por la interfaz
+* f23b04e: se agrego interfaz de insertar estudio y de instrumentos clinicos
+* 18ae47e: nueva version todos los script, corriendo en la base al 22/6
+* 7554744: Updated todoslosScripts.sql
+* 4447e13: trigger para diagnostico parcial.
+* 9b51cba: scripts final de creacion de tablas
+*   093d0fb: Merge branch 'master' of https://github.com/erickgtorelli/CIBCM
+|\  
+| * ee58da5: 
+| * 5741bed: 
+* | 9d7d260: Se hicieron cambios en el script que crea el diagnostico parcial
+* |   46f60cf: Merge branch 'master' of https://github.com/erickgtorelli/CIBCM
+|\ \  
+| |/  
+| * cc41890: creacion de tablas: instrumentos clinicos, lleno, participo, estudio, sintomas
+* | 061eb82: Consulta de investigadores agregada, ademas del dataGrid en el cual se van a cargar los Diagnosticos parciales de los pacientes
+|/  
+* 84aa96f: Avance en incersión de Diagnosticos
+* 1fe88b6: Metodo de llenar combo box y modificacion de la interfaz entorno a Diagnosticos
+* 032537f: Cambios en la ventana principal
+* 7010378: Check cédula terminado
+* ad9f7b7: Creación del proyecto en visual, esqueleto del acseso a la base de datos y las utilidades.
+* 28ffac0: Script de los create de las tablas Persona,Paciente,Investigador,Genotipeo,Muestra
+* b5b9dd9: Initial commit
