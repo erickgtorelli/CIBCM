@@ -20,14 +20,15 @@ namespace BD_CIBCM
     public partial class Consultar : UserControl
     {
         AccesoBaseDatos baseDatos;
-        string consultaInstrumentosClinicos = "SELECT i.Nombre, COUNT(l.Cedula) as 'Personas que han llenado el instrumento' FROM InstrumentosClinicos i LEFT JOIN Lleno l ON i.Nombre = l.NombreInstrumentoClinico GROUP BY i.Nombre;";
+        string consultaInstrumentosClinicos = "SELECT i.Nombre, COUNT(l.Cedula) as 'Participantes' FROM InstrumentosClinicos i LEFT JOIN Lleno l ON i.Nombre = l.NombreInstrumentoClinico GROUP BY i.Nombre;";
         string consultaPacientes = "SELECT pe.Cedula, pe.PrimerNombre as 'Nombre', pe.Apellido1 as 'Primer Apellido', pe.Apellido2 as 'Segundo Apellido', pe.FechaDeNacimiento as 'Fecha de nacimiento', pe.Sexo FROM paciente pa JOIN persona pe ON pa.Cedula = pe.Cedula;";
-        string consultaEstudio = "SELECT e.CodigoEstudio, e.Descripcion, COUNT(r.Cedula) as 'No. de investigadores' FROM Estudio e LEFT JOIN Realiza r ON e.CodigoEstudio = r.CodigoEstudio GROUP BY e.CodigoEstudio, e.Descripcion;";
+        string consultaEstudio = "SELECT e.CodigoEstudio, e.Descripcion, COUNT(r.Cedula) as 'Investigadores', COUNT(p.Cedula) AS 'Participantes' FROM Estudio e LEFT JOIN Realiza r ON e.CodigoEstudio = r.CodigoEstudio LEFT JOIN Participo p ON e.CodigoEstudio = p.CodigoEstudio GROUP BY e.CodigoEstudio, e.Descripcion;";
         string consultaPacientesParticipo = "Select  pe.PrimerNombre, pe.Apellido1, pe.Apellido2, pe.Cedula From Persona Pe Join Participo Pa On Pe.cedula = Pa.cedula";
         Persona datosPersona;
 
         public Consultar()
         {
+            datosPersona = null;
             InitializeComponent();
             baseDatos = new AccesoBaseDatos();
             this.mostrarControl(ControlConsultar.Instrumentos);
@@ -38,16 +39,13 @@ namespace BD_CIBCM
             switch(c)
             {
                 case ControlConsultar.Instrumentos:
-                    groupBoxDatosPaciente.Visible = false;
                     panelConsultaEstudio.Hide();
                     panelconsultaPaciente.Hide();
 
                     panelConsultaInstrumentos.Show();
-                    groupBoxActInstClinico.Hide();
                     this.iniciarConsultaInstrumentos();
                     break;
                 case ControlConsultar.Estudios:
-                    groupBoxDatosPaciente.Visible = false;
                     panelconsultaPaciente.Hide();
                     panelConsultaInstrumentos.Hide();
 
@@ -104,6 +102,17 @@ namespace BD_CIBCM
         {
             return "SELECT p.PrimerNombre as 'Nombre', p.Apellido1 as 'Primer Apellido', p.Apellido2 as 'Segundo Apellido' FROM Persona p JOIN Realiza r ON p.Cedula = r.Cedula WHERE r.CodigoEstudio ='" + codigo + "'";
         }
+
+        private string formularConsultaPacienteMuestra(string cedula)
+        {
+            return "SELECT m.cedula AS 'Cedula', m.TipoDeMuestra AS 'Tipo de Muestra', m.Localizacion FROM Muestra m WHERE m.Cedula = '"+cedula+"';";
+        }
+
+        private string formularConsultaPacienteGenotipeo(string cedula)
+        {
+            return "SELECT g.Metodo, g.Link FROM Genotipeo g WHERE g.Cedula = '"+cedula+"';";
+        }
+
         private string formularConsultaPacienteParticipa (string codigo){
          return "SELECT p.PrimerNombre as 'Nombre', p.Apellido1 as 'Primer Apellido', p.Apellido2 as 'Segundo Apellido' FROM Persona P JOIN Participo Pa ON Pa.Cedula = P.Cedula Where Pa.CodigoEstudio ='"+codigo+"';"; 
         }
@@ -134,27 +143,33 @@ namespace BD_CIBCM
             string cedula = (string)dataGridViewPaciente1[0, e.RowIndex].Value;
             datosPersona = baseDatos.obtenerPersona(cedula);
             this.actualizarPaciente(datosPersona);
-            groupBoxDatosPaciente.Visible = true;
+            baseDatos.llenarTabla(formularConsultaPacienteMuestra(cedula), dataGridViewPaciente2);
+            baseDatos.llenarTabla(formularConsultaPacienteGenotipeo(cedula), dataGridViewPaciente3);
         }
 
         private void buttonActualizarPaciente_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Desea actulizar los datos del paciente", "Actualizar del paciente", MessageBoxButtons.YesNo);
-            if (dialogResult == DialogResult.Yes)
+            if(datosPersona != null)
             {
-                string c = datosPersona.cedula;
-                datosPersona.cedula = textBoxConsultaCedula.Text;
-                datosPersona.nombre = textBoxConsultaNombre.Text;
-                datosPersona.apellido1 = textBoxConsultaApellido1.Text;
-                datosPersona.apellido2 = textBoxConsultaApellido2.Text;
-                datosPersona.fechaNacimiento = dateTimePickerConsultaFecha.Value;
-                baseDatos.actualizarPaciente(c, datosPersona);
-                this.iniciarConsultaPacientes();
+                DialogResult dialogResult = MessageBox.Show("Desea actulizar los datos del paciente", "Actualizar del paciente", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    string c = datosPersona.cedula;
+                    datosPersona.cedula = textBoxConsultaCedula.Text;
+                    datosPersona.nombre = textBoxConsultaNombre.Text;
+                    datosPersona.apellido1 = textBoxConsultaApellido1.Text;
+                    datosPersona.apellido2 = textBoxConsultaApellido2.Text;
+                    datosPersona.fechaNacimiento = dateTimePickerConsultaFecha.Value;
+                    baseDatos.actualizarPaciente(c, datosPersona);
+                    this.iniciarConsultaPacientes();
+                }
             }
-            else if (dialogResult == DialogResult.No)
+            else
             {
-                //do something else
+                MessageBox.Show("Selecciona un paciente para actulizar su informacion.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+            
         }
 
         private void dataGridViewEstudio2_RowHeaderMouseClick(object sender, DataGridViewCellEventArgs e)
@@ -323,7 +338,6 @@ namespace BD_CIBCM
         {
             string consulta = "Select nombre From InstrumentosClinicos";
             baseDatos.llenarComboBox(consulta, comboBoxActInstClinico, 1);
-            groupBoxActInstClinico.Show();
         }
 
         private void buttonActualizarInstClinico_Click(object sender, EventArgs e)
@@ -343,7 +357,6 @@ namespace BD_CIBCM
                         string ejecutarProcedimiento = "EXEC ActualizarInstrumentos @nombreViejo = '" + nombre + "',@nombreNuevo= '" + nombreNuevo + "'";
                         baseDatos.insertarDatos(ejecutarProcedimiento);
                         MessageBox.Show("Datos actualizados", "Instrumentos clínicos");
-                        groupBoxActInstClinico.Hide();
                     }
                     else MessageBox.Show("Por favor inserte el nombre nuevo", "Actualizar Instrumentos");
             }

@@ -40,6 +40,10 @@ namespace BD_CIBCM
             baseDatos.llenarComboBox(consultaPacientes, comboBoxCedPacEstudioInsert, 4);
             baseDatos.llenarComboBox(consultaEstudio, comboBoxInsertarEstudioPaciente, 1);
             this.mostrarControl(ControlInsertar.Instrumento);
+
+            // - emma did this
+            dataGridViewSintomas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewParcialesPaciente.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
         public void mostrarControl(ControlInsertar c)
         {

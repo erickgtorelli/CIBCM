@@ -114,14 +114,8 @@ namespace BD_CIBCM
                         }else
                         stringDatos += datos.GetValue(i) + " ";
                     }
-                    Console.WriteLine(stringDatos);
                     comboBox.Items.Add(stringDatos);
                 }
-            }
-            else
-            {
-                // este msgbox me tenia mad - emma
-                //MessageBox.Show("Datos vacio");
             }
         }
 
@@ -173,10 +167,6 @@ namespace BD_CIBCM
                 string sexo = datos.GetValue(5).ToString();
                 p = new Persona(ced, nombre, a1, a2, fechaNac, sexo);
             }
-            else
-            {
-                // MessageBox.Show("Datos vacio");
-            }
 
             return p;
         }
@@ -195,7 +185,6 @@ namespace BD_CIBCM
                 dataGridView.DataSource = bindingSource;
 
                 dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-                //dataGridView.Columns[0].Width = 75;
             }
             catch (SqlException ex)
             {
@@ -228,10 +217,6 @@ namespace BD_CIBCM
                     Console.WriteLine(stringDatos);
                     checkedListBox.Items.Add(stringDatos);
                 }
-            }
-            else
-            {
-               // MessageBox.Show("Datos vacio");
             }
         }
 

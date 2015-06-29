@@ -64,16 +64,6 @@
             this.LabelNumDiagnostico = new System.Windows.Forms.Label();
             this.textBoxNumDiagostico = new System.Windows.Forms.TextBox();
             this.groupBoxEstudio = new System.Windows.Forms.GroupBox();
-            this.panelPacienteEstudio = new System.Windows.Forms.Panel();
-            this.label9 = new System.Windows.Forms.Label();
-            this.codigoParticipacion = new System.Windows.Forms.TextBox();
-            this.guardarParticipo = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
-            this.comboBoxInsertarEstudioPaciente = new System.Windows.Forms.ComboBox();
-            this.comboBoxCedPacEstudioInsert = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.EstudioNuevo = new System.Windows.Forms.RadioButton();
-            this.radioButtonInsertPacEstudio = new System.Windows.Forms.RadioButton();
             this.panelEstudioNuevo = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.textBoxCodigoEstudio = new System.Windows.Forms.TextBox();
@@ -85,6 +75,16 @@
             this.buttonGuardarEstudio = new System.Windows.Forms.Button();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.codEst = new System.Windows.Forms.Label();
+            this.panelPacienteEstudio = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
+            this.codigoParticipacion = new System.Windows.Forms.TextBox();
+            this.guardarParticipo = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.comboBoxInsertarEstudioPaciente = new System.Windows.Forms.ComboBox();
+            this.comboBoxCedPacEstudioInsert = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.EstudioNuevo = new System.Windows.Forms.RadioButton();
+            this.radioButtonInsertPacEstudio = new System.Windows.Forms.RadioButton();
             this.label5 = new System.Windows.Forms.Label();
             this.PanelInsertarDiagnostico = new System.Windows.Forms.Panel();
             this.panelInsertarPaciente = new System.Windows.Forms.Panel();
@@ -104,22 +104,22 @@
             this.textBoxNomPac = new System.Windows.Forms.TextBox();
             this.textBoxCedPac = new System.Windows.Forms.TextBox();
             this.panelInsertarInvestigador = new System.Windows.Forms.Panel();
-            this.buttonInsertarInvestigador = new System.Windows.Forms.Button();
-            this.dateTimePickerFechaNacInvest = new System.Windows.Forms.DateTimePicker();
-            this.radioButtonFInv = new System.Windows.Forms.RadioButton();
-            this.radioButtonMInv = new System.Windows.Forms.RadioButton();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.textBoxInsertAp2Invest = new System.Windows.Forms.TextBox();
-            this.textBoxInsertAp1Invest = new System.Windows.Forms.TextBox();
-            this.textBoxInsertNombInvest = new System.Windows.Forms.TextBox();
-            this.textBoxInsertarinvestCedula = new System.Windows.Forms.TextBox();
-            this.panelInsertarEstudio = new System.Windows.Forms.Panel();
             this.groupBoxInsertarInv = new System.Windows.Forms.GroupBox();
+            this.textBoxInsertarinvestCedula = new System.Windows.Forms.TextBox();
+            this.buttonInsertarInvestigador = new System.Windows.Forms.Button();
+            this.textBoxInsertNombInvest = new System.Windows.Forms.TextBox();
+            this.dateTimePickerFechaNacInvest = new System.Windows.Forms.DateTimePicker();
+            this.textBoxInsertAp1Invest = new System.Windows.Forms.TextBox();
+            this.radioButtonFInv = new System.Windows.Forms.RadioButton();
+            this.textBoxInsertAp2Invest = new System.Windows.Forms.TextBox();
+            this.radioButtonMInv = new System.Windows.Forms.RadioButton();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.panelInsertarEstudio = new System.Windows.Forms.Panel();
             this.panelInstrumentosClinicos.SuspendLayout();
             this.groupBoxInstClinicos.SuspendLayout();
             this.panelParcialInsertar.SuspendLayout();
@@ -129,14 +129,14 @@
             this.groupBoxDiagnosticosParcialesDelPaciente.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewParcialesPaciente)).BeginInit();
             this.groupBoxEstudio.SuspendLayout();
-            this.panelPacienteEstudio.SuspendLayout();
             this.panelEstudioNuevo.SuspendLayout();
+            this.panelPacienteEstudio.SuspendLayout();
             this.PanelInsertarDiagnostico.SuspendLayout();
             this.panelInsertarPaciente.SuspendLayout();
             this.groupBoxInsertarPaciente.SuspendLayout();
             this.panelInsertarInvestigador.SuspendLayout();
-            this.panelInsertarEstudio.SuspendLayout();
             this.groupBoxInsertarInv.SuspendLayout();
+            this.panelInsertarEstudio.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelInstrumentosClinicos
@@ -284,7 +284,10 @@
             // 
             // dataGridViewSintomas
             // 
+            this.dataGridViewSintomas.AllowUserToDeleteRows = false;
             this.dataGridViewSintomas.AllowUserToOrderColumns = true;
+            this.dataGridViewSintomas.AllowUserToResizeColumns = false;
+            this.dataGridViewSintomas.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -496,107 +499,6 @@
             this.groupBoxEstudio.Text = "Estudio ";
             this.groupBoxEstudio.Enter += new System.EventHandler(this.groupBoxEstudio_Enter);
             // 
-            // panelPacienteEstudio
-            // 
-            this.panelPacienteEstudio.Controls.Add(this.label9);
-            this.panelPacienteEstudio.Controls.Add(this.codigoParticipacion);
-            this.panelPacienteEstudio.Controls.Add(this.guardarParticipo);
-            this.panelPacienteEstudio.Controls.Add(this.label8);
-            this.panelPacienteEstudio.Controls.Add(this.comboBoxInsertarEstudioPaciente);
-            this.panelPacienteEstudio.Controls.Add(this.comboBoxCedPacEstudioInsert);
-            this.panelPacienteEstudio.Controls.Add(this.label6);
-            this.panelPacienteEstudio.Location = new System.Drawing.Point(40, 64);
-            this.panelPacienteEstudio.Name = "panelPacienteEstudio";
-            this.panelPacienteEstudio.Size = new System.Drawing.Size(400, 190);
-            this.panelPacienteEstudio.TabIndex = 13;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(19, 94);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(119, 13);
-            this.label9.TabIndex = 19;
-            this.label9.Text = "Código de Participación";
-            // 
-            // codigoParticipacion
-            // 
-            this.codigoParticipacion.Location = new System.Drawing.Point(144, 91);
-            this.codigoParticipacion.Name = "codigoParticipacion";
-            this.codigoParticipacion.Size = new System.Drawing.Size(100, 20);
-            this.codigoParticipacion.TabIndex = 18;
-            // 
-            // guardarParticipo
-            // 
-            this.guardarParticipo.Location = new System.Drawing.Point(230, 146);
-            this.guardarParticipo.Name = "guardarParticipo";
-            this.guardarParticipo.Size = new System.Drawing.Size(75, 23);
-            this.guardarParticipo.TabIndex = 17;
-            this.guardarParticipo.Text = "Guardar";
-            this.guardarParticipo.UseVisualStyleBackColor = true;
-            this.guardarParticipo.Click += new System.EventHandler(this.guardarParticipo_Click);
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(60, 50);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(78, 13);
-            this.label8.TabIndex = 16;
-            this.label8.Text = "Código Estudio";
-            // 
-            // comboBoxInsertarEstudioPaciente
-            // 
-            this.comboBoxInsertarEstudioPaciente.FormattingEnabled = true;
-            this.comboBoxInsertarEstudioPaciente.Location = new System.Drawing.Point(144, 47);
-            this.comboBoxInsertarEstudioPaciente.Name = "comboBoxInsertarEstudioPaciente";
-            this.comboBoxInsertarEstudioPaciente.Size = new System.Drawing.Size(231, 21);
-            this.comboBoxInsertarEstudioPaciente.TabIndex = 15;
-            this.comboBoxInsertarEstudioPaciente.Text = "Seleccione el código de estudio";
-            // 
-            // comboBoxCedPacEstudioInsert
-            // 
-            this.comboBoxCedPacEstudioInsert.FormattingEnabled = true;
-            this.comboBoxCedPacEstudioInsert.Location = new System.Drawing.Point(144, 6);
-            this.comboBoxCedPacEstudioInsert.Name = "comboBoxCedPacEstudioInsert";
-            this.comboBoxCedPacEstudioInsert.Size = new System.Drawing.Size(231, 21);
-            this.comboBoxCedPacEstudioInsert.TabIndex = 14;
-            this.comboBoxCedPacEstudioInsert.Text = "Seleccione Cédula del Paciente";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(53, 12);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(85, 13);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "Cédula Paciente";
-            // 
-            // EstudioNuevo
-            // 
-            this.EstudioNuevo.AutoSize = true;
-            this.EstudioNuevo.Location = new System.Drawing.Point(272, 33);
-            this.EstudioNuevo.Name = "EstudioNuevo";
-            this.EstudioNuevo.Size = new System.Drawing.Size(95, 17);
-            this.EstudioNuevo.TabIndex = 14;
-            this.EstudioNuevo.TabStop = true;
-            this.EstudioNuevo.Text = "Estudio Nuevo";
-            this.EstudioNuevo.UseVisualStyleBackColor = true;
-            this.EstudioNuevo.CheckedChanged += new System.EventHandler(this.EstudioNuevo_CheckedChanged);
-            // 
-            // radioButtonInsertPacEstudio
-            // 
-            this.radioButtonInsertPacEstudio.AutoSize = true;
-            this.radioButtonInsertPacEstudio.Checked = true;
-            this.radioButtonInsertPacEstudio.Location = new System.Drawing.Point(164, 31);
-            this.radioButtonInsertPacEstudio.Name = "radioButtonInsertPacEstudio";
-            this.radioButtonInsertPacEstudio.Size = new System.Drawing.Size(67, 17);
-            this.radioButtonInsertPacEstudio.TabIndex = 10;
-            this.radioButtonInsertPacEstudio.TabStop = true;
-            this.radioButtonInsertPacEstudio.Text = "Paciente";
-            this.radioButtonInsertPacEstudio.UseVisualStyleBackColor = true;
-            this.radioButtonInsertPacEstudio.CheckedChanged += new System.EventHandler(this.radioButtonInsertPacEstudio_CheckedChanged);
-            // 
             // panelEstudioNuevo
             // 
             this.panelEstudioNuevo.Controls.Add(this.label7);
@@ -699,6 +601,107 @@
             this.codEst.TabIndex = 2;
             this.codEst.Text = "Código De Estudio";
             // 
+            // panelPacienteEstudio
+            // 
+            this.panelPacienteEstudio.Controls.Add(this.label9);
+            this.panelPacienteEstudio.Controls.Add(this.codigoParticipacion);
+            this.panelPacienteEstudio.Controls.Add(this.guardarParticipo);
+            this.panelPacienteEstudio.Controls.Add(this.label8);
+            this.panelPacienteEstudio.Controls.Add(this.comboBoxInsertarEstudioPaciente);
+            this.panelPacienteEstudio.Controls.Add(this.comboBoxCedPacEstudioInsert);
+            this.panelPacienteEstudio.Controls.Add(this.label6);
+            this.panelPacienteEstudio.Location = new System.Drawing.Point(40, 64);
+            this.panelPacienteEstudio.Name = "panelPacienteEstudio";
+            this.panelPacienteEstudio.Size = new System.Drawing.Size(400, 190);
+            this.panelPacienteEstudio.TabIndex = 13;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(19, 94);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(119, 13);
+            this.label9.TabIndex = 19;
+            this.label9.Text = "Código de Participación";
+            // 
+            // codigoParticipacion
+            // 
+            this.codigoParticipacion.Location = new System.Drawing.Point(144, 91);
+            this.codigoParticipacion.Name = "codigoParticipacion";
+            this.codigoParticipacion.Size = new System.Drawing.Size(100, 20);
+            this.codigoParticipacion.TabIndex = 18;
+            // 
+            // guardarParticipo
+            // 
+            this.guardarParticipo.Location = new System.Drawing.Point(230, 146);
+            this.guardarParticipo.Name = "guardarParticipo";
+            this.guardarParticipo.Size = new System.Drawing.Size(75, 23);
+            this.guardarParticipo.TabIndex = 17;
+            this.guardarParticipo.Text = "Guardar";
+            this.guardarParticipo.UseVisualStyleBackColor = true;
+            this.guardarParticipo.Click += new System.EventHandler(this.guardarParticipo_Click);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(60, 50);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(78, 13);
+            this.label8.TabIndex = 16;
+            this.label8.Text = "Código Estudio";
+            // 
+            // comboBoxInsertarEstudioPaciente
+            // 
+            this.comboBoxInsertarEstudioPaciente.FormattingEnabled = true;
+            this.comboBoxInsertarEstudioPaciente.Location = new System.Drawing.Point(144, 47);
+            this.comboBoxInsertarEstudioPaciente.Name = "comboBoxInsertarEstudioPaciente";
+            this.comboBoxInsertarEstudioPaciente.Size = new System.Drawing.Size(231, 21);
+            this.comboBoxInsertarEstudioPaciente.TabIndex = 15;
+            this.comboBoxInsertarEstudioPaciente.Text = "Seleccione el código de estudio";
+            // 
+            // comboBoxCedPacEstudioInsert
+            // 
+            this.comboBoxCedPacEstudioInsert.FormattingEnabled = true;
+            this.comboBoxCedPacEstudioInsert.Location = new System.Drawing.Point(144, 6);
+            this.comboBoxCedPacEstudioInsert.Name = "comboBoxCedPacEstudioInsert";
+            this.comboBoxCedPacEstudioInsert.Size = new System.Drawing.Size(231, 21);
+            this.comboBoxCedPacEstudioInsert.TabIndex = 14;
+            this.comboBoxCedPacEstudioInsert.Text = "Seleccione Cédula del Paciente";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(53, 12);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(85, 13);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "Cédula Paciente";
+            // 
+            // EstudioNuevo
+            // 
+            this.EstudioNuevo.AutoSize = true;
+            this.EstudioNuevo.Location = new System.Drawing.Point(272, 33);
+            this.EstudioNuevo.Name = "EstudioNuevo";
+            this.EstudioNuevo.Size = new System.Drawing.Size(95, 17);
+            this.EstudioNuevo.TabIndex = 14;
+            this.EstudioNuevo.TabStop = true;
+            this.EstudioNuevo.Text = "Estudio Nuevo";
+            this.EstudioNuevo.UseVisualStyleBackColor = true;
+            this.EstudioNuevo.CheckedChanged += new System.EventHandler(this.EstudioNuevo_CheckedChanged);
+            // 
+            // radioButtonInsertPacEstudio
+            // 
+            this.radioButtonInsertPacEstudio.AutoSize = true;
+            this.radioButtonInsertPacEstudio.Checked = true;
+            this.radioButtonInsertPacEstudio.Location = new System.Drawing.Point(164, 31);
+            this.radioButtonInsertPacEstudio.Name = "radioButtonInsertPacEstudio";
+            this.radioButtonInsertPacEstudio.Size = new System.Drawing.Size(67, 17);
+            this.radioButtonInsertPacEstudio.TabIndex = 10;
+            this.radioButtonInsertPacEstudio.TabStop = true;
+            this.radioButtonInsertPacEstudio.Text = "Paciente";
+            this.radioButtonInsertPacEstudio.UseVisualStyleBackColor = true;
+            this.radioButtonInsertPacEstudio.CheckedChanged += new System.EventHandler(this.radioButtonInsertPacEstudio_CheckedChanged);
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -713,9 +716,7 @@
             // PanelInsertarDiagnostico
             // 
             this.PanelInsertarDiagnostico.AutoSize = global::BD_CIBCM.Properties.Settings.Default.AutoSize;
-            this.PanelInsertarDiagnostico.Controls.Add(this.groupBoxEstudio);
             this.PanelInsertarDiagnostico.Controls.Add(this.panelParcialInsertar);
-            this.PanelInsertarDiagnostico.Controls.Add(this.panelInsertarPaciente);
             this.PanelInsertarDiagnostico.DataBindings.Add(new System.Windows.Forms.Binding("AutoSize", global::BD_CIBCM.Properties.Settings.Default, "AutoSize", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.PanelInsertarDiagnostico.Location = new System.Drawing.Point(0, 0);
             this.PanelInsertarDiagnostico.Name = "PanelInsertarDiagnostico";
@@ -885,136 +886,6 @@
             this.panelInsertarInvestigador.Size = new System.Drawing.Size(873, 600);
             this.panelInsertarInvestigador.TabIndex = 7;
             // 
-            // buttonInsertarInvestigador
-            // 
-            this.buttonInsertarInvestigador.Location = new System.Drawing.Point(197, 248);
-            this.buttonInsertarInvestigador.Name = "buttonInsertarInvestigador";
-            this.buttonInsertarInvestigador.Size = new System.Drawing.Size(101, 21);
-            this.buttonInsertarInvestigador.TabIndex = 13;
-            this.buttonInsertarInvestigador.Text = "Insertar";
-            this.buttonInsertarInvestigador.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.buttonInsertarInvestigador.UseVisualStyleBackColor = true;
-            this.buttonInsertarInvestigador.Click += new System.EventHandler(this.buttonInsertarInvestigador_Click);
-            // 
-            // dateTimePickerFechaNacInvest
-            // 
-            this.dateTimePickerFechaNacInvest.Location = new System.Drawing.Point(168, 209);
-            this.dateTimePickerFechaNacInvest.Name = "dateTimePickerFechaNacInvest";
-            this.dateTimePickerFechaNacInvest.Size = new System.Drawing.Size(165, 20);
-            this.dateTimePickerFechaNacInvest.TabIndex = 12;
-            // 
-            // radioButtonFInv
-            // 
-            this.radioButtonFInv.AutoSize = true;
-            this.radioButtonFInv.Location = new System.Drawing.Point(227, 176);
-            this.radioButtonFInv.Name = "radioButtonFInv";
-            this.radioButtonFInv.Size = new System.Drawing.Size(31, 17);
-            this.radioButtonFInv.TabIndex = 11;
-            this.radioButtonFInv.TabStop = true;
-            this.radioButtonFInv.Text = "F";
-            this.radioButtonFInv.UseVisualStyleBackColor = true;
-            // 
-            // radioButtonMInv
-            // 
-            this.radioButtonMInv.AutoSize = true;
-            this.radioButtonMInv.Location = new System.Drawing.Point(187, 176);
-            this.radioButtonMInv.Name = "radioButtonMInv";
-            this.radioButtonMInv.Size = new System.Drawing.Size(34, 17);
-            this.radioButtonMInv.TabIndex = 10;
-            this.radioButtonMInv.TabStop = true;
-            this.radioButtonMInv.Text = "M";
-            this.radioButtonMInv.UseVisualStyleBackColor = true;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(50, 211);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(108, 13);
-            this.label15.TabIndex = 9;
-            this.label15.Text = "Fecha de Nacimiento";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(85, 175);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(31, 13);
-            this.label14.TabIndex = 8;
-            this.label14.Text = "Sexo";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(50, 141);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(90, 13);
-            this.label13.TabIndex = 7;
-            this.label13.Text = "Segundo Apellido";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(64, 108);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(76, 13);
-            this.label12.TabIndex = 6;
-            this.label12.Text = "Primer Apellido";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(86, 73);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(44, 13);
-            this.label11.TabIndex = 5;
-            this.label11.Text = "Nombre";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(86, 37);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(40, 13);
-            this.label10.TabIndex = 4;
-            this.label10.Text = "Cédula";
-            // 
-            // textBoxInsertAp2Invest
-            // 
-            this.textBoxInsertAp2Invest.Location = new System.Drawing.Point(168, 138);
-            this.textBoxInsertAp2Invest.Name = "textBoxInsertAp2Invest";
-            this.textBoxInsertAp2Invest.Size = new System.Drawing.Size(166, 20);
-            this.textBoxInsertAp2Invest.TabIndex = 3;
-            // 
-            // textBoxInsertAp1Invest
-            // 
-            this.textBoxInsertAp1Invest.Location = new System.Drawing.Point(168, 105);
-            this.textBoxInsertAp1Invest.Name = "textBoxInsertAp1Invest";
-            this.textBoxInsertAp1Invest.Size = new System.Drawing.Size(166, 20);
-            this.textBoxInsertAp1Invest.TabIndex = 2;
-            // 
-            // textBoxInsertNombInvest
-            // 
-            this.textBoxInsertNombInvest.Location = new System.Drawing.Point(168, 71);
-            this.textBoxInsertNombInvest.Name = "textBoxInsertNombInvest";
-            this.textBoxInsertNombInvest.Size = new System.Drawing.Size(166, 20);
-            this.textBoxInsertNombInvest.TabIndex = 1;
-            // 
-            // textBoxInsertarinvestCedula
-            // 
-            this.textBoxInsertarinvestCedula.Location = new System.Drawing.Point(168, 34);
-            this.textBoxInsertarinvestCedula.Name = "textBoxInsertarinvestCedula";
-            this.textBoxInsertarinvestCedula.Size = new System.Drawing.Size(166, 20);
-            this.textBoxInsertarinvestCedula.TabIndex = 0;
-            // 
-            // panelInsertarEstudio
-            // 
-            this.panelInsertarEstudio.Controls.Add(this.groupBoxEstudio);
-            this.panelInsertarEstudio.Location = new System.Drawing.Point(0, 0);
-            this.panelInsertarEstudio.Name = "panelInsertarEstudio";
-            this.panelInsertarEstudio.Size = new System.Drawing.Size(873, 600);
-            this.panelInsertarEstudio.TabIndex = 12;
-            // 
             // groupBoxInsertarInv
             // 
             this.groupBoxInsertarInv.Controls.Add(this.textBoxInsertarinvestCedula);
@@ -1038,15 +909,145 @@
             this.groupBoxInsertarInv.TabStop = false;
             this.groupBoxInsertarInv.Text = "Insertar Investigador";
             // 
+            // textBoxInsertarinvestCedula
+            // 
+            this.textBoxInsertarinvestCedula.Location = new System.Drawing.Point(168, 34);
+            this.textBoxInsertarinvestCedula.Name = "textBoxInsertarinvestCedula";
+            this.textBoxInsertarinvestCedula.Size = new System.Drawing.Size(166, 20);
+            this.textBoxInsertarinvestCedula.TabIndex = 0;
+            // 
+            // buttonInsertarInvestigador
+            // 
+            this.buttonInsertarInvestigador.Location = new System.Drawing.Point(197, 248);
+            this.buttonInsertarInvestigador.Name = "buttonInsertarInvestigador";
+            this.buttonInsertarInvestigador.Size = new System.Drawing.Size(101, 21);
+            this.buttonInsertarInvestigador.TabIndex = 13;
+            this.buttonInsertarInvestigador.Text = "Insertar";
+            this.buttonInsertarInvestigador.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.buttonInsertarInvestigador.UseVisualStyleBackColor = true;
+            this.buttonInsertarInvestigador.Click += new System.EventHandler(this.buttonInsertarInvestigador_Click);
+            // 
+            // textBoxInsertNombInvest
+            // 
+            this.textBoxInsertNombInvest.Location = new System.Drawing.Point(168, 71);
+            this.textBoxInsertNombInvest.Name = "textBoxInsertNombInvest";
+            this.textBoxInsertNombInvest.Size = new System.Drawing.Size(166, 20);
+            this.textBoxInsertNombInvest.TabIndex = 1;
+            // 
+            // dateTimePickerFechaNacInvest
+            // 
+            this.dateTimePickerFechaNacInvest.Location = new System.Drawing.Point(168, 209);
+            this.dateTimePickerFechaNacInvest.Name = "dateTimePickerFechaNacInvest";
+            this.dateTimePickerFechaNacInvest.Size = new System.Drawing.Size(165, 20);
+            this.dateTimePickerFechaNacInvest.TabIndex = 12;
+            // 
+            // textBoxInsertAp1Invest
+            // 
+            this.textBoxInsertAp1Invest.Location = new System.Drawing.Point(168, 105);
+            this.textBoxInsertAp1Invest.Name = "textBoxInsertAp1Invest";
+            this.textBoxInsertAp1Invest.Size = new System.Drawing.Size(166, 20);
+            this.textBoxInsertAp1Invest.TabIndex = 2;
+            // 
+            // radioButtonFInv
+            // 
+            this.radioButtonFInv.AutoSize = true;
+            this.radioButtonFInv.Location = new System.Drawing.Point(227, 176);
+            this.radioButtonFInv.Name = "radioButtonFInv";
+            this.radioButtonFInv.Size = new System.Drawing.Size(31, 17);
+            this.radioButtonFInv.TabIndex = 11;
+            this.radioButtonFInv.TabStop = true;
+            this.radioButtonFInv.Text = "F";
+            this.radioButtonFInv.UseVisualStyleBackColor = true;
+            // 
+            // textBoxInsertAp2Invest
+            // 
+            this.textBoxInsertAp2Invest.Location = new System.Drawing.Point(168, 138);
+            this.textBoxInsertAp2Invest.Name = "textBoxInsertAp2Invest";
+            this.textBoxInsertAp2Invest.Size = new System.Drawing.Size(166, 20);
+            this.textBoxInsertAp2Invest.TabIndex = 3;
+            // 
+            // radioButtonMInv
+            // 
+            this.radioButtonMInv.AutoSize = true;
+            this.radioButtonMInv.Location = new System.Drawing.Point(187, 176);
+            this.radioButtonMInv.Name = "radioButtonMInv";
+            this.radioButtonMInv.Size = new System.Drawing.Size(34, 17);
+            this.radioButtonMInv.TabIndex = 10;
+            this.radioButtonMInv.TabStop = true;
+            this.radioButtonMInv.Text = "M";
+            this.radioButtonMInv.UseVisualStyleBackColor = true;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(86, 37);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(40, 13);
+            this.label10.TabIndex = 4;
+            this.label10.Text = "Cédula";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(50, 211);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(108, 13);
+            this.label15.TabIndex = 9;
+            this.label15.Text = "Fecha de Nacimiento";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(86, 73);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(44, 13);
+            this.label11.TabIndex = 5;
+            this.label11.Text = "Nombre";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(85, 175);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(31, 13);
+            this.label14.TabIndex = 8;
+            this.label14.Text = "Sexo";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(64, 108);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(76, 13);
+            this.label12.TabIndex = 6;
+            this.label12.Text = "Primer Apellido";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(50, 141);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(90, 13);
+            this.label13.TabIndex = 7;
+            this.label13.Text = "Segundo Apellido";
+            // 
+            // panelInsertarEstudio
+            // 
+            this.panelInsertarEstudio.Controls.Add(this.groupBoxEstudio);
+            this.panelInsertarEstudio.Location = new System.Drawing.Point(0, 0);
+            this.panelInsertarEstudio.Name = "panelInsertarEstudio";
+            this.panelInsertarEstudio.Size = new System.Drawing.Size(873, 600);
+            this.panelInsertarEstudio.TabIndex = 12;
+            // 
             // Insertar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.panelInsertarPaciente);
             this.Controls.Add(this.PanelInsertarDiagnostico);
             this.Controls.Add(this.panelInsertarEstudio);
             this.Controls.Add(this.panelInstrumentosClinicos);
             this.Controls.Add(this.panelInsertarInvestigador);
+            this.Controls.Add(this.panelInsertarPaciente);
             this.Name = "Insertar";
             this.Size = new System.Drawing.Size(873, 600);
             this.panelInstrumentosClinicos.ResumeLayout(false);
@@ -1062,19 +1063,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewParcialesPaciente)).EndInit();
             this.groupBoxEstudio.ResumeLayout(false);
             this.groupBoxEstudio.PerformLayout();
-            this.panelPacienteEstudio.ResumeLayout(false);
-            this.panelPacienteEstudio.PerformLayout();
             this.panelEstudioNuevo.ResumeLayout(false);
             this.panelEstudioNuevo.PerformLayout();
+            this.panelPacienteEstudio.ResumeLayout(false);
+            this.panelPacienteEstudio.PerformLayout();
             this.PanelInsertarDiagnostico.ResumeLayout(false);
             this.PanelInsertarDiagnostico.PerformLayout();
             this.panelInsertarPaciente.ResumeLayout(false);
             this.groupBoxInsertarPaciente.ResumeLayout(false);
             this.groupBoxInsertarPaciente.PerformLayout();
             this.panelInsertarInvestigador.ResumeLayout(false);
-            this.panelInsertarEstudio.ResumeLayout(false);
             this.groupBoxInsertarInv.ResumeLayout(false);
             this.groupBoxInsertarInv.PerformLayout();
+            this.panelInsertarEstudio.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
