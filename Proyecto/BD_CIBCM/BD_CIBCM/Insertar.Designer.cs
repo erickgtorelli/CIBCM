@@ -484,10 +484,10 @@
             // 
             // groupBoxEstudio
             // 
+            this.groupBoxEstudio.Controls.Add(this.panelEstudioNuevo);
             this.groupBoxEstudio.Controls.Add(this.panelPacienteEstudio);
             this.groupBoxEstudio.Controls.Add(this.EstudioNuevo);
             this.groupBoxEstudio.Controls.Add(this.radioButtonInsertPacEstudio);
-            this.groupBoxEstudio.Controls.Add(this.panelEstudioNuevo);
             this.groupBoxEstudio.Location = new System.Drawing.Point(154, 0);
             this.groupBoxEstudio.Name = "groupBoxEstudio";
             this.groupBoxEstudio.Size = new System.Drawing.Size(563, 353);
@@ -713,7 +713,9 @@
             // PanelInsertarDiagnostico
             // 
             this.PanelInsertarDiagnostico.AutoSize = global::BD_CIBCM.Properties.Settings.Default.AutoSize;
+            this.PanelInsertarDiagnostico.Controls.Add(this.groupBoxEstudio);
             this.PanelInsertarDiagnostico.Controls.Add(this.panelParcialInsertar);
+            this.PanelInsertarDiagnostico.Controls.Add(this.panelInsertarPaciente);
             this.PanelInsertarDiagnostico.DataBindings.Add(new System.Windows.Forms.Binding("AutoSize", global::BD_CIBCM.Properties.Settings.Default, "AutoSize", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.PanelInsertarDiagnostico.Location = new System.Drawing.Point(0, 0);
             this.PanelInsertarDiagnostico.Name = "PanelInsertarDiagnostico";

@@ -19,6 +19,8 @@ namespace BD_CIBCM
         // FAMILIALEWIS\\SQLEXPRESS
         /*En Initial Catalog se agrega la base de datos propia. Intregated Security es para utilizar Windows Authentication*/
         String conexion = "Data Source=FAMILIALEWIS\\SQLEXPRESS; Initial Catalog=BD_CIBCM; Integrated Security=SSPI";
+        //String conexion = "Data Source=NAYRU; Initial Catalog=BD_CIBCM; Integrated Security=SSPI";
+        //String conexion = "Data Source=PABLO\\GARRO; Initial Catalog=BD_CIBCM; Integrated Security=SSPI";
         
         /**
          * Constructor
@@ -233,7 +235,36 @@ namespace BD_CIBCM
             }
         }
 
-        
+        public void llenarTextBox(String consulta, TextBox textBox, int parametros)
+        {
+            SqlDataReader datos = null;
+            try
+            {
+                datos = this.ejecutarConsulta(consulta);
+            }
+            catch (SqlException ex)
+            {
+                string mensajeError = ex.ToString();
+                MessageBox.Show(mensajeError);
+            }
+            if (datos != null)
+            {
+                while (datos.Read())
+                {
+                    string stringDatos = "";
+                    for (int i = 0; i < parametros; i++)
+                    {
+                        stringDatos += datos.GetValue(i) + " ";
+                    }
+                    
+                    textBox.Text = (stringDatos);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Datos vacio");
+            }
+        }
 
     }
 }
