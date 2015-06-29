@@ -47,6 +47,8 @@ namespace BD_CIBCM
 
                     panelConsultaInstrumentos.Show();
                     this.iniciarConsultaInstrumentos();
+                    string consulta = "Select nombre From InstrumentosClinicos";
+                    baseDatos.llenarComboBox(consulta, comboBoxActInstClinico, 1);
                     break;
                 case ControlConsultar.Estudios:
                     panelconsultaPaciente.Hide();
@@ -368,8 +370,7 @@ namespace BD_CIBCM
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string consulta = "Select nombre From InstrumentosClinicos";
-            baseDatos.llenarComboBox(consulta, comboBoxActInstClinico, 1);
+
         }
 
         private void buttonActualizarInstClinico_Click(object sender, EventArgs e)
