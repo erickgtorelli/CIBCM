@@ -67,15 +67,24 @@ namespace BD_CIBCM
             this.textBoxInsertAp2Invest = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.textBoxInsertarinvestCedula = new System.Windows.Forms.TextBox();
-            this.panelConsultar = new BD_CIBCM.Consultar();
             this.panelInsertar = new BD_CIBCM.Insertar();
+            this.panelConsultar = new BD_CIBCM.Consultar();
             this.panelBorrar = new BD_CIBCM.Borrar();
-            this.inicio1 = new BD_CIBCM.Inicio(VentanaPrincipal);
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.buttonBorrar = new System.Windows.Forms.Button();
+            this.buttonConsultar = new System.Windows.Forms.Button();
+            this.buttonInsertar = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.VentanaPrincipal.SuspendLayout();
             this.Consultar.SuspendLayout();
             this.Insertar.SuspendLayout();
             this.Borrar.SuspendLayout();
             this.panelInsertarInvestigador.SuspendLayout();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // VentanaPrincipal
@@ -438,13 +447,6 @@ namespace BD_CIBCM
             this.textBoxInsertarinvestCedula.Size = new System.Drawing.Size(190, 20);
             this.textBoxInsertarinvestCedula.TabIndex = 0;
             // 
-            // panelConsultar
-            // 
-            this.panelConsultar.Location = new System.Drawing.Point(270, 15);
-            this.panelConsultar.Name = "panelConsultar";
-            this.panelConsultar.Size = new System.Drawing.Size(711, 345);
-            this.panelConsultar.TabIndex = 2;
-            // 
             // panelInsertar
             // 
             this.panelInsertar.Location = new System.Drawing.Point(259, 12);
@@ -452,19 +454,105 @@ namespace BD_CIBCM
             this.panelInsertar.Size = new System.Drawing.Size(873, 600);
             this.panelInsertar.TabIndex = 3;
             // 
+            // panelConsultar
+            // 
+            this.panelConsultar.Location = new System.Drawing.Point(259, 12);
+            this.panelConsultar.Name = "panelConsultar";
+            this.panelConsultar.Size = new System.Drawing.Size(873, 600);
+            this.panelConsultar.TabIndex = 2;
+            // 
             // panelBorrar
             // 
-            this.panelBorrar.Location = new System.Drawing.Point(259, 16);
+            this.panelBorrar.Location = new System.Drawing.Point(259, 12);
             this.panelBorrar.Name = "panelBorrar";
             this.panelBorrar.Size = new System.Drawing.Size(873, 600);
-            this.panelBorrar.TabIndex = 2;
+            this.panelBorrar.TabIndex = 1;
             // 
-            // inicio1
+            // panel1
             // 
-            this.inicio1.Location = new System.Drawing.Point(0, 0);
-            this.inicio1.Name = "inicio1";
-            this.inicio1.Size = new System.Drawing.Size(1160, 700);
-            this.inicio1.TabIndex = 4;
+            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Controls.Add(this.buttonBorrar);
+            this.panel1.Controls.Add(this.buttonConsultar);
+            this.panel1.Controls.Add(this.buttonInsertar);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1160, 700);
+            this.panel1.TabIndex = 4;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::BD_CIBCM.Properties.Resources.imagenCIBCM;
+            this.pictureBox1.Location = new System.Drawing.Point(241, 125);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(112, 161);
+            this.pictureBox1.TabIndex = 13;
+            this.pictureBox1.TabStop = false;
+            // 
+            // buttonBorrar
+            // 
+            this.buttonBorrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F);
+            this.buttonBorrar.Location = new System.Drawing.Point(826, 512);
+            this.buttonBorrar.Name = "buttonBorrar";
+            this.buttonBorrar.Size = new System.Drawing.Size(191, 98);
+            this.buttonBorrar.TabIndex = 12;
+            this.buttonBorrar.Text = "Borrar";
+            this.buttonBorrar.UseVisualStyleBackColor = true;
+            this.buttonBorrar.Click += new System.EventHandler(this.buttonBorrar_Click);
+            // 
+            // buttonConsultar
+            // 
+            this.buttonConsultar.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F);
+            this.buttonConsultar.Location = new System.Drawing.Point(463, 512);
+            this.buttonConsultar.Name = "buttonConsultar";
+            this.buttonConsultar.Size = new System.Drawing.Size(223, 98);
+            this.buttonConsultar.TabIndex = 11;
+            this.buttonConsultar.Text = "Consultar";
+            this.buttonConsultar.UseVisualStyleBackColor = true;
+            this.buttonConsultar.Click += new System.EventHandler(this.buttonConsultar_Click);
+            // 
+            // buttonInsertar
+            // 
+            this.buttonInsertar.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F);
+            this.buttonInsertar.Location = new System.Drawing.Point(144, 512);
+            this.buttonInsertar.Name = "buttonInsertar";
+            this.buttonInsertar.Size = new System.Drawing.Size(191, 98);
+            this.buttonInsertar.TabIndex = 10;
+            this.buttonInsertar.Text = "Insertar";
+            this.buttonInsertar.UseVisualStyleBackColor = true;
+            this.buttonInsertar.Click += new System.EventHandler(this.buttonInsertar_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 38F);
+            this.label3.Location = new System.Drawing.Point(405, 384);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(351, 59);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "Bienvenido (a)";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 32.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(398, 248);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(557, 51);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Universidad de Costa Rica";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 120F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(376, 91);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(598, 181);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "CIBCM";
             // 
             // MainWindow
             // 
@@ -472,11 +560,11 @@ namespace BD_CIBCM
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1144, 661);
-            this.Controls.Add(this.inicio1);
-            this.Controls.Add(this.VentanaPrincipal);
-            this.Controls.Add(this.panelConsultar);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelInsertar);
+            this.Controls.Add(this.panelConsultar);
             this.Controls.Add(this.panelBorrar);
+            this.Controls.Add(this.VentanaPrincipal);
             this.DataBindings.Add(new System.Windows.Forms.Binding("WindowState", global::BD_CIBCM.Properties.Settings.Default, "Max", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -494,6 +582,9 @@ namespace BD_CIBCM
             this.Borrar.PerformLayout();
             this.panelInsertarInvestigador.ResumeLayout(false);
             this.panelInsertarInvestigador.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -535,11 +626,18 @@ namespace BD_CIBCM
         private RadioButton borrarInstrumentosClinicos;
         private RadioButton radioButtonInsertarPaciente;
         private RadioButton radioButtonBorrarPaciente;
-        private Borrar panelBorrar;
-        private Insertar panelInsertar;
         private RadioButton radioButtonConsultarDiagnostico;
+        private Borrar panelBorrar;
         private Consultar panelConsultar;
-        private Inicio inicio1;
+        private Insertar panelInsertar;
+        private Panel panel1;
+        private PictureBox pictureBox1;
+        private Button buttonBorrar;
+        private Button buttonConsultar;
+        private Button buttonInsertar;
+        private Label label3;
+        private Label label2;
+        private Label label1;
         // private Button guardarInstrumentosClinicos;
     }
 }

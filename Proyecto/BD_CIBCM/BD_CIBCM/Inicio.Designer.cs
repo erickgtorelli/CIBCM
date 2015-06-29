@@ -123,6 +123,7 @@
             this.Controls.Add(this.label1);
             this.Name = "Inicio";
             this.Size = new System.Drawing.Size(1160, 700);
+            this.Load += new System.EventHandler(this.Inicio_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

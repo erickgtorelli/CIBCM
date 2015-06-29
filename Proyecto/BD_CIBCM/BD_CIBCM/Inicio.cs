@@ -14,6 +14,10 @@ namespace BD_CIBCM
     {
         TabControl tabs;
 
+        public Inicio()
+        {
+
+        }
         public Inicio(TabControl t)
         {
             InitializeComponent();
@@ -36,6 +40,11 @@ namespace BD_CIBCM
         {
             this.tabs.SelectedIndex = 2;
             this.Hide();
+        }
+
+        private void Inicio_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

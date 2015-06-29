@@ -266,5 +266,28 @@ namespace BD_CIBCM
 
         }
 
+        private void borrar2_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonInsertar_Click(object sender, EventArgs e)
+        {
+            VentanaPrincipal.SelectedIndex = 1;
+            panel1.Hide();
+        }
+
+        private void buttonConsultar_Click(object sender, EventArgs e)
+        {
+            VentanaPrincipal.SelectedIndex = 0;
+            panel1.Hide();
+        }
+
+        private void buttonBorrar_Click(object sender, EventArgs e)
+        {
+            VentanaPrincipal.SelectedIndex = 2;
+            panel1.Hide();
+        }
+
     }
 }
