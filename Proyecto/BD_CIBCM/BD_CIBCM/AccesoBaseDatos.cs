@@ -17,6 +17,7 @@ namespace BD_CIBCM
     class AccesoBaseDatos
     {
         // FAMILIALEWIS\\SQLEXPRESS
+        // 10.1.4.59
         /*En Initial Catalog se agrega la base de datos propia. Intregated Security es para utilizar Windows Authentication*/
         String conexion = "Data Source=FAMILIALEWIS\\SQLEXPRESS; Initial Catalog=BD_CIBCM; Integrated Security=SSPI";
 
@@ -49,7 +50,7 @@ namespace BD_CIBCM
             return table;
         }
 
-        public SqlDataReader ejecutarConsulta2(string sql, IDictionary<string, object> values)
+        public SqlDataReader ejecutarConsulta(string sql, IDictionary<string, object> values)
         {
             SqlDataReader datos = null;
             SqlConnection conn = new SqlConnection(conexion);
@@ -83,30 +84,6 @@ namespace BD_CIBCM
         }
 
         /**
-         * Permite ejecutar una consulta SQL, los datos son devueltos en un SqlDataReader
-         */
-        public SqlDataReader ejecutarConsulta(String consulta)
-        {
-            SqlConnection sqlConnection = new SqlConnection(conexion);
-            sqlConnection.Open();
-
-            SqlDataReader datos = null;
-            SqlCommand comando = null;
-
-            try
-            {
-                comando = new SqlCommand(consulta, sqlConnection);
-                datos = comando.ExecuteReader();
-            }
-            catch (SqlException ex)
-            {
-                string mensajeError = ex.ToString();
-
-            }
-            return datos;
-        }
-
-        /**
         *Llena el combo box que le entra como parametro
         *parametros es la cantidad de columnas por tupla en el select
         */
@@ -115,7 +92,7 @@ namespace BD_CIBCM
             SqlDataReader datos = null;
             try
             {
-                datos = this.ejecutarConsulta2(sql, par);
+                datos = this.ejecutarConsulta(sql, par);
                 if (datos != null)
                 {
                     while (datos.Read())
@@ -155,11 +132,10 @@ namespace BD_CIBCM
             string sexo = p.sexo;
             string fecha = p.getHileraFecha();
 
-            string consulta = "UPDATE Persona SET Cedula = '" + ced + "', PrimerNombre = '" + nombre + "', Apellido1 = '" + a1 + "', Apellido2 = '" + a2 + "', Sexo = '" + sexo + "', FechaDeNacimiento = '" + fecha + "' WHERE Cedula = '" + cedula + "'";
-            Console.WriteLine(consulta);
+            string consulta = "UPDATE Persona SET Cedula = @ced, PrimerNombre = @nombre, Apellido1 = @a1, Apellido2 = @a2, Sexo = @sexo, FechaDeNacimiento = @fecha WHERE Cedula = @cedula";
             try
             {
-                this.ejecutarConsulta(consulta);
+                this.ejecutarConsulta(consulta, new Dictionary<string, object> { { "ced", ced }, { "nombre", nombre }, { "a1", a1 }, { "a2", a2 }, { "sexo", sexo }, { "fecha", fecha }, { "cedula", cedula } });
             }
             catch (SqlException ex)
             {
@@ -173,11 +149,11 @@ namespace BD_CIBCM
         {
             SqlDataReader datos = null;
             Persona p = null;
-            string consulta = "SELECT p.Cedula, p.PrimerNombre as 'Nombre', p.Apellido1 as 'Primer Apellido', p.Apellido2 as 'Segundo Apellido', p.FechaDeNacimiento as 'Fecha de nacimiento', p.Sexo FROM Persona p WHERE p.Cedula='" + cedula + "';";
+            string consulta = "SELECT p.Cedula, p.PrimerNombre as 'Nombre', p.Apellido1 as 'Primer Apellido', p.Apellido2 as 'Segundo Apellido', p.FechaDeNacimiento as 'Fecha de nacimiento', p.Sexo FROM Persona p WHERE p.Cedula=@cedula;";
 
             try
             {
-                datos = this.ejecutarConsulta(consulta);
+                datos = this.ejecutarConsulta(consulta, new Dictionary<string, object> { { "cedula", cedula } });
             }
             catch (SqlException ex)
             {
@@ -221,12 +197,12 @@ namespace BD_CIBCM
             }
         }
 
-        public void llenarCheckedListBox(String consulta, CheckedListBox checkedListBox, int parametros)
+        public void llenarCheckedListBox(string sql, IDictionary<string, object> par, CheckedListBox checkedListBox, int parametros)
         {
             SqlDataReader datos = null;
             try
             {
-                datos = this.ejecutarConsulta(consulta);
+                datos = this.ejecutarConsulta(sql, par);
             }
             catch (SqlException ex)
             {
@@ -248,12 +224,12 @@ namespace BD_CIBCM
             }
         }
 
-        public void llenarTextBox(String consulta, TextBox textBox, int parametros)
+        public void llenarTextBox(string sql, IDictionary<string, object> par, TextBox textBox, int parametros)
         {
             SqlDataReader datos = null;
             try
             {
-                datos = this.ejecutarConsulta(consulta);
+                datos = this.ejecutarConsulta(sql, par);
             }
             catch (SqlException ex)
             {

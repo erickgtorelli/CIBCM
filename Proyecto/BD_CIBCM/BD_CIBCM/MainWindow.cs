@@ -115,7 +115,7 @@ namespace BD_CIBCM
 
             try
             {
-                datos = baseDatos.ejecutarConsulta(consultaPacTemp);
+                datos = baseDatos.ejecutarConsulta(consultaPacTemp, new Dictionary<string, object> { });
             }
             catch (SqlException ex)
             {
