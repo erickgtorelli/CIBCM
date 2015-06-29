@@ -223,8 +223,8 @@ namespace BD_CIBCM
                         DialogResult dialogResult = MessageBox.Show("Desea actualizar los datos del paciente", "Actualizar del paciente", MessageBoxButtons.YesNo);
                         if (dialogResult == DialogResult.Yes)
                         {
-                            string consulta = "Select * From Estudio Where CodigoEstudio = '" + codEstudio + "'";
-                            SqlDataReader datos = baseDatos.ejecutarConsulta(consulta);
+                            string consulta = "Select * From Estudio Where CodigoEstudio = @codEstudio";
+                            SqlDataReader datos = baseDatos.ejecutarConsulta(consulta, new Dictionary<string, object> { { "codEstudio", codEstudio } });
                             if (datos!=null&&datos.HasRows)
                             {
                                 string actualizar = "Update Participo Set CodigoEstudio ='" + codEstudio + "', CodigoParticipacion = '" + codigoParticipacion + "' where Cedula ='" + cedula + "';";
@@ -251,7 +251,7 @@ namespace BD_CIBCM
             if (comboBoxdatosPacienteEstudio.SelectedIndex>-1){
                 string cedula = seleccionarCedulaComboBox(comboBoxdatosPacienteEstudio);
                 string consulta = "Select CodigoEstudio From Participo where Cedula = @cedula";
-                SqlDataReader datos = baseDatos.ejecutarConsulta(consulta);
+                SqlDataReader datos = baseDatos.ejecutarConsulta(consulta, new Dictionary<string, object> { { "cedula", cedula } });
                 if (!datos.HasRows) {
 
                     baseDatos.llenarComboBox("Select CodigoEstudio From Participo", new Dictionary<string, object> { }, comboBoxCodEstudio, 1);
@@ -270,14 +270,16 @@ namespace BD_CIBCM
                 if (comboBoxCodEstudio.SelectedIndex >-1){
                     string codEstudio = comboBoxCodEstudio.Text.Trim( );
                     MessageBox.Show("Este codigo " + codEstudio);
-                    string consulta = "Select CodigoParticipacion From Participo where Cedula = '" + cedula + "' AND CodigoEstudio = '" + codEstudio + "';";
-                    SqlDataReader datos = baseDatos.ejecutarConsulta(consulta);
+                    string consulta = "Select CodigoParticipacion From Participo where Cedula = @cedula AND CodigoEstudio = @codEstudio;";
+                    SqlDataReader datos = baseDatos.ejecutarConsulta(consulta, new Dictionary<string, object> { { "cedula", cedula }, { "codEstudio", codEstudio } });
                     if (datos==null) {
-                        MessageBox.Show("No Deberia meter"); baseDatos.llenarTextBox("Select CodigoParticipacion From Participo", textBoxCodPart, 1);   
+                        baseDatos.llenarTextBox("Select CodigoParticipacion From Participo", new Dictionary<string, object>{}, textBoxCodPart, 1);   
                     }
-                    else 
-                    MessageBox.Show("Deberia meter");
-                    baseDatos.llenarTextBox(consulta, textBoxCodPart, 1);
+                    else
+                    {
+                        baseDatos.llenarTextBox(consulta, new Dictionary<string, object> { { "cedula", cedula }, { "codEstudio", codEstudio } }, textBoxCodPart, 1);
+                    }
+                    
                 }
             }
         }
@@ -296,25 +298,26 @@ namespace BD_CIBCM
         private void comboBoxCodEstudio2_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (comboBoxCodEstudio2.SelectedIndex > -1) {
-                string codigoEstudio = comboBoxCodEstudio2.Text;
-                String consulta = "Select Descripcion from Estudio Where CodigoEstudio = '" + codigoEstudio + "'";
-                SqlDataReader datos = baseDatos.ejecutarConsulta(consulta);
+                string codEstudio = comboBoxCodEstudio2.Text;
+                String consulta = "Select Descripcion from Estudio Where CodigoEstudio = @codEstudio";
+                SqlDataReader datos = baseDatos.ejecutarConsulta(consulta, new Dictionary<string, object> { { "codEstudio", codEstudio } });
                 if (datos == null || !datos.HasRows)
                 {
                     MessageBox.Show("No se encontraron datos", "Error");
                 }
-                else baseDatos.llenarTextBox(consulta, textBoxDescripcionEstudio, 1);
+                else
+                    baseDatos.llenarTextBox(consulta, new Dictionary<string, object> { { "codEstudio", codEstudio } }, textBoxDescripcionEstudio, 1);
             }
         }
 
         private void buttonActDescEst_Click(object sender, EventArgs e)
         {
             if (comboBoxCodEstudio2.SelectedIndex > -1) {
-                string codigoEstudio = comboBoxCodEstudio2.Text;
+                string codEstudio = comboBoxCodEstudio2.Text;
                 string descripcion = textBoxDescripcionEstudio.Text;
                 if (descripcion != string.Empty) {
-                    String consulta = "Select Descripcion from Estudio Where CodigoEstudio = '" + codigoEstudio + "'";
-                    SqlDataReader datos = baseDatos.ejecutarConsulta(consulta);
+                    String consulta = "Select Descripcion from Estudio Where CodigoEstudio = @codEstudio";
+                    SqlDataReader datos = baseDatos.ejecutarConsulta(consulta, new Dictionary<string, object> { { "codEstudio", codEstudio } });
                     if (datos == null || !datos.HasRows)
                     {
                         MessageBox.Show("El codigo de estudio seleccionado no forma parte de la base de datos", "Error");
@@ -323,7 +326,7 @@ namespace BD_CIBCM
                           DialogResult dialogResult = MessageBox.Show("Desea actualizar la descripción del estudio", "Actualizar Estudio", MessageBoxButtons.YesNo);
                           if (dialogResult == DialogResult.Yes)
                           {
-                              string actualizar = "Update Estudio Set Descripcion = '" + descripcion + "' WHERE codigoEstudio = '" + codigoEstudio + "'";
+                              string actualizar = "Update Estudio Set Descripcion = '" + descripcion + "' WHERE codigoEstudio = '" + codEstudio + "'";
                               MessageBox.Show("Datos actualizados exitosamente", "Estudio Actualizado");
                               comboBoxCodEstudio2.Items.Clear();
                               groupBoxActEstudio.Hide();
@@ -342,9 +345,9 @@ namespace BD_CIBCM
         {
             if (comboBoxActInstClinico.SelectedIndex > -1) { 
                 string nombre = comboBoxActInstClinico.Text;
-                string consulta = "Select nombre from InstrumentosClinicos Where nombre = '" + nombre + "'";
+                string consulta = "Select nombre from InstrumentosClinicos Where nombre = @nombre";
                 string nombreNuevo = textBoxInstNuevo.Text;
-                SqlDataReader datos = baseDatos.ejecutarConsulta(consulta);
+                SqlDataReader datos = baseDatos.ejecutarConsulta(consulta, new Dictionary<string, object> { { "nombre", nombre } });
                 if (datos == null || !datos.HasRows)
                 {
                     MessageBox.Show("No se encontraron los datos", "Error");

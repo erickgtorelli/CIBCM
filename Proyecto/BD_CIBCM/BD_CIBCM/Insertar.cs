@@ -36,7 +36,7 @@ namespace BD_CIBCM
             InitializeComponent();
             baseDatos = new AccesoBaseDatos();
             baseDatos.llenarComboBox(consultaPacientes, new Dictionary<string, object>{}, comboBoxCedInst, 4);
-            baseDatos.llenarCheckedListBox(consultaInstrumentos,listaInstClinicos, 1);
+            baseDatos.llenarCheckedListBox(consultaInstrumentos, new Dictionary<string, object>{ }, listaInstClinicos, 1);
             baseDatos.llenarComboBox(consultaInvestigadores, new Dictionary<string, object> { }, comboBoxInvestEstudio, 4);
             baseDatos.llenarComboBox(consultaPacientes, new Dictionary<string, object> { }, comboBoxCedPacEstudioInsert, 4);
             baseDatos.llenarComboBox(consultaEstudio, new Dictionary<string, object> { }, comboBoxInsertarEstudioPaciente, 1);
@@ -119,12 +119,12 @@ namespace BD_CIBCM
         private void buttonGuardarEstudio_Click(object sender, EventArgs e)
         {
             String codEstudio = textBoxCodigoEstudio.Text.Trim();
-            String consultaEstudio = "Select * from estudio where codigoEstudio = '" + codEstudio + "'";
+            String consultaEstudio = "Select * from estudio where codigoEstudio = @codEstudio;";
             DateTime fechaTemp = dateTimePicker2.Value;
             String fecha = fechaTemp.ToString("dd-MM-yyyy");
             String investigador = seleccionarCedulaComboBox(comboBoxInvestEstudio);
             String insertarRealizaEstudio = "";
-            SqlDataReader tuplas = baseDatos.ejecutarConsulta(consultaEstudio);
+            SqlDataReader tuplas = baseDatos.ejecutarConsulta(consultaEstudio, new Dictionary<string, object> { { "codEstudio", codEstudio } });
             if (tuplas == null || !tuplas.HasRows)
             {
                 String descripcion = textBox4.Text;
@@ -135,8 +135,9 @@ namespace BD_CIBCM
                         String insertarEstudio = "Insert into estudio values ('" + codEstudio + "',' " + descripcion + "','" + fecha + "')";
                         baseDatos.insertarDatos(insertarEstudio);
                         insertarRealizaEstudio = "Insert into realiza values ('" + investigador + "', '" + codEstudio + "')";
-                        String consultaRealiza = "select * from Realiza where cedula = '"+investigador+"' AND CodigoEstudio = '"+codEstudio+"'";
-                        if(!baseDatos.ejecutarConsulta(consultaRealiza).HasRows){
+                        String consultaRealiza = "select * from Realiza where cedula = @investigador AND CodigoEstudio = @codEstudio;";
+                        if (!baseDatos.ejecutarConsulta(consultaRealiza, new Dictionary<string, object> { { "investigador", investigador }, { "codEstudio", codEstudio } }).HasRows)
+                        {
                         baseDatos.insertarDatos(insertarRealizaEstudio);
                         }
                         MessageBox.Show("Se inserto el estudio" + codEstudio, "Insertar Estudio");
@@ -175,8 +176,9 @@ namespace BD_CIBCM
                     String insertLleno = "";
                     foreach (object itemChecked in listaInstClinicos.CheckedItems)
                     {
-                        String consulta = "Select * from Lleno where Cedula ='" + cedula + "' AND NombreInstrumentoClinico ='" + itemChecked.ToString() + "';";
-                        tuplas = baseDatos.ejecutarConsulta(consulta);
+                        string nombre = itemChecked.ToString();
+                        String consulta = "Select * from Lleno where Cedula = @cedula AND NombreInstrumentoClinico = @nombre;";
+                        tuplas = baseDatos.ejecutarConsulta(consulta, new Dictionary<string, object> { { "cedula", cedula }, { "nombre", nombre } });
                         if (tuplas == null || !tuplas.HasRows)
                         {
                             insertLleno = "Insert into Lleno Values ('" + cedula + "','" + itemChecked.ToString() + "')";
@@ -218,7 +220,7 @@ namespace BD_CIBCM
            * texto q  se trato de insertar no este en la base de datos
            * */
             string nuevoInstrumento = textBoxInstrumentos.Text;
-            string consultaInstrumentos = "Select * from InstrumentosClinicos where nombre = '" + nuevoInstrumento + "';";
+            string consultaInstrumentos = "Select * from InstrumentosClinicos where nombre = @nuevoInstrumento;";
             string insertarInstrumento = "Insert into InstrumentosClinicos values ('" + nuevoInstrumento + "');";
             SqlDataReader datos;
             if (e.KeyCode == Keys.Enter)
@@ -227,7 +229,7 @@ namespace BD_CIBCM
                 {
 
                     textBoxInstrumentos.Text = "";
-                    datos = baseDatos.ejecutarConsulta(consultaInstrumentos);
+                    datos = baseDatos.ejecutarConsulta(consultaInstrumentos, new Dictionary<string, object> { { "nuevoInstrumento", nuevoInstrumento } });
                     if (!datos.HasRows || datos == null)
                     {
                         baseDatos.insertarDatos(insertarInstrumento);
@@ -277,9 +279,9 @@ namespace BD_CIBCM
             string cedPaciente = seleccionarCedulaComboBox(comboBoxCedPacEstudioInsert);
             string codEstudio = comboBoxInsertarEstudioPaciente.Text.Trim(); //trim elimina espacios en blanco
             string codParticipacion = codigoParticipacion.Text.Trim();
-            string selectParticipo = "SELECT * FROM PARTICIPO WHERE Cedula = '" + cedPaciente + "'AND CodigoEstudio ='" + codEstudio + "' AND CodigoParticipacion ='" + codParticipacion + "'";
+            string selectParticipo = "SELECT * FROM PARTICIPO WHERE Cedula = @cedPaciente AND CodigoEstudio = @codEstudio AND CodigoParticipacion = @codParticipacion;";
             string insertarParticipo = "INSERT INTO PARTICIPO VALUES ('" + cedPaciente + "','" + codEstudio + "','" + codParticipacion + "')";
-            SqlDataReader datos = baseDatos.ejecutarConsulta(selectParticipo);
+            SqlDataReader datos = baseDatos.ejecutarConsulta(selectParticipo, new Dictionary<string, object> { { "cedPaciente", cedPaciente }, { "codEstudio", codEstudio }, { "codParticipacion", codParticipacion } });
             if (datos == null || !datos.HasRows)
             {
                 if (comboBoxCedPacEstudioInsert.SelectedIndex >-1) 
@@ -374,8 +376,9 @@ namespace BD_CIBCM
                 {
                     if (textBoxNumDiagostico.Text != String.Empty)
                     {
-                        string consultaDiagnostico = "Select * from Diagnostico where NumDiagnostico = '" + textBoxNumDiagostico.Text + "'";
-                        SqlDataReader tuplas = baseDatos.ejecutarConsulta(consultaDiagnostico);
+                        string numDiagnostico = textBoxNumDiagostico.Text;
+                        string consultaDiagnostico = "Select * from Diagnostico where NumDiagnostico = @numDiagnostico";
+                        SqlDataReader tuplas = baseDatos.ejecutarConsulta(consultaDiagnostico, new Dictionary<string, object> { { "numDiagnostico", numDiagnostico } });
                         if (tuplas.HasRows)
                         {
                             MessageBox.Show("El número de diagnóstico ya existe",

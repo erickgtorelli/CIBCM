@@ -25,7 +25,7 @@ namespace BD_CIBCM
         string consultaInstrumentos = "Select Cedula, NombreInstrumentoClinico From Lleno";
         string consultaEstudio = "Select P.PrimerNombre, Apellido1, P.Apellido2,P.Cedula From Participo Pa JOIN Persona P ON Pa.Cedula = P.Cedula";
         string consultaCodigo = "Select DISTINCT CodigoEstudio From Participo";
-        string consultaNombreInst = "Select Nombre form instrumentosClinicos";
+        string consultaNombreInst = "SELECT Nombre FROM instrumentosClinicos";
         string consultaPacientes = "select pe.PrimerNombre, pe.Apellido1, pe.Apellido2, pe.Cedula from paciente pa JOIN persona pe ON pa.Cedula = pe.Cedula;";
         public Borrar()
         {
@@ -34,7 +34,7 @@ namespace BD_CIBCM
             baseDatos.llenarComboBox(consultaEstudio, new Dictionary<string, object>{}, comboBoxPacienteEstudio, 4);
             baseDatos.llenarComboBox(consultaCodigo, new Dictionary<string, object> { }, comboBoxBorrarCod, 1);
             baseDatos.llenarComboBox(consultaInvestigadores, new Dictionary<string, object> { }, comboBoxBorrarInvest, 4);
-            baseDatos.llenarCheckedListBox(consultaNombreInst, borrarListaInstrumentos,1);
+            baseDatos.llenarCheckedListBox(consultaNombreInst, new Dictionary<string, object> { }, borrarListaInstrumentos, 1);
             baseDatos.llenarComboBox(consultaPacientes, new Dictionary<string, object> { }, comboBox1, 4);
             this.mostrarControl(ControlBorrar.InstrumentosClinicos);
         }
@@ -109,7 +109,9 @@ namespace BD_CIBCM
                 string cedula = seleccionarCedulaComboBox(comboBox1);
                 foreach (object itemChecked in listaInstPorPaciente.CheckedItems)
                 {
-                    baseDatos.ejecutarConsulta("Delete from Lleno where NombreInstrumentoClinico = '" + itemChecked.ToString() + "' AND Cedula = '"+cedula+"'");
+                    string nombre = itemChecked.ToString();
+                    string consulta = "DELETE FROM Lleno WHERE NombreInstrumentoClinico = @nombre AND Cedula = @cedula";
+                    baseDatos.ejecutarConsulta(consulta, new Dictionary<string, object> {{"nombre", nombre}, { "cedula", cedula } });
                    
                 }
                 MessageBox.Show("Se borraron los datos");
@@ -137,8 +139,8 @@ namespace BD_CIBCM
             string codigo = "";
             if (comboBoxBorrarCod.SelectedIndex > -1) {
                 codigo = comboBoxBorrarCod.Text;
-                baseDatos.ejecutarConsulta("Delete from Participo where codigoEstudio = '" + codigo + "'");
-                baseDatos.ejecutarConsulta("Delete from estudio where codigoEstudio = '" + codigo + "'");
+                baseDatos.ejecutarConsulta("Delete from Participo where codigoEstudio = @codigo", new Dictionary<string, object> { { "codigo", codigo } });
+                baseDatos.ejecutarConsulta("Delete from estudio where codigoEstudio = @codigo", new Dictionary<string, object> { { "codigo", codigo } });
                 comboBoxBorrarCod.Items.Remove(codigo);
                 MessageBox.Show("Se borraron los datos del estudio con código: " + codigo, "Estudio borrado");
             }
@@ -151,8 +153,9 @@ namespace BD_CIBCM
                 string cedula = seleccionarCedulaComboBox(comboBoxPacienteEstudio);
                 foreach (object itemChecked in borrarListaInstrumentos.CheckedItems)
                 {
-                    baseDatos.ejecutarConsulta("Delete from Participo where CodigoEstudio = '" + itemChecked.ToString() + "' and Cedula = '"+cedula+"'");
-                   // baseDatos.ejecutarConsulta("Delete from InstrumentosClinicos where Nombre = '" + itemChecked.ToString() + "'");
+                    string codigo = itemChecked.ToString();
+                    baseDatos.ejecutarConsulta("Delete from Participo where CodigoEstudio = codigo and Cedula = @cedula", new Dictionary<string, object> { { "codigo", codigo }, {"cedula", cedula} });
+                    baseDatos.ejecutarConsulta("Delete from InstrumentosClinicos where Nombre = @nombre", new Dictionary<string, object> { { "nombre", codigo } });
                 } MessageBox.Show("datosBorrados");
                
             }
@@ -169,8 +172,9 @@ namespace BD_CIBCM
         {
             foreach (object itemChecked in borrarListaInstrumentos.CheckedItems)
             { 
-             baseDatos.ejecutarConsulta("Delete from Lleno where NombreInstrumentoClinico = '" +itemChecked.ToString()+"'");
-              baseDatos.ejecutarConsulta("Delete from InstrumentosClinicos where Nombre = '" +itemChecked.ToString()+"'"); 
+                string nombre = itemChecked.ToString();
+                baseDatos.ejecutarConsulta("Delete from Lleno where NombreInstrumentoClinico = @nombre", new Dictionary<string, object> { { "nombre", nombre } });
+                baseDatos.ejecutarConsulta("Delete from InstrumentosClinicos where Nombre = @nombre", new Dictionary<string, object> { { "nombre", nombre } }); 
             }
             MessageBox.Show("Se borraron los instrumentos clínicos");
         }
@@ -187,8 +191,8 @@ namespace BD_CIBCM
                 listaInstPorPaciente.Items.Clear();
                 listaInstPorPaciente.Show();
                 string cedula = seleccionarCedulaComboBox(comboBox1);
-                string consultaPacInst = "Select NombreInstrumentoClinico from Lleno where Cedula = '" + cedula + "'";
-                baseDatos.llenarCheckedListBox(consultaPacInst, listaInstPorPaciente, 1);
+                string consultaPacInst = "Select NombreInstrumentoClinico from Lleno where Cedula = @cedula";
+                baseDatos.llenarCheckedListBox(consultaPacInst, new Dictionary<string, object>{{ "cedula", cedula}}, listaInstPorPaciente, 1);
 
             }
         }
@@ -197,9 +201,9 @@ namespace BD_CIBCM
         {
             if (comboBoxPacienteEstudio.SelectedIndex > -1) {
                 string cedula = seleccionarCedulaComboBox(comboBoxPacienteEstudio);
-                string consulta = "Select CodigoEstudio from Participo Where Cedula = '" + cedula + "'";
+                string consulta = "Select CodigoEstudio from Participo where Cedula = @cedula";
                 listaBorrarEstudioPaciente.Items.Clear();
-                baseDatos.llenarCheckedListBox(consulta, listaBorrarEstudioPaciente, 1);
+                baseDatos.llenarCheckedListBox(consulta, new Dictionary<string, object> { { "cedula", cedula } }, listaBorrarEstudioPaciente, 1);
             }
         }
 
