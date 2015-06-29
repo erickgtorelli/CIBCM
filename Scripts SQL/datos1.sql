@@ -1,3 +1,5 @@
+Use BD_CIBCM
+
 Insert into Persona values('115825968','Francisco','Mora','Torres','19980901','M');
 Insert into Persona values('118258695','Juana','Arce','Ballester','19900901','F');
 Insert into Persona values('116485796','Gloriana','Porras','Bustos','19980703','F');
@@ -36,6 +38,6 @@ Insert into InstrumentosClinicos VALUES ('DIGS'), ('FIGS'), ('AIMS'), ('Expedien
 
 INSERT INTO Genotipeo VALUES ('115525968', 'Secuenciación', '/CIBCM/115525968/Genotipeo'), ('118268695', 'SNP', '/CIBCM/118268695/Genotipeo');
 
-Insert Into Estudio VALUES ('123987', 'SIBS bipolar', '20090407');
+Insert Into Estudio VALUES ('123987', 'SIBS bipolar', '20090407'),('225963', 'SIBS ezquizofrenia', '20101206'),('343598', 'LD esquizofrenia', '20101003');
 Insert Into Realiza   ('118568695','123987');
 

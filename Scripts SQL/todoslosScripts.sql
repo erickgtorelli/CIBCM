@@ -20,7 +20,7 @@ CREATE TABLE Persona(
 	Apellido1 varchar(25),
 	Apellido2 varchar(25),
 	FechaDeNacimiento DATE,
-	Sexo char,
+	Sexo char DEFAULT 'I',
 	CONSTRAINT PKPersona PRIMARY KEY(Cedula)
 );
 

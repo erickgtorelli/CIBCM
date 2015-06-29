@@ -500,20 +500,25 @@ namespace BD_CIBCM
             string Ap1Pac = textBoxAp1Pac.Text.Trim();
             string Ap2Pac = textBoxAp2Pac.Text.Trim();
             char sexo;
+            string InsertarPersona = "";
+            string FechaNac = dateTimePickerPac.Value.ToString("yyyy-MM-dd");
             if (radioButtonMPac.Checked == true)
             {
                 sexo = 'M';
+                InsertarPersona = "INSERT INTO Persona VALUES ('" + CedPac + "', '" + NombPac + "', '" + Ap1Pac + "', '" + Ap2Pac + "', '" + FechaNac + "', '" + sexo + "')";
             }
             else if (radioButtonFPac.Checked == true)
             {
                 sexo = 'F';
+                InsertarPersona = "INSERT INTO Persona  VALUES ('" + CedPac + "', '" + NombPac + "', '" + Ap1Pac + "', '" + Ap2Pac + "', '" + FechaNac + "', '" + sexo + "')";
             }
-            else
+             else
             {
-                sexo = 'I';
+                InsertarPersona = "INSERT INTO Persona (Cedula,PrimerNombre,Apellido1,Apellido2,FechaDeNacimiento) VALUES ('" + CedPac + "', '" + NombPac + "', '" + Ap1Pac + "', '" + Ap2Pac + "', '" + FechaNac + "')";
+               // sexo = 'I';
             }
-            string FechaNac = dateTimePickerPac.Value.ToString("yyyy-MM-dd");
-            string InsertarPersona = "INSERT INTO Persona VALUES ('" + CedPac + "', '" + NombPac + "', '" + Ap1Pac + "', '" + Ap2Pac + "', '" + FechaNac + "', '" + sexo + "')";
+            
+           
             string InsertarPaciente = "INSERT INTO Paciente VALUES ('" + CedPac + "')";
             if (checks.checkCedula(CedPac))
             {
