@@ -229,10 +229,10 @@
             // 
             // groupBoxBorrarEstudio
             // 
-            this.groupBoxBorrarEstudio.Controls.Add(this.panelBorrarEstPaciente);
-            this.groupBoxBorrarEstudio.Controls.Add(this.panelBorrarCodEst);
             this.groupBoxBorrarEstudio.Controls.Add(this.borrarEstudioCodigo);
             this.groupBoxBorrarEstudio.Controls.Add(this.borrarEstudioPaciente);
+            this.groupBoxBorrarEstudio.Controls.Add(this.panelBorrarCodEst);
+            this.groupBoxBorrarEstudio.Controls.Add(this.panelBorrarEstPaciente);
             this.groupBoxBorrarEstudio.Location = new System.Drawing.Point(165, 0);
             this.groupBoxBorrarEstudio.Name = "groupBoxBorrarEstudio";
             this.groupBoxBorrarEstudio.Size = new System.Drawing.Size(470, 277);

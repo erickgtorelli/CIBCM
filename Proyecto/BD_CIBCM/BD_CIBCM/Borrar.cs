@@ -33,6 +33,7 @@ namespace BD_CIBCM
             baseDatos = new AccesoBaseDatos();
             baseDatos.llenarComboBox(consultaEstudio, comboBoxPacienteEstudio, 4);
             baseDatos.llenarComboBox(consultaCodigo, comboBoxBorrarCod, 1);
+            baseDatos.llenarComboBox(consultaInvestigadores, comboBoxBorrarInvest, 4);
             baseDatos.llenarCheckedListBox(consultaNombreInst, borrarListaInstrumentos,1);
             baseDatos.llenarComboBox(consultaPacientes, comboBox1, 4);
             this.mostrarControl(ControlBorrar.InstrumentosClinicos);
@@ -85,6 +86,7 @@ namespace BD_CIBCM
         private void buttonBorrarInvest_Click(object sender, EventArgs e)
         {
             baseDatos.insertarDatos("Delete from Persona where Cedula=" + seleccionarCedulaComboBox(comboBoxBorrarInvest));
+            MessageBox.Show("Se borró el investigador seleccionado");
             comboBoxBorrarInvest.Items.Clear();
             baseDatos.llenarComboBox(consultaInvestigadores, comboBoxBorrarInvest, 4);
         }
