@@ -14,7 +14,8 @@ namespace BD_CIBCM
     {
         Instrumentos,
         Estudios,
-        Pacientes
+        Pacientes,
+        Diagnostico
     };
 
     public partial class Consultar : UserControl
@@ -23,7 +24,9 @@ namespace BD_CIBCM
         string consultaInstrumentosClinicos = "SELECT i.Nombre, COUNT(l.Cedula) as 'Personas que han llenado el instrumento' FROM InstrumentosClinicos i LEFT JOIN Lleno l ON i.Nombre = l.NombreInstrumentoClinico GROUP BY i.Nombre;";
         string consultaPacientes = "SELECT pe.Cedula, pe.PrimerNombre as 'Nombre', pe.Apellido1 as 'Primer Apellido', pe.Apellido2 as 'Segundo Apellido', pe.FechaDeNacimiento as 'Fecha de nacimiento', pe.Sexo FROM paciente pa JOIN persona pe ON pa.Cedula = pe.Cedula;";
         string consultaEstudio = "SELECT e.CodigoEstudio, e.Descripcion, COUNT(r.Cedula) as 'No. de investigadores' FROM Estudio e LEFT JOIN Realiza r ON e.CodigoEstudio = r.CodigoEstudio GROUP BY e.CodigoEstudio, e.Descripcion;";
+        string consultaPacientes1 = "select pe.PrimerNombre as 'Nombre', pe.Apellido1 as 'Primer Apellido', pe.Apellido2 as 'Segundo Apellido', pe.Cedula from paciente pa JOIN persona pe ON pa.Cedula = pe.Cedula;";
         Persona datosPersona;
+        Utility.Diagnosticos diagnosticos = new Utility.Diagnosticos();
 
         public Consultar()
         {
@@ -40,12 +43,14 @@ namespace BD_CIBCM
                     groupBoxDatosPaciente.Visible = false;
                     groupBoxConsultaEstudio.Hide();
                     groupBoxConsultaPaciente.Hide();
+                    panelConsultaDiagnosticos.Hide();
                     groupBoxConsultaInstrumentosClinicos.Show();
                     this.iniciarConsultaInstrumentos();
                     break;
                 case ControlConsultar.Estudios:
                     groupBoxDatosPaciente.Visible = false;
                     groupBoxConsultaPaciente.Hide();
+                    panelConsultaDiagnosticos.Hide();
                     groupBoxConsultaInstrumentosClinicos.Hide();
                     groupBoxConsultaEstudio.Show();
                     this.iniciarConsultaEstudios();
@@ -53,10 +58,26 @@ namespace BD_CIBCM
                 case ControlConsultar.Pacientes:
                     groupBoxConsultaInstrumentosClinicos.Hide();
                     groupBoxConsultaEstudio.Hide();
+                    panelConsultaDiagnosticos.Hide();
                     groupBoxConsultaPaciente.Show();
                     this.iniciarConsultaPacientes();
                     break;
+                case ControlConsultar.Diagnostico:
+                    groupBoxConsultaInstrumentosClinicos.Hide();
+                    groupBoxConsultaInstrumentosClinicos.Hide();
+                    groupBoxConsultaEstudio.Hide();
+                    groupBoxConsultaPaciente.Hide();
+                    this.iniciarConsultaDiagnosticos();
+                    
+                    break;
+
             }
+        }
+
+        private void iniciarConsultaDiagnosticos()
+        {
+            panelConsultaDiagnosticos.Show();
+            baseDatos.llenarComboBox(consultaPacientes1, comboBoxConsultarDiagnosticos, 4);
         }
 
         public void iniciarConsultaInstrumentos()
@@ -146,6 +167,33 @@ namespace BD_CIBCM
                 //do something else
             }
         }
+        private string seleccionarCedulaComboBox(ComboBox comboBoxCedula)
+        {
+            string infoPersona = comboBoxCedula.Text;
+            string cedula = "";
+            int tamanio = 0;
+            if (infoPersona != null)
+            {
+                tamanio = infoPersona.Length;
+                cedula = infoPersona.Substring(tamanio - 9);
+            }
+            cedula.Trim();
+            return cedula;
+        }
 
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (radioButtonConsultaParcial.Checked == true)
+            {
+                dataGridViewConsultaDiagnosticos.DataSource = null;
+                //Cambiar por consulta de parciales
+                baseDatos.llenarTabla(diagnosticos.consultarParciales(seleccionarCedulaComboBox(comboBoxConsultarDiagnosticos)), dataGridViewConsultaDiagnosticos);
+            }
+        }
+
+        private void dataGridViewPaciente1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

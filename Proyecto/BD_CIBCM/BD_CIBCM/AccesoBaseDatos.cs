@@ -18,7 +18,7 @@ namespace BD_CIBCM
     {
         // FAMILIALEWIS\\SQLEXPRESS
         /*En Initial Catalog se agrega la base de datos propia. Intregated Security es para utilizar Windows Authentication*/
-        String conexion = "Data Source=NAYRU; Initial Catalog=BD_CIBCM; Integrated Security=SSPI";
+        String conexion = "Data Source=AERICK; Initial Catalog=BD_CIBCM; Integrated Security=SSPI";
         
         /**
          * Constructor

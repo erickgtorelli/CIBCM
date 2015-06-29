@@ -25,10 +25,11 @@ namespace BD_CIBCM
         bool agregarInstrumentosAPaciente = false;
         Utility.Diagnosticos diagnosticos = new Utility.Diagnosticos();
         Utility.Check checks = new Utility.Check();
-        string consultaPacientes = "select pe.PrimerNombre, pe.Apellido1, pe.Apellido2, pe.Cedula from paciente pa JOIN persona pe ON pa.Cedula = pe.Cedula;";
+        
         string consultaInvestigadores = "select P.PrimerNombre, Apellido1, P.Apellido2,P.Cedula From Investigador I JOIN Persona P ON I.Cedula = P.Cedula;";
         string consultaInstrumentos = "select Nombre from InstrumentosClinicos";
         string consultaEstudio = "select CodigoEstudio from Estudio";
+        string consultaPacientes = "select pe.PrimerNombre as 'Nombre', pe.Apellido1 as 'Primer Apellido', pe.Apellido2 as 'Segundo Apellido', pe.Cedula from paciente pa JOIN persona pe ON pa.Cedula = pe.Cedula;";
         public Insertar()
         {
             InitializeComponent();
