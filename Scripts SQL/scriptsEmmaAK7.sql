@@ -1,13 +1,13 @@
 use BD_CIBCM;
 
-Insert into Persona values('115825968','Paco','Mora','Torres','19980901','TRUE');
-Insert into Persona values('118258695','Juana','Arce','Arias','19950901',0);
-Insert into Persona values('114825968','Valeria','Villalobos','Porras','19980901','TRUE');
-Insert into Persona values('113258695','Marcela','Matamoros','Arce','19950901',0);
-Insert into Persona values('112825968','Luis','Hidalgo','Castillo','19980901','TRUE');
-Insert into Persona values('111258695','Pedro','Gonzales','Baltodano','19950901',0);
-Insert into Persona values('115525968','Joshua','Yglesias','Castro','19980901','TRUE');
-Insert into Persona values('118268695','Isabel','Dalolio','Rodriguez','19950901',0);
+Insert into Persona values('115825968','Paco','Mora','Torres','19980901','m');
+Insert into Persona values('118258695','Juana','Arce','Arias','19950901','f');
+Insert into Persona values('114825968','Valeria','Villalobos','Porras','19980901','f');
+Insert into Persona values('113258695','Marcela','Matamoros','Arce','19950901','f');
+Insert into Persona values('112825968','Luis','Hidalgo','Castillo','19980901','m');
+Insert into Persona values('111258695','Pedro','Gonzales','Baltodano','19950901','m');
+Insert into Persona values('115525968','Joshua','Yglesias','Castro','19980901','m');
+Insert into Persona values('118268695','Isabel','Dalolio','Rodriguez','19950901','f');
 
 Insert into Paciente values('118258695');
 Insert into Paciente values('115825968');
@@ -18,9 +18,9 @@ Insert into Paciente values('113258695');
 Insert into Paciente values('112825968');
 Insert into Paciente values('111258695');
 
-Insert into Persona values('110000095','Fran','Chavez','Granados','19950901',0);
-Insert into Persona values('114458968','Pedro','Mora','Torres','19980901','TRUE');
-Insert into Persona values('118568695','Gloriana','Arce','Ballester','19950901',0);
+Insert into Persona values('110000095','Fran','Chavez','Granados','19950901','m');
+Insert into Persona values('114458968','Pedro','Mora','Torres','19980901','m');
+Insert into Persona values('118568695','Gloriana','Arce','Ballester','19950901','f');
 
 Insert into Investigador values('110000095');
 Insert into Investigador values('114458968');
@@ -73,9 +73,10 @@ INSERT INTO Realiza VALUES ('114458968', '222222');
 INSERT INTO Realiza VALUES ('110000095', '222222');
 INSERT INTO Realiza VALUES ('114458968', '444444');
 
-SELECT e.CodigoEstudio, e.Descripcion, COUNT(r.Cedula) as 'Investigadores que realizan el estudio' 
-FROM Estudio e LEFT JOIN Realiza r
-ON e.CodigoEstudio = r.CodigoEstudio
+SELECT e.CodigoEstudio, e.Descripcion, COUNT(r.Cedula) as 'Investigadores', COUNT(p.Cedula) AS 'Participantes' 
+FROM Estudio e 
+LEFT JOIN Realiza r ON e.CodigoEstudio = r.CodigoEstudio
+LEFT JOIN Participo p ON e.CodigoEstudio = p.CodigoEstudio
 GROUP BY e.CodigoEstudio, e.Descripcion
 
 SELECT p.PrimerNombre as 'Nombre', p.Apellido1 as 'Primer Apellido', p.Apellido2 as 'Segundo Apellido' 
@@ -97,3 +98,17 @@ Apellido2 = 'Arce', Sexo = 'False', FechaDeNacimiento = '01/09/1995 0:00:00'
 WHERE Cedula = '113258695'
 
 UPDATE Persona SET Cedula = '223258695', PrimerNombre = 'Marcela', Apellido1 = 'Arias', Apellido2 = 'Arce', Sexo = 'False', FechaDeNacimiento = '10/09/1995 0:00:00' WHERE Cedula = '113258695'
+
+SELECT * FROM Investigador
+
+INSERT INTO Muestra VALUES('118258695', 'Muestra de sangre', 'Estante 333');
+INSERT INTO Muestra VALUES('118258695', 'Muestra de heces', 'Estante 666');
+INSERT INTO Muestra VALUES('118258695', 'Muestra de orina', 'Estante 555');
+
+INSERT INTO Genotipeo VALUES('118258695', 'Metodo1', 'super link');
+
+SELECT m.cedula, m.TipoDeMuestra as 'Tipo de Muestra', m.Localizacion 
+FROM Muestra m 
+WHERE m.Cedula = '118258695';
+
+SELECT g.Metodo, g.Link FROM Genotipeo g WHERE g.Cedula = '118258695';
