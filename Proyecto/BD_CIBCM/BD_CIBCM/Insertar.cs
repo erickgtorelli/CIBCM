@@ -35,11 +35,11 @@ namespace BD_CIBCM
         {
             InitializeComponent();
             baseDatos = new AccesoBaseDatos();
-            baseDatos.llenarComboBox(consultaPacientes, comboBoxCedInst, 4);
+            baseDatos.llenarComboBox(consultaPacientes, new Dictionary<string, object>{}, comboBoxCedInst, 4);
             baseDatos.llenarCheckedListBox(consultaInstrumentos,listaInstClinicos, 1);
-            baseDatos.llenarComboBox(consultaInvestigadores, comboBoxInvestEstudio, 4);
-            baseDatos.llenarComboBox(consultaPacientes, comboBoxCedPacEstudioInsert, 4);
-            baseDatos.llenarComboBox(consultaEstudio, comboBoxInsertarEstudioPaciente, 1);
+            baseDatos.llenarComboBox(consultaInvestigadores, new Dictionary<string, object> { }, comboBoxInvestEstudio, 4);
+            baseDatos.llenarComboBox(consultaPacientes, new Dictionary<string, object> { }, comboBoxCedPacEstudioInsert, 4);
+            baseDatos.llenarComboBox(consultaEstudio, new Dictionary<string, object> { }, comboBoxInsertarEstudioPaciente, 1);
             this.mostrarControl(ControlInsertar.Instrumento);
 
             // - emma did this
@@ -60,8 +60,8 @@ namespace BD_CIBCM
 
                     PanelInsertarDiagnostico.Show();
 
-                    baseDatos.llenarComboBox(consultaInvestigadores, comboBoxInvestigador, 4);
-                    baseDatos.llenarComboBox(consultaPacientes, comboBoxPacienteInsertarDiagnostico, 4);
+                    baseDatos.llenarComboBox(consultaInvestigadores, new Dictionary<string, object> { }, comboBoxInvestigador, 4);
+                    baseDatos.llenarComboBox(consultaPacientes, new Dictionary<string, object> { }, comboBoxPacienteInsertarDiagnostico, 4);
                     break;
                 case ControlInsertar.Estudio:
                     PanelInsertarDiagnostico.Hide();
@@ -259,7 +259,8 @@ namespace BD_CIBCM
                 dataGridViewParcialesPaciente.DataSource = null;
                
                 //Cambiar por consulta de parciales
-                baseDatos.llenarTabla(diagnosticos.consultarParciales(seleccionarCedulaComboBox(comboBoxPacienteInsertarDiagnostico)), dataGridViewParcialesPaciente);
+                string cedula = seleccionarCedulaComboBox(comboBoxPacienteInsertarDiagnostico);
+                baseDatos.llenarTabla(diagnosticos.consultarParciales(), new Dictionary<string, object>{{ "cedula", cedula}}, dataGridViewParcialesPaciente);
             }
         }
 

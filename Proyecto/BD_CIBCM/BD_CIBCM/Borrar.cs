@@ -31,11 +31,11 @@ namespace BD_CIBCM
         {
             InitializeComponent();
             baseDatos = new AccesoBaseDatos();
-            baseDatos.llenarComboBox(consultaEstudio, comboBoxPacienteEstudio, 4);
-            baseDatos.llenarComboBox(consultaCodigo, comboBoxBorrarCod, 1);
-            baseDatos.llenarComboBox(consultaInvestigadores, comboBoxBorrarInvest, 4);
+            baseDatos.llenarComboBox(consultaEstudio, new Dictionary<string, object>{}, comboBoxPacienteEstudio, 4);
+            baseDatos.llenarComboBox(consultaCodigo, new Dictionary<string, object> { }, comboBoxBorrarCod, 1);
+            baseDatos.llenarComboBox(consultaInvestigadores, new Dictionary<string, object> { }, comboBoxBorrarInvest, 4);
             baseDatos.llenarCheckedListBox(consultaNombreInst, borrarListaInstrumentos,1);
-            baseDatos.llenarComboBox(consultaPacientes, comboBox1, 4);
+            baseDatos.llenarComboBox(consultaPacientes, new Dictionary<string, object> { }, comboBox1, 4);
             this.mostrarControl(ControlBorrar.InstrumentosClinicos);
         }
 
@@ -74,7 +74,7 @@ namespace BD_CIBCM
 
                     panelBorrarPaciente.Show();
                     comboBoxBorrarPaciente.Items.Clear();
-                    baseDatos.llenarComboBox(consultaPacientes, comboBoxBorrarPaciente, 4);
+                    baseDatos.llenarComboBox(consultaPacientes, new Dictionary<string, object> { }, comboBoxBorrarPaciente, 4);
                     break;
 
             }
@@ -97,7 +97,7 @@ namespace BD_CIBCM
                 MessageBox.Show("Se borró el investigador seleccionado");
                 comboBoxBorrarInvest.Items.Clear();
                 comboBoxBorrarInvest.Text = "";
-                baseDatos.llenarComboBox(consultaInvestigadores, comboBoxBorrarInvest, 4);
+                baseDatos.llenarComboBox(consultaInvestigadores, new Dictionary<string, object> { }, comboBoxBorrarInvest, 4);
             }
 
             
@@ -212,7 +212,7 @@ namespace BD_CIBCM
                 MessageBox.Show("Se borró el paciente seleccionado");
                 comboBoxBorrarPaciente.Items.Clear();
                 comboBoxBorrarPaciente.Text = "";
-                baseDatos.llenarComboBox(consultaPacientes, comboBoxBorrarPaciente, 4);
+                baseDatos.llenarComboBox(consultaPacientes, new Dictionary<string, object> { }, comboBoxBorrarPaciente, 4);
             }
             
         }

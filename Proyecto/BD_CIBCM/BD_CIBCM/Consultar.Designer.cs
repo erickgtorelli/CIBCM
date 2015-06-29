@@ -28,18 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBoxConsultaInstrumentosClinicos = new System.Windows.Forms.GroupBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.dataGridViewInstrumentos2 = new System.Windows.Forms.DataGridView();
             this.groupBoxActInstClinico = new System.Windows.Forms.GroupBox();
             this.buttonActualizarInstClinico = new System.Windows.Forms.Button();
             this.textBoxInstNuevo = new System.Windows.Forms.TextBox();
             this.labelInstClinicoNuevo = new System.Windows.Forms.Label();
             this.labelInstClinicoViejo = new System.Windows.Forms.Label();
             this.comboBoxActInstClinico = new System.Windows.Forms.ComboBox();
-            this.dataGridViewInstrumentos2 = new System.Windows.Forms.DataGridView();
             this.dataGridViewInstrumentos1 = new System.Windows.Forms.DataGridView();
             this.groupBoxConsultaPaciente = new System.Windows.Forms.GroupBox();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.dataGridViewPaciente3 = new System.Windows.Forms.DataGridView();
+            this.groupBoxPacientes2 = new System.Windows.Forms.GroupBox();
+            this.dataGridViewPaciente2 = new System.Windows.Forms.DataGridView();
             this.groupBoxDatosPaciente = new System.Windows.Forms.GroupBox();
             this.buttonActualizarPaciente = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
@@ -55,12 +60,18 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridViewPaciente1 = new System.Windows.Forms.DataGridView();
             this.groupBoxConsultaEstudio = new System.Windows.Forms.GroupBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.dataGridViewEstudio2 = new System.Windows.Forms.DataGridView();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.dataGridViewEstudio3 = new System.Windows.Forms.DataGridView();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBoxActEstudio = new System.Windows.Forms.GroupBox();
             this.buttonActDescEst = new System.Windows.Forms.Button();
             this.textBoxDescripcionEstudio = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.comboBoxCodEstudio2 = new System.Windows.Forms.ComboBox();
+            this.radioButtonActualizarEstPac = new System.Windows.Forms.RadioButton();
             this.groupBoxActPacEst = new System.Windows.Forms.GroupBox();
             this.comboBoxCodEstudio = new System.Windows.Forms.ComboBox();
             this.comboBoxdatosPacienteEstudio = new System.Windows.Forms.ComboBox();
@@ -71,42 +82,35 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButtonActualizarEstPac = new System.Windows.Forms.RadioButton();
-            this.dataGridViewEstudio3 = new System.Windows.Forms.DataGridView();
-            this.dataGridViewEstudio2 = new System.Windows.Forms.DataGridView();
             this.dataGridViewEstudio1 = new System.Windows.Forms.DataGridView();
-            this.panelconsultaPaciente = new System.Windows.Forms.Panel();
             this.panelConsultaInstrumentos = new System.Windows.Forms.Panel();
+            this.panelConsultaPaciente = new System.Windows.Forms.Panel();
             this.panelConsultaEstudio = new System.Windows.Forms.Panel();
-            this.dataGridViewPaciente2 = new System.Windows.Forms.DataGridView();
-            this.groupBoxPacientes2 = new System.Windows.Forms.GroupBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.dataGridViewPaciente3 = new System.Windows.Forms.DataGridView();
+            this.panelConsultaDiagnostico = new System.Windows.Forms.Panel();
             this.groupBoxConsultaInstrumentosClinicos.SuspendLayout();
-            this.groupBoxActInstClinico.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInstrumentos2)).BeginInit();
+            this.groupBoxActInstClinico.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInstrumentos1)).BeginInit();
             this.groupBoxConsultaPaciente.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPaciente3)).BeginInit();
+            this.groupBoxPacientes2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPaciente2)).BeginInit();
             this.groupBoxDatosPaciente.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPaciente1)).BeginInit();
             this.groupBoxConsultaEstudio.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEstudio2)).BeginInit();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEstudio3)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.groupBoxActEstudio.SuspendLayout();
             this.groupBoxActPacEst.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEstudio3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEstudio2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEstudio1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPaciente2)).BeginInit();
-            this.groupBoxPacientes2.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            this.groupBox4.SuspendLayout();
-            this.groupBox5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPaciente3)).BeginInit();
+            this.panelConsultaInstrumentos.SuspendLayout();
+            this.panelConsultaPaciente.SuspendLayout();
+            this.panelConsultaEstudio.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBoxConsultaInstrumentosClinicos
@@ -114,13 +118,34 @@
             this.groupBoxConsultaInstrumentosClinicos.Controls.Add(this.groupBox4);
             this.groupBoxConsultaInstrumentosClinicos.Controls.Add(this.groupBoxActInstClinico);
             this.groupBoxConsultaInstrumentosClinicos.Controls.Add(this.dataGridViewInstrumentos1);
-            this.groupBoxConsultaInstrumentosClinicos.Location = new System.Drawing.Point(106, 0);
+            this.groupBoxConsultaInstrumentosClinicos.Location = new System.Drawing.Point(47, 0);
             this.groupBoxConsultaInstrumentosClinicos.Name = "groupBoxConsultaInstrumentosClinicos";
-            this.groupBoxConsultaInstrumentosClinicos.Size = new System.Drawing.Size(556, 439);
+            this.groupBoxConsultaInstrumentosClinicos.Size = new System.Drawing.Size(630, 439);
             this.groupBoxConsultaInstrumentosClinicos.TabIndex = 10;
             this.groupBoxConsultaInstrumentosClinicos.TabStop = false;
             this.groupBoxConsultaInstrumentosClinicos.Text = "Consulta Instrumentos Clínicos";
             this.groupBoxConsultaInstrumentosClinicos.Enter += new System.EventHandler(this.groupBoxConsultaInstrumentosClinicos_Enter);
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.dataGridViewInstrumentos2);
+            this.groupBox4.Location = new System.Drawing.Point(14, 157);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(610, 100);
+            this.groupBox4.TabIndex = 8;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Pacientes que han llenado el instrumento";
+            // 
+            // dataGridViewInstrumentos2
+            // 
+            this.dataGridViewInstrumentos2.AllowUserToAddRows = false;
+            this.dataGridViewInstrumentos2.AllowUserToDeleteRows = false;
+            this.dataGridViewInstrumentos2.AllowUserToResizeColumns = false;
+            this.dataGridViewInstrumentos2.AllowUserToResizeRows = false;
+            this.dataGridViewInstrumentos2.Location = new System.Drawing.Point(9, 19);
+            this.dataGridViewInstrumentos2.Name = "dataGridViewInstrumentos2";
+            this.dataGridViewInstrumentos2.Size = new System.Drawing.Size(595, 69);
+            this.dataGridViewInstrumentos2.TabIndex = 0;
             // 
             // groupBoxActInstClinico
             // 
@@ -129,7 +154,7 @@
             this.groupBoxActInstClinico.Controls.Add(this.labelInstClinicoNuevo);
             this.groupBoxActInstClinico.Controls.Add(this.labelInstClinicoViejo);
             this.groupBoxActInstClinico.Controls.Add(this.comboBoxActInstClinico);
-            this.groupBoxActInstClinico.Location = new System.Drawing.Point(32, 294);
+            this.groupBoxActInstClinico.Location = new System.Drawing.Point(61, 298);
             this.groupBoxActInstClinico.Name = "groupBoxActInstClinico";
             this.groupBoxActInstClinico.Size = new System.Drawing.Size(484, 90);
             this.groupBoxActInstClinico.TabIndex = 7;
@@ -180,17 +205,6 @@
             this.comboBoxActInstClinico.TabIndex = 0;
             this.comboBoxActInstClinico.SelectedIndexChanged += new System.EventHandler(this.comboBoxActInstClinico_SelectedIndexChanged);
             // 
-            // dataGridViewInstrumentos2
-            // 
-            this.dataGridViewInstrumentos2.AllowUserToAddRows = false;
-            this.dataGridViewInstrumentos2.AllowUserToDeleteRows = false;
-            this.dataGridViewInstrumentos2.AllowUserToResizeColumns = false;
-            this.dataGridViewInstrumentos2.AllowUserToResizeRows = false;
-            this.dataGridViewInstrumentos2.Location = new System.Drawing.Point(9, 19);
-            this.dataGridViewInstrumentos2.Name = "dataGridViewInstrumentos2";
-            this.dataGridViewInstrumentos2.Size = new System.Drawing.Size(510, 69);
-            this.dataGridViewInstrumentos2.TabIndex = 0;
-            // 
             // dataGridViewInstrumentos1
             // 
             this.dataGridViewInstrumentos1.AllowUserToAddRows = false;
@@ -202,7 +216,7 @@
             this.dataGridViewInstrumentos1.Name = "dataGridViewInstrumentos1";
             this.dataGridViewInstrumentos1.ReadOnly = true;
             this.dataGridViewInstrumentos1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.dataGridViewInstrumentos1.Size = new System.Drawing.Size(527, 104);
+            this.dataGridViewInstrumentos1.Size = new System.Drawing.Size(612, 104);
             this.dataGridViewInstrumentos1.TabIndex = 5;
             this.dataGridViewInstrumentos1.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridViewInstrumentos1_RowHeaderMouseClick);
             // 
@@ -212,12 +226,59 @@
             this.groupBoxConsultaPaciente.Controls.Add(this.groupBoxPacientes2);
             this.groupBoxConsultaPaciente.Controls.Add(this.groupBoxDatosPaciente);
             this.groupBoxConsultaPaciente.Controls.Add(this.dataGridViewPaciente1);
-            this.groupBoxConsultaPaciente.Location = new System.Drawing.Point(106, 0);
+            this.groupBoxConsultaPaciente.Location = new System.Drawing.Point(47, 0);
             this.groupBoxConsultaPaciente.Name = "groupBoxConsultaPaciente";
             this.groupBoxConsultaPaciente.Size = new System.Drawing.Size(626, 597);
             this.groupBoxConsultaPaciente.TabIndex = 12;
             this.groupBoxConsultaPaciente.TabStop = false;
             this.groupBoxConsultaPaciente.Text = "Consulta Paciente";
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.dataGridViewPaciente3);
+            this.groupBox5.Location = new System.Drawing.Point(14, 473);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(598, 113);
+            this.groupBox5.TabIndex = 6;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Genotipeo del paciente";
+            // 
+            // dataGridViewPaciente3
+            // 
+            this.dataGridViewPaciente3.AllowUserToAddRows = false;
+            this.dataGridViewPaciente3.AllowUserToDeleteRows = false;
+            this.dataGridViewPaciente3.AllowUserToOrderColumns = true;
+            this.dataGridViewPaciente3.AllowUserToResizeColumns = false;
+            this.dataGridViewPaciente3.AllowUserToResizeRows = false;
+            this.dataGridViewPaciente3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewPaciente3.Location = new System.Drawing.Point(9, 20);
+            this.dataGridViewPaciente3.Name = "dataGridViewPaciente3";
+            this.dataGridViewPaciente3.ReadOnly = true;
+            this.dataGridViewPaciente3.Size = new System.Drawing.Size(576, 89);
+            this.dataGridViewPaciente3.TabIndex = 0;
+            // 
+            // groupBoxPacientes2
+            // 
+            this.groupBoxPacientes2.Controls.Add(this.dataGridViewPaciente2);
+            this.groupBoxPacientes2.Location = new System.Drawing.Point(12, 337);
+            this.groupBoxPacientes2.Name = "groupBoxPacientes2";
+            this.groupBoxPacientes2.Size = new System.Drawing.Size(600, 130);
+            this.groupBoxPacientes2.TabIndex = 5;
+            this.groupBoxPacientes2.TabStop = false;
+            this.groupBoxPacientes2.Text = "Muestras del paciente";
+            // 
+            // dataGridViewPaciente2
+            // 
+            this.dataGridViewPaciente2.AllowUserToAddRows = false;
+            this.dataGridViewPaciente2.AllowUserToDeleteRows = false;
+            this.dataGridViewPaciente2.AllowUserToResizeColumns = false;
+            this.dataGridViewPaciente2.AllowUserToResizeRows = false;
+            this.dataGridViewPaciente2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewPaciente2.Location = new System.Drawing.Point(9, 23);
+            this.dataGridViewPaciente2.Name = "dataGridViewPaciente2";
+            this.dataGridViewPaciente2.ReadOnly = true;
+            this.dataGridViewPaciente2.Size = new System.Drawing.Size(578, 90);
+            this.dataGridViewPaciente2.TabIndex = 4;
             // 
             // groupBoxDatosPaciente
             // 
@@ -360,12 +421,83 @@
             this.groupBoxConsultaEstudio.Controls.Add(this.groupBox2);
             this.groupBoxConsultaEstudio.Controls.Add(this.groupBox1);
             this.groupBoxConsultaEstudio.Controls.Add(this.dataGridViewEstudio1);
-            this.groupBoxConsultaEstudio.Location = new System.Drawing.Point(106, 0);
+            this.groupBoxConsultaEstudio.Location = new System.Drawing.Point(47, 0);
             this.groupBoxConsultaEstudio.Name = "groupBoxConsultaEstudio";
             this.groupBoxConsultaEstudio.Size = new System.Drawing.Size(626, 571);
             this.groupBoxConsultaEstudio.TabIndex = 11;
             this.groupBoxConsultaEstudio.TabStop = false;
             this.groupBoxConsultaEstudio.Text = "Consulta Estudio";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.dataGridViewEstudio2);
+            this.groupBox3.Location = new System.Drawing.Point(14, 146);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(606, 108);
+            this.groupBox3.TabIndex = 15;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Investigadores que realizan el estudio";
+            // 
+            // dataGridViewEstudio2
+            // 
+            this.dataGridViewEstudio2.AllowUserToAddRows = false;
+            this.dataGridViewEstudio2.AllowUserToDeleteRows = false;
+            this.dataGridViewEstudio2.AllowUserToResizeColumns = false;
+            this.dataGridViewEstudio2.AllowUserToResizeRows = false;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewEstudio2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            this.dataGridViewEstudio2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewEstudio2.DefaultCellStyle = dataGridViewCellStyle10;
+            this.dataGridViewEstudio2.Location = new System.Drawing.Point(11, 23);
+            this.dataGridViewEstudio2.Name = "dataGridViewEstudio2";
+            this.dataGridViewEstudio2.ReadOnly = true;
+            this.dataGridViewEstudio2.Size = new System.Drawing.Size(589, 79);
+            this.dataGridViewEstudio2.TabIndex = 6;
+            this.dataGridViewEstudio2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewEstudio2_CellContentClick);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.dataGridViewEstudio3);
+            this.groupBox2.Location = new System.Drawing.Point(12, 264);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(608, 109);
+            this.groupBox2.TabIndex = 14;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Personas que han participado en el estudio";
+            // 
+            // dataGridViewEstudio3
+            // 
+            this.dataGridViewEstudio3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewEstudio3.Location = new System.Drawing.Point(9, 19);
+            this.dataGridViewEstudio3.Name = "dataGridViewEstudio3";
+            this.dataGridViewEstudio3.Size = new System.Drawing.Size(593, 81);
+            this.dataGridViewEstudio3.TabIndex = 8;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.groupBoxActEstudio);
+            this.groupBox1.Controls.Add(this.radioButtonActualizarEstPac);
+            this.groupBox1.Controls.Add(this.groupBoxActPacEst);
+            this.groupBox1.Controls.Add(this.radioButton1);
+            this.groupBox1.Location = new System.Drawing.Point(12, 394);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(608, 156);
+            this.groupBox1.TabIndex = 13;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Actualizar";
             // 
             // groupBoxActEstudio
             // 
@@ -424,6 +556,17 @@
             this.comboBoxCodEstudio2.Size = new System.Drawing.Size(215, 21);
             this.comboBoxCodEstudio2.TabIndex = 0;
             this.comboBoxCodEstudio2.SelectedIndexChanged += new System.EventHandler(this.comboBoxCodEstudio2_SelectedIndexChanged);
+            // 
+            // radioButtonActualizarEstPac
+            // 
+            this.radioButtonActualizarEstPac.AutoSize = true;
+            this.radioButtonActualizarEstPac.Location = new System.Drawing.Point(88, 27);
+            this.radioButtonActualizarEstPac.Name = "radioButtonActualizarEstPac";
+            this.radioButtonActualizarEstPac.Size = new System.Drawing.Size(160, 17);
+            this.radioButtonActualizarEstPac.TabIndex = 10;
+            this.radioButtonActualizarEstPac.Text = "Actualizar datos de Paciente";
+            this.radioButtonActualizarEstPac.UseVisualStyleBackColor = true;
+            this.radioButtonActualizarEstPac.CheckedChanged += new System.EventHandler(this.radioButtonActualizarEstPac_CheckedChanged);
             // 
             // groupBoxActPacEst
             // 
@@ -523,55 +666,6 @@
             this.radioButton1.UseVisualStyleBackColor = true;
             this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
-            // radioButtonActualizarEstPac
-            // 
-            this.radioButtonActualizarEstPac.AutoSize = true;
-            this.radioButtonActualizarEstPac.Location = new System.Drawing.Point(88, 27);
-            this.radioButtonActualizarEstPac.Name = "radioButtonActualizarEstPac";
-            this.radioButtonActualizarEstPac.Size = new System.Drawing.Size(160, 17);
-            this.radioButtonActualizarEstPac.TabIndex = 10;
-            this.radioButtonActualizarEstPac.Text = "Actualizar datos de Paciente";
-            this.radioButtonActualizarEstPac.UseVisualStyleBackColor = true;
-            this.radioButtonActualizarEstPac.CheckedChanged += new System.EventHandler(this.radioButtonActualizarEstPac_CheckedChanged);
-            // 
-            // dataGridViewEstudio3
-            // 
-            this.dataGridViewEstudio3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewEstudio3.Location = new System.Drawing.Point(9, 19);
-            this.dataGridViewEstudio3.Name = "dataGridViewEstudio3";
-            this.dataGridViewEstudio3.Size = new System.Drawing.Size(593, 81);
-            this.dataGridViewEstudio3.TabIndex = 8;
-            // 
-            // dataGridViewEstudio2
-            // 
-            this.dataGridViewEstudio2.AllowUserToAddRows = false;
-            this.dataGridViewEstudio2.AllowUserToDeleteRows = false;
-            this.dataGridViewEstudio2.AllowUserToResizeColumns = false;
-            this.dataGridViewEstudio2.AllowUserToResizeRows = false;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewEstudio2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridViewEstudio2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewEstudio2.DefaultCellStyle = dataGridViewCellStyle4;
-            this.dataGridViewEstudio2.Location = new System.Drawing.Point(11, 23);
-            this.dataGridViewEstudio2.Name = "dataGridViewEstudio2";
-            this.dataGridViewEstudio2.ReadOnly = true;
-            this.dataGridViewEstudio2.Size = new System.Drawing.Size(589, 79);
-            this.dataGridViewEstudio2.TabIndex = 6;
-            this.dataGridViewEstudio2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewEstudio2_CellContentClick);
-            // 
             // dataGridViewEstudio1
             // 
             this.dataGridViewEstudio1.AllowUserToAddRows = false;
@@ -587,153 +681,76 @@
             this.dataGridViewEstudio1.TabIndex = 5;
             this.dataGridViewEstudio1.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridViewEstudio1_RowHeaderMouseClick);
             // 
-            // panelconsultaPaciente
-            // 
-            this.panelconsultaPaciente.Location = new System.Drawing.Point(0, 0);
-            this.panelconsultaPaciente.Name = "panelconsultaPaciente";
-            this.panelconsultaPaciente.Size = new System.Drawing.Size(873, 600);
-            this.panelconsultaPaciente.TabIndex = 12;
-            // 
             // panelConsultaInstrumentos
             // 
+            this.panelConsultaInstrumentos.Controls.Add(this.groupBoxConsultaInstrumentosClinicos);
             this.panelConsultaInstrumentos.Location = new System.Drawing.Point(0, 0);
             this.panelConsultaInstrumentos.Name = "panelConsultaInstrumentos";
             this.panelConsultaInstrumentos.Size = new System.Drawing.Size(873, 600);
             this.panelConsultaInstrumentos.TabIndex = 13;
             // 
+            // panelConsultaPaciente
+            // 
+            this.panelConsultaPaciente.Controls.Add(this.groupBoxConsultaPaciente);
+            this.panelConsultaPaciente.Location = new System.Drawing.Point(0, 0);
+            this.panelConsultaPaciente.Name = "panelConsultaPaciente";
+            this.panelConsultaPaciente.Size = new System.Drawing.Size(873, 600);
+            this.panelConsultaPaciente.TabIndex = 14;
+            // 
             // panelConsultaEstudio
             // 
+            this.panelConsultaEstudio.Controls.Add(this.groupBoxConsultaEstudio);
             this.panelConsultaEstudio.Location = new System.Drawing.Point(0, 0);
             this.panelConsultaEstudio.Name = "panelConsultaEstudio";
             this.panelConsultaEstudio.Size = new System.Drawing.Size(873, 600);
-            this.panelConsultaEstudio.TabIndex = 14;
+            this.panelConsultaEstudio.TabIndex = 15;
             // 
-            // dataGridViewPaciente2
+            // panelConsultaDiagnostico
             // 
-            this.dataGridViewPaciente2.AllowUserToAddRows = false;
-            this.dataGridViewPaciente2.AllowUserToDeleteRows = false;
-            this.dataGridViewPaciente2.AllowUserToResizeColumns = false;
-            this.dataGridViewPaciente2.AllowUserToResizeRows = false;
-            this.dataGridViewPaciente2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewPaciente2.Location = new System.Drawing.Point(9, 23);
-            this.dataGridViewPaciente2.Name = "dataGridViewPaciente2";
-            this.dataGridViewPaciente2.ReadOnly = true;
-            this.dataGridViewPaciente2.Size = new System.Drawing.Size(578, 90);
-            this.dataGridViewPaciente2.TabIndex = 4;
-            // 
-            // groupBoxPacientes2
-            // 
-            this.groupBoxPacientes2.Controls.Add(this.dataGridViewPaciente2);
-            this.groupBoxPacientes2.Location = new System.Drawing.Point(12, 342);
-            this.groupBoxPacientes2.Name = "groupBoxPacientes2";
-            this.groupBoxPacientes2.Size = new System.Drawing.Size(600, 130);
-            this.groupBoxPacientes2.TabIndex = 5;
-            this.groupBoxPacientes2.TabStop = false;
-            this.groupBoxPacientes2.Text = "Muestras del paciente";
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.groupBoxActEstudio);
-            this.groupBox1.Controls.Add(this.radioButtonActualizarEstPac);
-            this.groupBox1.Controls.Add(this.groupBoxActPacEst);
-            this.groupBox1.Controls.Add(this.radioButton1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 394);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(608, 156);
-            this.groupBox1.TabIndex = 13;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Actualizar";
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.dataGridViewEstudio3);
-            this.groupBox2.Location = new System.Drawing.Point(12, 264);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(608, 109);
-            this.groupBox2.TabIndex = 14;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Personas que han participado en el estudio";
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.dataGridViewEstudio2);
-            this.groupBox3.Location = new System.Drawing.Point(14, 146);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(606, 108);
-            this.groupBox3.TabIndex = 15;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Investigadores que realizan el estudio";
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.dataGridViewInstrumentos2);
-            this.groupBox4.Location = new System.Drawing.Point(14, 157);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(525, 100);
-            this.groupBox4.TabIndex = 8;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Pacientes que han llenado el instrumento";
-            // 
-            // groupBox5
-            // 
-            this.groupBox5.Controls.Add(this.dataGridViewPaciente3);
-            this.groupBox5.Location = new System.Drawing.Point(14, 478);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(598, 113);
-            this.groupBox5.TabIndex = 6;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Genotipeo del paciente";
-            // 
-            // dataGridViewPaciente3
-            // 
-            this.dataGridViewPaciente3.AllowUserToAddRows = false;
-            this.dataGridViewPaciente3.AllowUserToDeleteRows = false;
-            this.dataGridViewPaciente3.AllowUserToOrderColumns = true;
-            this.dataGridViewPaciente3.AllowUserToResizeColumns = false;
-            this.dataGridViewPaciente3.AllowUserToResizeRows = false;
-            this.dataGridViewPaciente3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewPaciente3.Location = new System.Drawing.Point(9, 20);
-            this.dataGridViewPaciente3.Name = "dataGridViewPaciente3";
-            this.dataGridViewPaciente3.ReadOnly = true;
-            this.dataGridViewPaciente3.Size = new System.Drawing.Size(576, 89);
-            this.dataGridViewPaciente3.TabIndex = 0;
+            this.panelConsultaDiagnostico.Location = new System.Drawing.Point(0, 0);
+            this.panelConsultaDiagnostico.Name = "panelConsultaDiagnostico";
+            this.panelConsultaDiagnostico.Size = new System.Drawing.Size(873, 600);
+            this.panelConsultaDiagnostico.TabIndex = 16;
             // 
             // Consultar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-this.Controls.Add(this.panelConsultaDiagnosticos);
-            this.Controls.Add(this.groupBoxConsultaPaciente);
-            this.Controls.Add(this.groupBoxConsultaEstudio);
-            this.Controls.Add(this.groupBoxConsultaInstrumentosClinicos);
+            this.Controls.Add(this.panelConsultaPaciente);
+            this.Controls.Add(this.panelConsultaDiagnostico);
+            this.Controls.Add(this.panelConsultaEstudio);
+            this.Controls.Add(this.panelConsultaInstrumentos);
             this.Name = "Consultar";
             this.Size = new System.Drawing.Size(873, 600);
             this.groupBoxConsultaInstrumentosClinicos.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInstrumentos2)).EndInit();
             this.groupBoxActInstClinico.ResumeLayout(false);
             this.groupBoxActInstClinico.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInstrumentos2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInstrumentos1)).EndInit();
             this.groupBoxConsultaPaciente.ResumeLayout(false);
+            this.groupBox5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPaciente3)).EndInit();
+            this.groupBoxPacientes2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPaciente2)).EndInit();
             this.groupBoxDatosPaciente.ResumeLayout(false);
             this.groupBoxDatosPaciente.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPaciente1)).EndInit();
             this.groupBoxConsultaEstudio.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEstudio2)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEstudio3)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.groupBoxActEstudio.ResumeLayout(false);
             this.groupBoxActEstudio.PerformLayout();
             this.groupBoxActPacEst.ResumeLayout(false);
             this.groupBoxActPacEst.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEstudio3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEstudio2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEstudio1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPaciente2)).EndInit();
-            this.groupBoxPacientes2.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPaciente3)).EndInit();
+            this.panelConsultaInstrumentos.ResumeLayout(false);
+            this.panelConsultaPaciente.ResumeLayout(false);
+            this.panelConsultaEstudio.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -762,9 +779,6 @@ this.Controls.Add(this.panelConsultaDiagnosticos);
         private System.Windows.Forms.TextBox textBoxConsultaNombre;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonActualizarPaciente;
-        private System.Windows.Forms.Panel panelconsultaPaciente;
-        private System.Windows.Forms.Panel panelConsultaInstrumentos;
-        private System.Windows.Forms.Panel panelConsultaEstudio;
         private System.Windows.Forms.DataGridView dataGridViewEstudio3;
         private System.Windows.Forms.GroupBox groupBoxActPacEst;
         private System.Windows.Forms.Button buttonUpdateEstudioPaciente;
@@ -797,12 +811,15 @@ this.Controls.Add(this.panelConsultaDiagnosticos);
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.DataGridView dataGridViewPaciente3;
-	private System.Windows.Forms.Panel panelConsultaDiagnosticos;
         private System.Windows.Forms.DataGridView dataGridViewConsultaDiagnosticos;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButtonConsultaParcial;
         private System.Windows.Forms.Label labelPaciente;
         private System.Windows.Forms.ComboBox comboBoxConsultarDiagnosticos;
+        private System.Windows.Forms.Panel panelConsultaInstrumentos;
+        private System.Windows.Forms.Panel panelConsultaPaciente;
+        private System.Windows.Forms.Panel panelConsultaEstudio;
+        private System.Windows.Forms.Panel panelConsultaDiagnostico;
 
 
     }

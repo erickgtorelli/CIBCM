@@ -23,10 +23,9 @@ namespace BD_CIBCM.Utility
 
         }
 
-        public string consultarParciales(string Cedula)
+        public string consultarParciales()
         {
-            string consulta = "select DISTINCT D.NumDiagnostico as 'Codigo de diagnóstico', D.Fecha, D.Enfermedad,pe.PrimerNombre as 'Nombre',pe.Apellido1 as 'Primer Apellido',pe.Apellido2 as 'Segundo Apellido',D.Link, P.CedInvestigador from Diagnostico D Join Parcial P ON D.Cedula = P.Cedula Join  Persona pe ON pe.Cedula = P.CedInvestigador where P.Cedula =" + Cedula +
-            "Order by  D.NumDiagnostico;";
+            string consulta = "select DISTINCT D.NumDiagnostico as 'Codigo de diagnóstico', D.Fecha, D.Enfermedad,pe.PrimerNombre as 'Nombre',pe.Apellido1 as 'Primer Apellido',pe.Apellido2 as 'Segundo Apellido',D.Link, P.CedInvestigador from Diagnostico D Join Parcial P ON D.Cedula = P.Cedula Join  Persona pe ON pe.Cedula = P.CedInvestigador where P.Cedula = @cedula Order by  D.NumDiagnostico;";
             return consulta;
         }
         public string consultarConsenso(string Cedula)
