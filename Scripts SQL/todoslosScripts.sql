@@ -20,7 +20,7 @@ CREATE TABLE Persona(
 	Apellido1 varchar(25),
 	Apellido2 varchar(25),
 	FechaDeNacimiento DATE,
-	Sexo char,
+	Sexo char DEFAULT 'I',
 	CONSTRAINT PKPersona PRIMARY KEY(Cedula)
 );
 
@@ -84,6 +84,7 @@ CREATE TABLE Parcial(
 	CedInvestigador char(9) DEFAULT '000000000',
 	NumDiagnosticoCons int,
 	CedulaCons char(9),
+	CHECK (NumDiagnostico>0),
 	CONSTRAINT PKParcial PRIMARY KEY (Cedula, NumDiagnostico, CedInvestigador),
 	CONSTRAINT FKParcial_Consenso FOREIGN KEY (CedulaCons, NumDiagnosticoCons) REFERENCES Consenso(Cedula, NumDiagnostico),
 	CONSTRAINT FKParcial_Diagnostico FOREIGN KEY (Cedula, NumDiagnostico) REFERENCES Diagnostico(Cedula, NumDiagnostico)
