@@ -351,6 +351,7 @@
             this.dataGridViewPaciente1.ReadOnly = true;
             this.dataGridViewPaciente1.Size = new System.Drawing.Size(600, 150);
             this.dataGridViewPaciente1.TabIndex = 1;
+            this.dataGridViewPaciente1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewPaciente1_CellContentClick);
             this.dataGridViewPaciente1.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridViewPaciente1_RowHeaderMouseClick);
             // 
             // groupBoxConsultaEstudio
@@ -701,6 +702,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+this.Controls.Add(this.panelConsultaDiagnosticos);
             this.Controls.Add(this.groupBoxConsultaPaciente);
             this.Controls.Add(this.groupBoxConsultaEstudio);
             this.Controls.Add(this.groupBoxConsultaInstrumentosClinicos);
@@ -795,6 +797,12 @@
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.DataGridView dataGridViewPaciente3;
+	private System.Windows.Forms.Panel panelConsultaDiagnosticos;
+        private System.Windows.Forms.DataGridView dataGridViewConsultaDiagnosticos;
+        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton radioButtonConsultaParcial;
+        private System.Windows.Forms.Label labelPaciente;
+        private System.Windows.Forms.ComboBox comboBoxConsultarDiagnosticos;
 
 
     }

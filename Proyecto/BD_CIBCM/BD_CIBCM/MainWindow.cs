@@ -234,6 +234,20 @@ namespace BD_CIBCM
             }
         }
 
+	 private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            panelConsultar.mostrarControl(ControlConsultar.Diagnostico);
+        }
+
+        private void radioButton1_CheckedChanged_1(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void panelConsultaDiagnosticos_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
         private void radioButtonInsertarPaciente_CheckedChanged(object sender, EventArgs e)
         {
             if(radioButtonInsertarPaciente.Checked)

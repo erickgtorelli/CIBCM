@@ -66,6 +66,7 @@ namespace BD_CIBCM
             this.textBoxInsertAp2Invest = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.textBoxInsertarinvestCedula = new System.Windows.Forms.TextBox();
+            this.radioButtonConsultarDiagnostico = new System.Windows.Forms.RadioButton();
             this.panelConsultar = new BD_CIBCM.Consultar();
             this.panelInsertar = new BD_CIBCM.Insertar();
             this.panelBorrar = new BD_CIBCM.Borrar();
@@ -94,6 +95,7 @@ namespace BD_CIBCM
             // 
             // Consultar
             // 
+            this.Consultar.Controls.Add(this.radioButtonConsultarDiagnostico);
             this.Consultar.Controls.Add(this.radioButtonConsultarPaciente);
             this.Consultar.Controls.Add(this.radioButtonConsultarEstudio);
             this.Consultar.Controls.Add(this.radioButtonConsultarInstrumentos);
@@ -108,7 +110,7 @@ namespace BD_CIBCM
             // radioButtonConsultarPaciente
             // 
             this.radioButtonConsultarPaciente.AutoSize = true;
-            this.radioButtonConsultarPaciente.Location = new System.Drawing.Point(19, 47);
+            this.radioButtonConsultarPaciente.Location = new System.Drawing.Point(19, 52);
             this.radioButtonConsultarPaciente.Name = "radioButtonConsultarPaciente";
             this.radioButtonConsultarPaciente.Size = new System.Drawing.Size(83, 22);
             this.radioButtonConsultarPaciente.TabIndex = 2;
@@ -119,7 +121,7 @@ namespace BD_CIBCM
             // radioButtonConsultarEstudio
             // 
             this.radioButtonConsultarEstudio.AutoSize = true;
-            this.radioButtonConsultarEstudio.Location = new System.Drawing.Point(19, 80);
+            this.radioButtonConsultarEstudio.Location = new System.Drawing.Point(19, 85);
             this.radioButtonConsultarEstudio.Name = "radioButtonConsultarEstudio";
             this.radioButtonConsultarEstudio.Size = new System.Drawing.Size(76, 22);
             this.radioButtonConsultarEstudio.TabIndex = 1;
@@ -430,6 +432,22 @@ namespace BD_CIBCM
             this.panelConsultar.Name = "panelConsultar";
             this.panelConsultar.Size = new System.Drawing.Size(873, 600);
             this.panelConsultar.TabIndex = 1;
+            //   // radioButtonConsultarDiagnostico
+            // 
+            this.radioButtonConsultarDiagnostico.AutoSize = true;
+            this.radioButtonConsultarDiagnostico.Location = new System.Drawing.Point(19, 117);
+            this.radioButtonConsultarDiagnostico.Name = "radioButtonConsultarDiagnostico";
+            this.radioButtonConsultarDiagnostico.Size = new System.Drawing.Size(105, 22);
+            this.radioButtonConsultarDiagnostico.TabIndex = 3;
+            this.radioButtonConsultarDiagnostico.TabStop = true;
+            this.radioButtonConsultarDiagnostico.Text = "Diagnóstico";
+            this.radioButtonConsultarDiagnostico.UseVisualStyleBackColor = true;
+            this.radioButtonConsultarDiagnostico.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            // 
+            this.radioButtonConsultarDiagnostico.TabStop = true;
+            this.radioButtonConsultarDiagnostico.Text = "Diagnóstico";
+            this.radioButtonConsultarDiagnostico.UseVisualStyleBackColor = true;
+            this.radioButtonConsultarDiagnostico.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
             // panelInsertar
             // 
@@ -437,6 +455,13 @@ namespace BD_CIBCM
             this.panelInsertar.Name = "panelInsertar";
             this.panelInsertar.Size = new System.Drawing.Size(873, 600);
             this.panelInsertar.TabIndex = 3;
+            // 
+            // panelConsultar
+            // 
+            this.panelConsultar.Location = new System.Drawing.Point(270, 15);
+            this.panelConsultar.Name = "panelConsultar";
+            this.panelConsultar.Size = new System.Drawing.Size(711, 563);
+            this.panelConsultar.TabIndex = 2;
             // 
             // panelBorrar
             // 
@@ -526,7 +551,8 @@ namespace BD_CIBCM
         private Borrar panelBorrar;
         private Insertar panelInsertar;
         private Inicio panelInicio;
-       // private Button guardarInstrumentosClinicos;
+        private RadioButton radioButtonConsultarDiagnostico;
+        // private Button guardarInstrumentosClinicos;
     }
 }
 
