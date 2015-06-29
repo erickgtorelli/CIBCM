@@ -96,7 +96,9 @@ CREATE TABLE Lleno (
 			 Cedula char (9),
 			 FOREIGN KEY (Cedula) References Paciente (Cedula),
 			 NombreInstrumentoClinico VARCHAR (255), 
-			 FOREIGN KEY (NombreInstrumentoClinico) REFERENCES InstrumentosClinicos (Nombre), 
+			 FOREIGN KEY (NombreInstrumentoClinico) REFERENCES InstrumentosClinicos (Nombre)
+			 	ON DELETE NO ACTION
+				ON UPDATE CASCADE, 
 			 PRIMARY KEY (Cedula, NombreInstrumentoClinico), 
 			 );
 

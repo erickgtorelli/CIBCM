@@ -14,7 +14,8 @@ namespace BD_CIBCM
     {
         Investigador,
         InstrumentosClinicos, 
-        Estudio
+        Estudio,
+        Paciente
     };
 
     public partial class Borrar : UserControl
@@ -32,9 +33,10 @@ namespace BD_CIBCM
             baseDatos = new AccesoBaseDatos();
             baseDatos.llenarComboBox(consultaEstudio, comboBoxPacienteEstudio, 4);
             baseDatos.llenarComboBox(consultaCodigo, comboBoxBorrarCod, 1);
+            baseDatos.llenarComboBox(consultaInvestigadores, comboBoxBorrarInvest, 4);
             baseDatos.llenarCheckedListBox(consultaNombreInst, borrarListaInstrumentos,1);
             baseDatos.llenarComboBox(consultaPacientes, comboBox1, 4);
-            this.mostrarControl(ControlBorrar.Investigador);
+            this.mostrarControl(ControlBorrar.InstrumentosClinicos);
         }
 
         public void mostrarControl(ControlBorrar c)
@@ -42,46 +44,63 @@ namespace BD_CIBCM
             switch (c)
             {
                 case ControlBorrar.Investigador:
-                    groupBoxBorrarEstudio.Hide();
                     panelBorrarInstrumentos.Hide();
+                    panelBorrarEstudio.Hide();
+                    panelBorrarPaciente.Hide();
+
                     panelBorrarInvest.Show();
                     break;
                 case ControlBorrar.InstrumentosClinicos:
-                    groupBoxBorrarEstudio.Hide();
-                    buttonBorrarInstrumentos.Show();
+                    panelBorrarEstudio.Hide();
                     panelBorrarInvest.Hide();
-                    panelborrarInstPac.Hide();
                     panelBorrarNombreInst.Hide();
+                    panelBorrarPaciente.Hide();
+
+                    panelborrarInstPac.Show();
                     panelBorrarInstrumentos.Show();
-                    
                     break; 
                 case ControlBorrar.Estudio:
-                    panelBorrarInstrumentos.Hide();
                     panelBorrarInvest.Hide();
-                    groupBoxBorrarEstudio.Show();
+                    panelBorrarInstrumentos.Hide();
+                    panelBorrarPaciente.Hide();
+
+                    panelBorrarEstudio.Show();
                     break; 
+
+                case ControlBorrar.Paciente:
+                    panelBorrarInvest.Hide();
+                    panelBorrarInstrumentos.Hide();
+                    panelBorrarEstudio.Hide();
+
+                    panelBorrarPaciente.Show();
+                    comboBoxBorrarPaciente.Items.Clear();
+                    baseDatos.llenarComboBox(consultaPacientes, comboBoxBorrarPaciente, 4);
+                    break;
+
             }
         }
 
         private string seleccionarCedulaComboBox(ComboBox comboBoxCedula)
         {
             string infoPersona = comboBoxCedula.Text;
-            string cedula = "";
-            int tamanio = 0;
-            if (infoPersona != null)
-            {
-                tamanio = infoPersona.Length;
-                cedula = infoPersona.Substring(tamanio - 9);
-            }
-            cedula.Trim();
-            return cedula;
+            string[] chunks = infoPersona.Split(null);
+            MessageBox.Show("la cedula es " + chunks[chunks.Length - 1]);
+            return chunks[chunks.Length-1];
         }
 
         private void buttonBorrarInvest_Click(object sender, EventArgs e)
         {
-            baseDatos.insertarDatos("Delete from Persona where Cedula=" + seleccionarCedulaComboBox(comboBoxBorrarInvest));
-            comboBoxBorrarInvest.Items.Clear();
-            baseDatos.llenarComboBox(consultaInvestigadores, comboBoxBorrarInvest, 4);
+            DialogResult dialogResult = MessageBox.Show("Desea borrar al investigador", "Borrar investigador", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                baseDatos.insertarDatos("Delete from Persona where Cedula=" + seleccionarCedulaComboBox(comboBoxBorrarInvest));
+                MessageBox.Show("Se borró el investigador seleccionado");
+                comboBoxBorrarInvest.Items.Clear();
+                comboBoxBorrarInvest.Text = "";
+                baseDatos.llenarComboBox(consultaInvestigadores, comboBoxBorrarInvest, 4);
+            }
+
+            
         }
 
         private void buttonBorrarInstrumentos_Click(object sender, EventArgs e)
@@ -182,6 +201,20 @@ namespace BD_CIBCM
                 listaBorrarEstudioPaciente.Items.Clear();
                 baseDatos.llenarCheckedListBox(consulta, listaBorrarEstudioPaciente, 1);
             }
+        }
+
+        private void buttonBorrarPaciente_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Desea borrar al paciente", "Borrar paciente", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                baseDatos.insertarDatos("DELETE FROM Persona WHERE Cedula=" + seleccionarCedulaComboBox(comboBoxBorrarPaciente));
+                MessageBox.Show("Se borró el paciente seleccionado");
+                comboBoxBorrarPaciente.Items.Clear();
+                comboBoxBorrarPaciente.Text = "";
+                baseDatos.llenarComboBox(consultaPacientes, comboBoxBorrarPaciente, 4);
+            }
+            
         }
 
 

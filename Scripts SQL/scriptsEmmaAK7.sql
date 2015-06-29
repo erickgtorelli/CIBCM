@@ -95,3 +95,5 @@ WHERE Cedula = '111258695'
 UPDATE Persona SET Cedula = '113258695', PrimerNombre = 'Marcelas', Apellido1 = 'Matamoros',
 Apellido2 = 'Arce', Sexo = 'False', FechaDeNacimiento = '01/09/1995 0:00:00' 
 WHERE Cedula = '113258695'
+
+UPDATE Persona SET Cedula = '223258695', PrimerNombre = 'Marcela', Apellido1 = 'Arias', Apellido2 = 'Arce', Sexo = 'False', FechaDeNacimiento = '10/09/1995 0:00:00' WHERE Cedula = '113258695'

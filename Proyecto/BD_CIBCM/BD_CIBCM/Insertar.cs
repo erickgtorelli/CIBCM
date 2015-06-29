@@ -16,7 +16,8 @@ namespace BD_CIBCM
         Diagnostico,
         Investigador,
         Instrumento,
-        Estudio
+        Estudio,
+        Paciente
     };
 
     public partial class Insertar : UserControl
@@ -48,38 +49,51 @@ namespace BD_CIBCM
             switch (c)
             {
                 case ControlInsertar.Diagnostico:
-                    groupBoxInstClinicos.Hide();
-                    groupBoxEstudio.Hide();
-                    panelParcialInsertar.Show();
+                    panelInsertarEstudio.Hide();
                     panelInstrumentosClinicos.Hide();
                     panelInsertarInvestigador.Hide();
+                    panelInsertarPaciente.Hide();
+
+                    PanelInsertarDiagnostico.Show();
+
                     baseDatos.llenarComboBox(consultaInvestigadores, comboBoxInvestigador, 4);
                     baseDatos.llenarComboBox(consultaPacientes, comboBoxPacienteInsertarDiagnostico, 4);
                     break;
                 case ControlInsertar.Estudio:
-                    groupBoxInstClinicos.Hide();
-                    groupBoxEstudio.Show();
-                    panelPacienteEstudio.Show();
-                    panelEstudioNuevo.Hide();
-                    panelParcialInsertar.Hide();
+                    PanelInsertarDiagnostico.Hide();
+                    panelInstrumentosClinicos.Hide();
                     panelInsertarInvestigador.Hide();
+                    panelInsertarPaciente.Hide();
+                    panelEstudioNuevo.Hide();
+
+                    panelPacienteEstudio.Show();
+                    panelInsertarEstudio.Show();
                     break;
                 case ControlInsertar.Instrumento:
-                    groupBoxInstClinicos.Show();
-                    panelInstrumentosClinicos.Show();
-                    panelParcialInsertar.Hide();
-                    groupBoxEstudio.Hide();
-                    comboBoxCedInst.Hide();
+                    PanelInsertarDiagnostico.Hide();
+                    panelInsertarEstudio.Hide();
                     panelInsertarInvestigador.Hide();
-                    guardarInstrumentosClinicos.Show();
-                    groupBoxInstClinicos.Show();
+                    panelInsertarPaciente.Hide();
+                    
+                    panelInstrumentosClinicos.Show();
+
                  
                     break;
                 case ControlInsertar.Investigador:
-                    groupBoxInstClinicos.Hide();
-                    groupBoxEstudio.Hide();
-                    panelParcialInsertar.Hide();
+                    PanelInsertarDiagnostico.Hide();
+                    panelInsertarEstudio.Hide();
+                    panelInstrumentosClinicos.Hide();
+                    panelInsertarPaciente.Hide();
+
                     panelInsertarInvestigador.Show();
+                    break;
+                case ControlInsertar.Paciente:
+                    PanelInsertarDiagnostico.Hide();
+                    panelInsertarEstudio.Hide();
+                    panelInstrumentosClinicos.Hide();
+                    panelInsertarInvestigador.Hide();
+
+                    panelInsertarPaciente.Show();
                     break;
             }
         }
@@ -117,6 +131,10 @@ namespace BD_CIBCM
                         String insertarEstudio = "Insert into estudio values ('" + codEstudio + "',' " + descripcion + "','" + fecha + "')";
                         baseDatos.insertarDatos(insertarEstudio);
                         insertarRealizaEstudio = "Insert into realiza values ('" + investigador + "', '" + codEstudio + "')";
+                        String consultaRealiza = "select * from Realiza where cedula = '"+investigador+"' AND CodigoEstudio = '"+codEstudio+"'";
+                        if(!baseDatos.ejecutarConsulta(consultaRealiza).HasRows){
+                        baseDatos.insertarDatos(insertarRealizaEstudio);
+                        }
                         MessageBox.Show("Se inserto el estudio" + codEstudio, "Insertar Estudio");
                         
                     }
@@ -143,7 +161,7 @@ namespace BD_CIBCM
         private void guardarInstrumentosClinicos_Click(object sender, EventArgs e)
         {
             SqlDataReader tuplas;
-            MessageBox.Show("dafuq");
+            
             if (agregarInstrumentosAPaciente)
             {
 
@@ -437,14 +455,18 @@ namespace BD_CIBCM
             string NombInvest = textBoxInsertNombInvest.Text.Trim();
             string Ap1Invest = textBoxInsertAp1Invest.Text.Trim();
             string Ap2Invest = textBoxInsertAp2Invest.Text.Trim();
-            bool sexo;
-            if (radioButtonM.Checked == true)
+            char sexo;
+            if (radioButtonMInv.Checked == true)
             {
-                sexo = true;
+                sexo = 'M';
+            }
+            else if (radioButtonFInv.Checked == true)
+            {
+                sexo = 'F';
             }
             else
             {
-                sexo = false;
+                sexo = 'I';
             }
             string FechaNac = dateTimePickerFechaNacInvest.Value.ToString("yyyy-MM-dd");
             string InsertarPersona = "Insert into Persona values ('" + CedInvest + "', '" + NombInvest + "', '" + Ap1Invest + "', '" + Ap2Invest + "', '" + FechaNac + "', '" + sexo + "')";
@@ -456,6 +478,36 @@ namespace BD_CIBCM
                 MessageBox.Show("Se agregó el investigador de cédula " + CedInvest + " a la base de datos");
             }
 
+        }
+
+        private void buttonInsertarPac_Click(object sender, EventArgs e)
+        {
+            string CedPac = textBoxCedPac.Text.Trim();
+            string NombPac = textBoxNomPac.Text.Trim();
+            string Ap1Pac = textBoxAp1Pac.Text.Trim();
+            string Ap2Pac = textBoxAp2Pac.Text.Trim();
+            char sexo;
+            if (radioButtonMPac.Checked == true)
+            {
+                sexo = 'M';
+            }
+            else if (radioButtonFPac.Checked == true)
+            {
+                sexo = 'F';
+            }
+            else
+            {
+                sexo = 'I';
+            }
+            string FechaNac = dateTimePickerPac.Value.ToString("yyyy-MM-dd");
+            string InsertarPersona = "INSERT INTO Persona VALUES ('" + CedPac + "', '" + NombPac + "', '" + Ap1Pac + "', '" + Ap2Pac + "', '" + FechaNac + "', '" + sexo + "')";
+            string InsertarPaciente = "INSERT INTO Paciente VALUES ('" + CedPac + "')";
+            if (checks.checkCedula(CedPac))
+            {
+                baseDatos.insertarDatos(InsertarPersona);
+                baseDatos.insertarDatos(InsertarPaciente);
+                MessageBox.Show("Se agregó el paciente de cédula " + CedPac + " a la base de datos");
+            }
         }
     }
 }
